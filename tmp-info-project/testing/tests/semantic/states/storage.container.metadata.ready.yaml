@@ -1,0 +1,28 @@
+apiVersion: ontobdc.org/testing/v1alpha1
+kind: StateDefinition
+metadata:
+  name: storage.container.metadata.ready
+  title: Container metadata ready
+  description: >
+    The container metadata file exists and contains a valid container identity,
+    semantic metadata and location.
+  tags:
+    - storage
+    - container
+    - metadata
+    - check
+spec:
+  observer:
+    type: python-call
+    target: ontobdc.storage.plugin.check.is_container_metadata_ready.check:main
+    arguments:
+      container_path: "${context.container_path}"
+      root_path: "${context.root_path}"
+    result:
+      satisfiedWhen:
+        exitCode: [0]
+      unsatisfiedWhen:
+        exitCode: [1]
+      errorWhen:
+        exitCode: [2]
+      otherwise: error

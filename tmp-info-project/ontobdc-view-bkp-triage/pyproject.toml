@@ -1,0 +1,69 @@
+[build-system]
+requires = ["hatchling>=1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ontobdc-view"
+version = "0.9.0"
+description = "Browser presentation components and embeddable assets for OntoBDC views."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [
+  { name = "Elias Magalhaes" }
+]
+dependencies = [
+    "hatchling>=1.26",
+    "editables",
+    "PyYAML>=6.0",
+    "rdflib",
+    # The ontology itself. `component/adapter/global_event.py` and
+    # `component/adapter/dock.py` read `presentation_event.ttl` out of it to
+    # resolve the event IRIs and the promotion policy, so a Page cannot be
+    # generated without it — it was reaching an installed copy only because
+    # the repositories happened to sit side by side.
+    "brasidatacenter",
+    "ontobdc-web-dock",
+]
+keywords = ["ontobdc", "web-components", "presentation", "offline", "html"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "License :: OSI Approved :: Apache Software License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+]
+
+[project.optional-dependencies]
+# Browser-level closed-shadow-root Tile behavior (pin/unpin, bringToFront,
+# scrolling, semantic-vs-legacy Surface topology) can't be verified from
+# Python string assertions alone — see test/test_surface_browser.py.
+test = ["pytest-playwright"]
+
+[project.urls]
+Homepage = "https://github.com/EliasMPJunior/ontobdc-view"
+Repository = "https://github.com/EliasMPJunior/ontobdc-view"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ontobdc_view"]
+
+[tool.hatch.build.targets.wheel.package-data]
+"*" = ["**/*.js", "**/*.css", "**/*.j2", "**/*.ttl", "**/*.yaml", "**/*.html"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "/src",
+  "/test",
+  "/README.md",
+  "/LICENSE",
+  "/pyproject.toml",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["test"]

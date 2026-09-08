@@ -1,0 +1,5 @@
+{
+  "kind": "method_call",
+  "method": "openFile",
+  "arguments": ["docs/architecture.md"]
+}

@@ -1,0 +1,102 @@
+statechart:
+  name: IfcWorkScheduleScriptGeneration
+  description: "Statechart for writing the IfcWorkSchedule Gantt Page's split runtime JS under .__ontobdc__/asset/ifc_work_schedule_view/."
+
+  root state:
+    name: ifc_work_schedule_script_generation
+    initial: undefined
+
+    states:
+      - name: undefined
+        description: "No Gantt runtime script has been written yet."
+        transitions:
+          - target: vendor_sheet_js_asset_generated
+            guard: handler.can_transit_to(to_state = IfcWorkScheduleScriptGenerationProcessState.VENDOR_SHEET_JS_ASSET_GENERATED)
+            action: handler.perform_state_transition(to_state = IfcWorkScheduleScriptGenerationProcessState.VENDOR_SHEET_JS_ASSET_GENERATED)
+            contract:
+              - after: handler.validate_state_transition(from_state = IfcWorkScheduleScriptGenerationProcessState.UNDEFINED, to_state = IfcWorkScheduleScriptGenerationProcessState.VENDOR_SHEET_JS_ASSET_GENERATED)
+
+      - name: vendor_sheet_js_asset_generated
+        description: "The vendored SheetJS library used to read/write spreadsheets in the browser has been written."
+        transitions:
+          - target: i18n_script_generated
+            guard: handler.can_transit_to(to_state = IfcWorkScheduleScriptGenerationProcessState.I18N_SCRIPT_GENERATED)
+            action: handler.perform_state_transition(to_state = IfcWorkScheduleScriptGenerationProcessState.I18N_SCRIPT_GENERATED)
+            contract:
+              - after: handler.validate_state_transition(from_state = IfcWorkScheduleScriptGenerationProcessState.VENDOR_SHEET_JS_ASSET_GENERATED, to_state = IfcWorkScheduleScriptGenerationProcessState.I18N_SCRIPT_GENERATED)
+
+      - name: i18n_script_generated
+        description: "i18n_apply.js, which applies translations to the UI, has been written."
+        transitions:
+          - target: graph_reader_script_generated
+            guard: handler.can_transit_to(to_state = IfcWorkScheduleScriptGenerationProcessState.GRAPH_READER_SCRIPT_GENERATED)
+            action: handler.perform_state_transition(to_state = IfcWorkScheduleScriptGenerationProcessState.GRAPH_READER_SCRIPT_GENERATED)
+            contract:
+              - after: handler.validate_state_transition(from_state = IfcWorkScheduleScriptGenerationProcessState.I18N_SCRIPT_GENERATED, to_state = IfcWorkScheduleScriptGenerationProcessState.GRAPH_READER_SCRIPT_GENERATED)
+
+      - name: graph_reader_script_generated
+        description: "graph_reader.js, which reads the schedule's JSON-LD (tasks, IFC types, dates, enriched data), has been written."
+        transitions:
+          - target: container_connection_script_generated
+            guard: handler.can_transit_to(to_state = IfcWorkScheduleScriptGenerationProcessState.CONTAINER_CONNECTION_SCRIPT_GENERATED)
+            action: handler.perform_state_transition(to_state = IfcWorkScheduleScriptGenerationProcessState.CONTAINER_CONNECTION_SCRIPT_GENERATED)
+            contract:
+              - after: handler.validate_state_transition(from_state = IfcWorkScheduleScriptGenerationProcessState.GRAPH_READER_SCRIPT_GENERATED, to_state = IfcWorkScheduleScriptGenerationProcessState.CONTAINER_CONNECTION_SCRIPT_GENERATED)
+
+      - name: container_connection_script_generated
+        description: "The connection to the container and location of the schedule's dataset have been written."
+        transitions:
+          - target: connection_state_script_generated
+            guard: handler.can_transit_to(to_state = IfcWorkScheduleScriptGenerationProcessState.CONNECTION_STATE_SCRIPT_GENERATED)
+            action: handler.perform_state_transition(to_state = IfcWorkScheduleScriptGenerationProcessState.CONNECTION_STATE_SCRIPT_GENERATED)
+            contract:
+              - after: handler.validate_state_transition(from_state = IfcWorkScheduleScriptGenerationProcessState.CONTAINER_CONNECTION_SCRIPT_GENERATED, to_state = IfcWorkScheduleScriptGenerationProcessState.CONNECTION_STATE_SCRIPT_GENERATED)
+
+      - name: connection_state_script_generated
+        description: "The connection state logic has been written."
+        transitions:
+          - target: chrome_controls_script_generated
+            guard: handler.can_transit_to(to_state = IfcWorkScheduleScriptGenerationProcessState.CHROME_CONTROLS_SCRIPT_GENERATED)
+            action: handler.perform_state_transition(to_state = IfcWorkScheduleScriptGenerationProcessState.CHROME_CONTROLS_SCRIPT_GENERATED)
+            contract:
+              - after: handler.validate_state_transition(from_state = IfcWorkScheduleScriptGenerationProcessState.CONNECTION_STATE_SCRIPT_GENERATED, to_state = IfcWorkScheduleScriptGenerationProcessState.CHROME_CONTROLS_SCRIPT_GENERATED)
+
+      - name: chrome_controls_script_generated
+        description: "The header controls have been written."
+        transitions:
+          - target: event_promoters_generated
+            guard: handler.can_transit_to(to_state = IfcWorkScheduleScriptGenerationProcessState.EVENT_PROMOTERS_GENERATED)
+            action: handler.perform_state_transition(to_state = IfcWorkScheduleScriptGenerationProcessState.EVENT_PROMOTERS_GENERATED)
+            contract:
+              - after: handler.validate_state_transition(from_state = IfcWorkScheduleScriptGenerationProcessState.CHROME_CONTROLS_SCRIPT_GENERATED, to_state = IfcWorkScheduleScriptGenerationProcessState.EVENT_PROMOTERS_GENERATED)
+
+      - name: event_promoters_generated
+        description: "The dDock event-promotion scripts have been written."
+        transitions:
+          - target: pyodide_runtime_script_generated
+            guard: handler.can_transit_to(to_state = IfcWorkScheduleScriptGenerationProcessState.PYODIDE_RUNTIME_SCRIPT_GENERATED)
+            action: handler.perform_state_transition(to_state = IfcWorkScheduleScriptGenerationProcessState.PYODIDE_RUNTIME_SCRIPT_GENERATED)
+            contract:
+              - after: handler.validate_state_transition(from_state = IfcWorkScheduleScriptGenerationProcessState.EVENT_PROMOTERS_GENERATED, to_state = IfcWorkScheduleScriptGenerationProcessState.PYODIDE_RUNTIME_SCRIPT_GENERATED)
+
+      - name: pyodide_runtime_script_generated
+        description: "Pyodide + rdflib/openpyxl, which read the schedule's live workbook and rebuild the data the Gantt uses, have been written."
+        transitions:
+          - target: task_table_timeline_script_generated
+            guard: handler.can_transit_to(to_state = IfcWorkScheduleScriptGenerationProcessState.TASK_TABLE_TIMELINE_SCRIPT_GENERATED)
+            action: handler.perform_state_transition(to_state = IfcWorkScheduleScriptGenerationProcessState.TASK_TABLE_TIMELINE_SCRIPT_GENERATED)
+            contract:
+              - after: handler.validate_state_transition(from_state = IfcWorkScheduleScriptGenerationProcessState.PYODIDE_RUNTIME_SCRIPT_GENERATED, to_state = IfcWorkScheduleScriptGenerationProcessState.TASK_TABLE_TIMELINE_SCRIPT_GENERATED)
+
+      - name: task_table_timeline_script_generated
+        description: "The main part of the Gantt -- the WBS/Name/Start/End/Duration/% table and the SVG timeline with bars, milestones and progress -- has been written."
+        transitions:
+          - target: dependency_arrows_script_generated
+            guard: handler.can_transit_to(to_state = IfcWorkScheduleScriptGenerationProcessState.DEPENDENCY_ARROWS_SCRIPT_GENERATED)
+            action: handler.perform_state_transition(to_state = IfcWorkScheduleScriptGenerationProcessState.DEPENDENCY_ARROWS_SCRIPT_GENERATED)
+            contract:
+              - after: handler.validate_state_transition(from_state = IfcWorkScheduleScriptGenerationProcessState.TASK_TABLE_TIMELINE_SCRIPT_GENERATED, to_state = IfcWorkScheduleScriptGenerationProcessState.DEPENDENCY_ARROWS_SCRIPT_GENERATED)
+
+      - name: dependency_arrows_script_generated
+        description: "The dependency arrows between tasks, derived from IfcRelSequence, have been written -- must run after the bars, since it depends on their geometry."
+        type: final

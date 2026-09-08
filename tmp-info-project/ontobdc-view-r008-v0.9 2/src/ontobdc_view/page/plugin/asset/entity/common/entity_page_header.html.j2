@@ -1,0 +1,16 @@
+<header class="onto-page-header">
+  <a class="icon-btn back-link" href="../../../index.html" data-i18n-title="backToSurface" data-i18n-aria-label="backToSurface">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+  </a>
+  <div class="breadcrumb">
+    <span class="breadcrumb-crumb" data-i18n="breadcrumbHome">Home</span>
+    <span class="breadcrumb-sep">/</span>
+    <span class="breadcrumb-crumb is-current" data-i18n="breadcrumbEntity">{{ breadcrumb_current_title | e }}</span>
+  </div>
+  <div class="header-actions"{% if toolbar.id %} role="toolbar" aria-label="{{ toolbar.label | e }}" data-toolbar-id="{{ toolbar.id | e }}" data-toolbar-alignment="{{ toolbar.alignment | e }}"{% endif %}>
+    {% for action in header_actions | default([]) %}
+      <{{ action.tag }}{% for name, value in action.attributes.items() %}{% if value is none %} {{ name }}{% else %} {{ name }}="{{ value | e }}"{% endif %}{% endfor %}>{{ action.content | default("") | safe }}</{{ action.tag }}>
+    {% endfor %}
+  </div>
+</header>
+<script defer src="./i18n_apply.js"></script>

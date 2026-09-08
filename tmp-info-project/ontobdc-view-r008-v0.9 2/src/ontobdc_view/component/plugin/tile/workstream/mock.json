@@ -1,0 +1,33 @@
+{
+  "@id": "urn:ontobdc:test:tile-resource",
+  "http://purl.org/dc/terms/identifier": [
+    {"@value": "WS-0001"}
+  ],
+  "http://purl.org/dc/terms/title": [
+    {"@value": "Mock Work Stream", "@language": "en"}
+  ],
+  "http://purl.org/dc/terms/description": [
+    {"@value": "A mocked work stream entity for tile preview.", "@language": "en"}
+  ],
+  "http://datacenter.app.br/ontology/productivity/entity/work_stream/type.ttl#what": [
+    {"@value": "Ship the mock preview tooling"}
+  ],
+  "http://datacenter.app.br/ontology/productivity/entity/work_stream/type.ttl#why": [
+    {"@value": "So every Tile can be inspected without the full Surface"}
+  ],
+  "http://datacenter.app.br/ontology/productivity/entity/work_stream/type.ttl#who": [
+    {"@value": "Platform team"}
+  ],
+  "http://datacenter.app.br/ontology/productivity/entity/work_stream/type.ttl#where": [
+    {"@value": "ontobdc-view"}
+  ],
+  "http://datacenter.app.br/ontology/productivity/entity/work_stream/type.ttl#when": [
+    {"@value": "This sprint"}
+  ],
+  "http://datacenter.app.br/ontology/productivity/entity/work_stream/type.ttl#how": [
+    {"@value": "mock.json co-located per tile"}
+  ],
+  "http://datacenter.app.br/ontology/productivity/entity/work_stream/type.ttl#howMuch": [
+    {"@value": "Low cost, high leverage"}
+  ]
+}

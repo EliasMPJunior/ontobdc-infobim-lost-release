@@ -1,0 +1,66 @@
+statechart:
+  name: WorkStreamPageData
+  description: "Statechart for building one WorkStream element's Page-data JSON-LD payload."
+
+  root state:
+    name: work_stream_page_data
+    initial: undefined
+
+    states:
+      - name: undefined
+        description: "No Page-data has been built yet for this element."
+        transitions:
+          - target: facades_located
+            guard: handler.can_transit_to(to_state = WorkStreamPageDataProcessState.FACADES_LOCATED)
+            action: handler.perform_state_transition(to_state = WorkStreamPageDataProcessState.FACADES_LOCATED)
+            contract:
+              - after: handler.validate_state_transition(from_state = WorkStreamPageDataProcessState.UNDEFINED, to_state = WorkStreamPageDataProcessState.FACADES_LOCATED)
+
+      - name: facades_located
+        description: "Every Facade declared for the WorkStream entity type has been located."
+        transitions:
+          - target: facade_data_gathered
+            guard: handler.can_transit_to(to_state = WorkStreamPageDataProcessState.FACADE_DATA_GATHERED)
+            action: handler.perform_state_transition(to_state = WorkStreamPageDataProcessState.FACADE_DATA_GATHERED)
+            contract:
+              - after: handler.validate_state_transition(from_state = WorkStreamPageDataProcessState.FACADES_LOCATED, to_state = WorkStreamPageDataProcessState.FACADE_DATA_GATHERED)
+
+      - name: facade_data_gathered
+        description: "Facade field values already present on the DATA_GATHERED element node have been collected."
+        transitions:
+          - target: dimension_cards_generated
+            guard: handler.can_transit_to(to_state = WorkStreamPageDataProcessState.DIMENSION_CARDS_GENERATED)
+            action: handler.perform_state_transition(to_state = WorkStreamPageDataProcessState.DIMENSION_CARDS_GENERATED)
+            contract:
+              - after: handler.validate_state_transition(from_state = WorkStreamPageDataProcessState.FACADE_DATA_GATHERED, to_state = WorkStreamPageDataProcessState.DIMENSION_CARDS_GENERATED)
+
+      - name: dimension_cards_generated
+        description: "The ordered dimension-card model has been assembled from the Facade fields that map to a dimension kind."
+        transitions:
+          - target: missing_data_filled
+            guard: handler.can_transit_to(to_state = WorkStreamPageDataProcessState.MISSING_DATA_FILLED)
+            action: handler.perform_state_transition(to_state = WorkStreamPageDataProcessState.MISSING_DATA_FILLED)
+            contract:
+              - after: handler.validate_state_transition(from_state = WorkStreamPageDataProcessState.DIMENSION_CARDS_GENERATED, to_state = WorkStreamPageDataProcessState.MISSING_DATA_FILLED)
+
+      - name: missing_data_filled
+        description: "Facade fields absent from DATA_GATHERED have been filled from another source. Not yet implemented -- a no-op until a data source is decided."
+        transitions:
+          - target: related_entities_resolved
+            guard: handler.can_transit_to(to_state = WorkStreamPageDataProcessState.RELATED_ENTITIES_RESOLVED)
+            action: handler.perform_state_transition(to_state = WorkStreamPageDataProcessState.RELATED_ENTITIES_RESOLVED)
+            contract:
+              - after: handler.validate_state_transition(from_state = WorkStreamPageDataProcessState.MISSING_DATA_FILLED, to_state = WorkStreamPageDataProcessState.RELATED_ENTITIES_RESOLVED)
+
+      - name: related_entities_resolved
+        description: "Entities related to this WorkStream have been resolved. Not yet implemented -- a no-op until the relation rules are decided."
+        transitions:
+          - target: toolbar_configuration_gathered
+            guard: handler.can_transit_to(to_state = WorkStreamPageDataProcessState.TOOLBAR_CONFIGURATION_GATHERED)
+            action: handler.perform_state_transition(to_state = WorkStreamPageDataProcessState.TOOLBAR_CONFIGURATION_GATHERED)
+            contract:
+              - after: handler.validate_state_transition(from_state = WorkStreamPageDataProcessState.RELATED_ENTITIES_RESOLVED, to_state = WorkStreamPageDataProcessState.TOOLBAR_CONFIGURATION_GATHERED)
+
+      - name: toolbar_configuration_gathered
+        description: "The toolbar belonging to the WorkStream Entity Page has been written to the Page-data JSON-LD."
+        type: final

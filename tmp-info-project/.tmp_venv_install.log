@@ -1,0 +1,130 @@
+=== Step 1: activate .venv and report tool locations ===
+python=/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/.venv/bin/python
+pip=/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/.venv/bin/pip
+infobim=/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/.venv/bin/infobim
+ontobdc=/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/.venv/bin/ontobdc
+
+=== Step 2: pip install --no-deps -e ontobdc + presentation + infobim ===
+Obtaining file:///Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/ontobdc
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Obtaining file:///Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/presentation
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Installing backend dependencies: started
+  Installing backend dependencies: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Obtaining file:///Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/infobim
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: ontobdc, ontobdc-view, infobim
+  Building editable for ontobdc (pyproject.toml): started
+  Building editable for ontobdc (pyproject.toml): finished with status 'done'
+  Created wheel for ontobdc: filename=ontobdc-0.19.0-0.editable-py3-none-any.whl size=12146 sha256=7f54c882a11293bcc91cc4c6e103fefaa6f11a5210b512646cd0490c0caf8666
+  Stored in directory: /private/var/folders/pp/_x3mzqmd0n96hhg2t5lvkbp40000gn/T/pip-ephem-wheel-cache-_omivogn/wheels/c4/43/18/d362f434f2c8cd84e118ad12092b7c1e34cdff7aa1ff98e633
+  Building editable for ontobdc-view (pyproject.toml): started
+  Building editable for ontobdc-view (pyproject.toml): finished with status 'done'
+  Created wheel for ontobdc-view: filename=ontobdc_view-0.6.0-py3-none-any.whl size=7031 sha256=307db49fa7bef6060bf9873f3cff577a853c078ce00efa7218ee31359de0af49
+  Stored in directory: /private/var/folders/pp/_x3mzqmd0n96hhg2t5lvkbp40000gn/T/pip-ephem-wheel-cache-_omivogn/wheels/d3/33/d7/9967579c19bc3e5b3e004b179e94f01fa6891a5c5ebb56d5f1
+  Building editable for infobim (pyproject.toml): started
+  Building editable for infobim (pyproject.toml): finished with status 'done'
+  Created wheel for infobim: filename=infobim-0.8.0-0.editable-py3-none-any.whl size=10795 sha256=3820aca5e78b47580d40175539f13becb5b008554f5b1eff35f762bea12ffed8
+  Stored in directory: /private/var/folders/pp/_x3mzqmd0n96hhg2t5lvkbp40000gn/T/pip-ephem-wheel-cache-_omivogn/wheels/fe/2b/70/b065e75608e5474488279fe243b5524ebde4761f3bfd315752
+Successfully built ontobdc ontobdc-view infobim
+Installing collected packages: ontobdc-view, ontobdc, infobim
+  Attempting uninstall: ontobdc-view
+    Found existing installation: ontobdc-view 0.6.0
+    Uninstalling ontobdc-view-0.6.0:
+      Successfully uninstalled ontobdc-view-0.6.0
+  Attempting uninstall: ontobdc
+    Found existing installation: ontobdc 0.19.0
+    Uninstalling ontobdc-0.19.0:
+      Successfully uninstalled ontobdc-0.19.0
+  Attempting uninstall: infobim
+    Found existing installation: infobim 0.8.0
+    Uninstalling infobim-0.8.0:
+      Successfully uninstalled infobim-0.8.0
+
+Successfully installed infobim-0.8.0 ontobdc-0.19.0 ontobdc-view-0.6.0
+
+=== Step 3: imports inside .venv ===
+CWD during step 3 = /Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC
+VIRTUAL_ENV = /Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/.venv
+presentation.source.__file__ = /Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/presentation/src/ontobdc_view/component/adapter/source.py
+hotfix.__file__            = /Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/ontobdc/src/ontobdc/cli/plugin/check/has_valid_brand/hotfix.py
+infobim.component.__file__ = /Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/infobim/src/infobim/view/adapter/component.py
+
+_candidate_brand_roots(None) returned 13 entries:
+  [0] /Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC -> FOUND_ASSETS
+  [1] /Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/presentation/src/ontobdc_view -> NOT_FOUND
+  [2] /Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/presentation/src -> NOT_FOUND
+  [3] /Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/presentation -> NOT_FOUND
+  [4] /Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis -> NOT_FOUND
+  [5] /Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia -> NOT_FOUND
+  [6] /Users/eliasmpjunior/Brasidata -> NOT_FOUND
+  [7] /Users/eliasmpjunior -> NOT_FOUND
+  [8] /Users -> NOT_FOUND
+  [9] / -> NOT_FOUND
+  [10] /Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/infobim/src/infobim -> NOT_FOUND
+  [11] /Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/infobim/src -> NOT_FOUND
+  [12] /Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/infobim -> NOT_FOUND
+
+_resolve_brand_from_assets(None) returned: name='InfoBIM' len_brand=6864
+_resolve_brand_from_assets(str(cwd)) returned: name='InfoBIM' len_brand=6864
+TWO RESULTS DIFFER? False
+
+_resolve_brand_from_assets(None) returned: name='InfoBIM' len_brand=6864 len_logo=32947
+
+[DEBUG _project_brand] root_path = None
+[DEBUG _project_brand] resolved_root internally = '/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC'
+[DEBUG _project_brand] _resolve_brand_from_assets(rr) returned: {"name": "InfoBIM", "mark_svg": "<6864 chars>", "logotype_svg": "<32947 chars>", "slogan": ""}
+[DEBUG _project_brand] BASE BEFORE TIER 2 MERGE: name='OntoBDC' len_logo=360
+[DEBUG _project_brand] MERGE name -> applied: 'InfoBIM'
+[DEBUG _project_brand] MERGE mark_svg -> applied len=6864 chars
+[DEBUG _project_brand] MERGE logotype_svg -> applied len=32947 chars
+[DEBUG _project_brand] MERGE slog -> applied: ''
+[DEBUG _project_brand] BASE AFTER TIER 2 MERGE: name='InfoBIM' len_logo=32947
+[DEBUG _project_brand] Config yaml overrides 'brand' key: {'name': 'OntoBDC', 'mark_svg': '<svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="25" fill="none" stroke="currentColor" stroke-width="8"/><circle cx="32" cy="32" r="7" fill="currentColor"/></svg>', 'logotype_svg': '<svg viewBox="0 0 260 64" aria-hidden="true"><circle cx="32" cy="32" r="23" fill="none" stroke="var(--onto-theme-accent, currentColor)" stroke-width="7"/><circle cx="32" cy="32" r="6" fill="var(--onto-theme-accent, currentColor)"/><text x="68" y="42" fill="currentColor" font-family="system-ui, sans-serif" font-size="31" font-weight="700">OntoBDC</text></svg>', 'slogan': 'Data with Brains'}
+[DEBUG _project_brand] FINAL result: {"name": "OntoBDC", "mark_svg": "<184 chars>", "logotype_svg": "<360 chars>", "slogan": "Data with Brains"}
+_project_brand(None) name       = OntoBDC
+_project_brand(None) slogan     = 'Data with Brains'
+_project_brand(None) mark chars = 184
+_project_brand(None) logo chars = 360
+
+[DEBUG _project_brand] root_path = '/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/presentation/feature/3GqWHHIVfD_uF$f$TSbZi6'
+[DEBUG _project_brand] resolved_root internally = '/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/presentation/feature/3GqWHHIVfD_uF$f$TSbZi6'
+[DEBUG _project_brand] _resolve_brand_from_assets(rr) returned: {"name": "InfoBIM", "mark_svg": "<6864 chars>", "logotype_svg": "<32947 chars>", "slogan": ""}
+[DEBUG _project_brand] BASE BEFORE TIER 2 MERGE: name='OntoBDC' len_logo=360
+[DEBUG _project_brand] MERGE name -> applied: 'InfoBIM'
+[DEBUG _project_brand] MERGE mark_svg -> applied len=6864 chars
+[DEBUG _project_brand] MERGE logotype_svg -> applied len=32947 chars
+[DEBUG _project_brand] MERGE slog -> applied: ''
+[DEBUG _project_brand] BASE AFTER TIER 2 MERGE: name='InfoBIM' len_logo=32947
+[DEBUG _project_brand] Config yaml overrides 'brand' key: "<FAILED: AttributeError 'NoneType' object has no attribute 'get'>"
+[DEBUG _project_brand] FINAL result: {"name": "InfoBIM", "mark_svg": "<6864 chars>", "logotype_svg": "<32947 chars>", "slogan": ""}
+_project_brand(<proxy nested dir>) name   = InfoBIM
+python imports exit code:, IMP_EXIT
+
+=== Step 4: infobim command now resolves? ===
+infobim --help head:
+Invalid command arguments: ['--help']
+[90m[20:33:13][0m [34m▶ INFO[0m [37mThe system is healthy for bootstrap.[0m
+
+=== DONE ===

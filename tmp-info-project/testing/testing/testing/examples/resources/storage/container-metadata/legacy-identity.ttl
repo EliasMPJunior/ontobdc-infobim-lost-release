@@ -1,0 +1,17 @@
+@prefix ct: <http://standards.iso.org/iso/21597/-1/ed-1/en/Container#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix obdc: <http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<urn:ontobdc:storage/local/old-root/labsea>
+    a obdc:DataContainer ;
+    dcterms:identifier "urn:ontobdc:storage/local/old-root/labsea" ;
+    dcterms:title "Real Estate Brazil (Official)-Obras - Exp LabSea2025"@en ;
+    ct:description "LabSea project container"@en ;
+    ct:creationDate "2026-07-01T00:00:00+00:00"^^xsd:dateTime ;
+    prov:atLocation <file:///old-root/labsea> ;
+    obdc:hasEntityDataset <urn:ontobdc:storage/dataset/labsea/documents> .
+
+<urn:ontobdc:storage/dataset/labsea/documents>
+    obdc:belongsToDataContainer <urn:ontobdc:storage/local/old-root/labsea> .

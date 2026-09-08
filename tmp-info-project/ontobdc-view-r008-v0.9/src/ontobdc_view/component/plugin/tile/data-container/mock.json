@@ -1,0 +1,12 @@
+{
+  "@id": "urn:ontobdc:test:tile-resource",
+  "http://purl.org/dc/terms/identifier": [
+    {"@value": "urn:uuid:mock-container-0001"}
+  ],
+  "http://purl.org/dc/terms/title": [
+    {"@value": "Mock Data Container", "@language": "en"}
+  ],
+  "http://www.w3.org/ns/prov#atLocation": [
+    {"@value": "/Users/example/storage/mock-container"}
+  ]
+}

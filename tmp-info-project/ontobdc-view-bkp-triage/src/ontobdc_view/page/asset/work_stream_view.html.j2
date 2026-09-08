@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="{{ language }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{ page_title }}</title>
+{% if has_workstream_payload %}
+{# — Pyodide is loaded LAZILY only if SheetJS workbook parsing actually
+   fails. Loading it on page startup via <script src> causes 6+ spurious
+   "Access to fetch blocked" CORS warnings on file:// protocol because the
+   user opens the HTML with double-click and Pyodide immediately tries to
+   fetch() its WASM and lockfile assets.
+   If SheetJS is bundled (it always is via SCRIPT_NAMES[0] = xlsx-*.js) the
+   workbook is parsed 100% client-side with no extra network calls. #}
+{% endif %}
+{{ url_state_bootstrap | safe }}
+<script>
+  // This Page is a separate document from the Surface it was opened from
+  // (onto-workstream-tile's "open" link), so the active presentation state
+  // doesn't carry over on its own — it arrives in the URL, normalized and
+  // already applied to `documentElement.lang` by the url-state bootstrap
+  // above. Only the theme tokens are left to paint, done here as an early
+  // classic (non-module, parser-blocking) script so the correct theme is
+  // active before first paint rather than flashing light then switching.
+  // Same token catalog onto-theme-tile itself builds with
+  // (ontobdc_view.component.adapter.source.theme_catalog), not a second
+  // hardcoded copy of the palette.
+  (() => {
+    const themes = {{ theme_catalog_json | safe }};
+    const params = new URLSearchParams(location.search);
+    // The bootstrap applies this when present; without it the Page still has
+    // to honour the language its link carried instead of the one it was
+    // generated in.
+    const language = window.ontobdcUrlState?.value("lang") ?? params.get("lang");
+    if (language) {
+      document.documentElement.lang = language;
+      document.documentElement.dataset.language = language;
+    }
+    const requested = window.ontobdcUrlState?.value("theme") ?? params.get("theme");
+    const theme = themes.find((candidate) => candidate.name === requested) ?? themes[0];
+    if (!theme) return;
+    document.documentElement.dataset.theme = theme.name;
+    for (const [key, value] of Object.entries(theme.tokens ?? {})) {
+      document.documentElement.style.setProperty(`--onto-theme-${key}`, value);
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+      const backLink = document.querySelector(".back-link");
+      if (!backLink) return;
+      // Back to the Surface carrying whatever this page is showing. Prefers
+      // the page's url-state runtime, but never depends on it: this Page is
+      // rendered by a package that does not ship that runtime, so the link
+      // resolves the state itself when it is absent rather than dropping it.
+      backLink.href = decorateInternalUrl(backLink.getAttribute("href"));
+    });
+
+    function decorateInternalUrl(href) {
+      const state = window.ontobdcUrlState;
+      if (state && typeof state.decorate === "function") return state.decorate(href);
+      const applied = {
+        lang: () =>
+          document.documentElement.lang
+          || document.documentElement.dataset.language
+          || "",
+        theme: () => document.documentElement.dataset.theme || "",
+      };
+      try {
+        const target = new URL(href, location.href);
+        const current = new URLSearchParams(location.search);
+        for (const name of ["lang", "theme"]) {
+          if (target.searchParams.has(name)) continue;
+          const carried = current.get(name) || applied[name]();
+          if (carried) target.searchParams.set(name, carried);
+        }
+        return target.href;
+      } catch {
+        return href;
+      }
+    }
+  })();
+</script>
+<style>
+{{ annotation_runtime_css }}
+{{ css_content }}
+</style>
+</head>
+<body>
+<script type="application/ld+json" id="ontobdc-page-jsonld">{{ entity_json }}</script>
+<script type="application/json" id="ontobdc-i18n">{{ i18n_json | safe }}</script>
+{% if has_workstream_payload %}
+<script>
+  window.infoBimWorkStreamView = {{ workstream_payload_json | safe }};
+</script>
+{% endif %}
+<main class="onto-page" data-ontobdc-resource="{{ entity_id }}">
+  <header class="onto-page-header">
+    <a class="icon-btn back-link" href="../../../index.html" data-i18n-title="backToSurface" data-i18n-aria-label="backToSurface">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    </a>
+    <div class="breadcrumb">
+      <span class="breadcrumb-crumb" data-i18n="breadcrumbSurface"></span>
+      <span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-crumb is-current" data-i18n="breadcrumbWorkStream"></span>
+    </div>
+    <div class="header-actions">
+      <span class="connection-status" data-status="idle" role="status" aria-hidden="true"></span>
+      <button type="button" class="connect-btn" data-i18n="connectFolder" data-i18n-title="connectFolderTitle" data-i18n-aria-label="connectFolder"></button>
+      <button type="button" class="icon-btn refresh-btn" disabled data-i18n-title="refreshFromWorkbookTitle" data-i18n-aria-label="refreshFromWorkbook" aria-label="refresh">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+      </button>
+      <button type="button" class="icon-btn workstream-open-workbook-btn" disabled data-i18n-title="openWorkbookTitle" data-i18n-aria-label="openWorkbook" aria-label="open workbook">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2.5" fill="#1D6F42"/><path d="M8.7 8h2.1l1.2 2.15L13.2 8h2.1l-2.35 4 2.35 4h-2.1l-1.2-2.15L10.8 16H8.7l2.35-4z" fill="#ffffff"/></svg>
+      </button>
+      {# Commented out: workspace grid icon now on subjects-btn #}
+      {# <button type="button" class="icon-btn workspace-btn" disabled data-i18n-title="openAnnotationWorkspace" data-i18n-aria-label="openAnnotationWorkspace">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      </button> #}
+      {# Commented out: workspace / person icon not used visually but kept in DOM with display:none
+         to prevent NPE in work_stream_script builder which queries .workspace-btn at lines
+         851 (.disabled setter) and 1162 (.addEventListener) without null guards.
+         Do not fully remove this element unless you also patch the two JS call sites. #}
+      <button type="button" class="icon-btn workspace-btn" disabled style="display:none" aria-hidden="true" data-i18n-title="openAnnotationWorkspace" data-i18n-aria-label="openAnnotationWorkspace">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+      </button>
+      <button type="button" class="icon-btn subjects-btn" disabled data-i18n-title="openSubjectPage" data-i18n-aria-label="openSubjectPage">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      </button>
+    </div>
+  </header>
+  <section class="tile onto-page-body">
+    <div class="body">
+      <div class="name"></div>
+      <div class="identifier"></div>
+    </div>
+    <div class="fields"></div>
+  </section>
+  <div class="dimension-cards"></div>
+</main>
+<div class="page-event-bar" data-ontobdc-page-event-bar role="status" aria-live="polite"></div>
+<script>
+{{ page_event_display_js }}
+</script>
+<script>
+{{ workstream_context_js }}
+</script>
+<script>
+{{ annotation_runtime_js }}
+</script>
+{% if js_content %}
+<script>
+{{ js_content }}
+</script>
+{% endif %}
+{% if has_workstream_payload %}
+{# Generated per-container by the work_stream_*_script_generated
+   Capabilities (ontobdc-wip), not packaged with ontobdc_view — see
+   EntityViewRenderAdapter._WORKSTREAM_SCRIPT_NAMES for the authoritative
+   load order (dimension_card.js's render() bootstrap must load last). #}
+{% for script_name in workstream_script_names %}
+<script defer src="../../asset/work_stream_view/{{ script_name }}.js"></script>
+{% endfor %}
+<script>
+(() => {
+  // Temporary synchronization bridge while the full mutation-event wiring
+  // is still being completed. Do not synthesize a button click: call the
+  // exact runtime operation used by the reload button after a successful
+  // persisted mutation. The tiny debounce collapses back-to-back mutations
+  // into one reload and queues one more pass if a mutation lands mid-refresh.
+  const INSTALL_KEY = Symbol.for("ontobdc.workstream.auto-refresh-installed");
+
+  function installAutoRefresh() {
+    const runtime = window.OntoBDCWorkStreamViewRuntime;
+    if (!runtime || runtime[INSTALL_KEY]) return;
+    runtime[INSTALL_KEY] = true;
+
+    let timer = null;
+    let refreshing = false;
+    let queued = false;
+
+    runtime.scheduleRefresh = function scheduleRefresh() {
+      queued = true;
+      if (timer !== null || refreshing) return;
+      timer = window.setTimeout(async () => {
+        timer = null;
+        if (!queued || refreshing) return;
+        queued = false;
+        if (typeof runtime.refreshFromWorkbook !== "function") return;
+        refreshing = true;
+        try {
+          await runtime.refreshFromWorkbook();
+        } catch (error) {
+          console.error("[work-stream-view] automatic refresh failed", error);
+        } finally {
+          refreshing = false;
+          if (queued) runtime.scheduleRefresh();
+        }
+      }, 50);
+    };
+
+    function wrapMutation(name, shouldRefresh) {
+      const original = runtime[name];
+      if (typeof original !== "function" || original.__ontobdcAutoRefreshWrapped) return;
+      const wrapped = async function (...args) {
+        const result = await original.apply(this, args);
+        if (!shouldRefresh || shouldRefresh(...args, result)) runtime.scheduleRefresh();
+        return result;
+      };
+      Object.defineProperty(wrapped, "__ontobdcAutoRefreshWrapped", { value: true });
+      runtime[name] = wrapped;
+    }
+
+    // Workbook-backed inline edits: Name, Description and the 5W2H fields.
+    wrapMutation("saveWorkStreamField");
+
+    // Relationship/suggestion changes are persisted by runLinksetOperation;
+    // reads must never recursively trigger another refresh.
+    wrapMutation("runLinksetOperation", (_kind, action) => action !== "read");
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", installAutoRefresh, { once: true });
+  } else {
+    installAutoRefresh();
+  }
+})();
+</script>
+{% endif %}
+</body>
+</html>

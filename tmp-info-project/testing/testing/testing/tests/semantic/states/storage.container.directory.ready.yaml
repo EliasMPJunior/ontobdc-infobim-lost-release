@@ -1,0 +1,16 @@
+apiVersion: ontobdc.org/testing/v1alpha1
+kind: StateDefinition
+metadata:
+  name: storage.container.directory.ready
+  title: Container directory ready
+  description: >
+    The target container directory exists on disk.
+  tags:
+    - storage
+    - container
+    - filesystem
+spec:
+  observer:
+    type: filesystem
+    exists: "${context.container_path}"
+    kind: directory

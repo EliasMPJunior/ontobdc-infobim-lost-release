@@ -1,0 +1,141 @@
+/* Shared standalone Entity Page chrome. No entity-specific selectors belong here. */
+:root {
+  color-scheme: light dark;
+  --onto-theme-surface: var(--onto-theme-background, #ffffff);
+  --onto-theme-on-surface: var(--onto-theme-foreground, #0f172a);
+  --onto-theme-primary: var(--onto-theme-accent, #0284c7);
+  --onto-theme-surface-container: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 4%, var(--onto-theme-background, #ffffff));
+  --onto-theme-surface-container-low: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 3%, var(--onto-theme-background, #ffffff));
+  --onto-theme-outline-variant: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 14%, transparent);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-block-size: 100%;
+  background: var(--onto-theme-surface);
+  color: var(--onto-theme-on-surface);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+main.onto-page {
+  min-block-size: 100vh;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: clamp(16px, 4vw, 40px);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 2vw, 20px);
+  background: var(--onto-theme-surface);
+  color: var(--onto-theme-on-surface);
+}
+
+.onto-page-body.tile {
+  padding: clamp(16px, 2.5vw, 28px);
+  border-radius: clamp(8px, 1.2vw, 14px);
+  background: var(--onto-theme-surface-container-low);
+  color: var(--onto-theme-on-surface);
+}
+
+.onto-page-header {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: clamp(8px, 1.5vw, 12px) clamp(12px, 2vw, 16px);
+  border-bottom: 1px solid var(--onto-theme-outline-variant);
+  border-radius: clamp(8px, 1.2vw, 12px);
+  background: var(--onto-theme-surface-container);
+  color: var(--onto-theme-on-surface);
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 6%, transparent);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.breadcrumb-crumb { color: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 45%, transparent); }
+.breadcrumb-crumb.is-current { color: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 80%, transparent); }
+.breadcrumb-sep { color: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 30%, transparent); }
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.header-actions[data-toolbar-alignment="left"] { margin-left: 0; }
+.header-actions[data-toolbar-alignment="center"] { margin-inline: auto; }
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 28px;
+  block-size: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--onto-theme-accent, #0ea5e9);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.icon-btn:hover { background: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 10%, transparent); }
+.icon-btn:disabled { opacity: .35; cursor: default; pointer-events: none; }
+.icon-btn svg { inline-size: 16px; block-size: 16px; }
+
+.connect-btn {
+  min-block-size: 30px;
+  padding: 5px 12px;
+  border: 1px solid color-mix(in srgb, var(--onto-theme-accent, #0ea5e9) 45%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--onto-theme-accent, #0ea5e9) 10%, transparent);
+  color: var(--onto-theme-accent, #0ea5e9);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.page-event-bar {
+  position: fixed;
+  left: max(16px, calc((100vw - 1160px) / 2));
+  right: max(16px, calc((100vw - 1160px) / 2));
+  bottom: 16px;
+  z-index: 2147483000;
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  pointer-events: none;
+  background: color-mix(in srgb, var(--onto-theme-background, #ffffff) 88%, black 12%);
+  color: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 75%, transparent);
+  opacity: 0;
+  transform: translateY(3px);
+  transition: opacity .18s ease, transform .18s ease;
+}
+
+.page-event-bar[data-visible="true"] { opacity: 1; transform: translateY(0); }
+
+html[data-theme="dark"],
+html[data-theme="dark"] body,
+html[data-theme="dark"] main.onto-page {
+  background: var(--onto-theme-surface, #111214);
+  color: var(--onto-theme-on-surface, #e8eaed);
+}

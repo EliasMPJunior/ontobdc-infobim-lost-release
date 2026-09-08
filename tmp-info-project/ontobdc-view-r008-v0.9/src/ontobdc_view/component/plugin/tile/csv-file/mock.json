@@ -1,0 +1,9 @@
+{
+  "@id": "urn:ontobdc:test:tile-resource",
+  "http://purl.org/dc/terms/title": [
+    {"@value": "Mock Spreadsheet", "@language": "en"}
+  ],
+  "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+    {"@value": "data:text/csv;charset=utf-8;base64,TmFtZSxSb2xlLFRlYW0KQWRhIExvdmVsYWNlLEVuZ2luZWVyLFBsYXRmb3JtCkdyYWNlIEhvcHBlcixBcmNoaXRlY3QsQ29tcGlsZXJzCk1hcmdhcmV0IEhhbWlsdG9uLExlYWQsRmxpZ2h0IFNvZnR3YXJlCg=="}
+  ]
+}

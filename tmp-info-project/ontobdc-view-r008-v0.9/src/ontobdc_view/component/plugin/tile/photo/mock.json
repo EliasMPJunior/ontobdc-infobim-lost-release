@@ -1,0 +1,33 @@
+{
+  "@id": "urn:ontobdc:test:tile-resource",
+  "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+    {"@value": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAxMjAwIDgwMCc+PHJlY3Qgd2lkdGg9JzEyMDAnIGhlaWdodD0nODAwJyBmaWxsPScjMGYxNzJhJy8+PGNpcmNsZSBjeD0nNzg1JyBjeT0nMjg1JyByPSc5NScgZmlsbD0nIzM4YmRmOCcgb3BhY2l0eT0nLjg1Jy8+PHRleHQgeD0nMTIwJyB5PScxNzAnIGZpbGw9J3doaXRlJyBmb250LWZhbWlseT0nc3lzdGVtLXVpLHNhbnMtc2VyaWYnIGZvbnQtc2l6ZT0nNTgnIGZvbnQtd2VpZ2h0PSc3MDAnPk9udG9CREM8L3RleHQ+PC9zdmc+"}
+  ],
+  "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#altText": [
+    {"@value": "OntoBDC standalone Tile test photo"}
+  ],
+  "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#photoMode": [
+    {"@value": "photo"}
+  ],
+  "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#photoFit": [
+    {"@value": "cover"}
+  ],
+  "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#focalX": [
+    {"@value": "0.5"}
+  ],
+  "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#focalY": [
+    {"@value": "0.5"}
+  ],
+  "http://purl.org/dc/terms/title": [
+    {"@value": "Mock Photo", "@language": "en"}
+  ],
+  "http://purl.org/dc/terms/creator": [
+    {"@value": "OntoBDC"}
+  ],
+  "http://purl.org/dc/terms/date": [
+    {"@value": "2026-08-31"}
+  ],
+  "http://www.w3.org/ns/prov#atLocation": [
+    {"@value": "Standalone Tile Preview"}
+  ]
+}

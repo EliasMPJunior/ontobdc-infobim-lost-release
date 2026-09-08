@@ -1,0 +1,9 @@
+{
+  "@id": "urn:ontobdc:test:tile-resource",
+  "http://purl.org/dc/terms/title": [
+    {"@value": "Mock Image", "@language": "en"}
+  ],
+  "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+    {"@value": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgMzAwIj48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iIzBmMTcyYSIvPjxjaXJjbGUgY3g9IjIwMCIgY3k9IjEyMCIgcj0iNjAiIGZpbGw9IiMzOGJkZjgiLz48dGV4dCB4PSI2MCIgeT0iMjMwIiBmaWxsPSJ3aGl0ZSIgZm9udC1mYW1pbHk9InN5c3RlbS11aSxzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmb250LXdlaWdodD0iNzAwIj5Nb2NrIEltYWdlPC90ZXh0Pjwvc3ZnPg=="}
+  ]
+}

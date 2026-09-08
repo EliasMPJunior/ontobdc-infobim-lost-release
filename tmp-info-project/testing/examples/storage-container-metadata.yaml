@@ -1,0 +1,256 @@
+apiVersion: ontobdc.org/testing/v1alpha1
+kind: StateDefinition
+metadata:
+  name: storage.container.directory.ready
+  title: Container directory ready
+  tags: [storage, container, directory, check]
+spec:
+  observer:
+    type: filesystem
+    path: "${context.container_path}"
+    kind: directory
+    satisfiedWhen:
+      exists: true
+
+---
+apiVersion: ontobdc.org/testing/v1alpha1
+kind: StateDefinition
+metadata:
+  name: storage.container.metadata.ready
+  title: Container metadata ready
+  tags: [storage, container, metadata, check]
+spec:
+  observer:
+    type: python-call
+    target: ontobdc.storage.plugin.check.is_container_metadata_ready.check:main
+    arguments:
+      container_path: "${context.container_path}"
+      root_path: "${context.root_path}"
+    result:
+      satisfiedWhen:
+        exitCode: [0]
+      unsatisfiedWhen:
+        exitCode: [1]
+      errorWhen:
+        exitCode: [2]
+      otherwise: error
+  evidence:
+    include:
+      - "${context.container_path}/.__ontobdc__/container.ttl"
+
+---
+apiVersion: ontobdc.org/testing/v1alpha1
+kind: TestAction
+metadata:
+  name: storage.container.metadata.repair
+  title: Repair container metadata
+  tags: [storage, container, metadata, hotfix]
+spec:
+  role: repair
+  executor:
+    type: python-call
+    target: ontobdc.storage.plugin.check.is_container_metadata_ready.hotfix:main
+    arguments:
+      container_path: "${context.container_path}"
+      root_path: "${context.root_path}"
+    result:
+      succeededWhen:
+        exitCode: [0]
+      failedWhen:
+        exitCode: [1]
+      otherwise: error
+  requires:
+    - state: storage.container.directory.ready
+  ensures:
+    - state: storage.container.metadata.ready
+  verification:
+    mode: reobserve
+    states:
+      - storage.container.metadata.ready
+  behavior:
+    idempotency: semantic
+    destructive: false
+    retryable: false
+  effects:
+    write:
+      - "${context.container_path}/.__ontobdc__/container.ttl"
+
+---
+apiVersion: ontobdc.org/testing/v1alpha1
+kind: TestAction
+metadata:
+  name: storage.container.metadata.ensure
+  title: Ensure container metadata through OntoBDC capability
+  tags: [storage, container, metadata, capability, transition]
+spec:
+  role: transition
+  executor:
+    type: capability
+    capabilityId: org.ontobdc.storage.plugin.capability.transformation.target.container_metadata_ready
+  requires:
+    - state: storage.container.directory.ready
+  ensures:
+    - state: storage.container.metadata.ready
+  verification:
+    mode: reobserve
+    states:
+      - storage.container.metadata.ready
+
+---
+apiVersion: ontobdc.org/testing/v1alpha1
+kind: FixtureDefinition
+metadata:
+  name: storage.container.metadata.legacy-identity
+  title: Container metadata with a legacy identity
+  tags: [storage, container, metadata, fixture]
+spec:
+  sandbox:
+    layout:
+      - directory: my-desktop/techcenter-doc/.__ontobdc__
+      - file:
+          path: my-desktop/techcenter-doc/.__ontobdc__/container.ttl
+          from: resources/storage/container-metadata/legacy-identity.ttl
+  context:
+    root_path: "${sandbox}/my-desktop"
+    container_path: "${sandbox}/my-desktop/techcenter-doc"
+
+---
+apiVersion: ontobdc.org/testing/v1alpha1
+kind: TestCase
+metadata:
+  name: storage.container.metadata.check.rejects-legacy-identity
+  title: Check rejects container metadata with a legacy identity
+  tags: [storage, container, metadata, check, negative, regression]
+spec:
+  fixture:
+    ref: storage.container.metadata.legacy-identity
+  when:
+    observe: storage.container.metadata.ready
+  then:
+    observation:
+      state: storage.container.metadata.ready
+      status: unsatisfied
+  invariants:
+    filesystem:
+      - unchanged:
+          path: "${context.container_path}/.__ontobdc__/container.ttl"
+          comparison: sha256
+  cleanup:
+    mode: always
+
+---
+apiVersion: ontobdc.org/testing/v1alpha1
+kind: TestCase
+metadata:
+  name: storage.container.metadata.hotfix.repairs-legacy-identity
+  title: Hotfix repairs container identity without renaming the directory
+  tags: [storage, container, metadata, hotfix, repair, regression]
+spec:
+  fixture:
+    ref: storage.container.metadata.legacy-identity
+  given:
+    states:
+      - not: storage.container.metadata.ready
+  when:
+    action: storage.container.metadata.repair
+  then:
+    states:
+      - storage.container.metadata.ready
+  invariants:
+    filesystem:
+      - directoryNameUnchanged: "${context.container_path}"
+    rdf:
+      - file: "${context.container_path}/.__ontobdc__/container.ttl"
+        preserve:
+          predicates:
+            - dcterms:title
+            - ct:description
+            - ct:creationDate
+            - obdc:hasEntityDataset
+            - obdc:belongsToDataContainer
+  evidence:
+    before:
+      - "${context.container_path}/.__ontobdc__/container.ttl"
+    after:
+      - "${context.container_path}/.__ontobdc__/container.ttl"
+  cleanup:
+    mode: always
+
+---
+apiVersion: ontobdc.org/testing/v1alpha1
+kind: TestCase
+metadata:
+  name: storage.container.metadata.hotfix.is-idempotent
+  title: Container metadata hotfix is semantically idempotent
+  tags: [storage, container, metadata, hotfix, idempotence]
+spec:
+  fixture:
+    ref: storage.container.metadata.legacy-identity
+  steps:
+    - action: storage.container.metadata.repair
+      checkpoint:
+        states:
+          - storage.container.metadata.ready
+    - snapshot:
+        id: after-first-repair
+        include:
+          - "${context.container_path}/.__ontobdc__/container.ttl"
+    - action: storage.container.metadata.repair
+      checkpoint:
+        states:
+          - storage.container.metadata.ready
+    - assert:
+        semanticallyEquivalent:
+          left: snapshot:after-first-repair
+          right: current
+          normalize:
+            ignorePredicates: []
+  cleanup:
+    mode: always
+
+---
+apiVersion: ontobdc.org/testing/v1alpha1
+kind: TestFlow
+metadata:
+  name: storage.container.metadata.transition
+  title: Reach container metadata ready state
+  tags: [storage, container, metadata, flow, state-machine]
+spec:
+  fixture:
+    ref: storage.container.metadata.legacy-identity
+  steps:
+    - id: observe-before
+      observe: storage.container.metadata.ready
+      expect:
+        status: unsatisfied
+    - id: repair
+      action: storage.container.metadata.repair
+      checkpoint:
+        states:
+          - storage.container.metadata.ready
+    - id: ensure-capability
+      action: storage.container.metadata.ensure
+      checkpoint:
+        states:
+          - storage.container.metadata.ready
+
+---
+apiVersion: ontobdc.org/testing/v1alpha1
+kind: TestSuite
+metadata:
+  name: storage.container.metadata
+  title: Storage container metadata checks and hotfixes
+  tags: [storage, container, metadata, suite]
+spec:
+  include:
+    cases:
+      - storage.container.metadata.check.rejects-legacy-identity
+      - storage.container.metadata.hotfix.repairs-legacy-identity
+      - storage.container.metadata.hotfix.is-idempotent
+    flows:
+      - storage.container.metadata.transition
+  policies:
+    isolation: per-case
+    failFast: false
+    cleanup: always
+    requireEvidence: true

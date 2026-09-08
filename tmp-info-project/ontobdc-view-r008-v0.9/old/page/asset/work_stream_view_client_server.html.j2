@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="{{ language }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="ontobdc:view-runtime" content="client-server">
+<meta name="ontobdc:api-origin" content="http://127.0.0.1">
+<title>{{ page_title }}</title>
+{{ url_state_bootstrap | safe }}
+<script>
+(() => {
+  const themes = {{ theme_catalog_json | safe }};
+  const params = new URLSearchParams(location.search);
+  const language = window.ontobdcUrlState?.value("lang") ?? params.get("lang");
+  if (language) {
+    document.documentElement.lang = language;
+    document.documentElement.dataset.language = language;
+  }
+  const requested = window.ontobdcUrlState?.value("theme") ?? params.get("theme");
+  const theme = themes.find((candidate) => candidate.name === requested) ?? themes[0];
+  if (!theme) return;
+  document.documentElement.dataset.theme = theme.name;
+  for (const [key, value] of Object.entries(theme.tokens ?? {})) {
+    document.documentElement.style.setProperty(`--onto-theme-${key}`, value);
+  }
+})();
+</script>
+<style>
+{{ css_content }}
+</style>
+</head>
+<body>
+<script type="application/json" id="ontobdc-i18n">{{ i18n_json | safe }}</script>
+<main class="onto-page" data-ontobdc-resource="{{ entity_id }}">
+  <header class="onto-page-header">
+    <a class="icon-btn back-link" href="../../../index.html" aria-label="Back to Surface">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    </a>
+    <div class="breadcrumb"><span class="breadcrumb-crumb">Surface</span><span class="breadcrumb-sep">/</span><span class="breadcrumb-crumb is-current">{{ breadcrumb_current_title }}</span></div>
+  </header>
+  <section class="tile onto-page-body">
+    <div class="body">
+      <div class="name">{{ identifier }}</div>
+      <div class="identifier">{{ entity_id }}</div>
+    </div>
+    <div class="fields"></div>
+  </section>
+  <div class="dimension-cards"></div>
+</main>
+</body>
+</html>

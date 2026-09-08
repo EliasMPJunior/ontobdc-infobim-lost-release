@@ -1,0 +1,75 @@
+statechart:
+  name: IfcWorkSchedulePageData
+  description: "Statechart for building one IfcWorkSchedule element's Page-data JSON-LD payload."
+
+  root state:
+    name: ifc_work_schedule_page_data
+    initial: undefined
+
+    states:
+      - name: undefined
+        description: "No Page-data has been built yet for this element."
+        transitions:
+          - target: facades_located
+            guard: handler.can_transit_to(to_state = IfcWorkSchedulePageDataProcessState.FACADES_LOCATED)
+            action: handler.perform_state_transition(to_state = IfcWorkSchedulePageDataProcessState.FACADES_LOCATED)
+            contract:
+              - after: handler.validate_state_transition(from_state = IfcWorkSchedulePageDataProcessState.UNDEFINED, to_state = IfcWorkSchedulePageDataProcessState.FACADES_LOCATED)
+
+      - name: facades_located
+        description: "Every Facade declared for the IfcWorkSchedule entity type has been located."
+        transitions:
+          - target: facade_data_gathered
+            guard: handler.can_transit_to(to_state = IfcWorkSchedulePageDataProcessState.FACADE_DATA_GATHERED)
+            action: handler.perform_state_transition(to_state = IfcWorkSchedulePageDataProcessState.FACADE_DATA_GATHERED)
+            contract:
+              - after: handler.validate_state_transition(from_state = IfcWorkSchedulePageDataProcessState.FACADES_LOCATED, to_state = IfcWorkSchedulePageDataProcessState.FACADE_DATA_GATHERED)
+
+      - name: facade_data_gathered
+        description: "Facade field values already present on the DATA_GATHERED element node have been collected."
+        transitions:
+          - target: gantt_payload_gathered
+            guard: handler.can_transit_to(to_state = IfcWorkSchedulePageDataProcessState.GANTT_PAYLOAD_GATHERED)
+            action: handler.perform_state_transition(to_state = IfcWorkSchedulePageDataProcessState.GANTT_PAYLOAD_GATHERED)
+            contract:
+              - after: handler.validate_state_transition(from_state = IfcWorkSchedulePageDataProcessState.FACADE_DATA_GATHERED, to_state = IfcWorkSchedulePageDataProcessState.GANTT_PAYLOAD_GATHERED)
+
+      - name: gantt_payload_gathered
+        description: "The runtime context required by the restored IfcWorkSchedule Gantt has been assembled."
+        transitions:
+          - target: missing_data_filled
+            guard: handler.can_transit_to(to_state = IfcWorkSchedulePageDataProcessState.MISSING_DATA_FILLED)
+            action: handler.perform_state_transition(to_state = IfcWorkSchedulePageDataProcessState.MISSING_DATA_FILLED)
+            contract:
+              - after: handler.validate_state_transition(from_state = IfcWorkSchedulePageDataProcessState.GANTT_PAYLOAD_GATHERED, to_state = IfcWorkSchedulePageDataProcessState.MISSING_DATA_FILLED)
+
+      - name: missing_data_filled
+        description: "Facade fields absent from DATA_GATHERED have been filled from another source. Not yet implemented -- a no-op until a data source is decided."
+        transitions:
+          - target: dimension_tabs_generated
+            guard: handler.can_transit_to(to_state = IfcWorkSchedulePageDataProcessState.DIMENSION_TABS_GENERATED)
+            action: handler.perform_state_transition(to_state = IfcWorkSchedulePageDataProcessState.DIMENSION_TABS_GENERATED)
+            contract:
+              - after: handler.validate_state_transition(from_state = IfcWorkSchedulePageDataProcessState.MISSING_DATA_FILLED, to_state = IfcWorkSchedulePageDataProcessState.DIMENSION_TABS_GENERATED)
+
+      - name: dimension_tabs_generated
+        description: "Populated IfcWorkSchedule fields have been grouped by semantic dimension into tabs for the single schedule card."
+        transitions:
+          - target: related_entities_resolved
+            guard: handler.can_transit_to(to_state = IfcWorkSchedulePageDataProcessState.RELATED_ENTITIES_RESOLVED)
+            action: handler.perform_state_transition(to_state = IfcWorkSchedulePageDataProcessState.RELATED_ENTITIES_RESOLVED)
+            contract:
+              - after: handler.validate_state_transition(from_state = IfcWorkSchedulePageDataProcessState.DIMENSION_TABS_GENERATED, to_state = IfcWorkSchedulePageDataProcessState.RELATED_ENTITIES_RESOLVED)
+
+      - name: related_entities_resolved
+        description: "Entities related to this IfcWorkSchedule have been resolved. Not yet implemented -- a no-op until the relation rules are decided."
+        transitions:
+          - target: toolbar_configuration_gathered
+            guard: handler.can_transit_to(to_state = IfcWorkSchedulePageDataProcessState.TOOLBAR_CONFIGURATION_GATHERED)
+            action: handler.perform_state_transition(to_state = IfcWorkSchedulePageDataProcessState.TOOLBAR_CONFIGURATION_GATHERED)
+            contract:
+              - after: handler.validate_state_transition(from_state = IfcWorkSchedulePageDataProcessState.RELATED_ENTITIES_RESOLVED, to_state = IfcWorkSchedulePageDataProcessState.TOOLBAR_CONFIGURATION_GATHERED)
+
+      - name: toolbar_configuration_gathered
+        description: "The toolbar belonging to the IfcWorkSchedule Entity Page has been written to the Page-data JSON-LD."
+        type: final

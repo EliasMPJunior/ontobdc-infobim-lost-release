@@ -1,0 +1,35 @@
+apiVersion: ontobdc.org/testing/v1alpha1
+kind: TestAction
+metadata:
+  name: storage.container.metadata.repair
+  title: Repair container metadata
+  description: >
+    Creates or rewrites the container identity, title, description, creation
+    date and location so storage.container.metadata.ready becomes satisfied.
+  tags:
+    - storage
+    - container
+    - metadata
+    - hotfix
+spec:
+  role: repair
+  executor:
+    type: python-call
+    target: ontobdc.storage.plugin.check.is_container_metadata_ready.hotfix:main
+    arguments:
+      container_path: "${context.container_path}"
+      root_path: "${context.root_path}"
+    result:
+      succeededWhen:
+        exitCode: [0]
+      failedWhen:
+        exitCode: [1]
+      otherwise: error
+  requires:
+    - state: storage.container.directory.ready
+  ensures:
+    - state: storage.container.metadata.ready
+  verification:
+    mode: reobserve
+    states:
+      - storage.container.metadata.ready

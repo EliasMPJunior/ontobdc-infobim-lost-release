@@ -1,0 +1,16 @@
+{
+  "@id": "urn:ontobdc:test:tile-resource",
+  "http://purl.org/dc/terms/title": [
+    {"@value": "Mock Container", "@language": "en"}
+  ],
+  "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+    {"@value": "README.md"},
+    {"@value": "index.html"},
+    {"@value": "src/main.py"},
+    {"@value": "src/adapter/config.py"},
+    {"@value": "src/adapter/utils.py"},
+    {"@value": "docs/architecture.md"},
+    {"@value": "docs/decisions/0001-record.md"},
+    {"@value": "tests/test_main.py"}
+  ]
+}
