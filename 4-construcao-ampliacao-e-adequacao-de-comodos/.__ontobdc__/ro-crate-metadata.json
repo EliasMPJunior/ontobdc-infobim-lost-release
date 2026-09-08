@@ -1,0 +1,213 @@
+{
+    "@context": "https://w3id.org/ro/crate/1.2/context",
+    "@graph": [
+        {
+            "@id": "./",
+            "@type": "Dataset",
+            "datePublished": "2026-09-01T02:04:27+00:00",
+            "hasPart": [
+                {
+                    "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.1%20NOVO%20CO%CC%82MODO%20CONTIGUO/4.1.dwg"
+                },
+                {
+                    "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.1%20NOVO%20CO%CC%82MODO%20CONTIGUO/4.1.pdf"
+                },
+                {
+                    "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.2%20NOVO%20CO%CC%82MODO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.2.dwg"
+                },
+                {
+                    "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.2%20NOVO%20CO%CC%82MODO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.2.pdf"
+                },
+                {
+                    "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.3%20NOVO%20CO%CC%82MODO%20ISOLADO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.3.dwg"
+                },
+                {
+                    "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.3%20NOVO%20CO%CC%82MODO%20ISOLADO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.3.pdf"
+                },
+                {
+                    "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.4%20NOVO%20CO%CC%82MODO%20ISOLADO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.4.dwg"
+                },
+                {
+                    "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.4%20NOVO%20CO%CC%82MODO%20ISOLADO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.4.pdf"
+                },
+                {
+                    "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.5%20POC%CC%A7O%20DE%20VENTILAC%CC%A7A%CC%83O/4.5.dwg"
+                },
+                {
+                    "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.5%20POC%CC%A7O%20DE%20VENTILAC%CC%A7A%CC%83O/4.5.pdf"
+                },
+                {
+                    "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.6%20RECOMPOSIC%CC%A7A%CC%83O%20ESTRUTURAL%20%28CO%CC%82MODO%29/4.6.dwg"
+                },
+                {
+                    "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.6%20RECOMPOSIC%CC%A7A%CC%83O%20ESTRUTURAL%20%28CO%CC%82MODO%29/4.6.pdf"
+                },
+                {
+                    "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.7%20VARANDA/4.7.dwg"
+                },
+                {
+                    "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.7%20VARANDA/4.7.pdf"
+                },
+                {
+                    "@id": "WhatsApp%20Image%202026-08-20%20at%2008.38.15.jpeg"
+                },
+                {
+                    "@id": "server.cmd"
+                }
+            ]
+        },
+        {
+            "@id": "ro-crate-metadata.json",
+            "@type": "CreativeWork",
+            "about": {
+                "@id": "./"
+            },
+            "conformsTo": {
+                "@id": "https://w3id.org/ro/crate/1.2"
+            }
+        },
+        {
+            "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.1%20NOVO%20CO%CC%82MODO%20CONTIGUO/4.1.dwg",
+            "@type": "File",
+            "contentSize": "3778735",
+            "dateCreated": "2026-07-13T22:13:00Z",
+            "dateModified": "2026-07-13T22:13:00Z",
+            "encodingFormat": "image/vnd.dwg",
+            "name": "4.1.dwg"
+        },
+        {
+            "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.1%20NOVO%20CO%CC%82MODO%20CONTIGUO/4.1.pdf",
+            "@type": "File",
+            "contentSize": "1560427",
+            "dateCreated": "2026-07-13T22:13:00Z",
+            "dateModified": "2026-07-13T22:13:00Z",
+            "encodingFormat": "application/pdf",
+            "name": "4.1.pdf"
+        },
+        {
+            "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.2%20NOVO%20CO%CC%82MODO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.2.dwg",
+            "@type": "File",
+            "contentSize": "3814994",
+            "dateCreated": "2026-07-13T22:14:00Z",
+            "dateModified": "2026-07-13T22:14:00Z",
+            "encodingFormat": "image/vnd.dwg",
+            "name": "4.2.dwg"
+        },
+        {
+            "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.2%20NOVO%20CO%CC%82MODO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.2.pdf",
+            "@type": "File",
+            "contentSize": "1243575",
+            "dateCreated": "2026-07-13T22:14:00Z",
+            "dateModified": "2026-07-13T22:14:00Z",
+            "encodingFormat": "application/pdf",
+            "name": "4.2.pdf"
+        },
+        {
+            "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.3%20NOVO%20CO%CC%82MODO%20ISOLADO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.3.dwg",
+            "@type": "File",
+            "contentSize": "3781696",
+            "dateCreated": "2026-07-13T22:15:00Z",
+            "dateModified": "2026-07-13T22:15:00Z",
+            "encodingFormat": "image/vnd.dwg",
+            "name": "4.3.dwg"
+        },
+        {
+            "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.3%20NOVO%20CO%CC%82MODO%20ISOLADO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.3.pdf",
+            "@type": "File",
+            "contentSize": "1587541",
+            "dateCreated": "2026-07-13T22:15:00Z",
+            "dateModified": "2026-07-13T22:15:00Z",
+            "encodingFormat": "application/pdf",
+            "name": "4.3.pdf"
+        },
+        {
+            "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.4%20NOVO%20CO%CC%82MODO%20ISOLADO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.4.dwg",
+            "@type": "File",
+            "contentSize": "3820189",
+            "dateCreated": "2026-07-13T22:15:00Z",
+            "dateModified": "2026-07-13T22:15:00Z",
+            "encodingFormat": "image/vnd.dwg",
+            "name": "4.4.dwg"
+        },
+        {
+            "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.4%20NOVO%20CO%CC%82MODO%20ISOLADO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.4.pdf",
+            "@type": "File",
+            "contentSize": "1465183",
+            "dateCreated": "2026-07-13T22:15:00Z",
+            "dateModified": "2026-07-13T22:15:00Z",
+            "encodingFormat": "application/pdf",
+            "name": "4.4.pdf"
+        },
+        {
+            "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.5%20POC%CC%A7O%20DE%20VENTILAC%CC%A7A%CC%83O/4.5.dwg",
+            "@type": "File",
+            "contentSize": "3838397",
+            "dateCreated": "2026-07-13T22:16:00Z",
+            "dateModified": "2026-07-13T22:16:00Z",
+            "encodingFormat": "image/vnd.dwg",
+            "name": "4.5.dwg"
+        },
+        {
+            "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.5%20POC%CC%A7O%20DE%20VENTILAC%CC%A7A%CC%83O/4.5.pdf",
+            "@type": "File",
+            "contentSize": "1136291",
+            "dateCreated": "2026-07-13T22:16:00Z",
+            "dateModified": "2026-07-13T22:16:00Z",
+            "encodingFormat": "application/pdf",
+            "name": "4.5.pdf"
+        },
+        {
+            "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.6%20RECOMPOSIC%CC%A7A%CC%83O%20ESTRUTURAL%20%28CO%CC%82MODO%29/4.6.dwg",
+            "@type": "File",
+            "contentSize": "3604946",
+            "dateCreated": "2026-07-13T22:17:00Z",
+            "dateModified": "2026-07-13T22:17:00Z",
+            "encodingFormat": "image/vnd.dwg",
+            "name": "4.6.dwg"
+        },
+        {
+            "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.6%20RECOMPOSIC%CC%A7A%CC%83O%20ESTRUTURAL%20%28CO%CC%82MODO%29/4.6.pdf",
+            "@type": "File",
+            "contentSize": "672156",
+            "dateCreated": "2026-07-13T22:17:00Z",
+            "dateModified": "2026-07-13T22:17:00Z",
+            "encodingFormat": "application/pdf",
+            "name": "4.6.pdf"
+        },
+        {
+            "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.7%20VARANDA/4.7.dwg",
+            "@type": "File",
+            "contentSize": "3733733",
+            "dateCreated": "2026-07-13T22:17:00Z",
+            "dateModified": "2026-07-13T22:17:00Z",
+            "encodingFormat": "image/vnd.dwg",
+            "name": "4.7.dwg"
+        },
+        {
+            "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.7%20VARANDA/4.7.pdf",
+            "@type": "File",
+            "contentSize": "600296",
+            "dateCreated": "2026-07-13T22:17:00Z",
+            "dateModified": "2026-07-13T22:17:00Z",
+            "encodingFormat": "application/pdf",
+            "name": "4.7.pdf"
+        },
+        {
+            "@id": "WhatsApp%20Image%202026-08-20%20at%2008.38.15.jpeg",
+            "@type": "File",
+            "contentSize": "329828",
+            "dateCreated": "2026-08-25T14:38:15.552478Z",
+            "dateModified": "2026-08-25T14:38:15.553376Z",
+            "encodingFormat": "image/jpeg",
+            "name": "WhatsApp Image 2026-08-20 at 08.38.15.jpeg"
+        },
+        {
+            "@id": "server.cmd",
+            "@type": "File",
+            "contentSize": "85",
+            "dateCreated": "2026-08-30T23:30:56.785954Z",
+            "dateModified": "2026-08-30T23:30:56.786044Z",
+            "name": "server.cmd"
+        }
+    ]
+}

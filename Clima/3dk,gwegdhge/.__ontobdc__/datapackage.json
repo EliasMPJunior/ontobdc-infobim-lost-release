@@ -1,0 +1,12 @@
+{
+  "name": "ontobdc_container",
+  "resources": [
+    {
+      "bytes": 98750,
+      "format": "html",
+      "mediatype": "text/html",
+      "name": "index_0eb547304658",
+      "path": "../index.html"
+    }
+  ]
+}

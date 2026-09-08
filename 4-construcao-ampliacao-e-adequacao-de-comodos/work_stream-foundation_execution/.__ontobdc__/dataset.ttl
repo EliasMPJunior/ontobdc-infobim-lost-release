@@ -1,0 +1,26 @@
+@prefix ct: <http://standards.iso.org/iso/21597/-1/ed-1/en/Container#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix obdc: <http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<file:///Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/work_stream-foundation_execution/.__ontobdc__/dataset.ttl> a owl:Ontology .
+
+<urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/work_stream-foundation_execution> a obdc:EntityDataset ;
+    obdc:belongsToDataContainer <urn:ontobdc:storage/local/4-construcao-ampliacao-e-adequacao-de-comodos> ;
+    obdc:hasDataEntity <urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/work_stream-foundation_execution/9009a74ecd8b80a755343ecb474c392e5cb2e72239f72dc79b9a1658c6cdf307> ;
+    dcterms:description "Storage dataset located at file:///Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/work_stream-foundation_execution" ;
+    dcterms:identifier "urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/work_stream-foundation_execution" ;
+    dcterms:title "Storage Dataset: work_stream-foundation_execution" ;
+    ct:creationDate "2026-08-19T03:28:03"^^xsd:dateTime ;
+    prov:atLocation <file:///Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/work_stream-foundation_execution> .
+
+<http://datacenter.app.br/ontology/productivity/entity/work_stream/type.ttl#WorkStream> a obdc:SurfaceableEntity .
+
+<urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/work_stream-foundation_execution/9009a74ecd8b80a755343ecb474c392e5cb2e72239f72dc79b9a1658c6cdf307> a <http://datacenter.app.br/ontology/productivity/entity/work_stream/type.ttl#WorkStream>,
+        obdc:DataEntity ;
+    dcterms:conformsTo <http://datacenter.app.br/ontology/productivity/entity/work_stream/facade.ttl#WorkStreamFacade> ;
+    dcterms:identifier "240204b8-e891-442c-8d66-a0902fe9545a" ;
+    dcterms:title "Foundation execution"@en .
+

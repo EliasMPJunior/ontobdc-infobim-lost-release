@@ -1,0 +1,23 @@
+@prefix ct: <http://standards.iso.org/iso/21597/-1/ed-1/en/Container#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix obdc: <http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<file:///Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/Clima/.__infobim__/.__ontobdc__/dataset.ttl> a owl:Ontology .
+
+<urn:ontobdc:storage/dataset/Clima/.__infobim__> a obdc:EntityDataset ;
+    obdc:belongsToDataContainer <urn:uuid:0e2d451c-09e6-4e34-a83c-164340a7f88e> ;
+    obdc:hasDataEntity <urn:ontobdc:storage/dataset/Clima/.__infobim__/8e6ad83c72f60347b2f8b06e7c7dcef670d51afc354c064a45df3dd3f4ec3163> ;
+    dcterms:description "Storage dataset located at file:///Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/Clima/.__infobim__" ;
+    dcterms:identifier "urn:ontobdc:storage/dataset/Clima/.__infobim__" ;
+    dcterms:title "Storage Dataset: .__infobim__" ;
+    ct:creationDate "2026-08-16T18:15:29"^^xsd:dateTime ;
+    prov:atLocation <file:///Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/Clima/.__infobim__> .
+
+<urn:ontobdc:storage/dataset/Clima/.__infobim__/8e6ad83c72f60347b2f8b06e7c7dcef670d51afc354c064a45df3dd3f4ec3163> a obdc:DataEntity,
+        <https://standards.buildingsmart.org/IFC/DEV/IFC4_3/OWL#IfcProject> ;
+    dcterms:conformsTo <https://infobim.org/ontology/ns#IfcProjectFacade> ;
+    dcterms:title "Clima" .
+

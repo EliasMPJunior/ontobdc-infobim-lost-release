@@ -1,0 +1,26 @@
+{
+  "name": "ontobdc_container",
+  "resources": [
+    {
+      "bytes": 5438,
+      "format": "html",
+      "mediatype": "text/html",
+      "name": "overrides_main_8cb6502c5b39",
+      "path": "../overrides/main.html"
+    },
+    {
+      "bytes": 5696,
+      "format": "html",
+      "mediatype": "text/html",
+      "name": "overrides_partials_header_6aa936dbc4db",
+      "path": "../overrides/partials/header.html"
+    },
+    {
+      "bytes": 973,
+      "format": "html",
+      "mediatype": "text/html",
+      "name": "overrides_partials_logo_723954997b45",
+      "path": "../overrides/partials/logo.html"
+    }
+  ]
+}

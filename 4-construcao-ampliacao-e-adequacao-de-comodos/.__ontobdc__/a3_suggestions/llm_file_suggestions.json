@@ -1,0 +1,930 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-08-20T03:42:41.732917+00:00",
+  "visited_states": [
+    "__container_bound__",
+    "__ro_crate_loaded__",
+    "__files_enumerated__",
+    "__llm_evaluated__",
+    "__suggestions_saved__"
+  ],
+  "capability_results": {
+    "__container_bound__": {
+      "capability_id": "org.infobim.a3.plugin.capability.transformation.target.container_bound",
+      "result": {
+        "container_path": "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos",
+        "target_element_id": "2O2Fr8z5XBSwt21W9Xj17R",
+        "target_dimension_property": "IfcLengthMeasure.height"
+      }
+    },
+    "__ro_crate_loaded__": {
+      "capability_id": "org.infobim.a3.plugin.capability.transformation.target.ro_crate_loaded",
+      "result": {
+        "ro_crate_path": "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/.__ontobdc__/ro-crate-metadata.json",
+        "crate_data": {
+          "@context": "https://w3id.org/ro/crate/1.2/context",
+          "@graph": [
+            {
+              "@id": "./",
+              "@type": "Dataset",
+              "datePublished": "2026-08-19T05:48:40+00:00",
+              "hasPart": [
+                {
+                  "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.1%20NOVO%20CO%CC%82MODO%20CONTIGUO/4.1.dwg"
+                },
+                {
+                  "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.1%20NOVO%20CO%CC%82MODO%20CONTIGUO/4.1.pdf"
+                },
+                {
+                  "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.2%20NOVO%20CO%CC%82MODO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.2.dwg"
+                },
+                {
+                  "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.2%20NOVO%20CO%CC%82MODO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.2.pdf"
+                },
+                {
+                  "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.3%20NOVO%20CO%CC%82MODO%20ISOLADO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.3.dwg"
+                },
+                {
+                  "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.3%20NOVO%20CO%CC%82MODO%20ISOLADO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.3.pdf"
+                },
+                {
+                  "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.4%20NOVO%20CO%CC%82MODO%20ISOLADO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.4.dwg"
+                },
+                {
+                  "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.4%20NOVO%20CO%CC%82MODO%20ISOLADO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.4.pdf"
+                },
+                {
+                  "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.5%20POC%CC%A7O%20DE%20VENTILAC%CC%A7A%CC%83O/4.5.dwg"
+                },
+                {
+                  "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.5%20POC%CC%A7O%20DE%20VENTILAC%CC%A7A%CC%83O/4.5.pdf"
+                },
+                {
+                  "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.6%20RECOMPOSIC%CC%A7A%CC%83O%20ESTRUTURAL%20%28CO%CC%82MODO%29/4.6.dwg"
+                },
+                {
+                  "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.6%20RECOMPOSIC%CC%A7A%CC%83O%20ESTRUTURAL%20%28CO%CC%82MODO%29/4.6.pdf"
+                },
+                {
+                  "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.7%20VARANDA/4.7.dwg"
+                },
+                {
+                  "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.7%20VARANDA/4.7.pdf"
+                },
+                {
+                  "@id": "onto-file-viewer.html"
+                }
+              ]
+            },
+            {
+              "@id": "ro-crate-metadata.json",
+              "@type": "CreativeWork",
+              "about": {
+                "@id": "./"
+              },
+              "conformsTo": {
+                "@id": "https://w3id.org/ro/crate/1.2"
+              }
+            },
+            {
+              "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.1%20NOVO%20CO%CC%82MODO%20CONTIGUO/4.1.dwg",
+              "@type": "File",
+              "contentSize": "3778735",
+              "dateCreated": "2026-07-13T22:13:00Z",
+              "dateModified": "2026-07-13T22:13:00Z",
+              "encodingFormat": "image/vnd.dwg",
+              "name": "4.1.dwg"
+            },
+            {
+              "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.1%20NOVO%20CO%CC%82MODO%20CONTIGUO/4.1.pdf",
+              "@type": "File",
+              "contentSize": "1560427",
+              "dateCreated": "2026-07-13T22:13:00Z",
+              "dateModified": "2026-07-13T22:13:00Z",
+              "encodingFormat": "application/pdf",
+              "name": "4.1.pdf"
+            },
+            {
+              "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.2%20NOVO%20CO%CC%82MODO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.2.dwg",
+              "@type": "File",
+              "contentSize": "3814994",
+              "dateCreated": "2026-07-13T22:14:00Z",
+              "dateModified": "2026-07-13T22:14:00Z",
+              "encodingFormat": "image/vnd.dwg",
+              "name": "4.2.dwg"
+            },
+            {
+              "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.2%20NOVO%20CO%CC%82MODO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.2.pdf",
+              "@type": "File",
+              "contentSize": "1243575",
+              "dateCreated": "2026-07-13T22:14:00Z",
+              "dateModified": "2026-07-13T22:14:00Z",
+              "encodingFormat": "application/pdf",
+              "name": "4.2.pdf"
+            },
+            {
+              "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.3%20NOVO%20CO%CC%82MODO%20ISOLADO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.3.dwg",
+              "@type": "File",
+              "contentSize": "3781696",
+              "dateCreated": "2026-07-13T22:15:00Z",
+              "dateModified": "2026-07-13T22:15:00Z",
+              "encodingFormat": "image/vnd.dwg",
+              "name": "4.3.dwg"
+            },
+            {
+              "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.3%20NOVO%20CO%CC%82MODO%20ISOLADO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.3.pdf",
+              "@type": "File",
+              "contentSize": "1587541",
+              "dateCreated": "2026-07-13T22:15:00Z",
+              "dateModified": "2026-07-13T22:15:00Z",
+              "encodingFormat": "application/pdf",
+              "name": "4.3.pdf"
+            },
+            {
+              "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.4%20NOVO%20CO%CC%82MODO%20ISOLADO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.4.dwg",
+              "@type": "File",
+              "contentSize": "3820189",
+              "dateCreated": "2026-07-13T22:15:00Z",
+              "dateModified": "2026-07-13T22:15:00Z",
+              "encodingFormat": "image/vnd.dwg",
+              "name": "4.4.dwg"
+            },
+            {
+              "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.4%20NOVO%20CO%CC%82MODO%20ISOLADO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.4.pdf",
+              "@type": "File",
+              "contentSize": "1465183",
+              "dateCreated": "2026-07-13T22:15:00Z",
+              "dateModified": "2026-07-13T22:15:00Z",
+              "encodingFormat": "application/pdf",
+              "name": "4.4.pdf"
+            },
+            {
+              "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.5%20POC%CC%A7O%20DE%20VENTILAC%CC%A7A%CC%83O/4.5.dwg",
+              "@type": "File",
+              "contentSize": "3838397",
+              "dateCreated": "2026-07-13T22:16:00Z",
+              "dateModified": "2026-07-13T22:16:00Z",
+              "encodingFormat": "image/vnd.dwg",
+              "name": "4.5.dwg"
+            },
+            {
+              "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.5%20POC%CC%A7O%20DE%20VENTILAC%CC%A7A%CC%83O/4.5.pdf",
+              "@type": "File",
+              "contentSize": "1136291",
+              "dateCreated": "2026-07-13T22:16:00Z",
+              "dateModified": "2026-07-13T22:16:00Z",
+              "encodingFormat": "application/pdf",
+              "name": "4.5.pdf"
+            },
+            {
+              "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.6%20RECOMPOSIC%CC%A7A%CC%83O%20ESTRUTURAL%20%28CO%CC%82MODO%29/4.6.dwg",
+              "@type": "File",
+              "contentSize": "3604946",
+              "dateCreated": "2026-07-13T22:17:00Z",
+              "dateModified": "2026-07-13T22:17:00Z",
+              "encodingFormat": "image/vnd.dwg",
+              "name": "4.6.dwg"
+            },
+            {
+              "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.6%20RECOMPOSIC%CC%A7A%CC%83O%20ESTRUTURAL%20%28CO%CC%82MODO%29/4.6.pdf",
+              "@type": "File",
+              "contentSize": "672156",
+              "dateCreated": "2026-07-13T22:17:00Z",
+              "dateModified": "2026-07-13T22:17:00Z",
+              "encodingFormat": "application/pdf",
+              "name": "4.6.pdf"
+            },
+            {
+              "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.7%20VARANDA/4.7.dwg",
+              "@type": "File",
+              "contentSize": "3733733",
+              "dateCreated": "2026-07-13T22:17:00Z",
+              "dateModified": "2026-07-13T22:17:00Z",
+              "encodingFormat": "image/vnd.dwg",
+              "name": "4.7.dwg"
+            },
+            {
+              "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.7%20VARANDA/4.7.pdf",
+              "@type": "File",
+              "contentSize": "600296",
+              "dateCreated": "2026-07-13T22:17:00Z",
+              "dateModified": "2026-07-13T22:17:00Z",
+              "encodingFormat": "application/pdf",
+              "name": "4.7.pdf"
+            },
+            {
+              "@id": "onto-file-viewer.html",
+              "@type": "File",
+              "contentSize": "7487",
+              "dateCreated": "2026-08-19T05:13:50.715344Z",
+              "dateModified": "2026-08-19T05:40:21.549799Z",
+              "encodingFormat": "text/html",
+              "name": "onto-file-viewer.html"
+            }
+          ]
+        },
+        "dataset_node": {
+          "@id": "./",
+          "@type": "Dataset",
+          "datePublished": "2026-08-19T05:48:40+00:00",
+          "hasPart": [
+            {
+              "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.1%20NOVO%20CO%CC%82MODO%20CONTIGUO/4.1.dwg"
+            },
+            {
+              "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.1%20NOVO%20CO%CC%82MODO%20CONTIGUO/4.1.pdf"
+            },
+            {
+              "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.2%20NOVO%20CO%CC%82MODO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.2.dwg"
+            },
+            {
+              "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.2%20NOVO%20CO%CC%82MODO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.2.pdf"
+            },
+            {
+              "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.3%20NOVO%20CO%CC%82MODO%20ISOLADO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.3.dwg"
+            },
+            {
+              "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.3%20NOVO%20CO%CC%82MODO%20ISOLADO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.3.pdf"
+            },
+            {
+              "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.4%20NOVO%20CO%CC%82MODO%20ISOLADO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.4.dwg"
+            },
+            {
+              "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.4%20NOVO%20CO%CC%82MODO%20ISOLADO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.4.pdf"
+            },
+            {
+              "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.5%20POC%CC%A7O%20DE%20VENTILAC%CC%A7A%CC%83O/4.5.dwg"
+            },
+            {
+              "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.5%20POC%CC%A7O%20DE%20VENTILAC%CC%A7A%CC%83O/4.5.pdf"
+            },
+            {
+              "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.6%20RECOMPOSIC%CC%A7A%CC%83O%20ESTRUTURAL%20%28CO%CC%82MODO%29/4.6.dwg"
+            },
+            {
+              "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.6%20RECOMPOSIC%CC%A7A%CC%83O%20ESTRUTURAL%20%28CO%CC%82MODO%29/4.6.pdf"
+            },
+            {
+              "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.7%20VARANDA/4.7.dwg"
+            },
+            {
+              "@id": "4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.7%20VARANDA/4.7.pdf"
+            },
+            {
+              "@id": "onto-file-viewer.html"
+            }
+          ]
+        },
+        "has_part_count": 15,
+        "graph_count": 17
+      }
+    },
+    "__files_enumerated__": {
+      "capability_id": "org.infobim.a3.plugin.capability.transformation.target.files_enumerated",
+      "result": {
+        "file_count": 14,
+        "files": [
+          {
+            "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.1 NOVO CÔMODO CONTIGUO/4.1.dwg",
+            "absolute_path": "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.1 NOVO CÔMODO CONTIGUO/4.1.dwg",
+            "size_bytes": 3778735,
+            "mime_type": "image/vnd.dwg",
+            "extension": "dwg",
+            "ro_crate_node": {}
+          },
+          {
+            "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.1 NOVO CÔMODO CONTIGUO/4.1.pdf",
+            "absolute_path": "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.1 NOVO CÔMODO CONTIGUO/4.1.pdf",
+            "size_bytes": 1560427,
+            "mime_type": "application/pdf",
+            "extension": "pdf",
+            "ro_crate_node": {}
+          },
+          {
+            "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.2 NOVO CÔMODO (FUNDAÇÃO EM SAPATA)/4.2.dwg",
+            "absolute_path": "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.2 NOVO CÔMODO (FUNDAÇÃO EM SAPATA)/4.2.dwg",
+            "size_bytes": 3814994,
+            "mime_type": "image/vnd.dwg",
+            "extension": "dwg",
+            "ro_crate_node": {}
+          },
+          {
+            "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.2 NOVO CÔMODO (FUNDAÇÃO EM SAPATA)/4.2.pdf",
+            "absolute_path": "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.2 NOVO CÔMODO (FUNDAÇÃO EM SAPATA)/4.2.pdf",
+            "size_bytes": 1243575,
+            "mime_type": "application/pdf",
+            "extension": "pdf",
+            "ro_crate_node": {}
+          },
+          {
+            "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.3 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.3.dwg",
+            "absolute_path": "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.3 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.3.dwg",
+            "size_bytes": 3781696,
+            "mime_type": "image/vnd.dwg",
+            "extension": "dwg",
+            "ro_crate_node": {}
+          },
+          {
+            "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.3 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.3.pdf",
+            "absolute_path": "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.3 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.3.pdf",
+            "size_bytes": 1587541,
+            "mime_type": "application/pdf",
+            "extension": "pdf",
+            "ro_crate_node": {}
+          },
+          {
+            "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.4 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.4.dwg",
+            "absolute_path": "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.4 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.4.dwg",
+            "size_bytes": 3820189,
+            "mime_type": "image/vnd.dwg",
+            "extension": "dwg",
+            "ro_crate_node": {}
+          },
+          {
+            "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.4 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.4.pdf",
+            "absolute_path": "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.4 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.4.pdf",
+            "size_bytes": 1465183,
+            "mime_type": "application/pdf",
+            "extension": "pdf",
+            "ro_crate_node": {}
+          },
+          {
+            "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.5 POÇO DE VENTILAÇÃO/4.5.dwg",
+            "absolute_path": "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.5 POÇO DE VENTILAÇÃO/4.5.dwg",
+            "size_bytes": 3838397,
+            "mime_type": "image/vnd.dwg",
+            "extension": "dwg",
+            "ro_crate_node": {}
+          },
+          {
+            "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.5 POÇO DE VENTILAÇÃO/4.5.pdf",
+            "absolute_path": "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.5 POÇO DE VENTILAÇÃO/4.5.pdf",
+            "size_bytes": 1136291,
+            "mime_type": "application/pdf",
+            "extension": "pdf",
+            "ro_crate_node": {}
+          },
+          {
+            "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.6 RECOMPOSIÇÃO ESTRUTURAL (CÔMODO)/4.6.dwg",
+            "absolute_path": "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.6 RECOMPOSIÇÃO ESTRUTURAL (CÔMODO)/4.6.dwg",
+            "size_bytes": 3604946,
+            "mime_type": "image/vnd.dwg",
+            "extension": "dwg",
+            "ro_crate_node": {}
+          },
+          {
+            "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.6 RECOMPOSIÇÃO ESTRUTURAL (CÔMODO)/4.6.pdf",
+            "absolute_path": "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.6 RECOMPOSIÇÃO ESTRUTURAL (CÔMODO)/4.6.pdf",
+            "size_bytes": 672156,
+            "mime_type": "application/pdf",
+            "extension": "pdf",
+            "ro_crate_node": {}
+          },
+          {
+            "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.7 VARANDA/4.7.dwg",
+            "absolute_path": "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.7 VARANDA/4.7.dwg",
+            "size_bytes": 3733733,
+            "mime_type": "image/vnd.dwg",
+            "extension": "dwg",
+            "ro_crate_node": {}
+          },
+          {
+            "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.7 VARANDA/4.7.pdf",
+            "absolute_path": "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.7 VARANDA/4.7.pdf",
+            "size_bytes": 600296,
+            "mime_type": "application/pdf",
+            "extension": "pdf",
+            "ro_crate_node": {}
+          }
+        ]
+      }
+    },
+    "__llm_evaluated__": {
+      "capability_id": "org.infobim.a3.plugin.capability.transformation.target.llm_evaluated",
+      "result": {
+        "total_files": 14,
+        "accepted_count": 0,
+        "rejected_count": 14,
+        "evaluations": [
+          {
+            "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.1 NOVO CÔMODO CONTIGUO/4.1.dwg",
+            "element_id": "2O2Fr8z5XBSwt21W9Xj17R",
+            "dimension_property": "IfcLengthMeasure.height",
+            "accepted": false,
+            "confidence": 0.0,
+            "rationale": "Arquivo 4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.1 NOVO CÔMODO CONTIGUO/4.1.dwg foi rejeitado pela heurística local: não é um tipo documental reconhecido ou não apresenta conteúdo suficiente para a dimensão IfcLengthMeasure.height.",
+            "model": "local/heuristic-v1",
+            "file_metadata": {
+              "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.1 NOVO CÔMODO CONTIGUO/4.1.dwg",
+              "absolute_path": "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.1 NOVO CÔMODO CONTIGUO/4.1.dwg",
+              "size_bytes": 3778735,
+              "mime_type": "image/vnd.dwg",
+              "extension": "dwg",
+              "ro_crate_node": {}
+            },
+            "dimension_hints": []
+          },
+          {
+            "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.1 NOVO CÔMODO CONTIGUO/4.1.pdf",
+            "element_id": "2O2Fr8z5XBSwt21W9Xj17R",
+            "dimension_property": "IfcLengthMeasure.height",
+            "accepted": false,
+            "confidence": 0.24999999999999997,
+            "rationale": "Arquivo 4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.1 NOVO CÔMODO CONTIGUO/4.1.pdf foi rejeitado pela heurística local: não é um tipo documental reconhecido ou não apresenta conteúdo suficiente para a dimensão IfcLengthMeasure.height.",
+            "model": "local/heuristic-v1",
+            "file_metadata": {
+              "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.1 NOVO CÔMODO CONTIGUO/4.1.pdf",
+              "absolute_path": "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.1 NOVO CÔMODO CONTIGUO/4.1.pdf",
+              "size_bytes": 1560427,
+              "mime_type": "application/pdf",
+              "extension": "pdf",
+              "ro_crate_node": {}
+            },
+            "dimension_hints": []
+          },
+          {
+            "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.2 NOVO CÔMODO (FUNDAÇÃO EM SAPATA)/4.2.dwg",
+            "element_id": "2O2Fr8z5XBSwt21W9Xj17R",
+            "dimension_property": "IfcLengthMeasure.height",
+            "accepted": false,
+            "confidence": 0.0,
+            "rationale": "Arquivo 4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.2 NOVO CÔMODO (FUNDAÇÃO EM SAPATA)/4.2.dwg foi rejeitado pela heurística local: não é um tipo documental reconhecido ou não apresenta conteúdo suficiente para a dimensão IfcLengthMeasure.height.",
+            "model": "local/heuristic-v1",
+            "file_metadata": {
+              "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.2 NOVO CÔMODO (FUNDAÇÃO EM SAPATA)/4.2.dwg",
+              "absolute_path": "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.2 NOVO CÔMODO (FUNDAÇÃO EM SAPATA)/4.2.dwg",
+              "size_bytes": 3814994,
+              "mime_type": "image/vnd.dwg",
+              "extension": "dwg",
+              "ro_crate_node": {}
+            },
+            "dimension_hints": []
+          },
+          {
+            "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.2 NOVO CÔMODO (FUNDAÇÃO EM SAPATA)/4.2.pdf",
+            "element_id": "2O2Fr8z5XBSwt21W9Xj17R",
+            "dimension_property": "IfcLengthMeasure.height",
+            "accepted": false,
+            "confidence": 0.24999999999999997,
+            "rationale": "Arquivo 4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.2 NOVO CÔMODO (FUNDAÇÃO EM SAPATA)/4.2.pdf foi rejeitado pela heurística local: não é um tipo documental reconhecido ou não apresenta conteúdo suficiente para a dimensão IfcLengthMeasure.height.",
+            "model": "local/heuristic-v1",
+            "file_metadata": {
+              "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.2 NOVO CÔMODO (FUNDAÇÃO EM SAPATA)/4.2.pdf",
+              "absolute_path": "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.2 NOVO CÔMODO (FUNDAÇÃO EM SAPATA)/4.2.pdf",
+              "size_bytes": 1243575,
+              "mime_type": "application/pdf",
+              "extension": "pdf",
+              "ro_crate_node": {}
+            },
+            "dimension_hints": []
+          },
+          {
+            "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.3 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.3.dwg",
+            "element_id": "2O2Fr8z5XBSwt21W9Xj17R",
+            "dimension_property": "IfcLengthMeasure.height",
+            "accepted": false,
+            "confidence": 0.0,
+            "rationale": "Arquivo 4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.3 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.3.dwg foi rejeitado pela heurística local: não é um tipo documental reconhecido ou não apresenta conteúdo suficiente para a dimensão IfcLengthMeasure.height.",
+            "model": "local/heuristic-v1",
+            "file_metadata": {
+              "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.3 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.3.dwg",
+              "absolute_path": "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.3 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.3.dwg",
+              "size_bytes": 3781696,
+              "mime_type": "image/vnd.dwg",
+              "extension": "dwg",
+              "ro_crate_node": {}
+            },
+            "dimension_hints": []
+          },
+          {
+            "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.3 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.3.pdf",
+            "element_id": "2O2Fr8z5XBSwt21W9Xj17R",
+            "dimension_property": "IfcLengthMeasure.height",
+            "accepted": false,
+            "confidence": 0.24999999999999997,
+            "rationale": "Arquivo 4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.3 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.3.pdf foi rejeitado pela heurística local: não é um tipo documental reconhecido ou não apresenta conteúdo suficiente para a dimensão IfcLengthMeasure.height.",
+            "model": "local/heuristic-v1",
+            "file_metadata": {
+              "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.3 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.3.pdf",
+              "absolute_path": "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.3 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.3.pdf",
+              "size_bytes": 1587541,
+              "mime_type": "application/pdf",
+              "extension": "pdf",
+              "ro_crate_node": {}
+            },
+            "dimension_hints": []
+          },
+          {
+            "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.4 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.4.dwg",
+            "element_id": "2O2Fr8z5XBSwt21W9Xj17R",
+            "dimension_property": "IfcLengthMeasure.height",
+            "accepted": false,
+            "confidence": 0.0,
+            "rationale": "Arquivo 4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.4 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.4.dwg foi rejeitado pela heurística local: não é um tipo documental reconhecido ou não apresenta conteúdo suficiente para a dimensão IfcLengthMeasure.height.",
+            "model": "local/heuristic-v1",
+            "file_metadata": {
+              "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.4 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.4.dwg",
+              "absolute_path": "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.4 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.4.dwg",
+              "size_bytes": 3820189,
+              "mime_type": "image/vnd.dwg",
+              "extension": "dwg",
+              "ro_crate_node": {}
+            },
+            "dimension_hints": []
+          },
+          {
+            "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.4 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.4.pdf",
+            "element_id": "2O2Fr8z5XBSwt21W9Xj17R",
+            "dimension_property": "IfcLengthMeasure.height",
+            "accepted": false,
+            "confidence": 0.24999999999999997,
+            "rationale": "Arquivo 4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.4 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.4.pdf foi rejeitado pela heurística local: não é um tipo documental reconhecido ou não apresenta conteúdo suficiente para a dimensão IfcLengthMeasure.height.",
+            "model": "local/heuristic-v1",
+            "file_metadata": {
+              "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.4 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.4.pdf",
+              "absolute_path": "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.4 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.4.pdf",
+              "size_bytes": 1465183,
+              "mime_type": "application/pdf",
+              "extension": "pdf",
+              "ro_crate_node": {}
+            },
+            "dimension_hints": []
+          },
+          {
+            "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.5 POÇO DE VENTILAÇÃO/4.5.dwg",
+            "element_id": "2O2Fr8z5XBSwt21W9Xj17R",
+            "dimension_property": "IfcLengthMeasure.height",
+            "accepted": false,
+            "confidence": 0.0,
+            "rationale": "Arquivo 4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.5 POÇO DE VENTILAÇÃO/4.5.dwg foi rejeitado pela heurística local: não é um tipo documental reconhecido ou não apresenta conteúdo suficiente para a dimensão IfcLengthMeasure.height.",
+            "model": "local/heuristic-v1",
+            "file_metadata": {
+              "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.5 POÇO DE VENTILAÇÃO/4.5.dwg",
+              "absolute_path": "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.5 POÇO DE VENTILAÇÃO/4.5.dwg",
+              "size_bytes": 3838397,
+              "mime_type": "image/vnd.dwg",
+              "extension": "dwg",
+              "ro_crate_node": {}
+            },
+            "dimension_hints": []
+          },
+          {
+            "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.5 POÇO DE VENTILAÇÃO/4.5.pdf",
+            "element_id": "2O2Fr8z5XBSwt21W9Xj17R",
+            "dimension_property": "IfcLengthMeasure.height",
+            "accepted": false,
+            "confidence": 0.24999999999999997,
+            "rationale": "Arquivo 4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.5 POÇO DE VENTILAÇÃO/4.5.pdf foi rejeitado pela heurística local: não é um tipo documental reconhecido ou não apresenta conteúdo suficiente para a dimensão IfcLengthMeasure.height.",
+            "model": "local/heuristic-v1",
+            "file_metadata": {
+              "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.5 POÇO DE VENTILAÇÃO/4.5.pdf",
+              "absolute_path": "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.5 POÇO DE VENTILAÇÃO/4.5.pdf",
+              "size_bytes": 1136291,
+              "mime_type": "application/pdf",
+              "extension": "pdf",
+              "ro_crate_node": {}
+            },
+            "dimension_hints": []
+          },
+          {
+            "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.6 RECOMPOSIÇÃO ESTRUTURAL (CÔMODO)/4.6.dwg",
+            "element_id": "2O2Fr8z5XBSwt21W9Xj17R",
+            "dimension_property": "IfcLengthMeasure.height",
+            "accepted": false,
+            "confidence": 0.0,
+            "rationale": "Arquivo 4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.6 RECOMPOSIÇÃO ESTRUTURAL (CÔMODO)/4.6.dwg foi rejeitado pela heurística local: não é um tipo documental reconhecido ou não apresenta conteúdo suficiente para a dimensão IfcLengthMeasure.height.",
+            "model": "local/heuristic-v1",
+            "file_metadata": {
+              "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.6 RECOMPOSIÇÃO ESTRUTURAL (CÔMODO)/4.6.dwg",
+              "absolute_path": "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.6 RECOMPOSIÇÃO ESTRUTURAL (CÔMODO)/4.6.dwg",
+              "size_bytes": 3604946,
+              "mime_type": "image/vnd.dwg",
+              "extension": "dwg",
+              "ro_crate_node": {}
+            },
+            "dimension_hints": []
+          },
+          {
+            "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.6 RECOMPOSIÇÃO ESTRUTURAL (CÔMODO)/4.6.pdf",
+            "element_id": "2O2Fr8z5XBSwt21W9Xj17R",
+            "dimension_property": "IfcLengthMeasure.height",
+            "accepted": false,
+            "confidence": 0.24999999999999997,
+            "rationale": "Arquivo 4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.6 RECOMPOSIÇÃO ESTRUTURAL (CÔMODO)/4.6.pdf foi rejeitado pela heurística local: não é um tipo documental reconhecido ou não apresenta conteúdo suficiente para a dimensão IfcLengthMeasure.height.",
+            "model": "local/heuristic-v1",
+            "file_metadata": {
+              "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.6 RECOMPOSIÇÃO ESTRUTURAL (CÔMODO)/4.6.pdf",
+              "absolute_path": "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.6 RECOMPOSIÇÃO ESTRUTURAL (CÔMODO)/4.6.pdf",
+              "size_bytes": 672156,
+              "mime_type": "application/pdf",
+              "extension": "pdf",
+              "ro_crate_node": {}
+            },
+            "dimension_hints": []
+          },
+          {
+            "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.7 VARANDA/4.7.dwg",
+            "element_id": "2O2Fr8z5XBSwt21W9Xj17R",
+            "dimension_property": "IfcLengthMeasure.height",
+            "accepted": false,
+            "confidence": 0.0,
+            "rationale": "Arquivo 4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.7 VARANDA/4.7.dwg foi rejeitado pela heurística local: não é um tipo documental reconhecido ou não apresenta conteúdo suficiente para a dimensão IfcLengthMeasure.height.",
+            "model": "local/heuristic-v1",
+            "file_metadata": {
+              "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.7 VARANDA/4.7.dwg",
+              "absolute_path": "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.7 VARANDA/4.7.dwg",
+              "size_bytes": 3733733,
+              "mime_type": "image/vnd.dwg",
+              "extension": "dwg",
+              "ro_crate_node": {}
+            },
+            "dimension_hints": []
+          },
+          {
+            "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.7 VARANDA/4.7.pdf",
+            "element_id": "2O2Fr8z5XBSwt21W9Xj17R",
+            "dimension_property": "IfcLengthMeasure.height",
+            "accepted": false,
+            "confidence": 0.24999999999999997,
+            "rationale": "Arquivo 4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.7 VARANDA/4.7.pdf foi rejeitado pela heurística local: não é um tipo documental reconhecido ou não apresenta conteúdo suficiente para a dimensão IfcLengthMeasure.height.",
+            "model": "local/heuristic-v1",
+            "file_metadata": {
+              "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.7 VARANDA/4.7.pdf",
+              "absolute_path": "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.7 VARANDA/4.7.pdf",
+              "size_bytes": 600296,
+              "mime_type": "application/pdf",
+              "extension": "pdf",
+              "ro_crate_node": {}
+            },
+            "dimension_hints": []
+          }
+        ],
+        "accepted": [],
+        "rejected": [
+          {
+            "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.1 NOVO CÔMODO CONTIGUO/4.1.dwg",
+            "element_id": "2O2Fr8z5XBSwt21W9Xj17R",
+            "dimension_property": "IfcLengthMeasure.height",
+            "accepted": false,
+            "confidence": 0.0,
+            "rationale": "Arquivo 4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.1 NOVO CÔMODO CONTIGUO/4.1.dwg foi rejeitado pela heurística local: não é um tipo documental reconhecido ou não apresenta conteúdo suficiente para a dimensão IfcLengthMeasure.height.",
+            "model": "local/heuristic-v1",
+            "file_metadata": {
+              "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.1 NOVO CÔMODO CONTIGUO/4.1.dwg",
+              "absolute_path": "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.1 NOVO CÔMODO CONTIGUO/4.1.dwg",
+              "size_bytes": 3778735,
+              "mime_type": "image/vnd.dwg",
+              "extension": "dwg",
+              "ro_crate_node": {}
+            },
+            "dimension_hints": []
+          },
+          {
+            "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.1 NOVO CÔMODO CONTIGUO/4.1.pdf",
+            "element_id": "2O2Fr8z5XBSwt21W9Xj17R",
+            "dimension_property": "IfcLengthMeasure.height",
+            "accepted": false,
+            "confidence": 0.24999999999999997,
+            "rationale": "Arquivo 4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.1 NOVO CÔMODO CONTIGUO/4.1.pdf foi rejeitado pela heurística local: não é um tipo documental reconhecido ou não apresenta conteúdo suficiente para a dimensão IfcLengthMeasure.height.",
+            "model": "local/heuristic-v1",
+            "file_metadata": {
+              "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.1 NOVO CÔMODO CONTIGUO/4.1.pdf",
+              "absolute_path": "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.1 NOVO CÔMODO CONTIGUO/4.1.pdf",
+              "size_bytes": 1560427,
+              "mime_type": "application/pdf",
+              "extension": "pdf",
+              "ro_crate_node": {}
+            },
+            "dimension_hints": []
+          },
+          {
+            "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.2 NOVO CÔMODO (FUNDAÇÃO EM SAPATA)/4.2.dwg",
+            "element_id": "2O2Fr8z5XBSwt21W9Xj17R",
+            "dimension_property": "IfcLengthMeasure.height",
+            "accepted": false,
+            "confidence": 0.0,
+            "rationale": "Arquivo 4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.2 NOVO CÔMODO (FUNDAÇÃO EM SAPATA)/4.2.dwg foi rejeitado pela heurística local: não é um tipo documental reconhecido ou não apresenta conteúdo suficiente para a dimensão IfcLengthMeasure.height.",
+            "model": "local/heuristic-v1",
+            "file_metadata": {
+              "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.2 NOVO CÔMODO (FUNDAÇÃO EM SAPATA)/4.2.dwg",
+              "absolute_path": "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.2 NOVO CÔMODO (FUNDAÇÃO EM SAPATA)/4.2.dwg",
+              "size_bytes": 3814994,
+              "mime_type": "image/vnd.dwg",
+              "extension": "dwg",
+              "ro_crate_node": {}
+            },
+            "dimension_hints": []
+          },
+          {
+            "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.2 NOVO CÔMODO (FUNDAÇÃO EM SAPATA)/4.2.pdf",
+            "element_id": "2O2Fr8z5XBSwt21W9Xj17R",
+            "dimension_property": "IfcLengthMeasure.height",
+            "accepted": false,
+            "confidence": 0.24999999999999997,
+            "rationale": "Arquivo 4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.2 NOVO CÔMODO (FUNDAÇÃO EM SAPATA)/4.2.pdf foi rejeitado pela heurística local: não é um tipo documental reconhecido ou não apresenta conteúdo suficiente para a dimensão IfcLengthMeasure.height.",
+            "model": "local/heuristic-v1",
+            "file_metadata": {
+              "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.2 NOVO CÔMODO (FUNDAÇÃO EM SAPATA)/4.2.pdf",
+              "absolute_path": "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.2 NOVO CÔMODO (FUNDAÇÃO EM SAPATA)/4.2.pdf",
+              "size_bytes": 1243575,
+              "mime_type": "application/pdf",
+              "extension": "pdf",
+              "ro_crate_node": {}
+            },
+            "dimension_hints": []
+          },
+          {
+            "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.3 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.3.dwg",
+            "element_id": "2O2Fr8z5XBSwt21W9Xj17R",
+            "dimension_property": "IfcLengthMeasure.height",
+            "accepted": false,
+            "confidence": 0.0,
+            "rationale": "Arquivo 4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.3 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.3.dwg foi rejeitado pela heurística local: não é um tipo documental reconhecido ou não apresenta conteúdo suficiente para a dimensão IfcLengthMeasure.height.",
+            "model": "local/heuristic-v1",
+            "file_metadata": {
+              "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.3 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.3.dwg",
+              "absolute_path": "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.3 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.3.dwg",
+              "size_bytes": 3781696,
+              "mime_type": "image/vnd.dwg",
+              "extension": "dwg",
+              "ro_crate_node": {}
+            },
+            "dimension_hints": []
+          },
+          {
+            "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.3 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.3.pdf",
+            "element_id": "2O2Fr8z5XBSwt21W9Xj17R",
+            "dimension_property": "IfcLengthMeasure.height",
+            "accepted": false,
+            "confidence": 0.24999999999999997,
+            "rationale": "Arquivo 4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.3 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.3.pdf foi rejeitado pela heurística local: não é um tipo documental reconhecido ou não apresenta conteúdo suficiente para a dimensão IfcLengthMeasure.height.",
+            "model": "local/heuristic-v1",
+            "file_metadata": {
+              "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.3 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.3.pdf",
+              "absolute_path": "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.3 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.3.pdf",
+              "size_bytes": 1587541,
+              "mime_type": "application/pdf",
+              "extension": "pdf",
+              "ro_crate_node": {}
+            },
+            "dimension_hints": []
+          },
+          {
+            "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.4 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.4.dwg",
+            "element_id": "2O2Fr8z5XBSwt21W9Xj17R",
+            "dimension_property": "IfcLengthMeasure.height",
+            "accepted": false,
+            "confidence": 0.0,
+            "rationale": "Arquivo 4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.4 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.4.dwg foi rejeitado pela heurística local: não é um tipo documental reconhecido ou não apresenta conteúdo suficiente para a dimensão IfcLengthMeasure.height.",
+            "model": "local/heuristic-v1",
+            "file_metadata": {
+              "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.4 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.4.dwg",
+              "absolute_path": "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.4 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.4.dwg",
+              "size_bytes": 3820189,
+              "mime_type": "image/vnd.dwg",
+              "extension": "dwg",
+              "ro_crate_node": {}
+            },
+            "dimension_hints": []
+          },
+          {
+            "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.4 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.4.pdf",
+            "element_id": "2O2Fr8z5XBSwt21W9Xj17R",
+            "dimension_property": "IfcLengthMeasure.height",
+            "accepted": false,
+            "confidence": 0.24999999999999997,
+            "rationale": "Arquivo 4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.4 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.4.pdf foi rejeitado pela heurística local: não é um tipo documental reconhecido ou não apresenta conteúdo suficiente para a dimensão IfcLengthMeasure.height.",
+            "model": "local/heuristic-v1",
+            "file_metadata": {
+              "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.4 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.4.pdf",
+              "absolute_path": "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.4 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.4.pdf",
+              "size_bytes": 1465183,
+              "mime_type": "application/pdf",
+              "extension": "pdf",
+              "ro_crate_node": {}
+            },
+            "dimension_hints": []
+          },
+          {
+            "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.5 POÇO DE VENTILAÇÃO/4.5.dwg",
+            "element_id": "2O2Fr8z5XBSwt21W9Xj17R",
+            "dimension_property": "IfcLengthMeasure.height",
+            "accepted": false,
+            "confidence": 0.0,
+            "rationale": "Arquivo 4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.5 POÇO DE VENTILAÇÃO/4.5.dwg foi rejeitado pela heurística local: não é um tipo documental reconhecido ou não apresenta conteúdo suficiente para a dimensão IfcLengthMeasure.height.",
+            "model": "local/heuristic-v1",
+            "file_metadata": {
+              "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.5 POÇO DE VENTILAÇÃO/4.5.dwg",
+              "absolute_path": "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.5 POÇO DE VENTILAÇÃO/4.5.dwg",
+              "size_bytes": 3838397,
+              "mime_type": "image/vnd.dwg",
+              "extension": "dwg",
+              "ro_crate_node": {}
+            },
+            "dimension_hints": []
+          },
+          {
+            "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.5 POÇO DE VENTILAÇÃO/4.5.pdf",
+            "element_id": "2O2Fr8z5XBSwt21W9Xj17R",
+            "dimension_property": "IfcLengthMeasure.height",
+            "accepted": false,
+            "confidence": 0.24999999999999997,
+            "rationale": "Arquivo 4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.5 POÇO DE VENTILAÇÃO/4.5.pdf foi rejeitado pela heurística local: não é um tipo documental reconhecido ou não apresenta conteúdo suficiente para a dimensão IfcLengthMeasure.height.",
+            "model": "local/heuristic-v1",
+            "file_metadata": {
+              "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.5 POÇO DE VENTILAÇÃO/4.5.pdf",
+              "absolute_path": "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.5 POÇO DE VENTILAÇÃO/4.5.pdf",
+              "size_bytes": 1136291,
+              "mime_type": "application/pdf",
+              "extension": "pdf",
+              "ro_crate_node": {}
+            },
+            "dimension_hints": []
+          },
+          {
+            "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.6 RECOMPOSIÇÃO ESTRUTURAL (CÔMODO)/4.6.dwg",
+            "element_id": "2O2Fr8z5XBSwt21W9Xj17R",
+            "dimension_property": "IfcLengthMeasure.height",
+            "accepted": false,
+            "confidence": 0.0,
+            "rationale": "Arquivo 4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.6 RECOMPOSIÇÃO ESTRUTURAL (CÔMODO)/4.6.dwg foi rejeitado pela heurística local: não é um tipo documental reconhecido ou não apresenta conteúdo suficiente para a dimensão IfcLengthMeasure.height.",
+            "model": "local/heuristic-v1",
+            "file_metadata": {
+              "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.6 RECOMPOSIÇÃO ESTRUTURAL (CÔMODO)/4.6.dwg",
+              "absolute_path": "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.6 RECOMPOSIÇÃO ESTRUTURAL (CÔMODO)/4.6.dwg",
+              "size_bytes": 3604946,
+              "mime_type": "image/vnd.dwg",
+              "extension": "dwg",
+              "ro_crate_node": {}
+            },
+            "dimension_hints": []
+          },
+          {
+            "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.6 RECOMPOSIÇÃO ESTRUTURAL (CÔMODO)/4.6.pdf",
+            "element_id": "2O2Fr8z5XBSwt21W9Xj17R",
+            "dimension_property": "IfcLengthMeasure.height",
+            "accepted": false,
+            "confidence": 0.24999999999999997,
+            "rationale": "Arquivo 4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.6 RECOMPOSIÇÃO ESTRUTURAL (CÔMODO)/4.6.pdf foi rejeitado pela heurística local: não é um tipo documental reconhecido ou não apresenta conteúdo suficiente para a dimensão IfcLengthMeasure.height.",
+            "model": "local/heuristic-v1",
+            "file_metadata": {
+              "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.6 RECOMPOSIÇÃO ESTRUTURAL (CÔMODO)/4.6.pdf",
+              "absolute_path": "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.6 RECOMPOSIÇÃO ESTRUTURAL (CÔMODO)/4.6.pdf",
+              "size_bytes": 672156,
+              "mime_type": "application/pdf",
+              "extension": "pdf",
+              "ro_crate_node": {}
+            },
+            "dimension_hints": []
+          },
+          {
+            "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.7 VARANDA/4.7.dwg",
+            "element_id": "2O2Fr8z5XBSwt21W9Xj17R",
+            "dimension_property": "IfcLengthMeasure.height",
+            "accepted": false,
+            "confidence": 0.0,
+            "rationale": "Arquivo 4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.7 VARANDA/4.7.dwg foi rejeitado pela heurística local: não é um tipo documental reconhecido ou não apresenta conteúdo suficiente para a dimensão IfcLengthMeasure.height.",
+            "model": "local/heuristic-v1",
+            "file_metadata": {
+              "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.7 VARANDA/4.7.dwg",
+              "absolute_path": "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.7 VARANDA/4.7.dwg",
+              "size_bytes": 3733733,
+              "mime_type": "image/vnd.dwg",
+              "extension": "dwg",
+              "ro_crate_node": {}
+            },
+            "dimension_hints": []
+          },
+          {
+            "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.7 VARANDA/4.7.pdf",
+            "element_id": "2O2Fr8z5XBSwt21W9Xj17R",
+            "dimension_property": "IfcLengthMeasure.height",
+            "accepted": false,
+            "confidence": 0.24999999999999997,
+            "rationale": "Arquivo 4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.7 VARANDA/4.7.pdf foi rejeitado pela heurística local: não é um tipo documental reconhecido ou não apresenta conteúdo suficiente para a dimensão IfcLengthMeasure.height.",
+            "model": "local/heuristic-v1",
+            "file_metadata": {
+              "relative_path": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.7 VARANDA/4.7.pdf",
+              "absolute_path": "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.7 VARANDA/4.7.pdf",
+              "size_bytes": 600296,
+              "mime_type": "application/pdf",
+              "extension": "pdf",
+              "ro_crate_node": {}
+            },
+            "dimension_hints": []
+          }
+        ]
+      }
+    },
+    "__suggestions_saved__": {
+      "capability_id": "org.infobim.a3.plugin.capability.transformation.target.suggestions_saved",
+      "result": {
+        "index_path": "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/.__ontobdc__/a3_suggestions/suggestions_index.json",
+        "element_id": "2O2Fr8z5XBSwt21W9Xj17R",
+        "dimension_property": "IfcLengthMeasure.height",
+        "saved_count": 0
+      }
+    }
+  },
+  "current_state": "__suggestions_saved__"
+}

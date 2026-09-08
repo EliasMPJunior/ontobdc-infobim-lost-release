@@ -1,0 +1,20 @@
+@prefix ct: <http://standards.iso.org/iso/21597/-1/ed-1/en/Container#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix obdc: <http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<urn:ontobdc:storage/dataset/Clima/.__infobim__> a obdc:EntityDataset ;
+    obdc:belongsToDataContainer <urn:uuid:0e2d451c-09e6-4e34-a83c-164340a7f88e> ;
+    dcterms:description "Storage dataset located at file:///Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/Clima/.__infobim__" ;
+    dcterms:title "Storage Dataset: .__infobim__" ;
+    prov:atLocation <file:///Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/Clima/.__infobim__> .
+
+<urn:uuid:0e2d451c-09e6-4e34-a83c-164340a7f88e> a obdc:DataContainer ;
+    obdc:hasEntityDataset <urn:ontobdc:storage/dataset/Clima/.__infobim__> ;
+    dcterms:identifier "urn:uuid:0e2d451c-09e6-4e34-a83c-164340a7f88e" ;
+    dcterms:title "Storage Container: Clima"@en ;
+    ct:creationDate "2026-08-16T21:15:29.106117+00:00"^^xsd:dateTime ;
+    ct:description "Local storage container at Storage Container: Clima"@en ;
+    prov:atLocation <file:///Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/Clima> .
+

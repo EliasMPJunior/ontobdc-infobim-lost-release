@@ -1,0 +1,111 @@
+@prefix ea: <http://datacenter.app.br/ontology/productivity/entity/enrichment_annotation/type.ttl#> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<urn:ontobdc:annotation:c3cc01dd-3aeb-487e-98b5-3e18ea70fe19> a ea:NoteAnnotation ;
+    oa:motivatedBy oa:commenting ;
+    ea:logicalSource "urn:ontobdc:storage/local/data/files/Aviso%20de%20Contrata%C3%A7%C3%A3o%20Direta.pdf"^^xsd:anyURI ;
+    dcterms:created "2026-08-12T18:42:13.321Z"^^xsd:dateTime ;
+    oa:annotatedAt "2026-08-12T18:42:13.321Z"^^xsd:dateTime ;
+    oa:hasBody [
+        a oa:TextualBody ;
+        rdf:value "Tivemos agora"
+    ] ;
+    ea:representationSource "urn:ontobdc:storage/local/data/files/Aviso%20de%20Contrata%C3%A7%C3%A3o%20Direta.pdf"^^xsd:anyURI ;
+    ea:representationHash "5257f465330f19af7c9cdb91846b30029ec15c945c5413d28052bafcdec3dd2a" ;
+    ea:relatedDimension "urn:ontobdc:storage/dataset/data/work_stream-fire_alarm_test/c47962f1-1bb1-4f62-b42d-8fe10a269ce9/dimension/what"^^xsd:anyURI ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource "urn:ontobdc:storage/local/data/files/Aviso%20de%20Contrata%C3%A7%C3%A3o%20Direta.pdf"^^xsd:anyURI ;
+        oa:hasSelector [
+            a ea:PointSelector ;
+            ea:sourceWidth "1191"^^xsd:positiveInteger ;
+            ea:sourceHeight "1684"^^xsd:positiveInteger ;
+            ea:normalizedX "0.807840132636656"^^xsd:decimal ;
+            ea:normalizedY "0.0978862416942046"^^xsd:decimal
+        ]
+    ] ;
+    ea:markerColor "#f967a1" ;
+    ea:payload "{\"schemaVersion\":2,\"id\":\"urn:ontobdc:annotation:c3cc01dd-3aeb-487e-98b5-3e18ea70fe19\",\"type\":\"http://datacenter.app.br/ontology/productivity/entity/enrichment_annotation/type.ttl#NoteAnnotation\",\"body\":\"Tivemos agora\",\"logicalSource\":\"urn:ontobdc:storage/local/data/files/Aviso%20de%20Contrata%C3%A7%C3%A3o%20Direta.pdf\",\"representationSource\":\"urn:ontobdc:storage/local/data/files/Aviso%20de%20Contrata%C3%A7%C3%A3o%20Direta.pdf\",\"representationHash\":\"5257f465330f19af7c9cdb91846b30029ec15c945c5413d28052bafcdec3dd2a\",\"relatedDimension\":\"urn:ontobdc:storage/dataset/data/work_stream-fire_alarm_test/c47962f1-1bb1-4f62-b42d-8fe10a269ce9/dimension/what\",\"selector\":{\"type\":\"http://datacenter.app.br/ontology/productivity/entity/enrichment_annotation/type.ttl#PointSelector\",\"sourceWidth\":1191,\"sourceHeight\":1684,\"points\":[{\"x\":0.807840132636656,\"y\":0.0978862416942046}]},\"properties\":{\"markerColor\":\"#f967a1\"},\"created\":\"2026-08-12T18:42:13.321Z\",\"annotatedBy\":null,\"annotatedAt\":\"2026-08-12T18:42:13.321Z\",\"modified\":null,\"modifiedBy\":null,\"assignedTo\":[],\"resolvedBy\":null,\"subjects\":[]}" .
+
+<urn:ontobdc:annotation:9015ec6c-8db5-4468-a1ae-ca58ff7e1a2f> a ea:NoteAnnotation ;
+    oa:motivatedBy oa:commenting ;
+    ea:logicalSource "urn:ontobdc:storage/local/data/files/Aviso%20de%20Contrata%C3%A7%C3%A3o%20Direta.pdf"^^xsd:anyURI ;
+    dcterms:created "2026-08-12T19:04:32.092Z"^^xsd:dateTime ;
+    oa:annotatedAt "2026-08-12T19:04:32.092Z"^^xsd:dateTime ;
+    dcterms:modified "2026-08-12T20:17:55.535Z"^^xsd:dateTime ;
+    oa:hasBody [
+        a oa:TextualBody ;
+        rdf:value "Ok"
+    ] ;
+    ea:representationSource "urn:ontobdc:storage/local/data/files/Aviso%20de%20Contrata%C3%A7%C3%A3o%20Direta.pdf"^^xsd:anyURI ;
+    ea:representationHash "5257f465330f19af7c9cdb91846b30029ec15c945c5413d28052bafcdec3dd2a" ;
+    ea:relatedDimension "urn:ontobdc:storage/dataset/data/work_stream-fire_alarm_test/c47962f1-1bb1-4f62-b42d-8fe10a269ce9/dimension/what"^^xsd:anyURI ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource "urn:ontobdc:storage/local/data/files/Aviso%20de%20Contrata%C3%A7%C3%A3o%20Direta.pdf"^^xsd:anyURI ;
+        oa:hasSelector [
+            a ea:PointSelector ;
+            ea:sourceWidth "1191"^^xsd:positiveInteger ;
+            ea:sourceHeight "1684"^^xsd:positiveInteger ;
+            ea:normalizedX "0.8823132284967846"^^xsd:decimal ;
+            ea:normalizedY "0.1749347084532566"^^xsd:decimal
+        ]
+    ] ;
+    ea:markerColor "#8ef967" ;
+    ea:payload "{\"schemaVersion\":2,\"id\":\"urn:ontobdc:annotation:9015ec6c-8db5-4468-a1ae-ca58ff7e1a2f\",\"type\":\"http://datacenter.app.br/ontology/productivity/entity/enrichment_annotation/type.ttl#NoteAnnotation\",\"body\":\"Ok\",\"logicalSource\":\"urn:ontobdc:storage/local/data/files/Aviso%20de%20Contrata%C3%A7%C3%A3o%20Direta.pdf\",\"representationSource\":\"urn:ontobdc:storage/local/data/files/Aviso%20de%20Contrata%C3%A7%C3%A3o%20Direta.pdf\",\"representationHash\":\"5257f465330f19af7c9cdb91846b30029ec15c945c5413d28052bafcdec3dd2a\",\"relatedDimension\":\"urn:ontobdc:storage/dataset/data/work_stream-fire_alarm_test/c47962f1-1bb1-4f62-b42d-8fe10a269ce9/dimension/what\",\"selector\":{\"type\":\"http://datacenter.app.br/ontology/productivity/entity/enrichment_annotation/type.ttl#PointSelector\",\"sourceWidth\":1191,\"sourceHeight\":1684,\"points\":[{\"x\":0.8823132284967846,\"y\":0.1749347084532566}]},\"properties\":{\"markerColor\":\"#8ef967\"},\"created\":\"2026-08-12T19:04:32.092Z\",\"annotatedBy\":null,\"annotatedAt\":\"2026-08-12T19:04:32.092Z\",\"modified\":\"2026-08-12T20:17:55.535Z\",\"modifiedBy\":null,\"assignedTo\":[],\"resolvedBy\":null,\"subjects\":[]}" .
+
+<urn:ontobdc:annotation:a482f71d-104a-4243-a98a-29b69ab11158> a ea:NoteAnnotation ;
+    oa:motivatedBy oa:commenting ;
+    ea:logicalSource "urn:ontobdc:storage/local/data/files/Aviso%20de%20Contrata%C3%A7%C3%A3o%20Direta.pdf"^^xsd:anyURI ;
+    dcterms:created "2026-08-12T19:05:35.542Z"^^xsd:dateTime ;
+    oa:annotatedAt "2026-08-12T19:05:35.542Z"^^xsd:dateTime ;
+    oa:hasBody [
+        a oa:TextualBody ;
+        rdf:value "Parte da escada"
+    ] ;
+    ea:representationSource "urn:ontobdc:storage/local/data/files/Aviso%20de%20Contrata%C3%A7%C3%A3o%20Direta.pdf"^^xsd:anyURI ;
+    ea:representationHash "5257f465330f19af7c9cdb91846b30029ec15c945c5413d28052bafcdec3dd2a" ;
+    ea:relatedDimension "urn:ontobdc:storage/dataset/data/work_stream-fire_alarm_test/c47962f1-1bb1-4f62-b42d-8fe10a269ce9/dimension/what"^^xsd:anyURI ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource "urn:ontobdc:storage/local/data/files/Aviso%20de%20Contrata%C3%A7%C3%A3o%20Direta.pdf"^^xsd:anyURI ;
+        oa:hasSelector [
+            a ea:PointSelector ;
+            ea:sourceWidth "1191"^^xsd:positiveInteger ;
+            ea:sourceHeight "1684"^^xsd:positiveInteger ;
+            ea:normalizedX "0.8888916800643086"^^xsd:decimal ;
+            ea:normalizedY "0.10532592474149878"^^xsd:decimal
+        ]
+    ] ;
+    ea:markerColor "#67e8f9" ;
+    ea:payload "{\"schemaVersion\":2,\"id\":\"urn:ontobdc:annotation:a482f71d-104a-4243-a98a-29b69ab11158\",\"type\":\"http://datacenter.app.br/ontology/productivity/entity/enrichment_annotation/type.ttl#NoteAnnotation\",\"body\":\"Parte da escada\",\"logicalSource\":\"urn:ontobdc:storage/local/data/files/Aviso%20de%20Contrata%C3%A7%C3%A3o%20Direta.pdf\",\"representationSource\":\"urn:ontobdc:storage/local/data/files/Aviso%20de%20Contrata%C3%A7%C3%A3o%20Direta.pdf\",\"representationHash\":\"5257f465330f19af7c9cdb91846b30029ec15c945c5413d28052bafcdec3dd2a\",\"relatedDimension\":\"urn:ontobdc:storage/dataset/data/work_stream-fire_alarm_test/c47962f1-1bb1-4f62-b42d-8fe10a269ce9/dimension/what\",\"selector\":{\"type\":\"http://datacenter.app.br/ontology/productivity/entity/enrichment_annotation/type.ttl#PointSelector\",\"sourceWidth\":1191,\"sourceHeight\":1684,\"points\":[{\"x\":0.8888916800643086,\"y\":0.10532592474149878}]},\"properties\":{\"markerColor\":\"#67e8f9\"},\"created\":\"2026-08-12T19:05:35.542Z\",\"annotatedBy\":null,\"annotatedAt\":\"2026-08-12T19:05:35.542Z\",\"modified\":null,\"modifiedBy\":null,\"assignedTo\":[],\"resolvedBy\":null,\"subjects\":[]}" .
+
+<urn:ontobdc:annotation:24eeba29-c3ec-48ad-8cc9-f571af6c43e5> a ea:NoteAnnotation ;
+    oa:motivatedBy oa:commenting ;
+    ea:logicalSource "urn:ontobdc:storage/local/data/files/Aviso%20de%20Contrata%C3%A7%C3%A3o%20Direta.pdf"^^xsd:anyURI ;
+    dcterms:created "2026-08-12T20:18:19.484Z"^^xsd:dateTime ;
+    oa:annotatedAt "2026-08-12T20:18:19.484Z"^^xsd:dateTime ;
+    oa:hasBody [
+        a oa:TextualBody ;
+        rdf:value "He-heu"
+    ] ;
+    ea:representationSource "urn:ontobdc:storage/local/data/files/Aviso%20de%20Contrata%C3%A7%C3%A3o%20Direta.pdf"^^xsd:anyURI ;
+    ea:representationHash "5257f465330f19af7c9cdb91846b30029ec15c945c5413d28052bafcdec3dd2a" ;
+    ea:relatedDimension "urn:ontobdc:storage/dataset/data/work_stream-fire_alarm_test/c47962f1-1bb1-4f62-b42d-8fe10a269ce9/dimension/what"^^xsd:anyURI ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource "urn:ontobdc:storage/local/data/files/Aviso%20de%20Contrata%C3%A7%C3%A3o%20Direta.pdf"^^xsd:anyURI ;
+        oa:hasSelector [
+            a ea:PointSelector ;
+            ea:sourceWidth "1191"^^xsd:positiveInteger ;
+            ea:sourceHeight "1684"^^xsd:positiveInteger ;
+            ea:normalizedX "0.7497958952974276"^^xsd:decimal ;
+            ea:normalizedY "0.14178259247414987"^^xsd:decimal
+        ]
+    ] ;
+    ea:markerColor "#f96767" ;
+    ea:payload "{\"schemaVersion\":2,\"id\":\"urn:ontobdc:annotation:24eeba29-c3ec-48ad-8cc9-f571af6c43e5\",\"type\":\"http://datacenter.app.br/ontology/productivity/entity/enrichment_annotation/type.ttl#NoteAnnotation\",\"body\":\"He-heu\",\"logicalSource\":\"urn:ontobdc:storage/local/data/files/Aviso%20de%20Contrata%C3%A7%C3%A3o%20Direta.pdf\",\"representationSource\":\"urn:ontobdc:storage/local/data/files/Aviso%20de%20Contrata%C3%A7%C3%A3o%20Direta.pdf\",\"representationHash\":\"5257f465330f19af7c9cdb91846b30029ec15c945c5413d28052bafcdec3dd2a\",\"relatedDimension\":\"urn:ontobdc:storage/dataset/data/work_stream-fire_alarm_test/c47962f1-1bb1-4f62-b42d-8fe10a269ce9/dimension/what\",\"selector\":{\"type\":\"http://datacenter.app.br/ontology/productivity/entity/enrichment_annotation/type.ttl#PointSelector\",\"sourceWidth\":1191,\"sourceHeight\":1684,\"points\":[{\"x\":0.7497958952974276,\"y\":0.14178259247414987}]},\"properties\":{\"markerColor\":\"#f96767\"},\"created\":\"2026-08-12T20:18:19.484Z\",\"annotatedBy\":null,\"annotatedAt\":\"2026-08-12T20:18:19.484Z\",\"modified\":null,\"modifiedBy\":null,\"assignedTo\":[],\"resolvedBy\":null,\"subjects\":[]}" .
+

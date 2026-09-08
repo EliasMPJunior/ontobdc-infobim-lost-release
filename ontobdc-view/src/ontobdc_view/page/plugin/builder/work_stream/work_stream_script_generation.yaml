@@ -1,0 +1,39 @@
+statechart:
+  name: WorkStreamScriptGeneration
+  description: "Statechart for writing the WorkStream Page runtime scripts in the container view."
+
+  root state:
+    name: work_stream_script_generation
+    initial: undefined
+
+    states:
+      - name: undefined
+        description: "No WorkStream Page runtime script has been written yet."
+        transitions:
+          - target: vendor_sheet_js_asset_generated
+            guard: handler.can_transit_to(to_state = WorkStreamScriptGenerationProcessState.VENDOR_SHEET_JS_ASSET_GENERATED)
+            action: handler.perform_state_transition(to_state = WorkStreamScriptGenerationProcessState.VENDOR_SHEET_JS_ASSET_GENERATED)
+            contract:
+              - after: handler.validate_state_transition(from_state = WorkStreamScriptGenerationProcessState.UNDEFINED, to_state = WorkStreamScriptGenerationProcessState.VENDOR_SHEET_JS_ASSET_GENERATED)
+
+      - name: vendor_sheet_js_asset_generated
+        description: "The vendored SheetJS library has been written to the WorkStream view."
+        transitions:
+          - target: i18n_script_generated
+            guard: handler.can_transit_to(to_state = WorkStreamScriptGenerationProcessState.I18N_SCRIPT_GENERATED)
+            action: handler.perform_state_transition(to_state = WorkStreamScriptGenerationProcessState.I18N_SCRIPT_GENERATED)
+            contract:
+              - after: handler.validate_state_transition(from_state = WorkStreamScriptGenerationProcessState.VENDOR_SHEET_JS_ASSET_GENERATED, to_state = WorkStreamScriptGenerationProcessState.I18N_SCRIPT_GENERATED)
+
+      - name: i18n_script_generated
+        description: "The WorkStream UI translation script has been written."
+        transitions:
+          - target: graph_reader_script_generated
+            guard: handler.can_transit_to(to_state = WorkStreamScriptGenerationProcessState.GRAPH_READER_SCRIPT_GENERATED)
+            action: handler.perform_state_transition(to_state = WorkStreamScriptGenerationProcessState.GRAPH_READER_SCRIPT_GENERATED)
+            contract:
+              - after: handler.validate_state_transition(from_state = WorkStreamScriptGenerationProcessState.I18N_SCRIPT_GENERATED, to_state = WorkStreamScriptGenerationProcessState.GRAPH_READER_SCRIPT_GENERATED)
+
+      - name: graph_reader_script_generated
+        description: "The script that reads the WorkStream JSON-LD has been generated."
+        type: final

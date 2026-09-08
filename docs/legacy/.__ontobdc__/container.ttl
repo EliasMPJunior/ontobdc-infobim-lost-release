@@ -1,0 +1,13 @@
+@prefix ct: <http://standards.iso.org/iso/21597/-1/ed-1/en/Container#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix obdc: <http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce> a obdc:DataContainer ;
+    dcterms:identifier "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce" ;
+    dcterms:title "Storage Container: docs"@en ;
+    ct:creationDate "2026-08-29T17:13:11.246339+00:00"^^xsd:dateTime ;
+    ct:description "Local storage container at Storage Container: docs"@en ;
+    prov:atLocation <file:///Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/docs> .
+

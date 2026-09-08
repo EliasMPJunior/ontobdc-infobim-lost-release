@@ -1,0 +1,66 @@
+statechart:
+  name: StandardCliHealth
+  description: "Statechart for OntoBDC CLI system-health verification."
+
+  root state:
+    name: standard_cli_health
+    initial: undefined
+
+    states:
+      - name: undefined
+        description: "Initial state before any health check has run."
+        transitions:
+          - target: ontobdc_directory_ready
+            guard: handler.can_transit_to(to_state = CliHealthProcessStatePort.ONTOBDC_DIRECTORY_READY)
+            action: handler.perform_state_transition(to_state = CliHealthProcessStatePort.ONTOBDC_DIRECTORY_READY)
+            contract:
+              - after: handler.validate_state_transition(from_state = CliHealthProcessStatePort.UNDEFINED, to_state = CliHealthProcessStatePort.ONTOBDC_DIRECTORY_READY)
+
+      - name: ontobdc_directory_ready
+        description: "The .__ontobdc__ directory exists in the target path."
+        transitions:
+          - target: engine_ready
+            guard: handler.can_transit_to(to_state = CliHealthProcessStatePort.ENGINE_READY)
+            action: handler.perform_state_transition(to_state = CliHealthProcessStatePort.ENGINE_READY)
+            contract:
+              - after: handler.validate_state_transition(from_state = CliHealthProcessStatePort.ONTOBDC_DIRECTORY_READY, to_state = CliHealthProcessStatePort.ENGINE_READY)
+
+      - name: engine_ready
+        description: "The engine entry is present and valid in the bootstrap configuration."
+        transitions:
+          - target: storage_index_healthy
+            guard: handler.can_transit_to(to_state = CliHealthProcessStatePort.STORAGE_INDEX_HEALTHY)
+            action: handler.perform_state_transition(to_state = CliHealthProcessStatePort.STORAGE_INDEX_HEALTHY)
+            contract:
+              - after: handler.validate_state_transition(from_state = CliHealthProcessStatePort.ENGINE_READY, to_state = CliHealthProcessStatePort.STORAGE_INDEX_HEALTHY)
+
+      - name: storage_index_healthy
+        description: "storage.ttl exists and conforms to the bootstrap checks."
+        transitions:
+          - target: execution_context_healthy
+            guard: handler.can_transit_to(to_state = CliHealthProcessStatePort.EXECUTION_CONTEXT_HEALTHY)
+            action: handler.perform_state_transition(to_state = CliHealthProcessStatePort.EXECUTION_CONTEXT_HEALTHY)
+            contract:
+              - after: handler.validate_state_transition(from_state = CliHealthProcessStatePort.STORAGE_INDEX_HEALTHY, to_state = CliHealthProcessStatePort.EXECUTION_CONTEXT_HEALTHY)
+
+      - name: execution_context_healthy
+        description: "context.ttl exists and conforms to the bootstrap checks."
+        transitions:
+          - target: config_adapter_ready
+            guard: handler.can_transit_to(to_state = CliHealthProcessStatePort.CONFIG_ADAPTER_READY)
+            action: handler.perform_state_transition(to_state = CliHealthProcessStatePort.CONFIG_ADAPTER_READY)
+            contract:
+              - after: handler.validate_state_transition(from_state = CliHealthProcessStatePort.EXECUTION_CONTEXT_HEALTHY, to_state = CliHealthProcessStatePort.CONFIG_ADAPTER_READY)
+
+      - name: config_adapter_ready
+        description: "config.yaml exists and conforms to the bootstrap config contract."
+        transitions:
+          - target: bootstrap_healthy
+            guard: handler.can_transit_to(to_state = CliHealthProcessStatePort.BOOTSTRAP_HEALTHY)
+            action: handler.perform_state_transition(to_state = CliHealthProcessStatePort.BOOTSTRAP_HEALTHY)
+            contract:
+              - after: handler.validate_state_transition(from_state = CliHealthProcessStatePort.CONFIG_ADAPTER_READY, to_state = CliHealthProcessStatePort.BOOTSTRAP_HEALTHY)
+
+      - name: bootstrap_healthy
+        description: "Every CLI bootstrap capability has been executed."
+        type: final

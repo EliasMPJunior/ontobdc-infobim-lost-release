@@ -1,0 +1,6 @@
+ontobdc>=0.20.0
+ontobdc-view>=0.7.0
+openpyxl>=3.1
+matplotlib>=3.8
+PyYAML>=6.0
+textual-datepicker>=0.2.4

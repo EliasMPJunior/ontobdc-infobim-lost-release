@@ -1,0 +1,23 @@
+@prefix ct: <http://standards.iso.org/iso/21597/-1/ed-1/en/Container#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix obdc: <http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<file:///Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/.__infobim__/.__ontobdc__/dataset.ttl> a owl:Ontology .
+
+<urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/.__infobim__> a obdc:EntityDataset ;
+    obdc:belongsToDataContainer <urn:ontobdc:storage/local/4-construcao-ampliacao-e-adequacao-de-comodos> ;
+    obdc:hasDataEntity <urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/.__infobim__/0bd98d525f53bad0d54c8f9dcedae374296413c5d74700abada54952a22d2f6b> ;
+    dcterms:description "Storage dataset located at file:///Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/.__infobim__" ;
+    dcterms:identifier "urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/.__infobim__" ;
+    dcterms:title "Storage Dataset: .__infobim__" ;
+    ct:creationDate "2026-08-19T00:35:29"^^xsd:dateTime ;
+    prov:atLocation <file:///Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/.__infobim__> .
+
+<urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/.__infobim__/0bd98d525f53bad0d54c8f9dcedae374296413c5d74700abada54952a22d2f6b> a obdc:DataEntity,
+        <https://standards.buildingsmart.org/IFC/DEV/IFC4_3/OWL#IfcProject> ;
+    dcterms:conformsTo <https://infobim.org/ontology/ns#IfcProjectFacade> ;
+    dcterms:title "4-construcao-ampliacao-e-adequacao-de-comodos" .
+

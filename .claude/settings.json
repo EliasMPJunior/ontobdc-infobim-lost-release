@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(../.venv/bin/pytest test/unit -v)",
+      "Bash(../.venv/bin/python -c ' *)",
+      "Bash(mkdir -p /tmp/facade-smoke-test/dataset1/.__ontobdc__/linkset)",
+      "Bash(cat)",
+      "Bash(rm -rf /tmp/facade-smoke-test)",
+      "Bash(../.venv/bin/pytest test/unit -q)",
+      "Bash(../.venv/bin/pytest test/unit/page/adapter/test_facade.py -v)",
+      "Bash(../.venv/bin/pytest test/unit/page/plugin/builder/test_work_stream.py -v)",
+      "Bash(../.venv/bin/pytest test/unit/page -v)",
+      "Bash(../.venv/bin/pytest test/unit/page/plugin/script_generation -v)",
+      "Bash(git -C /Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/presentation show c33c615 -- src/ontobdc_view/page/adapter/template.py src/ontobdc_view/page/adapter/entity_page.py src/ontobdc_view/page/adapter/facade.py)"
+    ]
+  }
+}

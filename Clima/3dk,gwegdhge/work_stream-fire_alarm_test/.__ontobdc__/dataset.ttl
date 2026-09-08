@@ -1,0 +1,26 @@
+@prefix ct: <http://standards.iso.org/iso/21597/-1/ed-1/en/Container#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix obdc: <http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<file:///Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/data/work_stream-fire_alarm_test/.__ontobdc__/dataset.ttl> a owl:Ontology .
+
+<urn:ontobdc:storage/dataset/data/work_stream-fire_alarm_test> a obdc:EntityDataset ;
+    obdc:belongsToDataContainer <urn:ontobdc:storage/local/data> ;
+    obdc:hasDataEntity <urn:ontobdc:storage/dataset/data/work_stream-fire_alarm_test/c47962f1-1bb1-4f62-b42d-8fe10a269ce9> ;
+    dcterms:description "Storage dataset located at file:///Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/data/work_stream-fire_alarm_test" ;
+    dcterms:identifier "urn:ontobdc:storage/dataset/data/work_stream-fire_alarm_test" ;
+    dcterms:title "Storage Dataset: work_stream-fire_alarm_test" ;
+    ct:creationDate "2026-08-11T07:20:19"^^xsd:dateTime ;
+    prov:atLocation <file:///Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/data/work_stream-fire_alarm_test> .
+
+<http://datacenter.app.br/ontology/productivity/entity/work_stream/type.ttl#WorkStream> a obdc:SurfaceableEntity .
+
+<urn:ontobdc:storage/dataset/data/work_stream-fire_alarm_test/c47962f1-1bb1-4f62-b42d-8fe10a269ce9> a <http://datacenter.app.br/ontology/productivity/entity/work_stream/type.ttl#WorkStream>,
+        obdc:DataEntity ;
+    dcterms:conformsTo <http://datacenter.app.br/ontology/productivity/entity/work_stream/facade.ttl#WorkStreamFacade> ;
+    dcterms:identifier "c47962f1-1bb1-4f62-b42d-8fe10a269ce9" ;
+    dcterms:title "Fire alarm test"@en .
+

@@ -1,0 +1,595 @@
+.gantt-container {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 0;
+  border: 1px solid color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 22%, transparent);
+  overflow: hidden;
+  background: var(--onto-theme-background, #ffffff);
+  /* Sem isto o texto da tabela herda o preto padrao do documento e
+     some no tema escuro — o fundo acompanhava o tema, o conteudo nao. */
+  color: var(--onto-theme-foreground, #0f172a);
+}
+
+.gantt-left {
+  overflow-x: auto;
+  border-right: 1px solid color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 22%, transparent);
+}
+
+.gantt-right {
+  overflow-x: auto;
+  position: relative;
+}
+
+table.gantt-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.gantt-table th,
+.gantt-table td {
+  border-bottom: 1px solid color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 14%, transparent);
+  padding: 6px 10px;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.gantt-table th {
+  background: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 5%, var(--onto-theme-background, #ffffff));
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  font-weight: 700;
+  color: var(--onto-theme-foreground, #0f172a);
+}
+
+/* Must match rt.HEADER_HEIGHT (72, task_table_timeline.js) — the right
+   panel's timeline header is 3 stacked rows (year/month/day) totalling
+   72px; without pinning the left table's single header row to the same
+   height, its first task row starts higher than row 0's SVG bar and every
+   row below drifts out of alignment with its WBS row from the very top. */
+.gantt-table thead tr {
+  height: 72px;
+}
+
+.gantt-table tbody tr {
+  height: 34px;
+}
+
+.gantt-table tbody tr:hover {
+  background: color-mix(in srgb, var(--onto-theme-accent, #0ea5e9) 12%, transparent);
+}
+
+.gantt-table td.col-wbs {
+  width: 70px;
+  color: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 60%, transparent);
+  font-family: monospace;
+  font-size: 12.5px;
+}
+
+.gantt-table td.col-duration {
+  width: 80px;
+  text-align: right;
+}
+
+.gantt-table td.col-completion {
+  width: 52px;
+  text-align: right;
+  color: var(--onto-theme-accent, #0ea5e9);
+}
+
+.gantt-timeline-header {
+  height: 72px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 5%, var(--onto-theme-background, #ffffff));
+  border-bottom: 1px solid color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 22%, transparent);
+  font-family: sans-serif;
+}
+
+table.gantt-timeline-table {
+  width: 100%;
+  height: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.gantt-timeline-table thead tr {
+  height: 24px;
+}
+
+th.gantt-header-cell {
+  border-right: 1px solid color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 14%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 14%, transparent);
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: middle;
+  text-align: center;
+  padding: 0;
+  font-weight: 500;
+}
+
+th.gantt-header-cell .gantt-header-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+th.gantt-header-cell.gantt-header-day {
+  color: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 62%, transparent);
+}
+
+.gantt-header-year-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--onto-theme-foreground, #0f172a);
+}
+
+.gantt-header-month-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 88%, transparent);
+}
+
+.gantt-header-day-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 70%, transparent);
+}
+
+svg.gantt-svg {
+  display: block;
+  overflow: visible;
+}
+
+.gantt-row-line {
+  stroke: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 8%, transparent);
+  stroke-width: 1;
+}
+
+.gantt-grid-col {
+  stroke: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 5%, transparent);
+  stroke-width: 1;
+}
+
+.gantt-grid-col-major {
+  stroke: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 14%, transparent);
+  stroke-width: 1;
+}
+
+.gantt-tick-label {
+  font-size: 12px;
+  fill: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 62%, transparent);
+  font-family: sans-serif;
+}
+
+/* Gantt task bars stay deliberately calm; completed progress must, however,
+ * read immediately against the remaining portion of the same bar. In light
+ * mode the progress overlay is pulled toward the foreground (darker). Dark
+ * mode overrides it below and pushes it toward white (lighter). */
+.gantt-bar {
+  fill: var(--gantt-bar-fill, var(--onto-theme-primary-container, #38bdf8));
+  stroke: var(--gantt-bar-stroke, color-mix(in srgb, var(--onto-theme-primary-container, #38bdf8) 75%, var(--onto-theme-foreground, #0f172a)));
+  stroke-width: 1;
+  rx: 2;
+  ry: 2;
+}
+
+.gantt-bar-progress {
+  fill: var(--gantt-bar-progress-fill, color-mix(in srgb, var(--onto-theme-primary-container, #38bdf8) 58%, var(--onto-theme-foreground, #0f172a)));
+  stroke: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 32%, transparent);
+  stroke-width: 0.75;
+  rx: 2;
+  ry: 2;
+  opacity: 1;
+}
+
+/* Deliberately not derived from the theme tokens: "critical" is a status,
+   not a surface, and it has to stay recognizably red in light and dark
+   alike. Exposed as custom properties so a theme can still override it. */
+.gantt-bar-critical {
+  fill: var(--gantt-critical-fill, #e53e3e);
+  stroke: var(--gantt-critical-stroke, #c53030);
+}
+
+.gantt-bar-text {
+  font-size: 12.5px;
+  font-weight: 600;
+  fill: var(--onto-theme-foreground, #0f172a);
+  font-family: sans-serif;
+  pointer-events: none;
+}
+
+.gantt-marker-diamond {
+  fill: var(--onto-theme-foreground, #0f172a);
+  stroke: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 45%, transparent);
+  stroke-width: 1;
+}
+
+.gantt-dependency-line {
+  stroke: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 70%, transparent);
+  stroke-width: 1.25;
+  fill: none;
+  marker-end: url(#arrowhead);
+}
+
+.gantt-today-line {
+  fill: var(--gantt-today-fill, var(--onto-theme-primary, #ef4444));
+  opacity: var(--gantt-today-opacity, 0.75);
+  pointer-events: none;
+}
+
+/*
+ * Dark-theme overrides for the Gantt itself (chrome-level paint lives in
+ * page_chrome.css so WorkStream and Gantt share it). Keep at the bottom:
+ * the base rules above do not prefix html[data-theme="dark"], so equal
+ * selectors placed here win purely by source order.
+ */
+html[data-theme="dark"] .gantt-bar {
+  fill: #7dd3fc;
+  stroke: color-mix(in srgb, #7dd3fc 78%, #e8eaed);
+}
+
+html[data-theme="dark"] .gantt-bar-progress {
+  fill: color-mix(in srgb, #7dd3fc 55%, #ffffff);
+  stroke: color-mix(in srgb, #ffffff 68%, transparent);
+  opacity: 1;
+}
+
+html[data-theme="dark"] .gantt-today-line {
+  fill: var(--gantt-today-fill, var(--onto-theme-primary, #f87171));
+  opacity: 0.82;
+}
+
+/*
+ * Bar labels: the Gantt bars in dark mode use a sky-300 light blue fill
+ * (#7dd3fc) which is bright enough that white/on-surface text becomes
+ * unreadable. Flip only the bar labels to near-black on dark mode — the
+ * rest of the page (tile background, task table, chrome) stays on dark
+ * with light text, because painting those black-on-dark would be the
+ * exact opposite of what "dark theme" is supposed to do and would drop
+ * the contrast ratio of the surrounding page well below WCAG AA.
+ */
+html[data-theme="dark"] .gantt-bar-text {
+  fill: #0f172a;
+}
+
+/*
+ * Full-screen gantt layout overrides. When the page enters presentation
+ * mode (html.is-fullscreen-presenting set by the chrome controller, or
+ * the browser-native :fullscreen pseudo-class is active on <html>):
+ *
+ *   1. The tile body fills *all* remaining vertical space (the header
+ *      and dimension cards collapse to their own size), the gantt
+ *      container becomes the primary viewport.
+ *   2. The left column (task table) grows from 420 px fixed into a
+ *      proportional clamp: enough room for long task names in big
+ *      schedules, but never so wide it crowds the timeline.
+ *   3. The scroll containers (left/right panes) switch from bounded
+ *      auto-box to 100 % of the tile so vertical scroll covers the
+ *      whole timeline, not just a small embedded window.
+ *   4. sticky headers (task table + timeline) are kept so rows and
+ *      column headers still line up correctly when scrolling.
+ */
+html.is-fullscreen-presenting .onto-page-body.tile,
+html:fullscreen .onto-page-body.tile,
+html:-webkit-full-screen .onto-page-body.tile {
+  border-radius: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+}
+
+html.is-fullscreen-presenting .onto-page-body.tile > .body,
+html:fullscreen .onto-page-body.tile > .body,
+html:-webkit-full-screen .onto-page-body.tile > .body,
+html.is-fullscreen-presenting .onto-page-body.tile > .fields,
+html:fullscreen .onto-page-body.tile > .fields,
+html:-webkit-full-screen .onto-page-body.tile > .fields {
+  padding: 10px clamp(16px, 2vw, 24px);
+  border-bottom: 1px solid var(--onto-theme-outline-variant, #3c3f43);
+}
+
+html.is-fullscreen-presenting .gantt-container,
+html:fullscreen .gantt-container,
+html:-webkit-full-screen .gantt-container {
+  inline-size: 100%;
+  block-size: 100%;
+  max-block-size: none;
+  border-radius: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+  grid-template-columns: minmax(420px, 32vw) 1fr;
+}
+
+html.is-fullscreen-presenting .gantt-left,
+html:fullscreen .gantt-left,
+html:-webkit-full-screen .gantt-left,
+html.is-fullscreen-presenting .gantt-right,
+html:fullscreen .gantt-right,
+html:-webkit-full-screen .gantt-right {
+  block-size: 100%;
+  overflow: auto;
+}
+
+/*
+ * Double-click-to-edit modal (task_table_timeline.js openEditDialog()).
+ * Deliberately mirrors .onto-annotation-dialog's structure/tokens
+ * (work_stream_view.css) rather than inventing a new dialog language —
+ * small native <dialog>, header with a close button, body below.
+ */
+.gantt-bar,
+.gantt-marker-diamond {
+  cursor: pointer;
+}
+
+.onto-gantt-edit-dialog {
+  width: min(92vw, 380px);
+  border: 1px solid rgba(148, 163, 184, .28);
+  border-radius: 14px;
+  padding: 0;
+  color: var(--onto-theme-foreground, #0f172a);
+  background: var(--onto-theme-background, #ffffff);
+}
+
+.onto-gantt-edit-dialog::backdrop {
+  background: rgba(0, 0, 0, .45);
+}
+
+.onto-gantt-edit-dialog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 14%, transparent);
+}
+
+.onto-gantt-edit-dialog-title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  flex: 1;
+}
+
+.onto-gantt-edit-title-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.onto-gantt-edit-rename-btn {
+  font-size: 13px !important;
+  opacity: .6;
+}
+
+.onto-gantt-edit-rename-btn:hover {
+  opacity: 1;
+}
+
+.onto-gantt-edit-title-input {
+  font: inherit;
+  font-weight: 700;
+  flex: 1;
+  min-width: 0;
+  padding: 3px 6px;
+  border-radius: 6px;
+  border: 1px solid var(--onto-theme-accent, #0ea5e9);
+  background: var(--onto-theme-background, #ffffff);
+  color: var(--onto-theme-foreground, #0f172a);
+}
+
+.onto-gantt-edit-dialog-header button {
+  border: 0;
+  background: transparent;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  color: inherit;
+}
+
+.onto-gantt-edit-dialog-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 18px 18px;
+}
+
+.onto-gantt-edit-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 80%, transparent);
+}
+
+.onto-gantt-edit-field input[type="date"],
+.onto-gantt-edit-field input[type="number"],
+.onto-gantt-edit-field input[type="text"] {
+  font: inherit;
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: 1px solid color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 24%, transparent);
+  background: var(--onto-theme-background, #ffffff);
+  color: var(--onto-theme-foreground, #0f172a);
+}
+
+.onto-gantt-edit-divider {
+  width: 100%;
+  height: 0;
+  margin: 6px 0 0;
+  border: 0;
+  border-top: 1px solid color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 14%, transparent);
+}
+
+.onto-gantt-edit-danger-row {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.onto-gantt-edit-delete-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--gantt-critical-fill, #e53e3e);
+  cursor: pointer;
+}
+
+.onto-gantt-edit-delete-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.onto-gantt-edit-delete-btn:hover {
+  background: color-mix(in srgb, var(--gantt-critical-fill, #e53e3e) 14%, transparent);
+}
+
+.onto-gantt-edit-delete-btn:disabled {
+  opacity: .5;
+  cursor: default;
+}
+
+.onto-gantt-edit-error {
+  display: none;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--gantt-critical-fill, #e53e3e);
+}
+
+.onto-gantt-edit-dialog-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.onto-gantt-edit-btn {
+  font: inherit;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 7px 14px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.onto-gantt-edit-btn-secondary {
+  background: transparent;
+  border-color: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 24%, transparent);
+  color: var(--onto-theme-foreground, #0f172a);
+}
+
+.onto-gantt-edit-btn-primary {
+  background: var(--onto-theme-primary-container, color-mix(in srgb, var(--onto-theme-accent, #0ea5e9) 22%, var(--onto-theme-background, #ffffff)));
+  color: var(--onto-theme-on-primary-container, var(--onto-theme-foreground, #0f172a));
+  border-color: var(--onto-theme-accent, #0ea5e9);
+}
+
+.onto-gantt-edit-btn-primary:disabled {
+  opacity: .6;
+  cursor: default;
+}
+
+/* The printer action uses the browser's native print/PDF pipeline. Keep the
+ * semantic title and the complete 4D table/chart, but remove interactive
+ * chrome and any viewport clipping from the printed document. */
+@page {
+  size: A4 landscape;
+  margin: 10mm;
+}
+
+@media print {
+  :root {
+    color-scheme: light;
+    --gantt-paper: #ffffff;
+    --gantt-ink: #0f172a;
+    --gantt-paper-muted: #f1f5f9;
+    --gantt-paper-line: #cbd5e1;
+  }
+
+  html,
+  body {
+    width: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+    background: var(--gantt-paper) !important;
+    color: var(--gantt-ink) !important;
+  }
+
+  .header-actions,
+  .back-link,
+  .dimension-cards,
+  dialog,
+  .onto-inline-edit-actions,
+  .onto-inline-edit-error {
+    display: none !important;
+  }
+
+  .onto-page,
+  .onto-page-body.tile {
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .onto-page-header {
+    min-height: 0 !important;
+    margin: 0 0 6mm !important;
+    padding: 0 0 3mm !important;
+    border-bottom: 1px solid var(--gantt-paper-line) !important;
+  }
+
+  .gantt-container {
+    width: 100% !important;
+    max-height: none !important;
+    grid-template-columns: 38% 62% !important;
+    overflow: visible !important;
+    break-inside: avoid-page;
+    background: var(--gantt-paper) !important;
+    color: var(--gantt-ink) !important;
+  }
+
+  .gantt-left,
+  .gantt-right {
+    overflow: visible !important;
+  }
+
+  .gantt-table th,
+  .gantt-timeline-header {
+    position: static !important;
+    background: var(--gantt-paper-muted) !important;
+    color: var(--gantt-ink) !important;
+  }
+
+  .gantt-bar-text {
+    fill: var(--gantt-ink) !important;
+  }
+}

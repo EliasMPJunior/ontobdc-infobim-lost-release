@@ -1,0 +1,49 @@
+statechart:
+  name: StandardContainerRename
+  label:
+    en: "Standard Container Rename"
+    pt-br: "Renomeação padrão de container"
+  description:
+    en: "Statechart for renaming an OntoBDC storage container."
+    pt-br: "Statechart para renomear um container de storage do OntoBDC."
+
+  root state:
+    name: standard_container_rename
+    initial: undefined
+    states:
+      - name: undefined
+        transitions:
+          - target: container_invalid
+            guard: handler.can_transit_to(to_state = ContainerRenameProcessStatePort.CONTAINER_INVALID)
+          - target: container_metadata_renamed
+            guard: handler.can_transit_to(to_state = ContainerRenameProcessStatePort.CONTAINER_METADATA_RENAMED)
+            action: handler.perform_state_transition(to_state = ContainerRenameProcessStatePort.CONTAINER_METADATA_RENAMED)
+            contract:
+              - after: handler.validate_state_transition(from_state = ContainerRenameProcessStatePort.UNDEFINED, to_state = ContainerRenameProcessStatePort.CONTAINER_METADATA_RENAMED)
+
+      - name: container_invalid
+        type: final
+
+      - name: container_metadata_renamed
+        transitions:
+          - target: container_storage_index_renamed
+            guard: handler.can_transit_to(to_state = ContainerRenameProcessStatePort.CONTAINER_STORAGE_INDEX_RENAMED)
+            action: handler.perform_state_transition(to_state = ContainerRenameProcessStatePort.CONTAINER_STORAGE_INDEX_RENAMED)
+            contract:
+              - after: handler.validate_state_transition(from_state = ContainerRenameProcessStatePort.CONTAINER_METADATA_RENAMED, to_state = ContainerRenameProcessStatePort.CONTAINER_STORAGE_INDEX_RENAMED)
+
+      - name: container_storage_index_renamed
+        transitions:
+          - target: container_storage_index_ready
+            guard: handler.can_transit_to(to_state = ContainerRenameProcessStatePort.CONTAINER_STORAGE_INDEX_READY)
+            action: handler.perform_state_transition(to_state = ContainerRenameProcessStatePort.CONTAINER_STORAGE_INDEX_READY)
+            contract:
+              - after: handler.validate_state_transition(from_state = ContainerRenameProcessStatePort.CONTAINER_STORAGE_INDEX_RENAMED, to_state = ContainerRenameProcessStatePort.CONTAINER_STORAGE_INDEX_READY)
+
+      - name: container_storage_index_ready
+        transitions:
+          - target: container_renamed
+            guard: handler.can_transit_to(to_state = ContainerRenameProcessStatePort.CONTAINER_RENAMED)
+
+      - name: container_renamed
+        type: final

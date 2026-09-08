@@ -1,0 +1,720 @@
+{
+  "facades": [
+    {
+      "facade": "https://infobim.org/ontology/entity/ifc_work_schedule/facade.ttl#IfcWorkScheduleFacade",
+      "fields": [
+        {
+          "name": "GlobalId",
+          "mapped_property": "https://standards.buildingsmart.org/IFC/DEV/IFC4/FINAL/OWL#globalId_IfcRoot",
+          "field_order": 10
+        },
+        {
+          "name": "Name",
+          "mapped_property": "https://standards.buildingsmart.org/IFC/DEV/IFC4/FINAL/OWL#name_IfcRoot",
+          "field_order": 20
+        },
+        {
+          "name": "Description",
+          "mapped_property": "https://standards.buildingsmart.org/IFC/DEV/IFC4/FINAL/OWL#description_IfcRoot",
+          "field_order": 30
+        },
+        {
+          "name": "ObjectType",
+          "mapped_property": "https://standards.buildingsmart.org/IFC/DEV/IFC4/FINAL/OWL#objectType_IfcObject",
+          "field_order": 40
+        },
+        {
+          "name": "Identification",
+          "mapped_property": "https://standards.buildingsmart.org/IFC/DEV/IFC4/FINAL/OWL#identification_IfcControl",
+          "field_order": 50
+        },
+        {
+          "name": "CreationDate",
+          "mapped_property": "https://standards.buildingsmart.org/IFC/DEV/IFC4/FINAL/OWL#creationDate_IfcWorkControl",
+          "field_order": 60
+        },
+        {
+          "name": "Creators",
+          "mapped_property": "https://standards.buildingsmart.org/IFC/DEV/IFC4/FINAL/OWL#creators_IfcWorkControl",
+          "field_order": 70
+        },
+        {
+          "name": "Purpose",
+          "mapped_property": "https://standards.buildingsmart.org/IFC/DEV/IFC4/FINAL/OWL#purpose_IfcWorkControl",
+          "field_order": 80
+        },
+        {
+          "name": "Duration",
+          "mapped_property": "https://standards.buildingsmart.org/IFC/DEV/IFC4/FINAL/OWL#duration_IfcWorkControl",
+          "field_order": 90
+        },
+        {
+          "name": "TotalFloat",
+          "mapped_property": "https://standards.buildingsmart.org/IFC/DEV/IFC4/FINAL/OWL#totalFloat_IfcWorkControl",
+          "field_order": 100
+        },
+        {
+          "name": "StartTime",
+          "mapped_property": "https://standards.buildingsmart.org/IFC/DEV/IFC4/FINAL/OWL#startTime_IfcWorkControl",
+          "field_order": 110
+        },
+        {
+          "name": "FinishTime",
+          "mapped_property": "https://standards.buildingsmart.org/IFC/DEV/IFC4/FINAL/OWL#finishTime_IfcWorkControl",
+          "field_order": 120
+        },
+        {
+          "name": "PredefinedType",
+          "mapped_property": "https://standards.buildingsmart.org/IFC/DEV/IFC4/FINAL/OWL#predefinedType_IfcWorkSchedule",
+          "field_order": 130
+        },
+        {
+          "name": "ScopePlanned",
+          "dimension_kind": "https://infobim.org/ontology/ns#ScopePlanned",
+          "field_order": 140
+        },
+        {
+          "name": "ScopeActual",
+          "dimension_kind": "https://infobim.org/ontology/ns#ScopeActual",
+          "field_order": 150
+        },
+        {
+          "name": "TimePlanned",
+          "dimension_kind": "https://infobim.org/ontology/ns#TimePlanned",
+          "field_order": 160
+        },
+        {
+          "name": "TimeActual",
+          "dimension_kind": "https://infobim.org/ontology/ns#TimeActual",
+          "field_order": 170
+        },
+        {
+          "name": "TimeForecast",
+          "dimension_kind": "https://infobim.org/ontology/ns#TimeForecast",
+          "field_order": 180
+        },
+        {
+          "name": "ProgressPlanned",
+          "dimension_kind": "https://infobim.org/ontology/ns#ProgressPlanned",
+          "field_order": 190
+        },
+        {
+          "name": "ProgressActual",
+          "dimension_kind": "https://infobim.org/ontology/ns#ProgressActual",
+          "field_order": 200
+        },
+        {
+          "name": "ProgressForecast",
+          "dimension_kind": "https://infobim.org/ontology/ns#ProgressForecast",
+          "field_order": 210
+        },
+        {
+          "name": "LaborPlanned",
+          "dimension_kind": "https://infobim.org/ontology/ns#LaborPlanned",
+          "field_order": 220
+        },
+        {
+          "name": "LaborActual",
+          "dimension_kind": "https://infobim.org/ontology/ns#LaborActual",
+          "field_order": 230
+        },
+        {
+          "name": "EquipmentPlanned",
+          "dimension_kind": "https://infobim.org/ontology/ns#EquipmentPlanned",
+          "field_order": 240
+        },
+        {
+          "name": "EquipmentActual",
+          "dimension_kind": "https://infobim.org/ontology/ns#EquipmentActual",
+          "field_order": 250
+        },
+        {
+          "name": "MaterialPlanned",
+          "dimension_kind": "https://infobim.org/ontology/ns#MaterialPlanned",
+          "field_order": 260
+        },
+        {
+          "name": "MaterialActual",
+          "dimension_kind": "https://infobim.org/ontology/ns#MaterialActual",
+          "field_order": 270
+        },
+        {
+          "name": "CostPlanned",
+          "dimension_kind": "https://infobim.org/ontology/ns#CostPlanned",
+          "field_order": 280
+        },
+        {
+          "name": "CostActual",
+          "dimension_kind": "https://infobim.org/ontology/ns#CostActual",
+          "field_order": 290
+        },
+        {
+          "name": "CostForecast",
+          "dimension_kind": "https://infobim.org/ontology/ns#CostForecast",
+          "field_order": 300
+        }
+      ]
+    }
+  ],
+  "fields": {},
+  "missing_fields": [
+    "GlobalId",
+    "Name",
+    "Description",
+    "ObjectType",
+    "Identification",
+    "CreationDate",
+    "Creators",
+    "Purpose",
+    "Duration",
+    "TotalFloat",
+    "StartTime",
+    "FinishTime",
+    "PredefinedType"
+  ],
+  "dimensions": [
+    {
+      "kind": "ScopePlanned",
+      "label": "ScopePlanned",
+      "value": ""
+    },
+    {
+      "kind": "ScopeActual",
+      "label": "ScopeActual",
+      "value": ""
+    },
+    {
+      "kind": "TimePlanned",
+      "label": "TimePlanned",
+      "value": ""
+    },
+    {
+      "kind": "TimeActual",
+      "label": "TimeActual",
+      "value": ""
+    },
+    {
+      "kind": "TimeForecast",
+      "label": "TimeForecast",
+      "value": ""
+    },
+    {
+      "kind": "ProgressPlanned",
+      "label": "ProgressPlanned",
+      "value": ""
+    },
+    {
+      "kind": "ProgressActual",
+      "label": "ProgressActual",
+      "value": ""
+    },
+    {
+      "kind": "ProgressForecast",
+      "label": "ProgressForecast",
+      "value": ""
+    },
+    {
+      "kind": "LaborPlanned",
+      "label": "LaborPlanned",
+      "value": ""
+    },
+    {
+      "kind": "LaborActual",
+      "label": "LaborActual",
+      "value": ""
+    },
+    {
+      "kind": "EquipmentPlanned",
+      "label": "EquipmentPlanned",
+      "value": ""
+    },
+    {
+      "kind": "EquipmentActual",
+      "label": "EquipmentActual",
+      "value": ""
+    },
+    {
+      "kind": "MaterialPlanned",
+      "label": "MaterialPlanned",
+      "value": ""
+    },
+    {
+      "kind": "MaterialActual",
+      "label": "MaterialActual",
+      "value": ""
+    },
+    {
+      "kind": "CostPlanned",
+      "label": "CostPlanned",
+      "value": ""
+    },
+    {
+      "kind": "CostActual",
+      "label": "CostActual",
+      "value": ""
+    },
+    {
+      "kind": "CostForecast",
+      "label": "CostForecast",
+      "value": ""
+    }
+  ],
+  "related_entities": [],
+  "toolbar_configuration": {
+    "@graph": [
+      {
+        "@id": "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#RightToolbarAlignment",
+        "@type": [
+          "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#ToolbarAlignment"
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@language": "en",
+            "@value": "Right Toolbar Alignment"
+          }
+        ]
+      },
+      {
+        "@id": "https://infobim.org/ontology/abox/entity_page.ttl#AddTaskButton",
+        "@type": [
+          "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#EntityPageActionButton"
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#cssClass": [
+          {
+            "@value": "icon-btn gantt-add-task-btn"
+          }
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#i18nAriaLabelKey": [
+          {
+            "@value": "addTask"
+          }
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#i18nTitleKey": [
+          {
+            "@value": "addTaskTitle"
+          }
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#iconName": [
+          {
+            "@value": "add"
+          }
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#initiallyDisabled": [
+          {
+            "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+            "@value": true
+          }
+        ]
+      },
+      {
+        "@id": "https://infobim.org/ontology/abox/entity_page.ttl#AddTaskPlacement",
+        "@type": [
+          "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#ToolbarItemPlacement"
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#placementOrder": [
+          {
+            "@type": "http://www.w3.org/2001/XMLSchema#integer",
+            "@value": 5
+          }
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#placesComponent": [
+          {
+            "@id": "https://infobim.org/ontology/abox/entity_page.ttl#AddTaskButton"
+          }
+        ]
+      },
+      {
+        "@id": "https://infobim.org/ontology/abox/entity_page.ttl#ConnectButton",
+        "@type": [
+          "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#EntityPageActionButton"
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#cssClass": [
+          {
+            "@value": "connect-btn"
+          }
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#i18nAriaLabelKey": [
+          {
+            "@value": "connectFolder"
+          }
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#i18nContentKey": [
+          {
+            "@value": "connectFolder"
+          }
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#i18nTitleKey": [
+          {
+            "@value": "connectFolderTitle"
+          }
+        ]
+      },
+      {
+        "@id": "https://infobim.org/ontology/abox/entity_page.ttl#ConnectPlacement",
+        "@type": [
+          "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#ToolbarItemPlacement"
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#placementOrder": [
+          {
+            "@type": "http://www.w3.org/2001/XMLSchema#integer",
+            "@value": 1
+          }
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#placesComponent": [
+          {
+            "@id": "https://infobim.org/ontology/abox/entity_page.ttl#ConnectButton"
+          }
+        ]
+      },
+      {
+        "@id": "https://infobim.org/ontology/abox/entity_page.ttl#FilterButton",
+        "@type": [
+          "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#EntityPageActionButton"
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#cssClass": [
+          {
+            "@value": "icon-btn gantt-filter-btn"
+          }
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#i18nAriaLabelKey": [
+          {
+            "@value": "openGanttFilter"
+          }
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#i18nTitleKey": [
+          {
+            "@value": "openGanttFilter"
+          }
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#iconName": [
+          {
+            "@value": "filter"
+          }
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#initiallyDisabled": [
+          {
+            "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+            "@value": true
+          }
+        ]
+      },
+      {
+        "@id": "https://infobim.org/ontology/abox/entity_page.ttl#FilterPlacement",
+        "@type": [
+          "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#ToolbarItemPlacement"
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#placementOrder": [
+          {
+            "@type": "http://www.w3.org/2001/XMLSchema#integer",
+            "@value": 4
+          }
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#placesComponent": [
+          {
+            "@id": "https://infobim.org/ontology/abox/entity_page.ttl#FilterButton"
+          }
+        ]
+      },
+      {
+        "@id": "https://infobim.org/ontology/abox/entity_page.ttl#FullscreenButton",
+        "@type": [
+          "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#EntityPageActionButton"
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#cssClass": [
+          {
+            "@value": "icon-btn gantt-fullscreen-btn"
+          }
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#i18nAriaLabelKey": [
+          {
+            "@value": "enterFullscreen"
+          }
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#i18nTitleKey": [
+          {
+            "@value": "enterFullscreen"
+          }
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#iconName": [
+          {
+            "@value": "fullscreen"
+          }
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#initiallyDisabled": [
+          {
+            "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+            "@value": true
+          }
+        ]
+      },
+      {
+        "@id": "https://infobim.org/ontology/abox/entity_page.ttl#FullscreenPlacement",
+        "@type": [
+          "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#ToolbarItemPlacement"
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#placementOrder": [
+          {
+            "@type": "http://www.w3.org/2001/XMLSchema#integer",
+            "@value": 8
+          }
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#placesComponent": [
+          {
+            "@id": "https://infobim.org/ontology/abox/entity_page.ttl#FullscreenButton"
+          }
+        ]
+      },
+      {
+        "@id": "https://infobim.org/ontology/abox/entity_page.ttl#IfcWorkScheduleToolbar",
+        "@type": [
+          "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#EntityPageToolbar",
+          "http://www.w3.org/2002/07/owl#NamedIndividual"
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#hasToolbarAlignment": [
+          {
+            "@id": "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#RightToolbarAlignment"
+          }
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#hasToolbarItemPlacement": [
+          {
+            "@id": "https://infobim.org/ontology/abox/entity_page.ttl#AddTaskPlacement"
+          },
+          {
+            "@id": "https://infobim.org/ontology/abox/entity_page.ttl#ConnectPlacement"
+          },
+          {
+            "@id": "https://infobim.org/ontology/abox/entity_page.ttl#FilterPlacement"
+          },
+          {
+            "@id": "https://infobim.org/ontology/abox/entity_page.ttl#FullscreenPlacement"
+          },
+          {
+            "@id": "https://infobim.org/ontology/abox/entity_page.ttl#OpenWorkbookPlacement"
+          },
+          {
+            "@id": "https://infobim.org/ontology/abox/entity_page.ttl#PrintPlacement"
+          },
+          {
+            "@id": "https://infobim.org/ontology/abox/entity_page.ttl#RefreshPlacement"
+          },
+          {
+            "@id": "https://infobim.org/ontology/abox/entity_page.ttl#WorkspacePlacement"
+          }
+        ],
+        "http://purl.org/dc/terms/isPartOf": [
+          {
+            "@id": "https://infobim.org/ontology/abox/entity_page.ttl#IfcWorkSchedulePage"
+          }
+        ],
+        "http://www.w3.org/2000/01/rdf-schema#label": [
+          {
+            "@language": "en",
+            "@value": "IFC Work Schedule Toolbar"
+          }
+        ]
+      },
+      {
+        "@id": "https://infobim.org/ontology/abox/entity_page.ttl#OpenWorkbookButton",
+        "@type": [
+          "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#OpenExcelDataSourceButton"
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#cssClass": [
+          {
+            "@value": "icon-btn gantt-open-workbook-btn"
+          }
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#i18nAriaLabelKey": [
+          {
+            "@value": "openWorkbook"
+          }
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#i18nTitleKey": [
+          {
+            "@value": "openWorkbookTitle"
+          }
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#iconName": [
+          {
+            "@value": "excel"
+          }
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#initiallyDisabled": [
+          {
+            "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+            "@value": true
+          }
+        ]
+      },
+      {
+        "@id": "https://infobim.org/ontology/abox/entity_page.ttl#OpenWorkbookPlacement",
+        "@type": [
+          "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#ToolbarItemPlacement"
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#placementOrder": [
+          {
+            "@type": "http://www.w3.org/2001/XMLSchema#integer",
+            "@value": 7
+          }
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#placesComponent": [
+          {
+            "@id": "https://infobim.org/ontology/abox/entity_page.ttl#OpenWorkbookButton"
+          }
+        ]
+      },
+      {
+        "@id": "https://infobim.org/ontology/abox/entity_page.ttl#PrintButton",
+        "@type": [
+          "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#EntityPageActionButton"
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#cssClass": [
+          {
+            "@value": "icon-btn gantt-print-btn"
+          }
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#i18nAriaLabelKey": [
+          {
+            "@value": "printGantt"
+          }
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#i18nTitleKey": [
+          {
+            "@value": "printGanttTitle"
+          }
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#iconName": [
+          {
+            "@value": "print"
+          }
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#initiallyDisabled": [
+          {
+            "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+            "@value": true
+          }
+        ]
+      },
+      {
+        "@id": "https://infobim.org/ontology/abox/entity_page.ttl#PrintPlacement",
+        "@type": [
+          "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#ToolbarItemPlacement"
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#placementOrder": [
+          {
+            "@type": "http://www.w3.org/2001/XMLSchema#integer",
+            "@value": 6
+          }
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#placesComponent": [
+          {
+            "@id": "https://infobim.org/ontology/abox/entity_page.ttl#PrintButton"
+          }
+        ]
+      },
+      {
+        "@id": "https://infobim.org/ontology/abox/entity_page.ttl#RefreshButton",
+        "@type": [
+          "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#EntityPageActionButton"
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#cssClass": [
+          {
+            "@value": "icon-btn refresh-btn"
+          }
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#i18nAriaLabelKey": [
+          {
+            "@value": "refreshFromWorkbook"
+          }
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#i18nTitleKey": [
+          {
+            "@value": "refreshFromWorkbookTitle"
+          }
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#iconName": [
+          {
+            "@value": "refresh"
+          }
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#initiallyDisabled": [
+          {
+            "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+            "@value": true
+          }
+        ]
+      },
+      {
+        "@id": "https://infobim.org/ontology/abox/entity_page.ttl#RefreshPlacement",
+        "@type": [
+          "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#ToolbarItemPlacement"
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#placementOrder": [
+          {
+            "@type": "http://www.w3.org/2001/XMLSchema#integer",
+            "@value": 2
+          }
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#placesComponent": [
+          {
+            "@id": "https://infobim.org/ontology/abox/entity_page.ttl#RefreshButton"
+          }
+        ]
+      },
+      {
+        "@id": "https://infobim.org/ontology/abox/entity_page.ttl#WorkspaceButton",
+        "@type": [
+          "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#EntityPageActionButton"
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#cssClass": [
+          {
+            "@value": "icon-btn workspace-btn"
+          }
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#i18nAriaLabelKey": [
+          {
+            "@value": "openAnnotationWorkspace"
+          }
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#i18nTitleKey": [
+          {
+            "@value": "openAnnotationWorkspace"
+          }
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#iconName": [
+          {
+            "@value": "workspace"
+          }
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#initiallyDisabled": [
+          {
+            "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+            "@value": true
+          }
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#initiallyHidden": [
+          {
+            "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+            "@value": true
+          }
+        ]
+      },
+      {
+        "@id": "https://infobim.org/ontology/abox/entity_page.ttl#WorkspacePlacement",
+        "@type": [
+          "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#ToolbarItemPlacement"
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#placementOrder": [
+          {
+            "@type": "http://www.w3.org/2001/XMLSchema#integer",
+            "@value": 3
+          }
+        ],
+        "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#placesComponent": [
+          {
+            "@id": "https://infobim.org/ontology/abox/entity_page.ttl#WorkspaceButton"
+          }
+        ]
+      }
+    ]
+  }
+}

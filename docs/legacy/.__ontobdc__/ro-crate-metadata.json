@@ -1,0 +1,555 @@
+{
+    "@context": "https://w3id.org/ro/crate/1.2/context",
+    "@graph": [
+        {
+            "@id": "./",
+            "@type": "Dataset",
+            "datePublished": "2026-08-29T17:13:11+00:00",
+            "hasPart": [
+                {
+                    "@id": ".git"
+                },
+                {
+                    "@id": ".github/workflows/deploy-production.yml"
+                },
+                {
+                    "@id": ".gitignore"
+                },
+                {
+                    "@id": "LICENSE"
+                },
+                {
+                    "@id": "doc/01-getting-started/cli-basics.md"
+                },
+                {
+                    "@id": "doc/01-getting-started/first-container.md"
+                },
+                {
+                    "@id": "doc/01-getting-started/installation.md"
+                },
+                {
+                    "@id": "doc/01-getting-started/quickstart.md"
+                },
+                {
+                    "@id": "doc/01-getting-started/what-is-ontobdc.md"
+                },
+                {
+                    "@id": "doc/02-concepts/container.md"
+                },
+                {
+                    "@id": "doc/README.md"
+                },
+                {
+                    "@id": "doc/README/index.md"
+                },
+                {
+                    "@id": "doc/assets/stylesheets/extra.css"
+                },
+                {
+                    "@id": "doc/doc/index.md"
+                },
+                {
+                    "@id": "doc/index.md"
+                },
+                {
+                    "@id": "docker/Dockerfile"
+                },
+                {
+                    "@id": "docker/docker-compose.yml"
+                },
+                {
+                    "@id": "legacy/README.md"
+                },
+                {
+                    "@id": "legacy/attention-surface.md"
+                },
+                {
+                    "@id": "legacy/code.ttl"
+                },
+                {
+                    "@id": "legacy/ent.ttl"
+                },
+                {
+                    "@id": "legacy/exc.ttl"
+                },
+                {
+                    "@id": "legacy/history/cloud-pieces-end.md"
+                },
+                {
+                    "@id": "legacy/history/roadmap.md"
+                },
+                {
+                    "@id": "legacy/nid.ttl"
+                },
+                {
+                    "@id": "legacy/notes/2026-08-10-ontobdc-cli-terminal-identity-functional-structure.md"
+                },
+                {
+                    "@id": "legacy/notes/2026-08-10-ontobdc-directory-structure-survey.md"
+                },
+                {
+                    "@id": "legacy/notes/2026-08-10-ontobdc-storage-module-functional-structure.md"
+                },
+                {
+                    "@id": "legacy/notes/2026-08-10-ontobdc-view-module-functional-structure.md"
+                },
+                {
+                    "@id": "legacy/notes/domain-conversations/2026-08-01-briefcase-perspectives-checkpoint-2231.md"
+                },
+                {
+                    "@id": "legacy/notes/domain-conversations/2026-08-01-briefcase-perspectives-summary.md"
+                },
+                {
+                    "@id": "legacy/notes/domain-conversations/2026-08-01-briefcase-perspectives-transcript.md"
+                },
+                {
+                    "@id": "legacy/notes/domain-conversations/2026-08-02-briefcase-perspectives-transcript-continuation-01.md"
+                },
+                {
+                    "@id": "legacy/notes/domain-conversations/2026-08-03-offline-money-and-44-legacy.md"
+                },
+                {
+                    "@id": "legacy/notes/domain-conversations/2026-08-07-presentation-interoperability-events-ble-dock-transcript.md"
+                },
+                {
+                    "@id": "legacy/notes/domain-conversations/2026-08-08-ddock-presentation-layer-event-model.md"
+                },
+                {
+                    "@id": "legacy/sh.ttl"
+                },
+                {
+                    "@id": "legacy/test.ttl"
+                },
+                {
+                    "@id": "legacy/uc.ttl"
+                },
+                {
+                    "@id": "mkdocs.yml"
+                },
+                {
+                    "@id": "overrides/main.html"
+                },
+                {
+                    "@id": "overrides/partials/header.html"
+                },
+                {
+                    "@id": "overrides/partials/logo.html"
+                },
+                {
+                    "@id": "requirements.txt"
+                },
+                {
+                    "@id": "run.sh"
+                }
+            ]
+        },
+        {
+            "@id": "ro-crate-metadata.json",
+            "@type": "CreativeWork",
+            "about": {
+                "@id": "./"
+            },
+            "conformsTo": {
+                "@id": "https://w3id.org/ro/crate/1.2"
+            }
+        },
+        {
+            "@id": ".git",
+            "@type": "File",
+            "contentSize": "29",
+            "dateCreated": "2026-08-08T20:59:27.412824Z",
+            "dateModified": "2026-08-08T20:59:29.570748Z",
+            "name": ".git"
+        },
+        {
+            "@id": ".github/workflows/deploy-production.yml",
+            "@type": "File",
+            "contentSize": "2363",
+            "dateCreated": "2026-08-14T12:30:21.925114Z",
+            "dateModified": "2026-08-14T13:01:37.744156Z",
+            "name": "deploy-production.yml"
+        },
+        {
+            "@id": ".gitignore",
+            "@type": "File",
+            "contentSize": "4651",
+            "dateCreated": "2026-08-10T22:39:12.735947Z",
+            "dateModified": "2026-08-10T22:39:12.736393Z",
+            "name": ".gitignore"
+        },
+        {
+            "@id": "LICENSE",
+            "@type": "File",
+            "contentSize": "11357",
+            "dateCreated": "2026-08-11T20:51:26.131152Z",
+            "dateModified": "2026-08-11T20:51:26.131751Z",
+            "name": "LICENSE"
+        },
+        {
+            "@id": "doc/01-getting-started/cli-basics.md",
+            "@type": "File",
+            "contentSize": "0",
+            "dateCreated": "2026-08-29T15:03:14.368441Z",
+            "dateModified": "2026-08-29T15:03:14.368441Z",
+            "encodingFormat": "text/markdown",
+            "name": "cli-basics.md"
+        },
+        {
+            "@id": "doc/01-getting-started/first-container.md",
+            "@type": "File",
+            "contentSize": "0",
+            "dateCreated": "2026-08-29T15:02:59.900111Z",
+            "dateModified": "2026-08-29T15:02:59.900111Z",
+            "encodingFormat": "text/markdown",
+            "name": "first-container.md"
+        },
+        {
+            "@id": "doc/01-getting-started/installation.md",
+            "@type": "File",
+            "contentSize": "0",
+            "dateCreated": "2026-08-29T15:02:29.045063Z",
+            "dateModified": "2026-08-29T15:02:29.045063Z",
+            "encodingFormat": "text/markdown",
+            "name": "installation.md"
+        },
+        {
+            "@id": "doc/01-getting-started/quickstart.md",
+            "@type": "File",
+            "contentSize": "0",
+            "dateCreated": "2026-08-29T15:02:48.356681Z",
+            "dateModified": "2026-08-29T15:02:48.356681Z",
+            "encodingFormat": "text/markdown",
+            "name": "quickstart.md"
+        },
+        {
+            "@id": "doc/01-getting-started/what-is-ontobdc.md",
+            "@type": "File",
+            "contentSize": "0",
+            "dateCreated": "2026-08-29T15:02:20.284794Z",
+            "dateModified": "2026-08-29T15:02:20.284794Z",
+            "encodingFormat": "text/markdown",
+            "name": "what-is-ontobdc.md"
+        },
+        {
+            "@id": "doc/02-concepts/container.md",
+            "@type": "File",
+            "contentSize": "0",
+            "dateCreated": "2026-08-29T15:04:58.729423Z",
+            "dateModified": "2026-08-29T15:04:58.729423Z",
+            "encodingFormat": "text/markdown",
+            "name": "container.md"
+        },
+        {
+            "@id": "doc/README.md",
+            "@type": "File",
+            "contentSize": "1633",
+            "dateCreated": "2026-08-29T14:49:59.922481Z",
+            "dateModified": "2026-08-29T14:49:59.922774Z",
+            "encodingFormat": "text/markdown",
+            "name": "README.md"
+        },
+        {
+            "@id": "doc/README/index.md",
+            "@type": "File",
+            "contentSize": "1633",
+            "dateCreated": "2026-08-29T15:50:21.816858Z",
+            "dateModified": "2026-08-29T15:50:21.817448Z",
+            "encodingFormat": "text/markdown",
+            "name": "index.md"
+        },
+        {
+            "@id": "doc/assets/stylesheets/extra.css",
+            "@type": "File",
+            "contentSize": "1265",
+            "dateCreated": "2026-08-29T15:25:26.105255Z",
+            "dateModified": "2026-08-29T15:25:26.105600Z",
+            "encodingFormat": "text/css",
+            "name": "extra.css"
+        },
+        {
+            "@id": "doc/doc/index.md",
+            "@type": "File",
+            "contentSize": "1633",
+            "dateCreated": "2026-08-29T15:39:19.790500Z",
+            "dateModified": "2026-08-29T15:39:19.790901Z",
+            "encodingFormat": "text/markdown",
+            "name": "index.md"
+        },
+        {
+            "@id": "doc/index.md",
+            "@type": "File",
+            "contentSize": "15454",
+            "dateCreated": "2026-08-29T15:39:19.790999Z",
+            "dateModified": "2026-08-29T15:39:19.791202Z",
+            "encodingFormat": "text/markdown",
+            "name": "index.md"
+        },
+        {
+            "@id": "docker/Dockerfile",
+            "@type": "File",
+            "contentSize": "605",
+            "dateCreated": "2026-08-29T15:10:31.469781Z",
+            "dateModified": "2026-08-29T15:10:31.470016Z",
+            "name": "Dockerfile"
+        },
+        {
+            "@id": "docker/docker-compose.yml",
+            "@type": "File",
+            "contentSize": "602",
+            "dateCreated": "2026-08-29T15:06:02.395519Z",
+            "dateModified": "2026-08-29T15:06:25.299803Z",
+            "name": "docker-compose.yml"
+        },
+        {
+            "@id": "legacy/README.md",
+            "@type": "File",
+            "contentSize": "106",
+            "dateCreated": "2026-08-11T20:51:56.995005Z",
+            "dateModified": "2026-08-11T20:51:56.995200Z",
+            "encodingFormat": "text/markdown",
+            "name": "README.md"
+        },
+        {
+            "@id": "legacy/attention-surface.md",
+            "@type": "File",
+            "contentSize": "11789",
+            "dateCreated": "2026-08-10T07:19:30.892875Z",
+            "dateModified": "2026-08-10T07:19:30.893381Z",
+            "encodingFormat": "text/markdown",
+            "name": "attention-surface.md"
+        },
+        {
+            "@id": "legacy/code.ttl",
+            "@type": "File",
+            "contentSize": "45272",
+            "dateCreated": "2026-08-08T20:59:29.584362Z",
+            "dateModified": "2026-08-08T20:59:29.584518Z",
+            "encodingFormat": "text/turtle",
+            "name": "code.ttl"
+        },
+        {
+            "@id": "legacy/ent.ttl",
+            "@type": "File",
+            "contentSize": "5453",
+            "dateCreated": "2026-08-27T23:26:58.837421Z",
+            "dateModified": "2026-08-27T23:26:58.838329Z",
+            "encodingFormat": "text/turtle",
+            "name": "ent.ttl"
+        },
+        {
+            "@id": "legacy/exc.ttl",
+            "@type": "File",
+            "contentSize": "1047",
+            "dateCreated": "2026-08-27T23:26:58.838830Z",
+            "dateModified": "2026-08-27T23:26:58.839231Z",
+            "encodingFormat": "text/turtle",
+            "name": "exc.ttl"
+        },
+        {
+            "@id": "legacy/history/cloud-pieces-end.md",
+            "@type": "File",
+            "contentSize": "12970",
+            "dateCreated": "2026-08-10T07:19:30.893505Z",
+            "dateModified": "2026-08-10T07:19:30.893746Z",
+            "encodingFormat": "text/markdown",
+            "name": "cloud-pieces-end.md"
+        },
+        {
+            "@id": "legacy/history/roadmap.md",
+            "@type": "File",
+            "contentSize": "24638",
+            "dateCreated": "2026-08-10T07:19:30.893798Z",
+            "dateModified": "2026-08-10T07:19:30.894002Z",
+            "encodingFormat": "text/markdown",
+            "name": "roadmap.md"
+        },
+        {
+            "@id": "legacy/nid.ttl",
+            "@type": "File",
+            "contentSize": "859",
+            "dateCreated": "2026-08-27T23:26:58.839380Z",
+            "dateModified": "2026-08-27T23:26:58.839905Z",
+            "encodingFormat": "text/turtle",
+            "name": "nid.ttl"
+        },
+        {
+            "@id": "legacy/notes/2026-08-10-ontobdc-cli-terminal-identity-functional-structure.md",
+            "@type": "File",
+            "contentSize": "28493",
+            "dateCreated": "2026-08-10T07:57:51.971838Z",
+            "dateModified": "2026-08-10T07:57:51.972051Z",
+            "encodingFormat": "text/markdown",
+            "name": "2026-08-10-ontobdc-cli-terminal-identity-functional-structure.md"
+        },
+        {
+            "@id": "legacy/notes/2026-08-10-ontobdc-directory-structure-survey.md",
+            "@type": "File",
+            "contentSize": "18907",
+            "dateCreated": "2026-08-10T07:25:51.348561Z",
+            "dateModified": "2026-08-10T07:25:51.348774Z",
+            "encodingFormat": "text/markdown",
+            "name": "2026-08-10-ontobdc-directory-structure-survey.md"
+        },
+        {
+            "@id": "legacy/notes/2026-08-10-ontobdc-storage-module-functional-structure.md",
+            "@type": "File",
+            "contentSize": "14599",
+            "dateCreated": "2026-08-27T23:26:58.842771Z",
+            "dateModified": "2026-08-27T23:26:58.846310Z",
+            "encodingFormat": "text/markdown",
+            "name": "2026-08-10-ontobdc-storage-module-functional-structure.md"
+        },
+        {
+            "@id": "legacy/notes/2026-08-10-ontobdc-view-module-functional-structure.md",
+            "@type": "File",
+            "contentSize": "14140",
+            "dateCreated": "2026-08-10T07:45:47.202103Z",
+            "dateModified": "2026-08-10T07:45:47.202672Z",
+            "encodingFormat": "text/markdown",
+            "name": "2026-08-10-ontobdc-view-module-functional-structure.md"
+        },
+        {
+            "@id": "legacy/notes/domain-conversations/2026-08-01-briefcase-perspectives-checkpoint-2231.md",
+            "@type": "File",
+            "contentSize": "1029",
+            "dateCreated": "2026-08-08T20:59:29.586471Z",
+            "dateModified": "2026-08-08T20:59:29.586553Z",
+            "encodingFormat": "text/markdown",
+            "name": "2026-08-01-briefcase-perspectives-checkpoint-2231.md"
+        },
+        {
+            "@id": "legacy/notes/domain-conversations/2026-08-01-briefcase-perspectives-summary.md",
+            "@type": "File",
+            "contentSize": "13075",
+            "dateCreated": "2026-08-08T20:59:29.586601Z",
+            "dateModified": "2026-08-08T20:59:29.586879Z",
+            "encodingFormat": "text/markdown",
+            "name": "2026-08-01-briefcase-perspectives-summary.md"
+        },
+        {
+            "@id": "legacy/notes/domain-conversations/2026-08-01-briefcase-perspectives-transcript.md",
+            "@type": "File",
+            "contentSize": "14649",
+            "dateCreated": "2026-08-08T20:59:29.586925Z",
+            "dateModified": "2026-08-08T20:59:29.587184Z",
+            "encodingFormat": "text/markdown",
+            "name": "2026-08-01-briefcase-perspectives-transcript.md"
+        },
+        {
+            "@id": "legacy/notes/domain-conversations/2026-08-02-briefcase-perspectives-transcript-continuation-01.md",
+            "@type": "File",
+            "contentSize": "93461",
+            "dateCreated": "2026-08-08T20:59:29.587234Z",
+            "dateModified": "2026-08-08T20:59:29.587503Z",
+            "encodingFormat": "text/markdown",
+            "name": "2026-08-02-briefcase-perspectives-transcript-continuation-01.md"
+        },
+        {
+            "@id": "legacy/notes/domain-conversations/2026-08-03-offline-money-and-44-legacy.md",
+            "@type": "File",
+            "contentSize": "10866",
+            "dateCreated": "2026-08-08T20:59:29.587590Z",
+            "dateModified": "2026-08-08T20:59:29.587817Z",
+            "encodingFormat": "text/markdown",
+            "name": "2026-08-03-offline-money-and-44-legacy.md"
+        },
+        {
+            "@id": "legacy/notes/domain-conversations/2026-08-07-presentation-interoperability-events-ble-dock-transcript.md",
+            "@type": "File",
+            "contentSize": "101942",
+            "dateCreated": "2026-08-08T20:59:29.587867Z",
+            "dateModified": "2026-08-08T20:59:29.588160Z",
+            "encodingFormat": "text/markdown",
+            "name": "2026-08-07-presentation-interoperability-events-ble-dock-transcript.md"
+        },
+        {
+            "@id": "legacy/notes/domain-conversations/2026-08-08-ddock-presentation-layer-event-model.md",
+            "@type": "File",
+            "contentSize": "36788",
+            "dateCreated": "2026-08-08T20:59:29.588367Z",
+            "dateModified": "2026-08-08T20:59:29.588510Z",
+            "encodingFormat": "text/markdown",
+            "name": "2026-08-08-ddock-presentation-layer-event-model.md"
+        },
+        {
+            "@id": "legacy/sh.ttl",
+            "@type": "File",
+            "contentSize": "4751",
+            "dateCreated": "2026-08-27T23:26:58.840048Z",
+            "dateModified": "2026-08-27T23:26:58.840628Z",
+            "encodingFormat": "text/turtle",
+            "name": "sh.ttl"
+        },
+        {
+            "@id": "legacy/test.ttl",
+            "@type": "File",
+            "contentSize": "11483",
+            "dateCreated": "2026-08-08T20:59:29.585670Z",
+            "dateModified": "2026-08-08T20:59:29.585904Z",
+            "encodingFormat": "text/turtle",
+            "name": "test.ttl"
+        },
+        {
+            "@id": "legacy/uc.ttl",
+            "@type": "File",
+            "contentSize": "7822",
+            "dateCreated": "2026-08-08T20:59:29.585945Z",
+            "dateModified": "2026-08-08T20:59:29.586262Z",
+            "encodingFormat": "text/turtle",
+            "name": "uc.ttl"
+        },
+        {
+            "@id": "mkdocs.yml",
+            "@type": "File",
+            "contentSize": "1419",
+            "dateCreated": "2026-08-29T15:50:21.817660Z",
+            "dateModified": "2026-08-29T15:50:21.818080Z",
+            "name": "mkdocs.yml"
+        },
+        {
+            "@id": "overrides/main.html",
+            "@type": "File",
+            "contentSize": "5438",
+            "dateCreated": "2026-08-29T14:49:59.924010Z",
+            "dateModified": "2026-08-29T14:49:59.924280Z",
+            "encodingFormat": "text/html",
+            "name": "main.html"
+        },
+        {
+            "@id": "overrides/partials/header.html",
+            "@type": "File",
+            "contentSize": "5696",
+            "dateCreated": "2026-08-29T15:50:21.818244Z",
+            "dateModified": "2026-08-29T15:50:21.818596Z",
+            "encodingFormat": "text/html",
+            "name": "header.html"
+        },
+        {
+            "@id": "overrides/partials/logo.html",
+            "@type": "File",
+            "contentSize": "973",
+            "dateCreated": "2026-08-29T14:49:59.924661Z",
+            "dateModified": "2026-08-29T14:49:59.924814Z",
+            "encodingFormat": "text/html",
+            "name": "logo.html"
+        },
+        {
+            "@id": "requirements.txt",
+            "@type": "File",
+            "contentSize": "51",
+            "dateCreated": "2026-08-29T14:49:59.924858Z",
+            "dateModified": "2026-08-29T14:49:59.925105Z",
+            "encodingFormat": "text/plain",
+            "name": "requirements.txt"
+        },
+        {
+            "@id": "run.sh",
+            "@type": "File",
+            "contentSize": "700",
+            "dateCreated": "2026-08-29T14:53:38.300061Z",
+            "dateModified": "2026-08-29T15:08:28.685748Z",
+            "encodingFormat": "application/x-sh",
+            "name": "run.sh"
+        }
+    ]
+}

@@ -1,0 +1,268 @@
+[
+  {
+    "@id": "urn:ontobdc:storage/dataset/data/work_stream-fire_alarm_test",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#EntityDataset"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#belongsToDataContainer": [
+      {
+        "@id": "urn:uuid:c04c187f-4358-4399-9c76-11c8088203e2"
+      },
+      {
+        "@id": "urn:ontobdc:storage/local/data"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#hasDataEntity": [
+      {
+        "@id": "urn:ontobdc:storage/dataset/data/work_stream-fire_alarm_test/c47962f1-1bb1-4f62-b42d-8fe10a269ce9"
+      }
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@value": "Storage dataset located at file:///Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/data/work_stream-fire_alarm_test"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:ontobdc:storage/dataset/data/work_stream-fire_alarm_test"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "Storage Dataset: work_stream-fire_alarm_test"
+      }
+    ],
+    "http://standards.iso.org/iso/21597/-1/ed-1/en/Container#creationDate": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+        "@value": "2026-08-11T07:20:19"
+      }
+    ],
+    "http://www.w3.org/ns/prov#atLocation": [
+      {
+        "@id": "file:///Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/data/work_stream-fire_alarm_test"
+      }
+    ]
+  },
+  {
+    "@id": "urn:ontobdc:storage/dataset/data/work_stream-tile_smoke_test",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#EntityDataset"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#belongsToDataContainer": [
+      {
+        "@id": "urn:uuid:c04c187f-4358-4399-9c76-11c8088203e2"
+      }
+    ]
+  },
+  {
+    "@id": "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#DataContainer",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#SurfaceableEntity"
+    ]
+  },
+  {
+    "@id": "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#ImageFile",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#SurfaceableEntity"
+    ]
+  },
+  {
+    "@id": "urn:ontobdc:storage/dataset/data/work_stream-fire_alarm_test/c47962f1-1bb1-4f62-b42d-8fe10a269ce9",
+    "@type": [
+      "http://datacenter.app.br/ontology/productivity/entity/work_stream/type.ttl#WorkStream",
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#DataEntity"
+    ],
+    "http://datacenter.app.br/ontology/productivity/entity/work_stream/type.ttl#how": [
+      {
+        "@value": "Contracted installation with third-party certified vendor."
+      }
+    ],
+    "http://datacenter.app.br/ontology/productivity/entity/work_stream/type.ttl#howMuch": [
+      {
+        "@value": "Estimated 12,000 USD."
+      }
+    ],
+    "http://datacenter.app.br/ontology/productivity/entity/work_stream/type.ttl#what": [
+      {
+        "@value": "Install fire alarm system"
+      }
+    ],
+    "http://datacenter.app.br/ontology/productivity/entity/work_stream/type.ttl#when": [
+      {
+        "@value": "Q3 2026"
+      }
+    ],
+    "http://datacenter.app.br/ontology/productivity/entity/work_stream/type.ttl#where": [
+      {
+        "@value": "Building A, 3rd floor"
+      }
+    ],
+    "http://datacenter.app.br/ontology/productivity/entity/work_stream/type.ttl#who": [
+      {
+        "@value": "Facilities team"
+      }
+    ],
+    "http://datacenter.app.br/ontology/productivity/entity/work_stream/type.ttl#why": [
+      {
+        "@value": "Life safety compliance"
+      }
+    ],
+    "http://purl.org/dc/terms/conformsTo": [
+      {
+        "@id": "http://datacenter.app.br/ontology/productivity/entity/work_stream/facade.ttl#WorkStreamFacade"
+      }
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@value": "Install and commission a fire alarm system across Building A."
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "c47962f1-1bb1-4f62-b42d-8fe10a269ce9"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@language": "en",
+        "@value": "Fire alarm test"
+      }
+    ],
+    "https://schema.org/identifier": [
+      {
+        "@value": "c47962f1-1bb1-4f62-b42d-8fe10a269ce9"
+      }
+    ]
+  },
+  {
+    "@id": "http://datacenter.app.br/ontology/productivity/entity/work_stream/type.ttl#WorkStream",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#SurfaceableEntity"
+    ]
+  },
+  {
+    "@id": "urn:ontobdc:storage/dataset/data/work_stream-surfaceable_marker_test",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#EntityDataset"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#belongsToDataContainer": [
+      {
+        "@id": "urn:uuid:c04c187f-4358-4399-9c76-11c8088203e2"
+      }
+    ]
+  },
+  {
+    "@id": "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#SurfaceableEntity"
+    ]
+  },
+  {
+    "@id": "file:///Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/data/work_stream-fire_alarm_test/.__ontobdc__/dataset.ttl",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Ontology"
+    ]
+  },
+  {
+    "@id": "urn:ontobdc:storage/dataset/data/work_stream-empty_fields_test",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#EntityDataset"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#belongsToDataContainer": [
+      {
+        "@id": "urn:uuid:c04c187f-4358-4399-9c76-11c8088203e2"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:c04c187f-4358-4399-9c76-11c8088203e2/files",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#FileTree"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:c04c187f-4358-4399-9c76-11c8088203e2/files"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:c04c187f-4358-4399-9c76-11c8088203e2"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@language": "en",
+        "@value": "Files"
+      }
+    ]
+  },
+  {
+    "@id": "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#CsvFile",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#SurfaceableEntity"
+    ]
+  },
+  {
+    "@id": "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#FileTree",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#SurfaceableEntity"
+    ]
+  },
+  {
+    "@id": "urn:uuid:c04c187f-4358-4399-9c76-11c8088203e2",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#DataContainer"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#hasEntityDataset": [
+      {
+        "@id": "urn:ontobdc:storage/dataset/data/work_stream-fire_alarm_test"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:c04c187f-4358-4399-9c76-11c8088203e2"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@language": "en",
+        "@value": "Storage Container: data"
+      }
+    ],
+    "http://standards.iso.org/iso/21597/-1/ed-1/en/Container#creationDate": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+        "@value": "2026-08-11T00:25:46.944323+00:00"
+      }
+    ],
+    "http://standards.iso.org/iso/21597/-1/ed-1/en/Container#description": [
+      {
+        "@language": "en",
+        "@value": "Local storage container at Storage Container: data"
+      }
+    ],
+    "http://www.w3.org/ns/prov#atLocation": [
+      {
+        "@id": "file:///Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/data"
+      }
+    ]
+  },
+  {
+    "@id": "urn:ontobdc:storage/dataset/data/work_stream-routing_regression_check",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#EntityDataset"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#belongsToDataContainer": [
+      {
+        "@id": "urn:uuid:c04c187f-4358-4399-9c76-11c8088203e2"
+      }
+    ]
+  },
+  {
+    "@id": "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#PdfFile",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#SurfaceableEntity"
+    ]
+  }
+]

@@ -1,0 +1,70 @@
+{
+  "name": "ontobdc_container",
+  "resources": [
+    {
+      "bytes": 9759,
+      "dialect": {
+        "excel": {
+          "sheet": "WorkStream"
+        }
+      },
+      "entityIdentifier": "work_stream",
+      "entityUri": "http://datacenter.app.br/ontology/productivity/entity/work_stream/type.ttl#WorkStream",
+      "facadeUri": "http://datacenter.app.br/ontology/productivity/entity/work_stream/facade.ttl#WorkStreamFacade",
+      "format": "xlsx",
+      "instanceUriTemplate": "urn:ontobdc:entity/work_stream/{GlobalId}",
+      "mediatype": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "name": "work_stream",
+      "path": "../payload/document/work_stream.xlsx",
+      "schema": {
+        "fields": [
+          {
+            "name": "Description",
+            "type": "string"
+          },
+          {
+            "name": "GlobalId",
+            "type": "string"
+          },
+          {
+            "name": "How",
+            "type": "string"
+          },
+          {
+            "name": "HowMuch",
+            "type": "string"
+          },
+          {
+            "name": "Name",
+            "type": "string"
+          },
+          {
+            "name": "What",
+            "type": "string"
+          },
+          {
+            "name": "When",
+            "type": "string"
+          },
+          {
+            "name": "Where",
+            "type": "string"
+          },
+          {
+            "name": "Who",
+            "type": "string"
+          },
+          {
+            "name": "Why",
+            "type": "string"
+          }
+        ],
+        "primaryKey": [
+          "GlobalId"
+        ]
+      },
+      "scheme": "file",
+      "type": "table"
+    }
+  ]
+}

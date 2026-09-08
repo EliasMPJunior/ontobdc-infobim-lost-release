@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>InfoBIM Subject — Visual Mock</title>
+  <style>
+    :root {
+      --bg: #09101d;
+      --surface: rgba(14, 22, 38, .9);
+      --surface-strong: #172338;
+      --line: rgba(148, 163, 184, .2);
+      --text: #e5eefc;
+      --muted: #97a7bf;
+      --accent: #67e8f9;
+      --accent-strong: #38bdf8;
+      --green: #22c55e;
+      --amber: #fbbf24;
+      --red: #fb7185;
+      --shadow: 0 28px 70px rgba(0, 0, 0, .36);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      font-family: "Segoe UI", Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, .18), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(103, 232, 249, .1), transparent 22%),
+        linear-gradient(180deg, #08101c, #060b14);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: linear-gradient(180deg, #000, transparent);
+    }
+
+    button { font: inherit; }
+    .shell { position: relative; max-width: 1500px; margin: auto; padding: 28px; }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .hero { padding: 26px 30px 30px; }
+    .brand { display: flex; align-items: center; gap: 18px; }
+    .logo {
+      width: 84px; height: 84px; object-fit: contain; padding: 8px;
+      border-radius: 18px; background: rgba(255,255,255,.04);
+    }
+    .brand-copy { display: grid; gap: 10px; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 10px; width: fit-content;
+      padding: 10px 15px; border-radius: 999px;
+      color: var(--accent); background: rgba(103,232,249,.12);
+      font-size: .8rem; font-weight: 800; letter-spacing: .09em; text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+    .project { color: rgba(229,238,252,.68); font: .82rem Consolas, monospace; }
+    h1 { margin: 24px 0 8px; font-size: clamp(2.6rem, 6vw, 5rem); line-height: .95; letter-spacing: -.055em; }
+    .lead { margin: 0; max-width: 78ch; color: var(--muted); line-height: 1.6; }
+
+    .statusbar {
+      display: flex; align-items: center; justify-content: space-between; gap: 18px;
+      margin: 16px 0 22px; padding: 12px 16px;
+    }
+    .status { display: flex; align-items: center; gap: 10px; font-weight: 750; }
+    .status i { width: 11px; height: 11px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 7px rgba(34,197,94,.13); }
+    .ghost-button {
+      color: var(--text); border: 1px solid rgba(103,232,249,.28);
+      background: rgba(103,232,249,.06); border-radius: 999px; padding: 10px 16px;
+      font-weight: 750; cursor: pointer;
+    }
+
+    .tabs {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+      padding: 6px; margin-bottom: 18px;
+    }
+    .tab {
+      border: 1px solid transparent; border-radius: 18px; padding: 13px 18px;
+      color: var(--muted); background: transparent; font-weight: 800; cursor: pointer;
+    }
+    .tab:hover { color: var(--text); }
+    .tab[aria-selected="true"] {
+      color: var(--accent); border-color: rgba(103,232,249,.35);
+      background: rgba(103,232,249,.11);
+    }
+
+    .view { display: none; }
+    .view.is-active { display: grid; grid-template-columns: minmax(300px,.72fr) minmax(0,1.28fr); gap: 18px; }
+    .panel { overflow: hidden; }
+    .panel-head {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      padding: 18px 20px; border-bottom: 1px solid var(--line);
+    }
+    .panel-head h2 { margin: 0; font-size: 1rem; }
+    .panel-kicker { color: var(--muted); font-size: .75rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .panel-body { padding: 18px; }
+
+    .cluster-list, .annotation-list { display: grid; gap: 12px; }
+    .cluster, .annotation {
+      width: 100%; text-align: left; border: 1px solid var(--line); border-radius: 18px;
+      background: rgba(255,255,255,.025); color: var(--text); padding: 15px; cursor: pointer;
+    }
+    .cluster:hover, .annotation:hover, .cluster.is-active {
+      border-color: rgba(103,232,249,.42); background: rgba(103,232,249,.08);
+    }
+    .cluster strong, .annotation strong { display: block; margin-bottom: 7px; }
+    .meta { color: var(--muted); font-size: .82rem; line-height: 1.45; }
+    .count { float: right; color: var(--accent); }
+
+    .spatial-stage {
+      position: relative; min-height: 500px; overflow: hidden; border-radius: 20px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(rgba(56,189,248,.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(56,189,248,.05) 1px, transparent 1px),
+        #dbe4ea;
+      background-size: 28px 28px;
+    }
+    .drawing {
+      position: absolute; inset: 9% 8%; border: 3px solid #74899a; background: rgba(255,255,255,.78);
+    }
+    .drawing::before, .drawing::after { content: ""; position: absolute; background: #91a4b2; }
+    .drawing::before { left: 12%; right: 12%; top: 42%; height: 4px; }
+    .drawing::after { top: 12%; bottom: 12%; left: 58%; width: 4px; }
+    .room { position: absolute; border: 2px solid #5b7182; }
+    .room.a { inset: 12% 45% 48% 10%; }
+    .room.b { inset: 55% 12% 10% 52%; }
+    .pin {
+      position: absolute; width: 22px; height: 22px; border: 4px solid #26384a;
+      border-radius: 50%; background: var(--accent); box-shadow: 0 4px 12px rgba(0,0,0,.3);
+    }
+    .pin.one { left: 31%; top: 31%; }
+    .pin.two { left: 51%; top: 58%; background: var(--amber); }
+    .pin.three { left: 68%; top: 38%; background: var(--red); }
+    .legend {
+      position: absolute; left: 18px; bottom: 18px; padding: 10px 13px;
+      color: #26384a; background: rgba(255,255,255,.9); border-radius: 12px; font-size: .78rem; font-weight: 750;
+    }
+
+    .timeline { position: relative; display: grid; gap: 16px; padding-left: 28px; }
+    .timeline::before { content: ""; position: absolute; left: 8px; top: 8px; bottom: 8px; width: 2px; background: var(--line); }
+    .event { position: relative; padding: 16px; border-radius: 18px; border: 1px solid var(--line); background: rgba(255,255,255,.025); }
+    .event::before { content: ""; position: absolute; left: -27px; top: 21px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 5px rgba(103,232,249,.12); }
+    .event time { color: var(--accent); font-size: .78rem; font-weight: 800; }
+
+    .people { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; }
+    .person { padding: 18px; border-radius: 20px; border: 1px solid var(--line); background: rgba(255,255,255,.025); }
+    .avatar { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; color: #06202a; background: var(--accent); font-weight: 900; }
+    .person-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+    .person h3 { margin: 0 0 3px; font-size: 1rem; }
+
+    .detail-title { margin: 0 0 8px; font-size: 1.35rem; }
+    .detail-text { color: var(--text); line-height: 1.65; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+    .chip { padding: 7px 10px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); font-size: .78rem; }
+    .source {
+      display: flex; justify-content: space-between; gap: 12px; padding: 14px;
+      border-radius: 16px; background: rgba(103,232,249,.07); border: 1px solid rgba(103,232,249,.18);
+    }
+    .source b { color: var(--accent); }
+
+    .mock-note {
+      margin-top: 18px; color: var(--muted); text-align: center; font-size: .78rem;
+    }
+
+    @media (max-width: 900px) {
+      .view.is-active { grid-template-columns: 1fr; }
+      .people { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 620px) {
+      .shell { padding: 14px; }
+      .hero { padding: 20px; }
+      .brand { align-items: flex-start; }
+      .logo { width: 66px; height: 66px; }
+      .tabs { grid-template-columns: 1fr; }
+      .statusbar { align-items: flex-start; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="card hero">
+      <div class="brand">
+        <img class="logo" src="../../src/infobim/view/plugin/asset/logo.png" alt="InfoBIM">
+        <div class="brand-copy">
+          <span class="eyebrow">InfoBIM Subject</span>
+          <span class="project">Real Estate Brazil (Official) — Obras — Exp LabSea2025</span>
+        </div>
+      </div>
+      <h1>Infraestrutura do Novo LabSea</h1>
+      <p class="lead">Um assunto reúne anotações relacionadas, mesmo quando foram produzidas por pessoas diferentes, em momentos distintos e sobre documentos diversos.</p>
+    </header>
+
+    <section class="card statusbar">
+      <div class="status"><i aria-hidden="true"></i><span>12 anotações organizadas</span></div>
+      <button class="ghost-button" type="button">Voltar ao WorkStream</button>
+    </section>
+
+    <nav class="card tabs" aria-label="Visões do Subject" role="tablist">
+      <button class="tab" type="button" role="tab" aria-selected="true" data-view="spatial">Espacial</button>
+      <button class="tab" type="button" role="tab" aria-selected="false" data-view="timeline">Cronologia</button>
+      <button class="tab" type="button" role="tab" aria-selected="false" data-view="people">Pessoas</button>
+    </nav>
+
+    <section class="view is-active" data-panel="spatial">
+      <aside class="card panel">
+        <header class="panel-head"><div><span class="panel-kicker">Agrupamentos</span><h2>Proximidade espacial</h2></div></header>
+        <div class="panel-body cluster-list">
+          <button class="cluster is-active"><span class="count">5</span><strong>Área técnica</strong><span class="meta">Prancha LBSEA-CAB-000001-rev02</span></button>
+          <button class="cluster"><span class="count">4</span><strong>Mezanino do LabEng</strong><span class="meta">2 pranchas · 1 fotografia</span></button>
+          <button class="cluster"><span class="count">3</span><strong>Rack do Novo LabSea</strong><span class="meta">1 prancha · 2 fotografias</span></button>
+        </div>
+      </aside>
+      <article class="card panel">
+        <header class="panel-head"><div><span class="panel-kicker">Mapa</span><h2>Área técnica</h2></div><span class="meta">5 marcações</span></header>
+        <div class="panel-body">
+          <div class="spatial-stage" aria-label="Representação espacial simulada">
+            <div class="drawing"><span class="room a"></span><span class="room b"></span></div>
+            <button class="pin one" title="Perfil metálico com proteção anticorrosiva"></button>
+            <button class="pin two" title="Interferência com infraestrutura existente"></button>
+            <button class="pin three" title="Validar passagem do cabeamento"></button>
+            <span class="legend">Mock espacial — documento e coordenadas reais entram na integração</span>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="view" data-panel="timeline">
+      <aside class="card panel">
+        <header class="panel-head"><div><span class="panel-kicker">Filtros</span><h2>Período</h2></div></header>
+        <div class="panel-body annotation-list">
+          <button class="cluster is-active"><strong>Esta semana</strong><span class="meta">7 anotações</span></button>
+          <button class="cluster"><strong>Julho de 2026</strong><span class="meta">4 anotações</span></button>
+          <button class="cluster"><strong>Antes de julho</strong><span class="meta">1 anotação</span></button>
+        </div>
+      </aside>
+      <article class="card panel">
+        <header class="panel-head"><div><span class="panel-kicker">Linha do tempo</span><h2>Evolução do assunto</h2></div></header>
+        <div class="panel-body timeline">
+          <div class="event"><time>31 JUL 2026 · 15:42</time><h3>Tratamento dos perfis confirmado</h3><p class="meta">Elias Magalhães · LBSEA-CAB-000001-rev02.dwg</p></div>
+          <div class="event"><time>30 JUL 2026 · 10:18</time><h3>Interferência identificada</h3><p class="meta">Mariana Costa · IMG_2841.jpg</p></div>
+          <div class="event"><time>28 JUL 2026 · 17:06</time><h3>Trajeto preliminar registrado</h3><p class="meta">Carlos Almeida · ata-reuniao-28-07.pdf</p></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="view" data-panel="people">
+      <aside class="card panel">
+        <header class="panel-head"><div><span class="panel-kicker">Participação</span><h2>Autores</h2></div></header>
+        <div class="panel-body annotation-list">
+          <button class="cluster is-active"><span class="count">6</span><strong>Elias Magalhães</strong><span class="meta">Engenharia / Coordenação</span></button>
+          <button class="cluster"><span class="count">4</span><strong>Mariana Costa</strong><span class="meta">Fiscalização</span></button>
+          <button class="cluster"><span class="count">2</span><strong>Carlos Almeida</strong><span class="meta">Planejamento</span></button>
+        </div>
+      </aside>
+      <article class="card panel">
+        <header class="panel-head"><div><span class="panel-kicker">Contribuições</span><h2>Elias Magalhães</h2></div><span class="meta">6 anotações</span></header>
+        <div class="panel-body people">
+          <div class="person">
+            <div class="person-head"><span class="avatar">EM</span><div><h3>Perfis metálicos</h3><span class="meta">31 jul 2026</span></div></div>
+            <p class="detail-text">Os três pilares indicados deverão receber perfis de aço com tratamento compatível com a agressividade do ambiente.</p>
+          </div>
+          <div class="person">
+            <div class="person-head"><span class="avatar">EM</span><div><h3>Passagem do cabo</h3><span class="meta">30 jul 2026</span></div></div>
+            <p class="detail-text">Confirmar a distância máxima do cabo de instrumentação antes da liberação executiva.</p>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="card panel" style="margin-top:18px">
+      <header class="panel-head"><div><span class="panel-kicker">Anotação selecionada</span><h2 class="detail-title">Perfis metálicos com proteção anticorrosiva</h2></div><span class="meta">31 jul 2026 · 15:42</span></header>
+      <div class="panel-body">
+        <p class="detail-text">Os três pilares demarcados deverão receber perfis de aço com tratamento compatível com a classe de agressividade do ambiente.</p>
+        <div class="chips"><span class="chip">Elias Magalhães</span><span class="chip">commenting</span><span class="chip">Área técnica</span><span class="chip">3 pontos</span></div>
+        <div class="source"><span><b>Fonte</b><br>LBSEA-CAB-000001-rev02.dwg</span><span class="meta">WorkStream: Cabeamento de Lógica e Instrumentação</span></div>
+      </div>
+    </section>
+
+    <p class="mock-note">Mock visual estático — sem persistência, inferência ou leitura das annotations reais.</p>
+  </main>
+
+  <script>
+    const tabs = [...document.querySelectorAll("[data-view]")];
+    const panels = [...document.querySelectorAll("[data-panel]")];
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        tabs.forEach((item) => item.setAttribute("aria-selected", String(item === tab)));
+        panels.forEach((panel) => panel.classList.toggle("is-active", panel.dataset.panel === tab.dataset.view));
+      });
+    });
+  </script>
+</body>
+</html>

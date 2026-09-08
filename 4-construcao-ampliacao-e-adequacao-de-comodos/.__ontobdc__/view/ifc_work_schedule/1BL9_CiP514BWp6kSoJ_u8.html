@@ -1,0 +1,1258 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ifc work schedule</title>
+
+
+<script>
+  (() => {
+    const themes = [{"name": "light", "label": "Light", "tokens": {"background": "#ffffff", "foreground": "#0f172a", "accent": "#0284c7", "borderColor": "rgba(2,132,199,.35)"}, "options": {"transparentBackground": false}}, {"name": "dark", "label": "Dark", "tokens": {"background": "#000000", "foreground": "#f8fafc", "accent": "#38bdf8", "borderColor": "rgba(56,189,248,.55)"}, "options": {"transparentBackground": false}}];
+    const params = new URLSearchParams(location.search);
+    const language = window.ontobdcUrlState?.value("lang") ?? params.get("lang");
+    if (language) {
+      document.documentElement.lang = language;
+      document.documentElement.dataset.language = language;
+    }
+    const requested = window.ontobdcUrlState?.value("theme") ?? params.get("theme");
+    const theme = themes.find((candidate) => candidate.name === requested) ?? themes[0];
+    if (!theme) return;
+    document.documentElement.dataset.theme = theme.name;
+    document.documentElement.style.colorScheme = theme.name === "dark" ? "dark" : "light";
+    for (const [key, value] of Object.entries(theme.tokens ?? {})) {
+      document.documentElement.style.setProperty(`--onto-theme-${key}`, value);
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+      const backLink = document.querySelector(".back-link");
+      if (!backLink) return;
+      backLink.href = decorateInternalUrl(backLink.getAttribute("href"));
+    });
+
+    function decorateInternalUrl(href) {
+      const state = window.ontobdcUrlState;
+      if (state && typeof state.decorate === "function") return state.decorate(href);
+      const applied = {
+        lang: () => document.documentElement.lang || document.documentElement.dataset.language || "",
+        theme: () => document.documentElement.dataset.theme || "",
+      };
+      try {
+        const target = new URL(href, location.href);
+        const current = new URLSearchParams(location.search);
+        for (const name of ["lang", "theme"]) {
+          if (target.searchParams.has(name)) continue;
+          const carried = current.get(name) || applied[name]();
+          if (carried) target.searchParams.set(name, carried);
+        }
+        return target.href;
+      } catch {
+        return href;
+      }
+    }
+  })();
+</script>
+<style>
+
+/* Shared standalone Entity Page chrome. No entity-specific selectors belong here. */
+:root {
+  color-scheme: light dark;
+  --onto-theme-surface: var(--onto-theme-background, #ffffff);
+  --onto-theme-on-surface: var(--onto-theme-foreground, #0f172a);
+  --onto-theme-primary: var(--onto-theme-accent, #0284c7);
+  --onto-theme-surface-container: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 4%, var(--onto-theme-background, #ffffff));
+  --onto-theme-surface-container-low: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 3%, var(--onto-theme-background, #ffffff));
+  --onto-theme-outline-variant: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 14%, transparent);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-block-size: 100%;
+  background: var(--onto-theme-surface);
+  color: var(--onto-theme-on-surface);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+main.onto-page {
+  min-block-size: 100vh;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: clamp(16px, 4vw, 40px);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 2vw, 20px);
+  background: var(--onto-theme-surface);
+  color: var(--onto-theme-on-surface);
+}
+
+.onto-page-body.tile {
+  padding: clamp(16px, 2.5vw, 28px);
+  border-radius: clamp(8px, 1.2vw, 14px);
+  background: var(--onto-theme-surface-container-low);
+  color: var(--onto-theme-on-surface);
+}
+
+.onto-page-header {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: clamp(8px, 1.5vw, 12px) clamp(12px, 2vw, 16px);
+  border-bottom: 1px solid var(--onto-theme-outline-variant);
+  border-radius: clamp(8px, 1.2vw, 12px);
+  background: var(--onto-theme-surface-container);
+  color: var(--onto-theme-on-surface);
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 6%, transparent);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.breadcrumb-crumb { color: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 45%, transparent); }
+.breadcrumb-crumb.is-current { color: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 80%, transparent); }
+.breadcrumb-sep { color: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 30%, transparent); }
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.header-actions[data-toolbar-alignment="left"] { margin-left: 0; }
+.header-actions[data-toolbar-alignment="center"] { margin-inline: auto; }
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 28px;
+  block-size: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--onto-theme-accent, #0ea5e9);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.icon-btn:hover { background: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 10%, transparent); }
+.icon-btn:disabled { opacity: .35; cursor: default; pointer-events: none; }
+.icon-btn svg { inline-size: 16px; block-size: 16px; }
+
+.connect-btn {
+  min-block-size: 30px;
+  padding: 5px 12px;
+  border: 1px solid color-mix(in srgb, var(--onto-theme-accent, #0ea5e9) 45%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--onto-theme-accent, #0ea5e9) 10%, transparent);
+  color: var(--onto-theme-accent, #0ea5e9);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.page-event-bar {
+  position: fixed;
+  left: max(16px, calc((100vw - 1160px) / 2));
+  right: max(16px, calc((100vw - 1160px) / 2));
+  bottom: 16px;
+  z-index: 2147483000;
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  pointer-events: none;
+  background: color-mix(in srgb, var(--onto-theme-background, #ffffff) 88%, black 12%);
+  color: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 75%, transparent);
+  opacity: 0;
+  transform: translateY(3px);
+  transition: opacity .18s ease, transform .18s ease;
+}
+
+.page-event-bar[data-visible="true"] { opacity: 1; transform: translateY(0); }
+
+html[data-theme="dark"],
+html[data-theme="dark"] body,
+html[data-theme="dark"] main.onto-page {
+  background: var(--onto-theme-surface, #111214);
+  color: var(--onto-theme-on-surface, #e8eaed);
+}
+
+.gantt-container {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 0;
+  border: 1px solid color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 22%, transparent);
+  overflow: hidden;
+  background: var(--onto-theme-background, #ffffff);
+  /* Sem isto o texto da tabela herda o preto padrao do documento e
+     some no tema escuro — o fundo acompanhava o tema, o conteudo nao. */
+  color: var(--onto-theme-foreground, #0f172a);
+}
+
+.gantt-left {
+  overflow-x: auto;
+  border-right: 1px solid color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 22%, transparent);
+}
+
+.gantt-right {
+  overflow-x: auto;
+  position: relative;
+}
+
+table.gantt-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.gantt-table th,
+.gantt-table td {
+  border-bottom: 1px solid color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 14%, transparent);
+  padding: 6px 10px;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.gantt-table th {
+  background: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 5%, var(--onto-theme-background, #ffffff));
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  font-weight: 700;
+  color: var(--onto-theme-foreground, #0f172a);
+}
+
+/* Must match rt.HEADER_HEIGHT (72, task_table_timeline.js) — the right
+   panel's timeline header is 3 stacked rows (year/month/day) totalling
+   72px; without pinning the left table's single header row to the same
+   height, its first task row starts higher than row 0's SVG bar and every
+   row below drifts out of alignment with its WBS row from the very top. */
+.gantt-table thead tr {
+  height: 72px;
+}
+
+.gantt-table tbody tr {
+  height: 34px;
+}
+
+.gantt-table tbody tr:hover {
+  background: color-mix(in srgb, var(--onto-theme-accent, #0ea5e9) 12%, transparent);
+}
+
+.gantt-table td.col-wbs {
+  width: 70px;
+  color: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 60%, transparent);
+  font-family: monospace;
+  font-size: 12.5px;
+}
+
+.gantt-table td.col-duration {
+  width: 80px;
+  text-align: right;
+}
+
+.gantt-table td.col-completion {
+  width: 52px;
+  text-align: right;
+  color: var(--onto-theme-accent, #0ea5e9);
+}
+
+.gantt-timeline-header {
+  height: 72px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 5%, var(--onto-theme-background, #ffffff));
+  border-bottom: 1px solid color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 22%, transparent);
+  font-family: sans-serif;
+}
+
+table.gantt-timeline-table {
+  width: 100%;
+  height: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.gantt-timeline-table thead tr {
+  height: 24px;
+}
+
+th.gantt-header-cell {
+  border-right: 1px solid color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 14%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 14%, transparent);
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: middle;
+  text-align: center;
+  padding: 0;
+  font-weight: 500;
+}
+
+th.gantt-header-cell .gantt-header-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+th.gantt-header-cell.gantt-header-day {
+  color: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 62%, transparent);
+}
+
+.gantt-header-year-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--onto-theme-foreground, #0f172a);
+}
+
+.gantt-header-month-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 88%, transparent);
+}
+
+.gantt-header-day-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 70%, transparent);
+}
+
+svg.gantt-svg {
+  display: block;
+  overflow: visible;
+}
+
+.gantt-row-line {
+  stroke: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 8%, transparent);
+  stroke-width: 1;
+}
+
+.gantt-grid-col {
+  stroke: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 5%, transparent);
+  stroke-width: 1;
+}
+
+.gantt-grid-col-major {
+  stroke: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 14%, transparent);
+  stroke-width: 1;
+}
+
+.gantt-tick-label {
+  font-size: 12px;
+  fill: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 62%, transparent);
+  font-family: sans-serif;
+}
+
+/* Gantt task bars stay deliberately calm; completed progress must, however,
+ * read immediately against the remaining portion of the same bar. In light
+ * mode the progress overlay is pulled toward the foreground (darker). Dark
+ * mode overrides it below and pushes it toward white (lighter). */
+.gantt-bar {
+  fill: var(--gantt-bar-fill, var(--onto-theme-primary-container, #38bdf8));
+  stroke: var(--gantt-bar-stroke, color-mix(in srgb, var(--onto-theme-primary-container, #38bdf8) 75%, var(--onto-theme-foreground, #0f172a)));
+  stroke-width: 1;
+  rx: 2;
+  ry: 2;
+}
+
+.gantt-bar-progress {
+  fill: var(--gantt-bar-progress-fill, color-mix(in srgb, var(--onto-theme-primary-container, #38bdf8) 58%, var(--onto-theme-foreground, #0f172a)));
+  stroke: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 32%, transparent);
+  stroke-width: 0.75;
+  rx: 2;
+  ry: 2;
+  opacity: 1;
+}
+
+/* Deliberately not derived from the theme tokens: "critical" is a status,
+   not a surface, and it has to stay recognizably red in light and dark
+   alike. Exposed as custom properties so a theme can still override it. */
+.gantt-bar-critical {
+  fill: var(--gantt-critical-fill, #e53e3e);
+  stroke: var(--gantt-critical-stroke, #c53030);
+}
+
+.gantt-bar-text {
+  font-size: 12.5px;
+  font-weight: 600;
+  fill: var(--onto-theme-foreground, #0f172a);
+  font-family: sans-serif;
+  pointer-events: none;
+}
+
+.gantt-marker-diamond {
+  fill: var(--onto-theme-foreground, #0f172a);
+  stroke: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 45%, transparent);
+  stroke-width: 1;
+}
+
+.gantt-dependency-line {
+  stroke: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 70%, transparent);
+  stroke-width: 1.25;
+  fill: none;
+  marker-end: url(#arrowhead);
+}
+
+.gantt-today-line {
+  fill: var(--gantt-today-fill, var(--onto-theme-primary, #ef4444));
+  opacity: var(--gantt-today-opacity, 0.75);
+  pointer-events: none;
+}
+
+/*
+ * Dark-theme overrides for the Gantt itself (chrome-level paint lives in
+ * page_chrome.css so WorkStream and Gantt share it). Keep at the bottom:
+ * the base rules above do not prefix html[data-theme="dark"], so equal
+ * selectors placed here win purely by source order.
+ */
+html[data-theme="dark"] .gantt-bar {
+  fill: #7dd3fc;
+  stroke: color-mix(in srgb, #7dd3fc 78%, #e8eaed);
+}
+
+html[data-theme="dark"] .gantt-bar-progress {
+  fill: color-mix(in srgb, #7dd3fc 55%, #ffffff);
+  stroke: color-mix(in srgb, #ffffff 68%, transparent);
+  opacity: 1;
+}
+
+html[data-theme="dark"] .gantt-today-line {
+  fill: var(--gantt-today-fill, var(--onto-theme-primary, #f87171));
+  opacity: 0.82;
+}
+
+/*
+ * Bar labels: the Gantt bars in dark mode use a sky-300 light blue fill
+ * (#7dd3fc) which is bright enough that white/on-surface text becomes
+ * unreadable. Flip only the bar labels to near-black on dark mode — the
+ * rest of the page (tile background, task table, chrome) stays on dark
+ * with light text, because painting those black-on-dark would be the
+ * exact opposite of what "dark theme" is supposed to do and would drop
+ * the contrast ratio of the surrounding page well below WCAG AA.
+ */
+html[data-theme="dark"] .gantt-bar-text {
+  fill: #0f172a;
+}
+
+/*
+ * Full-screen gantt layout overrides. When the page enters presentation
+ * mode (html.is-fullscreen-presenting set by the chrome controller, or
+ * the browser-native :fullscreen pseudo-class is active on <html>):
+ *
+ *   1. The tile body fills *all* remaining vertical space (the header
+ *      and dimension cards collapse to their own size), the gantt
+ *      container becomes the primary viewport.
+ *   2. The left column (task table) grows from 420 px fixed into a
+ *      proportional clamp: enough room for long task names in big
+ *      schedules, but never so wide it crowds the timeline.
+ *   3. The scroll containers (left/right panes) switch from bounded
+ *      auto-box to 100 % of the tile so vertical scroll covers the
+ *      whole timeline, not just a small embedded window.
+ *   4. sticky headers (task table + timeline) are kept so rows and
+ *      column headers still line up correctly when scrolling.
+ */
+html.is-fullscreen-presenting .onto-page-body.tile,
+html:fullscreen .onto-page-body.tile,
+html:-webkit-full-screen .onto-page-body.tile {
+  border-radius: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+}
+
+html.is-fullscreen-presenting .onto-page-body.tile > .body,
+html:fullscreen .onto-page-body.tile > .body,
+html:-webkit-full-screen .onto-page-body.tile > .body,
+html.is-fullscreen-presenting .onto-page-body.tile > .fields,
+html:fullscreen .onto-page-body.tile > .fields,
+html:-webkit-full-screen .onto-page-body.tile > .fields {
+  padding: 10px clamp(16px, 2vw, 24px);
+  border-bottom: 1px solid var(--onto-theme-outline-variant, #3c3f43);
+}
+
+html.is-fullscreen-presenting .gantt-container,
+html:fullscreen .gantt-container,
+html:-webkit-full-screen .gantt-container {
+  inline-size: 100%;
+  block-size: 100%;
+  max-block-size: none;
+  border-radius: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+  grid-template-columns: minmax(420px, 32vw) 1fr;
+}
+
+html.is-fullscreen-presenting .gantt-left,
+html:fullscreen .gantt-left,
+html:-webkit-full-screen .gantt-left,
+html.is-fullscreen-presenting .gantt-right,
+html:fullscreen .gantt-right,
+html:-webkit-full-screen .gantt-right {
+  block-size: 100%;
+  overflow: auto;
+}
+
+/*
+ * Double-click-to-edit modal (task_table_timeline.js openEditDialog()).
+ * Deliberately mirrors .onto-annotation-dialog's structure/tokens
+ * (work_stream_view.css) rather than inventing a new dialog language —
+ * small native <dialog>, header with a close button, body below.
+ */
+.gantt-bar,
+.gantt-marker-diamond {
+  cursor: pointer;
+}
+
+.onto-gantt-edit-dialog {
+  width: min(92vw, 380px);
+  border: 1px solid rgba(148, 163, 184, .28);
+  border-radius: 14px;
+  padding: 0;
+  color: var(--onto-theme-foreground, #0f172a);
+  background: var(--onto-theme-background, #ffffff);
+}
+
+.onto-gantt-edit-dialog::backdrop {
+  background: rgba(0, 0, 0, .45);
+}
+
+.onto-gantt-edit-dialog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 14%, transparent);
+}
+
+.onto-gantt-edit-dialog-title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  flex: 1;
+}
+
+.onto-gantt-edit-title-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.onto-gantt-edit-rename-btn {
+  font-size: 13px !important;
+  opacity: .6;
+}
+
+.onto-gantt-edit-rename-btn:hover {
+  opacity: 1;
+}
+
+.onto-gantt-edit-title-input {
+  font: inherit;
+  font-weight: 700;
+  flex: 1;
+  min-width: 0;
+  padding: 3px 6px;
+  border-radius: 6px;
+  border: 1px solid var(--onto-theme-accent, #0ea5e9);
+  background: var(--onto-theme-background, #ffffff);
+  color: var(--onto-theme-foreground, #0f172a);
+}
+
+.onto-gantt-edit-dialog-header button {
+  border: 0;
+  background: transparent;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  color: inherit;
+}
+
+.onto-gantt-edit-dialog-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 18px 18px;
+}
+
+.onto-gantt-edit-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 80%, transparent);
+}
+
+.onto-gantt-edit-field input[type="date"],
+.onto-gantt-edit-field input[type="number"],
+.onto-gantt-edit-field input[type="text"] {
+  font: inherit;
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: 1px solid color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 24%, transparent);
+  background: var(--onto-theme-background, #ffffff);
+  color: var(--onto-theme-foreground, #0f172a);
+}
+
+.onto-gantt-edit-divider {
+  width: 100%;
+  height: 0;
+  margin: 6px 0 0;
+  border: 0;
+  border-top: 1px solid color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 14%, transparent);
+}
+
+.onto-gantt-edit-danger-row {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.onto-gantt-edit-delete-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--gantt-critical-fill, #e53e3e);
+  cursor: pointer;
+}
+
+.onto-gantt-edit-delete-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.onto-gantt-edit-delete-btn:hover {
+  background: color-mix(in srgb, var(--gantt-critical-fill, #e53e3e) 14%, transparent);
+}
+
+.onto-gantt-edit-delete-btn:disabled {
+  opacity: .5;
+  cursor: default;
+}
+
+.onto-gantt-edit-error {
+  display: none;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--gantt-critical-fill, #e53e3e);
+}
+
+.onto-gantt-edit-dialog-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.onto-gantt-edit-btn {
+  font: inherit;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 7px 14px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.onto-gantt-edit-btn-secondary {
+  background: transparent;
+  border-color: color-mix(in srgb, var(--onto-theme-foreground, #0f172a) 24%, transparent);
+  color: var(--onto-theme-foreground, #0f172a);
+}
+
+.onto-gantt-edit-btn-primary {
+  background: var(--onto-theme-primary-container, color-mix(in srgb, var(--onto-theme-accent, #0ea5e9) 22%, var(--onto-theme-background, #ffffff)));
+  color: var(--onto-theme-on-primary-container, var(--onto-theme-foreground, #0f172a));
+  border-color: var(--onto-theme-accent, #0ea5e9);
+}
+
+.onto-gantt-edit-btn-primary:disabled {
+  opacity: .6;
+  cursor: default;
+}
+
+/* The printer action uses the browser's native print/PDF pipeline. Keep the
+ * semantic title and the complete 4D table/chart, but remove interactive
+ * chrome and any viewport clipping from the printed document. */
+@page {
+  size: A4 landscape;
+  margin: 10mm;
+}
+
+@media print {
+  :root {
+    color-scheme: light;
+    --gantt-paper: #ffffff;
+    --gantt-ink: #0f172a;
+    --gantt-paper-muted: #f1f5f9;
+    --gantt-paper-line: #cbd5e1;
+  }
+
+  html,
+  body {
+    width: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+    background: var(--gantt-paper) !important;
+    color: var(--gantt-ink) !important;
+  }
+
+  .header-actions,
+  .back-link,
+  .dimension-cards,
+  dialog,
+  .onto-inline-edit-actions,
+  .onto-inline-edit-error {
+    display: none !important;
+  }
+
+  .onto-page,
+  .onto-page-body.tile {
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .onto-page-header {
+    min-height: 0 !important;
+    margin: 0 0 6mm !important;
+    padding: 0 0 3mm !important;
+    border-bottom: 1px solid var(--gantt-paper-line) !important;
+  }
+
+  .gantt-container {
+    width: 100% !important;
+    max-height: none !important;
+    grid-template-columns: 38% 62% !important;
+    overflow: visible !important;
+    break-inside: avoid-page;
+    background: var(--gantt-paper) !important;
+    color: var(--gantt-ink) !important;
+  }
+
+  .gantt-left,
+  .gantt-right {
+    overflow: visible !important;
+  }
+
+  .gantt-table th,
+  .gantt-timeline-header {
+    position: static !important;
+    background: var(--gantt-paper-muted) !important;
+    color: var(--gantt-ink) !important;
+  }
+
+  .gantt-bar-text {
+    fill: var(--gantt-ink) !important;
+  }
+}
+
+
+.gantt-filter-dialog {
+  border: 1px solid color-mix(in srgb, var(--onto-theme-foreground, #111827) 18%, transparent);
+  border-radius: 14px;
+  padding: 0;
+  min-width: min(420px, calc(100vw - 32px));
+  background: var(--onto-theme-background, #fff);
+  color: var(--onto-theme-foreground, #111827);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, .28);
+  color-scheme: inherit;
+}
+.gantt-filter-dialog::backdrop { background: rgba(0,0,0,.38); }
+.gantt-filter-form { display: grid; gap: 18px; padding: 20px; }
+.gantt-filter-heading { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+.gantt-filter-heading h2 { margin:0; font-size:18px; }
+.gantt-filter-close { font-size:22px; line-height:1; }
+.gantt-filter-field { display:grid; gap:7px; font-size:13px; font-weight:600; }
+.gantt-filter-field input[type="date"] {
+  width:100%; box-sizing:border-box; padding:9px 10px; border-radius:8px;
+  border:1px solid color-mix(in srgb, var(--onto-theme-foreground, #111827) 22%, transparent);
+  background:var(--onto-theme-background, #fff); color:var(--onto-theme-foreground, #111827);
+  color-scheme: inherit;
+}
+.gantt-filter-toggle-row { display:flex; align-items:center; justify-content:space-between; gap:16px; font-size:13px; font-weight:600; cursor:pointer; }
+.gantt-filter-toggle { position:relative; display:inline-flex; }
+.gantt-filter-toggle input { position:absolute; opacity:0; pointer-events:none; }
+.gantt-filter-toggle-track { width:42px; height:24px; border-radius:999px; background:color-mix(in srgb, var(--onto-theme-foreground, #111827) 24%, transparent); padding:2px; box-sizing:border-box; transition:.18s ease; }
+.gantt-filter-toggle-thumb { display:block; width:20px; height:20px; border-radius:50%; background:var(--onto-theme-background, #fff); box-shadow:0 1px 4px rgba(0,0,0,.28); transition:.18s ease; }
+.gantt-filter-toggle input:checked + .gantt-filter-toggle-track { background:var(--onto-theme-accent, #2563eb); }
+.gantt-filter-toggle input:checked + .gantt-filter-toggle-track .gantt-filter-toggle-thumb { transform:translateX(18px); }
+.gantt-filter-toggle-row.is-disabled { cursor:not-allowed; opacity:.5; }
+.gantt-filter-toggle input:disabled + .gantt-filter-toggle-track { cursor:not-allowed; }
+.gantt-filter-actions { display:flex; justify-content:flex-end; gap:10px; margin-top:2px; }
+.gantt-filter-actions button { padding:8px 14px; border-radius:8px; cursor:pointer; }
+.gantt-filter-reset { background:transparent; color:inherit; border:1px solid color-mix(in srgb, var(--onto-theme-foreground, #111827) 22%, transparent); }
+.gantt-filter-apply { border:0; background:var(--onto-theme-accent, #2563eb); color:#fff; }
+.gantt-filter-btn[data-filter-active="true"] { outline:2px solid var(--onto-theme-accent, #2563eb); outline-offset:2px; }
+</style>
+</head>
+<body>
+<script type="application/ld+json" id="ontobdc-page-jsonld">{"facades": [{"facade": "https://infobim.org/ontology/entity/ifc_work_schedule/facade.ttl#IfcWorkScheduleFacade", "fields": [{"name": "GlobalId", "mapped_property": "https://standards.buildingsmart.org/IFC/DEV/IFC4/FINAL/OWL#globalId_IfcRoot", "field_order": 10}, {"name": "Name", "mapped_property": "https://standards.buildingsmart.org/IFC/DEV/IFC4/FINAL/OWL#name_IfcRoot", "field_order": 20}, {"name": "Description", "mapped_property": "https://standards.buildingsmart.org/IFC/DEV/IFC4/FINAL/OWL#description_IfcRoot", "field_order": 30}, {"name": "ObjectType", "mapped_property": "https://standards.buildingsmart.org/IFC/DEV/IFC4/FINAL/OWL#objectType_IfcObject", "field_order": 40}, {"name": "Identification", "mapped_property": "https://standards.buildingsmart.org/IFC/DEV/IFC4/FINAL/OWL#identification_IfcControl", "field_order": 50}, {"name": "CreationDate", "mapped_property": "https://standards.buildingsmart.org/IFC/DEV/IFC4/FINAL/OWL#creationDate_IfcWorkControl", "field_order": 60}, {"name": "Creators", "mapped_property": "https://standards.buildingsmart.org/IFC/DEV/IFC4/FINAL/OWL#creators_IfcWorkControl", "field_order": 70}, {"name": "Purpose", "mapped_property": "https://standards.buildingsmart.org/IFC/DEV/IFC4/FINAL/OWL#purpose_IfcWorkControl", "field_order": 80}, {"name": "Duration", "mapped_property": "https://standards.buildingsmart.org/IFC/DEV/IFC4/FINAL/OWL#duration_IfcWorkControl", "field_order": 90}, {"name": "TotalFloat", "mapped_property": "https://standards.buildingsmart.org/IFC/DEV/IFC4/FINAL/OWL#totalFloat_IfcWorkControl", "field_order": 100}, {"name": "StartTime", "mapped_property": "https://standards.buildingsmart.org/IFC/DEV/IFC4/FINAL/OWL#startTime_IfcWorkControl", "field_order": 110}, {"name": "FinishTime", "mapped_property": "https://standards.buildingsmart.org/IFC/DEV/IFC4/FINAL/OWL#finishTime_IfcWorkControl", "field_order": 120}, {"name": "PredefinedType", "mapped_property": "https://standards.buildingsmart.org/IFC/DEV/IFC4/FINAL/OWL#predefinedType_IfcWorkSchedule", "field_order": 130}, {"name": "ScopePlanned", "dimension_kind": "https://infobim.org/ontology/ns#ScopePlanned", "field_order": 140}, {"name": "ScopeActual", "dimension_kind": "https://infobim.org/ontology/ns#ScopeActual", "field_order": 150}, {"name": "TimePlanned", "dimension_kind": "https://infobim.org/ontology/ns#TimePlanned", "field_order": 160}, {"name": "TimeActual", "dimension_kind": "https://infobim.org/ontology/ns#TimeActual", "field_order": 170}, {"name": "TimeForecast", "dimension_kind": "https://infobim.org/ontology/ns#TimeForecast", "field_order": 180}, {"name": "ProgressPlanned", "dimension_kind": "https://infobim.org/ontology/ns#ProgressPlanned", "field_order": 190}, {"name": "ProgressActual", "dimension_kind": "https://infobim.org/ontology/ns#ProgressActual", "field_order": 200}, {"name": "ProgressForecast", "dimension_kind": "https://infobim.org/ontology/ns#ProgressForecast", "field_order": 210}, {"name": "LaborPlanned", "dimension_kind": "https://infobim.org/ontology/ns#LaborPlanned", "field_order": 220}, {"name": "LaborActual", "dimension_kind": "https://infobim.org/ontology/ns#LaborActual", "field_order": 230}, {"name": "EquipmentPlanned", "dimension_kind": "https://infobim.org/ontology/ns#EquipmentPlanned", "field_order": 240}, {"name": "EquipmentActual", "dimension_kind": "https://infobim.org/ontology/ns#EquipmentActual", "field_order": 250}, {"name": "MaterialPlanned", "dimension_kind": "https://infobim.org/ontology/ns#MaterialPlanned", "field_order": 260}, {"name": "MaterialActual", "dimension_kind": "https://infobim.org/ontology/ns#MaterialActual", "field_order": 270}, {"name": "CostPlanned", "dimension_kind": "https://infobim.org/ontology/ns#CostPlanned", "field_order": 280}, {"name": "CostActual", "dimension_kind": "https://infobim.org/ontology/ns#CostActual", "field_order": 290}, {"name": "CostForecast", "dimension_kind": "https://infobim.org/ontology/ns#CostForecast", "field_order": 300}]}], "fields": {}, "missing_fields": ["GlobalId", "Name", "Description", "ObjectType", "Identification", "CreationDate", "Creators", "Purpose", "Duration", "TotalFloat", "StartTime", "FinishTime", "PredefinedType"], "dimensions": [{"kind": "ScopePlanned", "label": "ScopePlanned", "value": ""}, {"kind": "ScopeActual", "label": "ScopeActual", "value": ""}, {"kind": "TimePlanned", "label": "TimePlanned", "value": ""}, {"kind": "TimeActual", "label": "TimeActual", "value": ""}, {"kind": "TimeForecast", "label": "TimeForecast", "value": ""}, {"kind": "ProgressPlanned", "label": "ProgressPlanned", "value": ""}, {"kind": "ProgressActual", "label": "ProgressActual", "value": ""}, {"kind": "ProgressForecast", "label": "ProgressForecast", "value": ""}, {"kind": "LaborPlanned", "label": "LaborPlanned", "value": ""}, {"kind": "LaborActual", "label": "LaborActual", "value": ""}, {"kind": "EquipmentPlanned", "label": "EquipmentPlanned", "value": ""}, {"kind": "EquipmentActual", "label": "EquipmentActual", "value": ""}, {"kind": "MaterialPlanned", "label": "MaterialPlanned", "value": ""}, {"kind": "MaterialActual", "label": "MaterialActual", "value": ""}, {"kind": "CostPlanned", "label": "CostPlanned", "value": ""}, {"kind": "CostActual", "label": "CostActual", "value": ""}, {"kind": "CostForecast", "label": "CostForecast", "value": ""}], "related_entities": [], "toolbar_configuration": {"@graph": [{"@id": "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#RightToolbarAlignment", "@type": ["http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#ToolbarAlignment"], "http://www.w3.org/2000/01/rdf-schema#label": [{"@language": "en", "@value": "Right Toolbar Alignment"}]}, {"@id": "https://infobim.org/ontology/abox/entity_page.ttl#AddTaskButton", "@type": ["http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#EntityPageActionButton"], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#cssClass": [{"@value": "icon-btn gantt-add-task-btn"}], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#i18nAriaLabelKey": [{"@value": "addTask"}], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#i18nTitleKey": [{"@value": "addTaskTitle"}], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#iconName": [{"@value": "add"}], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#initiallyDisabled": [{"@type": "http://www.w3.org/2001/XMLSchema#boolean", "@value": true}]}, {"@id": "https://infobim.org/ontology/abox/entity_page.ttl#AddTaskPlacement", "@type": ["http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#ToolbarItemPlacement"], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#placementOrder": [{"@type": "http://www.w3.org/2001/XMLSchema#integer", "@value": 5}], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#placesComponent": [{"@id": "https://infobim.org/ontology/abox/entity_page.ttl#AddTaskButton"}]}, {"@id": "https://infobim.org/ontology/abox/entity_page.ttl#ConnectButton", "@type": ["http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#EntityPageActionButton"], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#cssClass": [{"@value": "connect-btn"}], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#i18nAriaLabelKey": [{"@value": "connectFolder"}], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#i18nContentKey": [{"@value": "connectFolder"}], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#i18nTitleKey": [{"@value": "connectFolderTitle"}]}, {"@id": "https://infobim.org/ontology/abox/entity_page.ttl#ConnectPlacement", "@type": ["http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#ToolbarItemPlacement"], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#placementOrder": [{"@type": "http://www.w3.org/2001/XMLSchema#integer", "@value": 1}], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#placesComponent": [{"@id": "https://infobim.org/ontology/abox/entity_page.ttl#ConnectButton"}]}, {"@id": "https://infobim.org/ontology/abox/entity_page.ttl#FilterButton", "@type": ["http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#EntityPageActionButton"], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#cssClass": [{"@value": "icon-btn gantt-filter-btn"}], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#i18nAriaLabelKey": [{"@value": "openGanttFilter"}], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#i18nTitleKey": [{"@value": "openGanttFilter"}], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#iconName": [{"@value": "filter"}], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#initiallyDisabled": [{"@type": "http://www.w3.org/2001/XMLSchema#boolean", "@value": true}]}, {"@id": "https://infobim.org/ontology/abox/entity_page.ttl#FilterPlacement", "@type": ["http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#ToolbarItemPlacement"], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#placementOrder": [{"@type": "http://www.w3.org/2001/XMLSchema#integer", "@value": 4}], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#placesComponent": [{"@id": "https://infobim.org/ontology/abox/entity_page.ttl#FilterButton"}]}, {"@id": "https://infobim.org/ontology/abox/entity_page.ttl#FullscreenButton", "@type": ["http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#EntityPageActionButton"], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#cssClass": [{"@value": "icon-btn gantt-fullscreen-btn"}], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#i18nAriaLabelKey": [{"@value": "enterFullscreen"}], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#i18nTitleKey": [{"@value": "enterFullscreen"}], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#iconName": [{"@value": "fullscreen"}], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#initiallyDisabled": [{"@type": "http://www.w3.org/2001/XMLSchema#boolean", "@value": true}]}, {"@id": "https://infobim.org/ontology/abox/entity_page.ttl#FullscreenPlacement", "@type": ["http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#ToolbarItemPlacement"], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#placementOrder": [{"@type": "http://www.w3.org/2001/XMLSchema#integer", "@value": 8}], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#placesComponent": [{"@id": "https://infobim.org/ontology/abox/entity_page.ttl#FullscreenButton"}]}, {"@id": "https://infobim.org/ontology/abox/entity_page.ttl#IfcWorkScheduleToolbar", "@type": ["http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#EntityPageToolbar", "http://www.w3.org/2002/07/owl#NamedIndividual"], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#hasToolbarAlignment": [{"@id": "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#RightToolbarAlignment"}], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#hasToolbarItemPlacement": [{"@id": "https://infobim.org/ontology/abox/entity_page.ttl#AddTaskPlacement"}, {"@id": "https://infobim.org/ontology/abox/entity_page.ttl#ConnectPlacement"}, {"@id": "https://infobim.org/ontology/abox/entity_page.ttl#FilterPlacement"}, {"@id": "https://infobim.org/ontology/abox/entity_page.ttl#FullscreenPlacement"}, {"@id": "https://infobim.org/ontology/abox/entity_page.ttl#OpenWorkbookPlacement"}, {"@id": "https://infobim.org/ontology/abox/entity_page.ttl#PrintPlacement"}, {"@id": "https://infobim.org/ontology/abox/entity_page.ttl#RefreshPlacement"}, {"@id": "https://infobim.org/ontology/abox/entity_page.ttl#WorkspacePlacement"}], "http://purl.org/dc/terms/isPartOf": [{"@id": "https://infobim.org/ontology/abox/entity_page.ttl#IfcWorkSchedulePage"}], "http://www.w3.org/2000/01/rdf-schema#label": [{"@language": "en", "@value": "IFC Work Schedule Toolbar"}]}, {"@id": "https://infobim.org/ontology/abox/entity_page.ttl#OpenWorkbookButton", "@type": ["http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#OpenExcelDataSourceButton"], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#cssClass": [{"@value": "icon-btn gantt-open-workbook-btn"}], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#i18nAriaLabelKey": [{"@value": "openWorkbook"}], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#i18nTitleKey": [{"@value": "openWorkbookTitle"}], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#iconName": [{"@value": "excel"}], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#initiallyDisabled": [{"@type": "http://www.w3.org/2001/XMLSchema#boolean", "@value": true}]}, {"@id": "https://infobim.org/ontology/abox/entity_page.ttl#OpenWorkbookPlacement", "@type": ["http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#ToolbarItemPlacement"], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#placementOrder": [{"@type": "http://www.w3.org/2001/XMLSchema#integer", "@value": 7}], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#placesComponent": [{"@id": "https://infobim.org/ontology/abox/entity_page.ttl#OpenWorkbookButton"}]}, {"@id": "https://infobim.org/ontology/abox/entity_page.ttl#PrintButton", "@type": ["http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#EntityPageActionButton"], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#cssClass": [{"@value": "icon-btn gantt-print-btn"}], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#i18nAriaLabelKey": [{"@value": "printGantt"}], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#i18nTitleKey": [{"@value": "printGanttTitle"}], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#iconName": [{"@value": "print"}], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#initiallyDisabled": [{"@type": "http://www.w3.org/2001/XMLSchema#boolean", "@value": true}]}, {"@id": "https://infobim.org/ontology/abox/entity_page.ttl#PrintPlacement", "@type": ["http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#ToolbarItemPlacement"], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#placementOrder": [{"@type": "http://www.w3.org/2001/XMLSchema#integer", "@value": 6}], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#placesComponent": [{"@id": "https://infobim.org/ontology/abox/entity_page.ttl#PrintButton"}]}, {"@id": "https://infobim.org/ontology/abox/entity_page.ttl#RefreshButton", "@type": ["http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#EntityPageActionButton"], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#cssClass": [{"@value": "icon-btn refresh-btn"}], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#i18nAriaLabelKey": [{"@value": "refreshFromWorkbook"}], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#i18nTitleKey": [{"@value": "refreshFromWorkbookTitle"}], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#iconName": [{"@value": "refresh"}], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#initiallyDisabled": [{"@type": "http://www.w3.org/2001/XMLSchema#boolean", "@value": true}]}, {"@id": "https://infobim.org/ontology/abox/entity_page.ttl#RefreshPlacement", "@type": ["http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#ToolbarItemPlacement"], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#placementOrder": [{"@type": "http://www.w3.org/2001/XMLSchema#integer", "@value": 2}], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#placesComponent": [{"@id": "https://infobim.org/ontology/abox/entity_page.ttl#RefreshButton"}]}, {"@id": "https://infobim.org/ontology/abox/entity_page.ttl#WorkspaceButton", "@type": ["http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#EntityPageActionButton"], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#cssClass": [{"@value": "icon-btn workspace-btn"}], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#i18nAriaLabelKey": [{"@value": "openAnnotationWorkspace"}], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#i18nTitleKey": [{"@value": "openAnnotationWorkspace"}], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#iconName": [{"@value": "workspace"}], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#initiallyDisabled": [{"@type": "http://www.w3.org/2001/XMLSchema#boolean", "@value": true}], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#initiallyHidden": [{"@type": "http://www.w3.org/2001/XMLSchema#boolean", "@value": true}]}, {"@id": "https://infobim.org/ontology/abox/entity_page.ttl#WorkspacePlacement", "@type": ["http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#ToolbarItemPlacement"], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#placementOrder": [{"@type": "http://www.w3.org/2001/XMLSchema#integer", "@value": 3}], "http://datacenter.app.br/ontology/ontobdc/domain/view.ttl#placesComponent": [{"@id": "https://infobim.org/ontology/abox/entity_page.ttl#WorkspaceButton"}]}]}}</script>
+<script type="application/json" id="ontobdc-i18n">{"en": {"open": "Open", "openFile": "Open file", "close": "Close", "closeTile": "Close tile", "noFile": "No file", "previewUnavailable": "Preview unavailable", "imageBadge": "IMAGE", "fileBadge": "FILE", "description": "Description", "editField": "Edit {field}", "saveField": "Save {field}", "cancelEdit": "Cancel editing", "fieldRequired": "{field} cannot be empty.", "emptyValue": "Not informed", "backToSurface": "Back to Surface", "breadcrumbHome": "Home", "breadcrumbSurface": "Surface", "connectFolder": "Connect folder", "connectFolderTitle": "Connect this container's folder to read the schedule from its own workbook", "connectedFolder": "Connected folder", "reconnectFolder": "Reconnect folder", "refreshFromWorkbook": "Refresh", "refreshFromWorkbookTitle": "Reload tasks, dates and dependencies directly from the schedule workbook", "requestingAccess": "Requesting access...", "allowFolderAccess": "Allow access to the container folder to continue.", "browserFileSystemAccessUnavailable": "This browser cannot open a local folder. Use a Chromium-based browser.", "datapackageJsonNotFound": "datapackage.json was not found in the selected folder.", "noDatasetSelectedFolder": "The selected folder is not this schedule's dataset.", "multipleDatasetsSelectedFolder": "The selected folder holds more than one dataset. Pick the schedule's own folder.", "multipleDatasetsSelectedFolderCandidates": "The selected folder holds more than one dataset and none of them is this schedule's. Pick the schedule's own folder — found: {folders}.", "noScheduleContext": "No IfcWorkSchedule context is available on this page.", "ganttFilterTitle": "Gantt filter", "openGanttFilter": "Filter Gantt", "ganttFilterStartDate": "Start date", "ganttFilterEndDate": "End date", "ganttFilterCriticalPath": "Critical path", "ganttFilterReset": "Reset", "ganttFilterApply": "Apply", "ganttFilterClose": "Close", "ganttFilterInvalidRange": "Start date must be before end date.", "addTask": "Add task", "addTaskTitle": "Register a new task in the schedule", "printGantt": "Print Gantt", "printGanttTitle": "Print or save the 4D Gantt as PDF", "openWorkbook": "Open in Excel", "openWorkbookTitle": "Open the schedule workbook in Excel", "enterFullscreen": "Open fullscreen", "exitFullscreen": "Exit fullscreen", "ganttColumnWbs": "WBS", "ganttColumnTaskName": "Task Name", "ganttColumnStart": "Start", "ganttColumnFinish": "Finish", "ganttColumnDuration": "Duration", "ganttFieldName": "Name", "ganttFieldStart": "Start", "ganttFieldFinish": "Finish", "ganttFieldCompletion": "Completion (%)", "ganttNewTaskTitle": "New task", "ganttTaskFallbackName": "Task", "ganttActionRename": "Rename", "ganttActionClose": "Close", "ganttActionSave": "Save", "ganttActionSaving": "Saving…", "ganttActionCancel": "Cancel", "ganttActionAdd": "Add", "ganttActionAdding": "Adding…", "ganttErrNameEmpty": "Task name cannot be empty.", "ganttErrNameRequired": "Enter the task name.", "ganttErrSaveUnavailable": "Saving is not available on this page.", "ganttErrCreateUnavailable": "Task creation is not available on this page.", "ganttErrBothDates": "Enter both dates.", "ganttErrInvalidDate": "Invalid date.", "ganttErrFinishBeforeStart": "The finish date cannot be earlier than the start date.", "ganttErrCompletionRange": "Completion must be a value between 0 and 100.", "ganttErrNoFolder": "No folder connected — connect the container to save.", "ganttErrSheetJsUnavailable": "SheetJS is not available to save the workbook.", "ganttErrSheetMissing": "Sheet {sheet} was not found in the connected workbook.", "ganttErrColumnsMissing": "Sheet {sheet} does not have the columns {columns}.", "ganttErrRowNotFound": "Task row not found in sheet {sheet} (GlobalId {globalId}).", "ganttErrNoTaskSelected": "No task selected.", "ganttErrNoTaskTime": "This task has no linked IfcTaskTime to save the dates.", "ganttErrNoGlobalId": "This task has no GlobalId to save the name.", "ganttErrNoScheduleGlobalId": "This schedule has no GlobalId to save its data.", "ganttActionDelete": "Delete task", "ganttActionDeleting": "Deleting…", "ganttDeleteConfirm": "Delete this task? This cannot be undone.", "ganttErrDeleteUnavailable": "Task deletion is not available on this page.", "breadcrumbEntity": "IFC Work Schedule"}, "pt-BR": {"open": "Abrir", "openFile": "Abrir arquivo", "close": "Fechar", "closeTile": "Fechar tile", "noFile": "Nenhum arquivo", "previewUnavailable": "Pré-visualização indisponível", "imageBadge": "IMAGEM", "fileBadge": "ARQUIVO", "description": "Descrição", "editField": "Editar {field}", "saveField": "Salvar {field}", "cancelEdit": "Cancelar edição", "fieldRequired": "{field} não pode ficar vazio.", "emptyValue": "Não informado", "backToSurface": "Voltar para a Surface", "breadcrumbHome": "Início", "breadcrumbSurface": "Surface", "connectFolder": "Conectar pasta", "connectFolderTitle": "Conectar a pasta deste container para ler o cronograma da propria planilha", "connectedFolder": "Pasta conectada", "reconnectFolder": "Reconectar pasta", "refreshFromWorkbook": "Atualizar", "refreshFromWorkbookTitle": "Recarregar tarefas, datas e dependencias direto da planilha do cronograma", "requestingAccess": "Solicitando acesso...", "allowFolderAccess": "Permita o acesso a pasta do container para continuar.", "browserFileSystemAccessUnavailable": "Este navegador nao consegue abrir uma pasta local. Use um navegador baseado em Chromium.", "datapackageJsonNotFound": "datapackage.json nao foi encontrado na pasta selecionada.", "noDatasetSelectedFolder": "A pasta selecionada nao e o dataset deste cronograma.", "multipleDatasetsSelectedFolder": "A pasta selecionada contem mais de um dataset. Escolha a pasta do proprio cronograma.", "multipleDatasetsSelectedFolderCandidates": "A pasta selecionada contém mais de um dataset e nenhum deles é o deste cronograma. Escolha a pasta do próprio cronograma — encontrados: {folders}.", "noScheduleContext": "Nenhum contexto de IfcWorkSchedule disponivel nesta pagina.", "ganttFilterTitle": "Filtro do Gantt", "openGanttFilter": "Filtrar Gantt", "ganttFilterStartDate": "Data de início", "ganttFilterEndDate": "Data de fim", "ganttFilterCriticalPath": "Caminho crítico", "ganttFilterReset": "Limpar", "ganttFilterApply": "Aplicar", "ganttFilterClose": "Fechar", "ganttFilterInvalidRange": "A data de início deve ser anterior à data de fim.", "addTask": "Adicionar tarefa", "addTaskTitle": "Cadastrar uma nova tarefa no cronograma", "printGantt": "Imprimir Gantt", "printGanttTitle": "Imprimir ou salvar o Gantt 4D como PDF", "openWorkbook": "Abrir no Excel", "openWorkbookTitle": "Abrir a planilha do cronograma no Excel", "enterFullscreen": "Abrir em tela cheia", "exitFullscreen": "Sair da tela cheia", "ganttColumnWbs": "EAP", "ganttColumnTaskName": "Nome da tarefa", "ganttColumnStart": "Início", "ganttColumnFinish": "Fim", "ganttColumnDuration": "Duração", "ganttFieldName": "Nome", "ganttFieldStart": "Início", "ganttFieldFinish": "Fim", "ganttFieldCompletion": "Conclusão (%)", "ganttNewTaskTitle": "Nova tarefa", "ganttTaskFallbackName": "Tarefa", "ganttActionRename": "Renomear", "ganttActionClose": "Fechar", "ganttActionSave": "Salvar", "ganttActionSaving": "Salvando…", "ganttActionCancel": "Cancelar", "ganttActionAdd": "Adicionar", "ganttActionAdding": "Adicionando…", "ganttErrNameEmpty": "O nome da tarefa não pode ficar vazio.", "ganttErrNameRequired": "Informe o nome da tarefa.", "ganttErrSaveUnavailable": "Salvamento indisponível nesta página.", "ganttErrCreateUnavailable": "Cadastro indisponível nesta página.", "ganttErrBothDates": "Informe as duas datas.", "ganttErrInvalidDate": "Data inválida.", "ganttErrFinishBeforeStart": "A data de fim não pode ser anterior à data de início.", "ganttErrCompletionRange": "A conclusão deve ser um valor entre 0 e 100.", "ganttErrNoFolder": "Nenhuma pasta conectada — conecte o container para salvar.", "ganttErrSheetJsUnavailable": "SheetJS indisponível para salvar a planilha.", "ganttErrSheetMissing": "A aba {sheet} não foi encontrada na planilha conectada.", "ganttErrColumnsMissing": "A aba {sheet} não tem as colunas {columns}.", "ganttErrRowNotFound": "Linha da tarefa não encontrada na aba {sheet} (GlobalId {globalId}).", "ganttErrNoTaskSelected": "Nenhuma tarefa selecionada.", "ganttErrNoTaskTime": "Esta tarefa não tem um IfcTaskTime vinculado para salvar as datas.", "ganttErrNoGlobalId": "Esta tarefa não tem um GlobalId para salvar o nome.", "ganttErrNoScheduleGlobalId": "Este cronograma não tem GlobalId para salvar seus dados.", "ganttActionDelete": "Excluir tarefa", "ganttActionDeleting": "Excluindo…", "ganttDeleteConfirm": "Excluir esta tarefa? Esta ação não pode ser desfeita.", "ganttErrDeleteUnavailable": "Exclusão de tarefa indisponível nesta página.", "breadcrumbEntity": "Cronograma"}, "pt-PT": {"open": "Abrir", "openFile": "Abrir ficheiro", "close": "Fechar", "closeTile": "Fechar mosaico", "noFile": "Nenhum ficheiro", "previewUnavailable": "Pré-visualização indisponível", "imageBadge": "IMAGEM", "fileBadge": "FICHEIRO", "description": "Descrição", "editField": "Editar {field}", "saveField": "Guardar {field}", "cancelEdit": "Cancelar edição", "fieldRequired": "{field} não pode ficar vazio.", "emptyValue": "Não informado", "backToSurface": "Voltar para a Surface", "breadcrumbHome": "Início", "breadcrumbSurface": "Surface", "connectFolder": "Ligar pasta", "connectFolderTitle": "Ligar a pasta deste container para ler o cronograma da propria folha de calculo", "connectedFolder": "Pasta ligada", "reconnectFolder": "Voltar a ligar a pasta", "refreshFromWorkbook": "Atualizar", "refreshFromWorkbookTitle": "Recarregar tarefas, datas e dependencias a partir da folha de calculo do cronograma", "requestingAccess": "A solicitar acesso...", "allowFolderAccess": "Permita o acesso a pasta do container para continuar.", "browserFileSystemAccessUnavailable": "Este navegador nao consegue abrir uma pasta local. Use um navegador baseado em Chromium.", "datapackageJsonNotFound": "datapackage.json nao foi encontrado na pasta selecionada.", "noDatasetSelectedFolder": "A pasta selecionada nao e o dataset deste cronograma.", "multipleDatasetsSelectedFolder": "A pasta selecionada contem mais do que um dataset. Escolha a pasta do proprio cronograma.", "multipleDatasetsSelectedFolderCandidates": "A pasta selecionada contém mais do que um dataset e nenhum deles é o deste cronograma. Escolha a pasta do próprio cronograma — encontrados: {folders}.", "noScheduleContext": "Nenhum contexto de IfcWorkSchedule disponivel nesta pagina.", "ganttFilterTitle": "Filtro do Gantt", "openGanttFilter": "Filtrar Gantt", "ganttFilterStartDate": "Data de início", "ganttFilterEndDate": "Data de fim", "ganttFilterCriticalPath": "Caminho crítico", "ganttFilterReset": "Repor", "ganttFilterApply": "Aplicar", "ganttFilterClose": "Fechar", "ganttFilterInvalidRange": "A data de início deve ser anterior à data de fim.", "addTask": "Adicionar tarefa", "addTaskTitle": "Registar uma nova tarefa no cronograma", "printGantt": "Imprimir Gantt", "printGanttTitle": "Imprimir ou guardar o Gantt 4D como PDF", "openWorkbook": "Abrir no Excel", "openWorkbookTitle": "Abrir a folha de cálculo do cronograma no Excel", "enterFullscreen": "Abrir em ecrã completo", "exitFullscreen": "Sair do ecrã completo", "ganttColumnWbs": "EDT", "ganttColumnTaskName": "Nome da tarefa", "ganttColumnStart": "Início", "ganttColumnFinish": "Fim", "ganttColumnDuration": "Duração", "ganttFieldName": "Nome", "ganttFieldStart": "Início", "ganttFieldFinish": "Fim", "ganttFieldCompletion": "Conclusão (%)", "ganttNewTaskTitle": "Nova tarefa", "ganttTaskFallbackName": "Tarefa", "ganttActionRename": "Mudar o nome", "ganttActionClose": "Fechar", "ganttActionSave": "Guardar", "ganttActionSaving": "A guardar…", "ganttActionCancel": "Cancelar", "ganttActionAdd": "Adicionar", "ganttActionAdding": "A adicionar…", "ganttErrNameEmpty": "O nome da tarefa não pode ficar vazio.", "ganttErrNameRequired": "Introduza o nome da tarefa.", "ganttErrSaveUnavailable": "Guardar não está disponível nesta página.", "ganttErrCreateUnavailable": "Registo de tarefas indisponível nesta página.", "ganttErrBothDates": "Introduza as duas datas.", "ganttErrInvalidDate": "Data inválida.", "ganttErrFinishBeforeStart": "A data de fim não pode ser anterior à data de início.", "ganttErrCompletionRange": "A conclusão deve ser um valor entre 0 e 100.", "ganttErrNoFolder": "Nenhuma pasta ligada — ligue o contentor para guardar.", "ganttErrSheetJsUnavailable": "SheetJS indisponível para guardar a folha de cálculo.", "ganttErrSheetMissing": "A folha {sheet} não foi encontrada na folha de cálculo ligada.", "ganttErrColumnsMissing": "A folha {sheet} não tem as colunas {columns}.", "ganttErrRowNotFound": "Linha da tarefa não encontrada na folha {sheet} (GlobalId {globalId}).", "ganttErrNoTaskSelected": "Nenhuma tarefa selecionada.", "ganttErrNoTaskTime": "Esta tarefa não tem um IfcTaskTime associado para guardar as datas.", "ganttErrNoGlobalId": "Esta tarefa não tem um GlobalId para guardar o nome.", "ganttErrNoScheduleGlobalId": "Este cronograma não tem GlobalId para guardar os seus dados.", "ganttActionDelete": "Eliminar tarefa", "ganttActionDeleting": "A eliminar…", "ganttDeleteConfirm": "Eliminar esta tarefa? Esta ação não pode ser anulada.", "ganttErrDeleteUnavailable": "Eliminação de tarefas indisponível nesta página.", "breadcrumbEntity": "Cronograma"}, "es": {"open": "Abrir", "openFile": "Abrir archivo", "close": "Cerrar", "closeTile": "Cerrar mosaico", "noFile": "Sin archivo", "previewUnavailable": "Vista previa no disponible", "imageBadge": "IMAGEN", "fileBadge": "ARCHIVO", "description": "Descripción", "editField": "Editar {field}", "saveField": "Guardar {field}", "cancelEdit": "Cancelar edición", "fieldRequired": "{field} no puede quedar vacío.", "emptyValue": "No informado", "backToSurface": "Volver a la Surface", "breadcrumbHome": "Inicio", "breadcrumbSurface": "Surface", "connectFolder": "Conectar carpeta", "connectFolderTitle": "Conectar la carpeta de este contenedor para leer el cronograma de su propia hoja de calculo", "connectedFolder": "Carpeta conectada", "reconnectFolder": "Reconectar carpeta", "refreshFromWorkbook": "Actualizar", "refreshFromWorkbookTitle": "Recargar tareas, fechas y dependencias desde la hoja de calculo del cronograma", "requestingAccess": "Solicitando acceso...", "allowFolderAccess": "Permita el acceso a la carpeta del contenedor para continuar.", "browserFileSystemAccessUnavailable": "Este navegador no puede abrir una carpeta local. Use un navegador basado en Chromium.", "datapackageJsonNotFound": "datapackage.json no se encontro en la carpeta seleccionada.", "noDatasetSelectedFolder": "La carpeta seleccionada no es el dataset de este cronograma.", "multipleDatasetsSelectedFolder": "La carpeta seleccionada contiene mas de un dataset. Elija la carpeta del propio cronograma.", "multipleDatasetsSelectedFolderCandidates": "La carpeta seleccionada contiene más de un dataset y ninguno de ellos es el de este cronograma. Elija la carpeta del propio cronograma — encontrados: {folders}.", "noScheduleContext": "No hay contexto de IfcWorkSchedule en esta pagina.", "ganttFilterTitle": "Filtro del Gantt", "openGanttFilter": "Filtrar Gantt", "ganttFilterStartDate": "Fecha de inicio", "ganttFilterEndDate": "Fecha de fin", "ganttFilterCriticalPath": "Camino crítico", "ganttFilterReset": "Restablecer", "ganttFilterApply": "Aplicar", "ganttFilterClose": "Cerrar", "ganttFilterInvalidRange": "La fecha de inicio debe ser anterior a la fecha de fin.", "addTask": "Agregar tarea", "addTaskTitle": "Registrar una nueva tarea en el cronograma", "printGantt": "Imprimir Gantt", "printGanttTitle": "Imprimir o guardar el Gantt 4D como PDF", "openWorkbook": "Abrir en Excel", "openWorkbookTitle": "Abrir la hoja de cálculo del cronograma en Excel", "enterFullscreen": "Abrir en pantalla completa", "exitFullscreen": "Salir de pantalla completa", "ganttColumnWbs": "EDT", "ganttColumnTaskName": "Nombre de la tarea", "ganttColumnStart": "Inicio", "ganttColumnFinish": "Fin", "ganttColumnDuration": "Duración", "ganttFieldName": "Nombre", "ganttFieldStart": "Inicio", "ganttFieldFinish": "Fin", "ganttFieldCompletion": "Avance (%)", "ganttNewTaskTitle": "Nueva tarea", "ganttTaskFallbackName": "Tarea", "ganttActionRename": "Renombrar", "ganttActionClose": "Cerrar", "ganttActionSave": "Guardar", "ganttActionSaving": "Guardando…", "ganttActionCancel": "Cancelar", "ganttActionAdd": "Agregar", "ganttActionAdding": "Agregando…", "ganttErrNameEmpty": "El nombre de la tarea no puede estar vacío.", "ganttErrNameRequired": "Ingrese el nombre de la tarea.", "ganttErrSaveUnavailable": "Guardar no está disponible en esta página.", "ganttErrCreateUnavailable": "La creación de tareas no está disponible en esta página.", "ganttErrBothDates": "Ingrese las dos fechas.", "ganttErrInvalidDate": "Fecha inválida.", "ganttErrFinishBeforeStart": "La fecha de fin no puede ser anterior a la fecha de inicio.", "ganttErrCompletionRange": "El avance debe ser un valor entre 0 y 100.", "ganttErrNoFolder": "Ninguna carpeta conectada — conecte el contenedor para guardar.", "ganttErrSheetJsUnavailable": "SheetJS no está disponible para guardar la hoja de cálculo.", "ganttErrSheetMissing": "La hoja {sheet} no se encontró en el libro conectado.", "ganttErrColumnsMissing": "La hoja {sheet} no tiene las columnas {columns}.", "ganttErrRowNotFound": "Fila de la tarea no encontrada en la hoja {sheet} (GlobalId {globalId}).", "ganttErrNoTaskSelected": "Ninguna tarea seleccionada.", "ganttErrNoTaskTime": "Esta tarea no tiene un IfcTaskTime vinculado para guardar las fechas.", "ganttErrNoGlobalId": "Esta tarea no tiene un GlobalId para guardar el nombre.", "ganttErrNoScheduleGlobalId": "Este cronograma no tiene GlobalId para guardar sus datos.", "ganttActionDelete": "Eliminar tarea", "ganttActionDeleting": "Eliminando…", "ganttDeleteConfirm": "¿Eliminar esta tarea? Esta acción no se puede deshacer.", "ganttErrDeleteUnavailable": "La eliminación de tareas no está disponible en esta página.", "breadcrumbEntity": "IFC Work Schedule"}}</script>
+
+<main class="onto-page" data-ontobdc-resource="">
+  <header class="onto-page-header">
+  <a class="icon-btn back-link" href="../../../index.html" data-i18n-title="backToSurface" data-i18n-aria-label="backToSurface">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+  </a>
+  <div class="breadcrumb">
+    <span class="breadcrumb-crumb" data-i18n="breadcrumbHome">Home</span>
+    <span class="breadcrumb-sep">/</span>
+    <span class="breadcrumb-crumb is-current" data-i18n="breadcrumbEntity">IFC Work Schedule</span>
+  </div>
+  <div class="header-actions" role="toolbar" aria-label="IFC Work Schedule Toolbar" data-toolbar-id="https://infobim.org/ontology/abox/entity_page.ttl#IfcWorkScheduleToolbar" data-toolbar-alignment="right">
+    
+      <button type="button" class="connect-btn" data-toolbar-action="https://infobim.org/ontology/abox/entity_page.ttl#ConnectButton" data-i18n="connectFolder" data-i18n-title="connectFolderTitle" data-i18n-aria-label="connectFolder"></button>
+    
+      <button type="button" class="icon-btn refresh-btn" data-toolbar-action="https://infobim.org/ontology/abox/entity_page.ttl#RefreshButton" data-i18n-title="refreshFromWorkbookTitle" data-i18n-aria-label="refreshFromWorkbook" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6v5h-5"/><path d="M4 18v-5h5"/><path d="M18 9a7 7 0 0 0-12-2M6 15a7 7 0 0 0 12 2"/></svg></button>
+    
+      <button type="button" class="icon-btn workspace-btn" data-toolbar-action="https://infobim.org/ontology/abox/entity_page.ttl#WorkspaceButton" data-i18n-title="openAnnotationWorkspace" data-i18n-aria-label="openAnnotationWorkspace" disabled hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></button>
+    
+      <button type="button" class="icon-btn gantt-filter-btn" data-toolbar-action="https://infobim.org/ontology/abox/entity_page.ttl#FilterButton" data-i18n-title="openGanttFilter" data-i18n-aria-label="openGanttFilter" disabled><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 2v6l4 4-4 4v6h12v-6l-4-4 4-4V2H6z"/></svg></button>
+    
+      <button type="button" class="icon-btn gantt-add-task-btn" data-toolbar-action="https://infobim.org/ontology/abox/entity_page.ttl#AddTaskButton" data-i18n-title="addTaskTitle" data-i18n-aria-label="addTask" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+    
+      <button type="button" class="icon-btn gantt-print-btn" data-toolbar-action="https://infobim.org/ontology/abox/entity_page.ttl#PrintButton" data-i18n-title="printGanttTitle" data-i18n-aria-label="printGantt" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg></button>
+    
+      <button type="button" class="icon-btn gantt-open-workbook-btn" data-toolbar-action="https://infobim.org/ontology/abox/entity_page.ttl#OpenWorkbookButton" data-i18n-title="openWorkbookTitle" data-i18n-aria-label="openWorkbook" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2.5" fill="#1D6F42"/><path d="M8.7 8h2.1l1.2 2.15L13.2 8h2.1l-2.35 4 2.35 4h-2.1l-1.2-2.15L10.8 16H8.7l2.35-4z" fill="#fff"/></svg></button>
+    
+      <button type="button" class="icon-btn gantt-fullscreen-btn" data-toolbar-action="https://infobim.org/ontology/abox/entity_page.ttl#FullscreenButton" data-i18n-title="enterFullscreen" data-i18n-aria-label="enterFullscreen" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M3 16v5h5M21 16v5h-5"/></svg></button>
+    
+  </div>
+</header>
+<script defer src="./i18n_apply.js"></script>
+  <section class="tile onto-page-body">
+    <div class="body"><div class="name"></div><div class="identifier"></div></div>
+    <div class="fields"></div>
+    <div class="gantt-container">
+      <div class="gantt-left"><table class="gantt-table"><thead><tr><th data-i18n="ganttColumnWbs">WBS</th><th data-i18n="ganttColumnTaskName">Task Name</th><th data-i18n="ganttColumnStart">Start</th><th data-i18n="ganttColumnFinish">Finish</th><th data-i18n="ganttColumnDuration">Duration</th><th>%</th></tr></thead><tbody id="gantt-tbody"></tbody></table></div>
+      <div class="gantt-right"><div class="gantt-timeline-header" id="gantt-timeline-header"></div><svg class="gantt-svg" id="gantt-svg"><defs><marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><polygon points="0 0, 10 3, 0 6" fill="#000"/></marker></defs></svg></div>
+    </div>
+  </section>
+  <div class="dimension-cards">
+  
+    <article class="tile dimension-card" data-dimension="scopeplanned">
+      <div class="dimension-card-head">
+        <span class="dimension-label">ScopePlanned</span>
+      </div>
+      <div class="dimension-value"></div>
+    </article>
+  
+    <article class="tile dimension-card" data-dimension="scopeactual">
+      <div class="dimension-card-head">
+        <span class="dimension-label">ScopeActual</span>
+      </div>
+      <div class="dimension-value"></div>
+    </article>
+  
+    <article class="tile dimension-card" data-dimension="timeplanned">
+      <div class="dimension-card-head">
+        <span class="dimension-label">TimePlanned</span>
+      </div>
+      <div class="dimension-value"></div>
+    </article>
+  
+    <article class="tile dimension-card" data-dimension="timeactual">
+      <div class="dimension-card-head">
+        <span class="dimension-label">TimeActual</span>
+      </div>
+      <div class="dimension-value"></div>
+    </article>
+  
+    <article class="tile dimension-card" data-dimension="timeforecast">
+      <div class="dimension-card-head">
+        <span class="dimension-label">TimeForecast</span>
+      </div>
+      <div class="dimension-value"></div>
+    </article>
+  
+    <article class="tile dimension-card" data-dimension="progressplanned">
+      <div class="dimension-card-head">
+        <span class="dimension-label">ProgressPlanned</span>
+      </div>
+      <div class="dimension-value"></div>
+    </article>
+  
+    <article class="tile dimension-card" data-dimension="progressactual">
+      <div class="dimension-card-head">
+        <span class="dimension-label">ProgressActual</span>
+      </div>
+      <div class="dimension-value"></div>
+    </article>
+  
+    <article class="tile dimension-card" data-dimension="progressforecast">
+      <div class="dimension-card-head">
+        <span class="dimension-label">ProgressForecast</span>
+      </div>
+      <div class="dimension-value"></div>
+    </article>
+  
+    <article class="tile dimension-card" data-dimension="laborplanned">
+      <div class="dimension-card-head">
+        <span class="dimension-label">LaborPlanned</span>
+      </div>
+      <div class="dimension-value"></div>
+    </article>
+  
+    <article class="tile dimension-card" data-dimension="laboractual">
+      <div class="dimension-card-head">
+        <span class="dimension-label">LaborActual</span>
+      </div>
+      <div class="dimension-value"></div>
+    </article>
+  
+    <article class="tile dimension-card" data-dimension="equipmentplanned">
+      <div class="dimension-card-head">
+        <span class="dimension-label">EquipmentPlanned</span>
+      </div>
+      <div class="dimension-value"></div>
+    </article>
+  
+    <article class="tile dimension-card" data-dimension="equipmentactual">
+      <div class="dimension-card-head">
+        <span class="dimension-label">EquipmentActual</span>
+      </div>
+      <div class="dimension-value"></div>
+    </article>
+  
+    <article class="tile dimension-card" data-dimension="materialplanned">
+      <div class="dimension-card-head">
+        <span class="dimension-label">MaterialPlanned</span>
+      </div>
+      <div class="dimension-value"></div>
+    </article>
+  
+    <article class="tile dimension-card" data-dimension="materialactual">
+      <div class="dimension-card-head">
+        <span class="dimension-label">MaterialActual</span>
+      </div>
+      <div class="dimension-value"></div>
+    </article>
+  
+    <article class="tile dimension-card" data-dimension="costplanned">
+      <div class="dimension-card-head">
+        <span class="dimension-label">CostPlanned</span>
+      </div>
+      <div class="dimension-value"></div>
+    </article>
+  
+    <article class="tile dimension-card" data-dimension="costactual">
+      <div class="dimension-card-head">
+        <span class="dimension-label">CostActual</span>
+      </div>
+      <div class="dimension-value"></div>
+    </article>
+  
+    <article class="tile dimension-card" data-dimension="costforecast">
+      <div class="dimension-card-head">
+        <span class="dimension-label">CostForecast</span>
+      </div>
+      <div class="dimension-value"></div>
+    </article>
+  
+  </div>
+</main>
+<div class="page-event-bar" data-ontobdc-page-event-bar role="status" aria-live="polite"></div>
+<script>
+
+</script>
+
+<dialog class="gantt-filter-dialog" id="gantt-filter-dialog" aria-labelledby="gantt-filter-title">
+  <form method="dialog" class="gantt-filter-form" id="gantt-filter-form">
+    <div class="gantt-filter-heading"><h2 id="gantt-filter-title" data-i18n="ganttFilterTitle"></h2><button type="button" class="icon-btn gantt-filter-close" data-i18n-title="ganttFilterClose" data-i18n-aria-label="ganttFilterClose">×</button></div>
+    <label class="gantt-filter-field"><span data-i18n="ganttFilterStartDate"></span><input type="date" id="gantt-filter-start"></label>
+    <label class="gantt-filter-field"><span data-i18n="ganttFilterEndDate"></span><input type="date" id="gantt-filter-end"></label>
+    <label class="gantt-filter-toggle-row is-disabled" for="gantt-filter-critical" aria-disabled="true"><span data-i18n="ganttFilterCriticalPath"></span><span class="gantt-filter-toggle"><input type="checkbox" id="gantt-filter-critical" disabled><span class="gantt-filter-toggle-track" aria-hidden="true"><span class="gantt-filter-toggle-thumb"></span></span></span></label>
+    <div class="gantt-filter-actions"><button type="button" class="gantt-filter-reset" data-i18n="ganttFilterReset"></button><button type="submit" class="gantt-filter-apply" data-i18n="ganttFilterApply"></button></div>
+  </form>
+</dialog>
+
+<script></script>
+<script></script>
+
+
+<script>
+(function () {
+  const INSTALL_KEY = Symbol.for("ontobdc.gantt.auto-refresh-installed");
+
+  function installAutoRefresh() {
+    const rt = window.OntoBDCGanttViewRuntime;
+    if (!rt || rt[INSTALL_KEY]) return false;
+    if (
+      typeof rt.refreshFromWorkbook !== "function" ||
+      typeof rt.saveScheduleField !== "function" ||
+      typeof rt.saveTaskName !== "function" ||
+      typeof rt.saveTaskDates !== "function"
+    ) {
+      return false;
+    }
+
+    rt[INSTALL_KEY] = true;
+    let timer = null;
+    let refreshing = false;
+    let queued = false;
+
+    rt.scheduleRefresh = function scheduleRefresh() {
+      queued = true;
+      if (timer !== null || refreshing) return;
+      timer = window.setTimeout(async function () {
+        timer = null;
+        if (!queued || refreshing) return;
+        queued = false;
+        refreshing = true;
+        try {
+          await rt.refreshFromWorkbook();
+        } catch (error) {
+          console.error("[ifc-work-schedule-view] automatic refresh failed", error);
+        } finally {
+          refreshing = false;
+          if (queued) rt.scheduleRefresh();
+        }
+      }, 50);
+    };
+
+    function wrapMutation(name) {
+      const original = rt[name];
+      if (typeof original !== "function" || original.__ontobdcAutoRefreshWrapped) return;
+      const wrapped = async function (...args) {
+        const result = await original.apply(this, args);
+        rt.scheduleRefresh();
+        return result;
+      };
+      Object.defineProperty(wrapped, "__ontobdcAutoRefreshWrapped", { value: true });
+      rt[name] = wrapped;
+    }
+
+    // These are the logical edit boundaries. WBS + dates are intentionally
+    // refreshed only after saveTaskDates finishes, because the edit dialog can
+    // persist Identification first and TaskTime second in one Save action.
+    wrapMutation("saveScheduleField");
+    wrapMutation("saveTaskName");
+    wrapMutation("saveTaskDates");
+    return true;
+  }
+
+  window.addEventListener("ontobdc:gantt-scripts-ready", installAutoRefresh);
+  installAutoRefresh();
+})();
+</script>
+<script>
+window.addEventListener("load", function () {
+  const rt = window.OntoBDCGanttViewRuntime;
+  const dialog = document.getElementById("gantt-filter-dialog");
+  const form = document.getElementById("gantt-filter-form");
+  const startInput = document.getElementById("gantt-filter-start");
+  const endInput = document.getElementById("gantt-filter-end");
+  const criticalInput = document.getElementById("gantt-filter-critical");
+  const openBtn = document.querySelector(".gantt-filter-btn");
+  const closeBtn = document.querySelector(".gantt-filter-close");
+  const resetBtn = document.querySelector(".gantt-filter-reset");
+  const fsBtn = document.querySelector(".gantt-fullscreen-btn");
+
+  // ── Fullscreen toggle ──────────────────────────────────────────────────
+  if (fsBtn) {
+    const ENTER_SVG =
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg>';
+    const EXIT_SVG =
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v3a2 2 0 0 1-2 2H3"/><path d="M21 8h-3a2 2 0 0 1-2-2V3"/><path d="M3 16h3a2 2 0 0 1 2 2v3"/><path d="M16 21v-3a2 2 0 0 1 2-2h3"/></svg>';
+    function t(key, fallback) {
+      try {
+        const rt_ = window.OntoBDCGanttViewRuntime;
+        if (rt_ && typeof rt_.t === "function") {
+          const value = rt_.t(key);
+          if (value && value !== key) return value;
+        }
+      } catch (e) {}
+      return fallback;
+    }
+    function setFsIcon(active) {
+      const label = active ? t("exitFullscreen", "Exit fullscreen") : t("enterFullscreen", "Open fullscreen");
+      fsBtn.innerHTML = active ? EXIT_SVG : ENTER_SVG;
+      fsBtn.setAttribute("title", label);
+      fsBtn.setAttribute("aria-label", label);
+      if (active) {
+        document.documentElement.classList.add("is-fullscreen-presenting");
+        document.documentElement.dataset.fullscreenPresenting = "true";
+      } else {
+        document.documentElement.classList.remove("is-fullscreen-presenting");
+        delete document.documentElement.dataset.fullscreenPresenting;
+      }
+    }
+    function isFsActive() {
+      try {
+        return Boolean(document.fullscreenElement || document.webkitFullscreenElement);
+      } catch (e) { return false; }
+    }
+    function refreshFsState() {
+      setFsIcon(isFsActive());
+      try { window.dispatchEvent(new Event("resize")); } catch (e) {}
+    }
+    fsBtn.addEventListener("click", function () {
+      try {
+        if (isFsActive()) {
+          const exit = document.exitFullscreen || document.webkitExitFullscreen;
+          if (exit) exit.call(document);
+        } else {
+          const root = document.documentElement;
+          const req = root.requestFullscreen || root.webkitRequestFullscreen;
+          if (req) req.call(root);
+        }
+      } catch (e) {}
+      setTimeout(refreshFsState, 0);
+    });
+    if ("onfullscreenchange" in document) {
+      document.addEventListener("fullscreenchange", refreshFsState);
+    } else if ("onwebkitfullscreenchange" in document) {
+      document.addEventListener("webkitfullscreenchange", refreshFsState);
+    }
+    refreshFsState();
+  }
+
+  if (!rt || !dialog || !form || !openBtn || typeof rt.runRender !== "function") return;
+
+  const originalRunRender = rt.runRender.bind(rt);
+  const originalRunParse = typeof rt.runParse === "function" ? rt.runParse.bind(rt) : null;
+  const filter = rt.state.ganttFilter = {
+    start: null,
+    end: null,
+    showCritical: false,
+    sourceTasks: Array.isArray(rt.state.enrichedTasks) ? rt.state.enrichedTasks : [],
+    renderedTasks: null
+  };
+
+  function dayStart(value) {
+    if (!value) return null;
+    const parts = String(value).split("-").map(Number);
+    if (parts.length !== 3 || parts.some(Number.isNaN)) return null;
+    return new Date(parts[0], parts[1] - 1, parts[2]);
+  }
+  function dayEnd(value) {
+    const d = dayStart(value);
+    if (!d) return null;
+    d.setHours(23, 59, 59, 999);
+    return d;
+  }
+  function clippedTask(task) {
+    const sourceStart = task.scheduleStart;
+    const sourceFinish = task.scheduleFinish || task.scheduleStart;
+    if (!sourceStart && !sourceFinish) return task;
+    if (filter.start && sourceFinish && sourceFinish < filter.start) return null;
+    if (filter.end && sourceStart && sourceStart > filter.end) return null;
+    const start = filter.start && sourceStart && sourceStart < filter.start ? new Date(filter.start) : sourceStart;
+    const finish = filter.end && sourceFinish && sourceFinish > filter.end ? new Date(filter.end) : sourceFinish;
+    const clone = Object.assign({}, task, {
+      scheduleStart: start,
+      scheduleFinish: finish,
+      isCritical: filter.showCritical ? task.isCritical : false
+    });
+    if (start && finish) clone.duration_days = Math.max(0.25, (finish.getTime() - start.getTime()) / rt.MILLIS_PER_DAY + 1);
+    return clone;
+  }
+  function renderFiltered() {
+    const current = Array.isArray(rt.state.enrichedTasks) ? rt.state.enrichedTasks : [];
+    if (current !== filter.renderedTasks) filter.sourceTasks = current;
+    const visible = filter.sourceTasks.map(clippedTask).filter(Boolean);
+    filter.renderedTasks = visible;
+    rt.state.enrichedTasks = visible;
+    const schedule = rt.state.schedule;
+    rt.state.schedule = null;
+    originalRunRender();
+    rt.state.schedule = schedule;
+    if (typeof rt.runArrows === "function") rt.runArrows();
+    // The critical-path toggle is disabled for now, so only the date range
+    // marks the filter as active.
+    openBtn.dataset.filterActive = String(Boolean(filter.start || filter.end));
+  }
+  if (originalRunParse) {
+    rt.runParse = function () {
+      originalRunParse();
+      filter.sourceTasks = Array.isArray(rt.state.enrichedTasks) ? rt.state.enrichedTasks : [];
+      filter.renderedTasks = null;
+    };
+  }
+  rt.runRender = renderFiltered;
+
+  openBtn.addEventListener("click", function () {
+    startInput.value = filter.start ? rt.formatDate(filter.start) : "";
+    endInput.value = filter.end ? rt.formatDate(filter.end) : "";
+    criticalInput.checked = filter.showCritical;
+    dialog.showModal();
+  });
+  closeBtn.addEventListener("click", function () { dialog.close(); });
+  dialog.addEventListener("click", function (event) { if (event.target === dialog) dialog.close(); });
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    const start = dayStart(startInput.value);
+    const end = dayEnd(endInput.value);
+    if (start && end && start > end) {
+      startInput.setCustomValidity(rt.t("ganttFilterInvalidRange"));
+      startInput.reportValidity();
+      return;
+    }
+    startInput.setCustomValidity("");
+    filter.start = start;
+    filter.end = end;
+    filter.showCritical = criticalInput.checked;
+    dialog.close();
+    renderFiltered();
+  });
+  resetBtn.addEventListener("click", function () {
+    startInput.value = "";
+    endInput.value = "";
+    criticalInput.checked = false;
+    filter.start = null;
+    filter.end = null;
+    filter.showCritical = false;
+    dialog.close();
+    renderFiltered();
+  });
+
+  renderFiltered();
+});
+</script>
+</body>
+</html>

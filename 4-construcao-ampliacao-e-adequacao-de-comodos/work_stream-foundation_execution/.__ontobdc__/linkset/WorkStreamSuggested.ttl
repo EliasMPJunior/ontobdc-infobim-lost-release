@@ -1,0 +1,28 @@
+@prefix ls: <https://standards.iso.org/iso/21597/-1/ed-1/en/Linkset#> .
+@prefix obdc: <http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+<urn:ontobdc:linkset:workstream-suggested:1b196584364f6fb9> a ls:DirectedBinaryLink ;
+    obdc:suggestionModifiedAt "2026-08-20T20:46:54.037000+00:00"^^xsd:dateTimeStamp ;
+    obdc:suggestionStatus obdc:Proposed ;
+    ls:hasFromLinkElement [ ls:hasIdentifier [ a ls:URIBasedIdentifier ;
+                    ls:uri "urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/work_stream-foundation_execution/240204b8-e891-442c-8d66-a0902fe9545a/dimension/what"^^xsd:anyURI ] ] ;
+    ls:hasToLinkElement [ ls:hasIdentifier [ a ls:URIBasedIdentifier ;
+                    ls:uri "urn:uuid:270ff252-87eb-49e7-acb1-ec0f7ca0b235/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.3%20NOVO%20CO%CC%82MODO%20ISOLADO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.3.dwg"^^xsd:anyURI ] ] .
+
+<urn:ontobdc:linkset:workstream-suggested:4655f88653409d96> a ls:DirectedBinaryLink ;
+    obdc:suggestionModifiedAt "2026-08-19T21:12:42.189000+00:00"^^xsd:dateTimeStamp ;
+    obdc:suggestionStatus obdc:Rejected ;
+    ls:hasFromLinkElement [ ls:hasIdentifier [ a ls:URIBasedIdentifier ;
+                    ls:uri "urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/work_stream-foundation_execution/240204b8-e891-442c-8d66-a0902fe9545a/dimension/what"^^xsd:anyURI ] ] ;
+    ls:hasToLinkElement [ ls:hasIdentifier [ a ls:URIBasedIdentifier ;
+                    ls:uri "urn:uuid:270ff252-87eb-49e7-acb1-ec0f7ca0b235/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.2%20NOVO%20CO%CC%82MODO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.2.dwg"^^xsd:anyURI ] ] .
+
+<urn:ontobdc:linkset:workstream-suggested:b4e01fd918996108> a ls:DirectedBinaryLink ;
+    obdc:suggestionModifiedAt "2026-08-30T20:35:18.084Z"^^xsd:dateTimeStamp ;
+    obdc:suggestionStatus obdc:Proposed ;
+    ls:hasFromLinkElement [ ls:hasIdentifier [ a ls:URIBasedIdentifier ;
+                    ls:uri "urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/work_stream-foundation_execution/9009a74ecd8b80a755343ecb474c392e5cb2e72239f72dc79b9a1658c6cdf307/dimension/what"^^xsd:anyURI ] ] ;
+    ls:hasToLinkElement [ ls:hasIdentifier [ a ls:URIBasedIdentifier ;
+                    ls:uri "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/server.cmd"^^xsd:anyURI ] ] .

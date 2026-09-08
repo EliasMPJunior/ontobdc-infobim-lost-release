@@ -1,0 +1,33 @@
+{
+    "@context": "https://w3id.org/ro/crate/1.2/context",
+    "@graph": [
+        {
+            "@id": "./",
+            "@type": "Dataset",
+            "datePublished": "2026-08-19T03:32:55+00:00",
+            "hasPart": [
+                {
+                    "@id": ".DS_Store"
+                }
+            ]
+        },
+        {
+            "@id": "ro-crate-metadata.json",
+            "@type": "CreativeWork",
+            "about": {
+                "@id": "./"
+            },
+            "conformsTo": {
+                "@id": "https://w3id.org/ro/crate/1.2"
+            }
+        },
+        {
+            "@id": ".DS_Store",
+            "@type": "File",
+            "contentSize": "6148",
+            "dateCreated": "2026-08-18T02:46:44.933132Z",
+            "dateModified": "2026-08-18T02:46:44.933429Z",
+            "name": ".DS_Store"
+        }
+    ]
+}

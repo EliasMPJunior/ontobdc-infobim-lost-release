@@ -1,0 +1,15 @@
+@prefix ns1: <https://standards.iso.org/iso/21597/-1/ed-1/en/Linkset#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<urn:ontobdc:linkset:workstream-resource:2109bce61a2cd7dd> a ns1:DirectedBinaryLink ;
+    ns1:hasFromLinkElement [ ns1:hasIdentifier [ a ns1:URIBasedIdentifier ;
+                    ns1:uri "urn:ontobdc:storage/dataset/data/work_stream-fire_alarm_test/c47962f1-1bb1-4f62-b42d-8fe10a269ce9/dimension/what"^^xsd:anyURI ] ] ;
+    ns1:hasToLinkElement [ ns1:hasIdentifier [ a ns1:URIBasedIdentifier ;
+                    ns1:uri "urn:ontobdc:storage/local/data/files/Aviso%20de%20Contrata%C3%A7%C3%A3o%20Direta.pdf"^^xsd:anyURI ] ] .
+
+<urn:ontobdc:linkset:workstream-resource:3febf4f8ff038ccc> a ns1:DirectedBinaryLink ;
+    ns1:hasFromLinkElement [ ns1:hasIdentifier [ a ns1:URIBasedIdentifier ;
+                    ns1:uri "urn:ontobdc:storage/dataset/data/work_stream-fire_alarm_test/c47962f1-1bb1-4f62-b42d-8fe10a269ce9/dimension/how-much"^^xsd:anyURI ] ] ;
+    ns1:hasToLinkElement [ ns1:hasIdentifier [ a ns1:URIBasedIdentifier ;
+                    ns1:uri "urn:ontobdc:storage/local/data/files/AECO_Knowledge_Infrastructure.pptx"^^xsd:anyURI ] ] .
+

@@ -1,0 +1,172 @@
+@prefix ea: <http://datacenter.app.br/ontology/productivity/entity/enrichment_annotation/type.ttl#> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<urn:ontobdc:thread-catalog> a ea:ThreadCatalog ;
+    ea:threadCatalog "[{\"id\":\"urn:ontobdc:thread:he-hey-w7x0bi\",\"label\":\"He-hey\",\"description\":\"They liked it!\",\"created\":\"2026-08-28T19:06:56.364Z\"},{\"id\":\"urn:ontobdc:thread:telhado-j8itku\",\"label\":\"Telhado\",\"description\":\"Parte do telhado\",\"created\":\"2026-08-29T13:45:07.916Z\"}]" .
+
+<urn:ontobdc:annotation:d8a49796-2bd3-4449-84ff-1532f6c60c8f> a ea:NoteAnnotation ;
+    oa:motivatedBy oa:commenting ;
+    ea:logicalSource "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.1%20NOVO%20CO%CC%82MODO%20CONTIGUO/4.1.pdf"^^xsd:anyURI ;
+    dcterms:created "2026-08-28T18:53:25.990Z"^^xsd:dateTime ;
+    oa:annotatedAt "2026-08-28T18:53:25.990Z"^^xsd:dateTime ;
+    dcterms:modified "2026-08-28T19:07:43.997Z"^^xsd:dateTime ;
+    ea:thread <urn:ontobdc:thread:he-hey-w7x0bi> ;
+    oa:hasBody [
+        a oa:TextualBody ;
+        rdf:value "Pois"
+    ] ;
+    ea:representationSource "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.1%20NOVO%20CO%CC%82MODO%20CONTIGUO/4.1.pdf"^^xsd:anyURI ;
+    ea:representationHash "1c626a33aa8fa06322ce1c2b8943060574317fad2d2835dba3c181446413ab94" ;
+    ea:relatedDimension "urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/work_stream-foundation_execution/9009a74ecd8b80a755343ecb474c392e5cb2e72239f72dc79b9a1658c6cdf307/dimension/what"^^xsd:anyURI ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.1%20NOVO%20CO%CC%82MODO%20CONTIGUO/4.1.pdf"^^xsd:anyURI ;
+        oa:hasSelector [
+            a ea:PointSelector ;
+            ea:sourceWidth "2382"^^xsd:positiveInteger ;
+            ea:sourceHeight "5052"^^xsd:positiveInteger ;
+            ea:normalizedX "0.47897407556270094"^^xsd:decimal ;
+            ea:normalizedY "0.25177960179559156"^^xsd:decimal
+        ]
+    ] ;
+    ea:markerColor "#f967c3" ;
+    ea:payload "{\"schemaVersion\":3,\"id\":\"urn:ontobdc:annotation:d8a49796-2bd3-4449-84ff-1532f6c60c8f\",\"type\":\"http://datacenter.app.br/ontology/productivity/entity/enrichment_annotation/type.ttl#NoteAnnotation\",\"body\":\"Pois\",\"logicalSource\":\"urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.1%20NOVO%20CO%CC%82MODO%20CONTIGUO/4.1.pdf\",\"representationSource\":\"urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.1%20NOVO%20CO%CC%82MODO%20CONTIGUO/4.1.pdf\",\"representationHash\":\"1c626a33aa8fa06322ce1c2b8943060574317fad2d2835dba3c181446413ab94\",\"relatedDimension\":\"urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/work_stream-foundation_execution/9009a74ecd8b80a755343ecb474c392e5cb2e72239f72dc79b9a1658c6cdf307/dimension/what\",\"selector\":{\"type\":\"http://datacenter.app.br/ontology/productivity/entity/enrichment_annotation/type.ttl#PointSelector\",\"sourceWidth\":2382,\"sourceHeight\":5052,\"points\":[{\"x\":0.47897407556270094,\"y\":0.25177960179559156}]},\"properties\":{\"markerColor\":\"#f967c3\"},\"created\":\"2026-08-28T18:53:25.990Z\",\"annotatedBy\":null,\"annotatedAt\":\"2026-08-28T18:53:25.990Z\",\"modified\":\"2026-08-28T19:07:43.997Z\",\"modifiedBy\":null,\"assignedTo\":[],\"resolvedBy\":null,\"threads\":[\"urn:ontobdc:thread:he-hey-w7x0bi\"]}" .
+
+<urn:ontobdc:annotation:05db4e7e-80f6-4fc3-bc0e-f7c028e5cfc8> a ea:NoteAnnotation ;
+    oa:motivatedBy oa:commenting ;
+    ea:logicalSource "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.1%20NOVO%20CO%CC%82MODO%20CONTIGUO/4.1.pdf"^^xsd:anyURI ;
+    dcterms:created "2026-08-28T18:54:44.034Z"^^xsd:dateTime ;
+    oa:annotatedAt "2026-08-28T18:54:44.034Z"^^xsd:dateTime ;
+    dcterms:modified "2026-08-28T19:07:38.615Z"^^xsd:dateTime ;
+    ea:thread <urn:ontobdc:thread:he-hey-w7x0bi> ;
+    oa:hasBody [
+        a oa:TextualBody ;
+        rdf:value "Esquerdo"
+    ] ;
+    ea:representationSource "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.1%20NOVO%20CO%CC%82MODO%20CONTIGUO/4.1.pdf"^^xsd:anyURI ;
+    ea:representationHash "1c626a33aa8fa06322ce1c2b8943060574317fad2d2835dba3c181446413ab94" ;
+    ea:relatedDimension "urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/work_stream-foundation_execution/9009a74ecd8b80a755343ecb474c392e5cb2e72239f72dc79b9a1658c6cdf307/dimension/what"^^xsd:anyURI ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.1%20NOVO%20CO%CC%82MODO%20CONTIGUO/4.1.pdf"^^xsd:anyURI ;
+        oa:hasSelector [
+            a ea:PointSelector ;
+            ea:sourceWidth "2382"^^xsd:positiveInteger ;
+            ea:sourceHeight "5052"^^xsd:positiveInteger ;
+            ea:normalizedX "0.34586012861736337"^^xsd:decimal ;
+            ea:normalizedY "0.25025465183763873"^^xsd:decimal
+        ]
+    ] ;
+    ea:markerColor "#67e8f9" ;
+    ea:payload "{\"schemaVersion\":3,\"id\":\"urn:ontobdc:annotation:05db4e7e-80f6-4fc3-bc0e-f7c028e5cfc8\",\"type\":\"http://datacenter.app.br/ontology/productivity/entity/enrichment_annotation/type.ttl#NoteAnnotation\",\"body\":\"Esquerdo\",\"logicalSource\":\"urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.1%20NOVO%20CO%CC%82MODO%20CONTIGUO/4.1.pdf\",\"representationSource\":\"urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.1%20NOVO%20CO%CC%82MODO%20CONTIGUO/4.1.pdf\",\"representationHash\":\"1c626a33aa8fa06322ce1c2b8943060574317fad2d2835dba3c181446413ab94\",\"relatedDimension\":\"urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/work_stream-foundation_execution/9009a74ecd8b80a755343ecb474c392e5cb2e72239f72dc79b9a1658c6cdf307/dimension/what\",\"selector\":{\"type\":\"http://datacenter.app.br/ontology/productivity/entity/enrichment_annotation/type.ttl#PointSelector\",\"sourceWidth\":2382,\"sourceHeight\":5052,\"points\":[{\"x\":0.34586012861736337,\"y\":0.25025465183763873}]},\"properties\":{\"markerColor\":\"#67e8f9\"},\"created\":\"2026-08-28T18:54:44.034Z\",\"annotatedBy\":null,\"annotatedAt\":\"2026-08-28T18:54:44.034Z\",\"modified\":\"2026-08-28T19:07:38.615Z\",\"modifiedBy\":null,\"assignedTo\":[],\"resolvedBy\":null,\"threads\":[\"urn:ontobdc:thread:he-hey-w7x0bi\"]}" .
+
+<urn:ontobdc:annotation:e9458feb-2d66-4b25-9382-0313e6045175> a ea:NoteAnnotation ;
+    oa:motivatedBy oa:commenting ;
+    ea:logicalSource "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.1%20NOVO%20CO%CC%82MODO%20CONTIGUO/4.1.pdf"^^xsd:anyURI ;
+    dcterms:created "2026-08-28T18:55:01.942Z"^^xsd:dateTime ;
+    oa:annotatedAt "2026-08-28T18:55:01.942Z"^^xsd:dateTime ;
+    oa:hasBody [
+        a oa:TextualBody ;
+        rdf:value "Esquema"
+    ] ;
+    ea:representationSource "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.1%20NOVO%20CO%CC%82MODO%20CONTIGUO/4.1.pdf"^^xsd:anyURI ;
+    ea:representationHash "1c626a33aa8fa06322ce1c2b8943060574317fad2d2835dba3c181446413ab94" ;
+    ea:relatedDimension "urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/work_stream-foundation_execution/9009a74ecd8b80a755343ecb474c392e5cb2e72239f72dc79b9a1658c6cdf307/dimension/what"^^xsd:anyURI ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.1%20NOVO%20CO%CC%82MODO%20CONTIGUO/4.1.pdf"^^xsd:anyURI ;
+        oa:hasSelector [
+            a ea:PointSelector ;
+            ea:sourceWidth "2382"^^xsd:positiveInteger ;
+            ea:sourceHeight "5052"^^xsd:positiveInteger ;
+            ea:normalizedX "0.7767879571945338"^^xsd:decimal ;
+            ea:normalizedY "0.8556494214073364"^^xsd:decimal
+        ]
+    ] ;
+    ea:markerColor "#67e8f9" ;
+    ea:payload "{\"schemaVersion\":3,\"id\":\"urn:ontobdc:annotation:e9458feb-2d66-4b25-9382-0313e6045175\",\"type\":\"http://datacenter.app.br/ontology/productivity/entity/enrichment_annotation/type.ttl#NoteAnnotation\",\"body\":\"Esquema\",\"logicalSource\":\"urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.1%20NOVO%20CO%CC%82MODO%20CONTIGUO/4.1.pdf\",\"representationSource\":\"urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.1%20NOVO%20CO%CC%82MODO%20CONTIGUO/4.1.pdf\",\"representationHash\":\"1c626a33aa8fa06322ce1c2b8943060574317fad2d2835dba3c181446413ab94\",\"relatedDimension\":\"urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/work_stream-foundation_execution/9009a74ecd8b80a755343ecb474c392e5cb2e72239f72dc79b9a1658c6cdf307/dimension/what\",\"selector\":{\"type\":\"http://datacenter.app.br/ontology/productivity/entity/enrichment_annotation/type.ttl#PointSelector\",\"sourceWidth\":2382,\"sourceHeight\":5052,\"points\":[{\"x\":0.7767879571945338,\"y\":0.8556494214073364}]},\"properties\":{\"markerColor\":\"#67e8f9\"},\"created\":\"2026-08-28T18:55:01.942Z\",\"annotatedBy\":null,\"annotatedAt\":\"2026-08-28T18:55:01.942Z\",\"modified\":null,\"modifiedBy\":null,\"assignedTo\":[],\"resolvedBy\":null,\"threads\":[]}" .
+
+<urn:ontobdc:annotation:c0298f71-6c73-4930-9fa8-c2400325d75d> a ea:NoteAnnotation ;
+    oa:motivatedBy oa:commenting ;
+    ea:logicalSource "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.4%20NOVO%20CO%CC%82MODO%20ISOLADO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.4.pdf"^^xsd:anyURI ;
+    dcterms:created "2026-08-29T13:45:16.647Z"^^xsd:dateTime ;
+    oa:annotatedAt "2026-08-29T13:45:16.647Z"^^xsd:dateTime ;
+    ea:thread <urn:ontobdc:thread:telhado-j8itku> ;
+    oa:hasBody [
+        a oa:TextualBody ;
+        rdf:value "Verificar caimento do telhado conforme novo mapa pluviométrico."
+    ] ;
+    ea:representationSource "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.4%20NOVO%20CO%CC%82MODO%20ISOLADO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.4.pdf"^^xsd:anyURI ;
+    ea:representationHash "5f66b780e8322ddbaaee9301980886880ed95e6030e62257f0a8d6fdf186c811" ;
+    ea:relatedDimension "urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/work_stream-foundation_execution/9009a74ecd8b80a755343ecb474c392e5cb2e72239f72dc79b9a1658c6cdf307/dimension/where"^^xsd:anyURI ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.4%20NOVO%20CO%CC%82MODO%20ISOLADO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.4.pdf"^^xsd:anyURI ;
+        oa:hasSelector [
+            a ea:PointSelector ;
+            ea:sourceWidth "2382"^^xsd:positiveInteger ;
+            ea:sourceHeight "5052"^^xsd:positiveInteger ;
+            ea:normalizedX "0.38792190053104575"^^xsd:decimal ;
+            ea:normalizedY "0.06859000981082561"^^xsd:decimal
+        ]
+    ] ;
+    ea:markerColor "#f967c3" ;
+    ea:payload "{\"schemaVersion\":3,\"id\":\"urn:ontobdc:annotation:c0298f71-6c73-4930-9fa8-c2400325d75d\",\"type\":\"http://datacenter.app.br/ontology/productivity/entity/enrichment_annotation/type.ttl#NoteAnnotation\",\"body\":\"Verificar caimento do telhado conforme novo mapa pluviométrico.\",\"logicalSource\":\"urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.4%20NOVO%20CO%CC%82MODO%20ISOLADO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.4.pdf\",\"representationSource\":\"urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.4%20NOVO%20CO%CC%82MODO%20ISOLADO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.4.pdf\",\"representationHash\":\"5f66b780e8322ddbaaee9301980886880ed95e6030e62257f0a8d6fdf186c811\",\"relatedDimension\":\"urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/work_stream-foundation_execution/9009a74ecd8b80a755343ecb474c392e5cb2e72239f72dc79b9a1658c6cdf307/dimension/where\",\"selector\":{\"type\":\"http://datacenter.app.br/ontology/productivity/entity/enrichment_annotation/type.ttl#PointSelector\",\"sourceWidth\":2382,\"sourceHeight\":5052,\"points\":[{\"x\":0.38792190053104575,\"y\":0.06859000981082561}]},\"properties\":{\"markerColor\":\"#f967c3\"},\"created\":\"2026-08-29T13:45:16.647Z\",\"annotatedBy\":null,\"annotatedAt\":\"2026-08-29T13:45:16.647Z\",\"modified\":null,\"modifiedBy\":null,\"assignedTo\":[],\"resolvedBy\":null,\"threads\":[\"urn:ontobdc:thread:telhado-j8itku\"]}" .
+
+<urn:ontobdc:annotation:ae86e175-75cb-4146-bcf1-74fb990cd712> a ea:NoteAnnotation ;
+    oa:motivatedBy oa:commenting ;
+    ea:logicalSource "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.4%20NOVO%20CO%CC%82MODO%20ISOLADO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.4.pdf"^^xsd:anyURI ;
+    dcterms:created "2026-08-29T13:46:23.141Z"^^xsd:dateTime ;
+    oa:annotatedAt "2026-08-29T13:46:23.141Z"^^xsd:dateTime ;
+    ea:thread <urn:ontobdc:thread:he-hey-w7x0bi> ;
+    oa:hasBody [
+        a oa:TextualBody ;
+        rdf:value "Telhado tem placa solar"
+    ] ;
+    ea:representationSource "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.4%20NOVO%20CO%CC%82MODO%20ISOLADO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.4.pdf"^^xsd:anyURI ;
+    ea:representationHash "5f66b780e8322ddbaaee9301980886880ed95e6030e62257f0a8d6fdf186c811" ;
+    ea:relatedDimension "urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/work_stream-foundation_execution/9009a74ecd8b80a755343ecb474c392e5cb2e72239f72dc79b9a1658c6cdf307/dimension/where"^^xsd:anyURI ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.4%20NOVO%20CO%CC%82MODO%20ISOLADO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.4.pdf"^^xsd:anyURI ;
+        oa:hasSelector [
+            a ea:PointSelector ;
+            ea:sourceWidth "2382"^^xsd:positiveInteger ;
+            ea:sourceHeight "5052"^^xsd:positiveInteger ;
+            ea:normalizedX "0.7604421977124183"^^xsd:decimal ;
+            ea:normalizedY "0.7031743738827396"^^xsd:decimal
+        ]
+    ] ;
+    ea:markerColor "#78f967" ;
+    ea:payload "{\"schemaVersion\":3,\"id\":\"urn:ontobdc:annotation:ae86e175-75cb-4146-bcf1-74fb990cd712\",\"type\":\"http://datacenter.app.br/ontology/productivity/entity/enrichment_annotation/type.ttl#NoteAnnotation\",\"body\":\"Telhado tem placa solar\",\"logicalSource\":\"urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.4%20NOVO%20CO%CC%82MODO%20ISOLADO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.4.pdf\",\"representationSource\":\"urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.4%20NOVO%20CO%CC%82MODO%20ISOLADO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.4.pdf\",\"representationHash\":\"5f66b780e8322ddbaaee9301980886880ed95e6030e62257f0a8d6fdf186c811\",\"relatedDimension\":\"urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/work_stream-foundation_execution/9009a74ecd8b80a755343ecb474c392e5cb2e72239f72dc79b9a1658c6cdf307/dimension/where\",\"selector\":{\"type\":\"http://datacenter.app.br/ontology/productivity/entity/enrichment_annotation/type.ttl#PointSelector\",\"sourceWidth\":2382,\"sourceHeight\":5052,\"points\":[{\"x\":0.7604421977124183,\"y\":0.7031743738827396}]},\"properties\":{\"markerColor\":\"#78f967\"},\"created\":\"2026-08-29T13:46:23.141Z\",\"annotatedBy\":null,\"annotatedAt\":\"2026-08-29T13:46:23.141Z\",\"modified\":null,\"modifiedBy\":null,\"assignedTo\":[],\"resolvedBy\":null,\"threads\":[\"urn:ontobdc:thread:he-hey-w7x0bi\"]}" .
+
+<urn:ontobdc:annotation:7a0c3360-9372-4717-86e1-503a4d162225> a ea:NoteAnnotation ;
+    oa:motivatedBy oa:commenting ;
+    ea:logicalSource "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.1%20NOVO%20CO%CC%82MODO%20CONTIGUO/4.1.pdf"^^xsd:anyURI ;
+    dcterms:created "2026-08-29T22:00:21.523Z"^^xsd:dateTime ;
+    oa:annotatedAt "2026-08-29T22:00:21.523Z"^^xsd:dateTime ;
+    ea:thread <urn:ontobdc:thread:telhado-j8itku> ;
+    oa:hasBody [
+        a oa:TextualBody ;
+        rdf:value "Quebra o cajado de Gandalf"
+    ] ;
+    ea:representationSource "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.1%20NOVO%20CO%CC%82MODO%20CONTIGUO/4.1.pdf"^^xsd:anyURI ;
+    ea:representationHash "1c626a33aa8fa06322ce1c2b8943060574317fad2d2835dba3c181446413ab94" ;
+    ea:relatedDimension "urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/work_stream-foundation_execution/9009a74ecd8b80a755343ecb474c392e5cb2e72239f72dc79b9a1658c6cdf307/dimension/what"^^xsd:anyURI ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.1%20NOVO%20CO%CC%82MODO%20CONTIGUO/4.1.pdf"^^xsd:anyURI ;
+        oa:hasSelector [
+            a ea:PointSelector ;
+            ea:sourceWidth "2382"^^xsd:positiveInteger ;
+            ea:sourceHeight "5052"^^xsd:positiveInteger ;
+            ea:normalizedX "0.41366996017156865"^^xsd:decimal ;
+            ea:normalizedY "0.09935417080466827"^^xsd:decimal
+        ]
+    ] ;
+    ea:markerColor "#67e8f9" ;
+    ea:payload "{\"schemaVersion\":3,\"id\":\"urn:ontobdc:annotation:7a0c3360-9372-4717-86e1-503a4d162225\",\"type\":\"http://datacenter.app.br/ontology/productivity/entity/enrichment_annotation/type.ttl#NoteAnnotation\",\"body\":\"Quebra o cajado de Gandalf\",\"logicalSource\":\"urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.1%20NOVO%20CO%CC%82MODO%20CONTIGUO/4.1.pdf\",\"representationSource\":\"urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.1%20NOVO%20CO%CC%82MODO%20CONTIGUO/4.1.pdf\",\"representationHash\":\"1c626a33aa8fa06322ce1c2b8943060574317fad2d2835dba3c181446413ab94\",\"relatedDimension\":\"urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/work_stream-foundation_execution/9009a74ecd8b80a755343ecb474c392e5cb2e72239f72dc79b9a1658c6cdf307/dimension/what\",\"selector\":{\"type\":\"http://datacenter.app.br/ontology/productivity/entity/enrichment_annotation/type.ttl#PointSelector\",\"sourceWidth\":2382,\"sourceHeight\":5052,\"points\":[{\"x\":0.41366996017156865,\"y\":0.09935417080466827}]},\"properties\":{\"markerColor\":\"#67e8f9\"},\"created\":\"2026-08-29T22:00:21.523Z\",\"annotatedBy\":null,\"annotatedAt\":\"2026-08-29T22:00:21.523Z\",\"modified\":null,\"modifiedBy\":null,\"assignedTo\":[],\"resolvedBy\":null,\"threads\":[\"urn:ontobdc:thread:telhado-j8itku\"]}" .
+

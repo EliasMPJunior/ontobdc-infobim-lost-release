@@ -1,0 +1,63 @@
+{
+  "facades": [
+    {
+      "facade": "http://datacenter.app.br/ontology/productivity/entity/work_stream/facade.ttl#WorkStreamFacade",
+      "fields": [
+        {
+          "name": "GlobalId",
+          "mapped_property": "https://schema.org/identifier"
+        },
+        {
+          "name": "Name",
+          "mapped_property": "http://purl.org/dc/terms/title"
+        },
+        {
+          "name": "Description",
+          "mapped_property": "http://purl.org/dc/terms/description"
+        },
+        {
+          "name": "What",
+          "mapped_property": "http://datacenter.app.br/ontology/productivity/entity/work_stream/type.ttl#what"
+        },
+        {
+          "name": "Why",
+          "mapped_property": "http://datacenter.app.br/ontology/productivity/entity/work_stream/type.ttl#why"
+        },
+        {
+          "name": "Who",
+          "mapped_property": "http://datacenter.app.br/ontology/productivity/entity/work_stream/type.ttl#who"
+        },
+        {
+          "name": "Where",
+          "mapped_property": "http://datacenter.app.br/ontology/productivity/entity/work_stream/type.ttl#where"
+        },
+        {
+          "name": "When",
+          "mapped_property": "http://datacenter.app.br/ontology/productivity/entity/work_stream/type.ttl#when"
+        },
+        {
+          "name": "How",
+          "mapped_property": "http://datacenter.app.br/ontology/productivity/entity/work_stream/type.ttl#how"
+        },
+        {
+          "name": "HowMuch",
+          "mapped_property": "http://datacenter.app.br/ontology/productivity/entity/work_stream/type.ttl#howMuch"
+        }
+      ]
+    }
+  ],
+  "fields": {
+    "GlobalId": "240204b8-e891-442c-8d66-a0902fe9545a",
+    "Name": "Foundation Executions",
+    "Description": "Execution workstream covering concrete sapatas and continuous footings excavation, reinforcement placement, concreting and 7-day break-test for the new contiguous and isolated bedrooms, varanda and poço de ventilação foundation systems.",
+    "What": "Execute foundation works: 4 isolated sapatas, 1 continuous sapata alongside the new contiguous bedroom, isolated sapata + vigas de amarração for the varanda and reinforced collar for the ventilation shaft structural enclosure.",
+    "Why": "Mandatory structural prerequisite before erecting any new masonry or steel superstructure: supports factored vertical loads of the 4 new ambients (contiguous bedroom, isolated foundation bedroom, varanda and ventilation shaft) in accordance with NBR 6118/2014 and geotechnical report Ref. GT-2026-074.",
+    "Who": "Construtora Moraes & Santos (execution contractor) - Eng. Marcela Prado Junior, CREA-RJ 184.227 (technical responsible); certified laboratory ConcreTeste for break/NDT; Fundação Geotecnia S.A. for the companion excavation supervision report.",
+    "Where": "4-construcao-ampliacao-e-adequacao-de-comodos — back-yard footprint, coordinates -22.973648,-43.188207 (WGS-84), sapata depths ranging from 0.90 m (solo arenoso) to 1.40 m on the northern rock-socket border.",
+    "When": "Weeks 3 -> 7 of the project master schedule — excavation W3, reinforcement/formwork W4, pouring W5, curing + break tests W6/W7; backfilling only after 28-day NDT report approval.",
+    "How": "Subcontracted execution with certified concrete batch (25 MPa), 12.5mm CA-50 steel rebar cages, mechanical excavation with hydraulic breaker for rock sockets, followed by hand-finished formwork, 100mm blinding layer, vibration-immersed pouring and wet-curing for 7 days under geotextile blankets.",
+    "HowMuch": "Budget BRL 248,500.00 — 28 m³ of concrete, 3.2 t of CA-50 rebar, 126 m² of formwork; 56 man-days of skilled labor; 4% contingency reserved for rock reinforcement."
+  },
+  "missing_fields": [],
+  "related_entities": []
+}

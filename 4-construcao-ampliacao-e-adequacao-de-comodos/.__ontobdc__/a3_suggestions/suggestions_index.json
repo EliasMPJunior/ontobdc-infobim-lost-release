@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0",
+  "by_target": {
+    "[\"2O2Fr8z5XBSwt21W9Xj17R\", \"IfcLengthMeasure.height\"]": {
+      "element_id": "2O2Fr8z5XBSwt21W9Xj17R",
+      "dimension_property": "IfcLengthMeasure.height",
+      "updated_at": "2026-08-20T03:42:41.762520+00:00",
+      "item_count": 0,
+      "items": []
+    }
+  }
+}

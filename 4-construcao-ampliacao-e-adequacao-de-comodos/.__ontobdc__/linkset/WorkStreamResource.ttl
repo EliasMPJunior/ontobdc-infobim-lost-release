@@ -1,0 +1,9 @@
+@prefix ls: <https://standards.iso.org/iso/21597/-1/ed-1/en/Linkset#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<urn:ontobdc:linkset:workstream-resource:1b196584364f6fb9> a ls:DirectedBinaryLink ;
+    ls:hasFromLinkElement [ ls:hasIdentifier [ a ls:URIBasedIdentifier ;
+                    ls:uri "urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/work_stream-foundation_execution/240204b8-e891-442c-8d66-a0902fe9545a/dimension/what"^^xsd:anyURI ] ] ;
+    ls:hasToLinkElement [ ls:hasIdentifier [ a ls:URIBasedIdentifier ;
+                    ls:uri "urn:uuid:270ff252-87eb-49e7-acb1-ec0f7ca0b235/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.3%20NOVO%20CO%CC%82MODO%20ISOLADO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.3.dwg"^^xsd:anyURI ] ] .
+

@@ -1,0 +1,957 @@
+@prefix : <http://ontobdc.org/ontology/domain/code.ttl#> .
+@prefix fno: <https://w3id.org/function/ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sdo: <https://w3id.org/okn/o/sd#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ontouml: <https://w3id.org/ontouml#> .
+@base <http://ontobdc.org/ontology/domain/code.ttl#> .
+
+<http://ontobdc.org/ontology/domain/code.ttl> rdf:type owl:Ontology ;
+                                               owl:versionIRI <http://ontobdc.org/ontology/domain/code.ttl/1.0.0> ;
+                                               rdfs:comment "Ontology describing the OntoBDC application start actions and CLI entry points."@en ;
+                                               rdfs:label "OntoBDC Code Ontology"@en .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  https://schema.org/alternativeHeadline
+schema:alternativeHeadline rdf:type owl:AnnotationProperty .
+
+
+###  https://schema.org/description
+schema:description rdf:type owl:AnnotationProperty .
+
+
+###  https://schema.org/name
+schema:name rdf:type owl:AnnotationProperty .
+
+
+###  https://schema.org/result
+schema:result rdf:type owl:AnnotationProperty .
+
+
+###  https://w3id.org/okn/o/sd#hasParameter
+sdo:hasParameter rdf:type owl:AnnotationProperty .
+
+
+###  https://w3id.org/ontouml#isAbstract
+ontouml:isAbstract rdf:type owl:AnnotationProperty .
+
+
+###  https://w3id.org/ontouml#sourceEnd
+ontouml:sourceEnd rdf:type owl:AnnotationProperty .
+
+
+###  https://w3id.org/ontouml#targetEnd
+ontouml:targetEnd rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://ontobdc.org/ontology/domain/code.ttl#hasPart
+:hasPart rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf schema:hasPart ,
+                            sdo:hasPart ;
+         rdfs:domain :PythonLibrary ;
+         rdfs:range :PythonClass ,
+                    :PythonMethod ,
+                    :SystemActionParameter ;
+         rdfs:comment "Links a part to its container."@en ;
+         rdfs:label "has part"@en .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#hasPythonMethod
+:hasPythonMethod rdf:type owl:ObjectProperty ;
+                 rdfs:domain :PythonClass ;
+                 rdfs:range :PythonMethod ;
+                 rdfs:comment "Links a Python class to one of its methods."@en ;
+                 rdfs:label "has method"@en .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#hasStartAction
+:hasStartAction rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf schema:potentialAction ;
+                rdfs:domain :OntoBDCApplication ;
+                rdfs:range :CliStartAction ;
+                rdfs:comment "Links an OntoBDC application instance to its CLI start action."@en ;
+                rdfs:label "has start action"@en .
+
+###  http://ontobdc.org/ontology/domain/code.ttl#hasMainFlow
+:hasMainFlow rdf:type owl:ObjectProperty ;
+             rdfs:domain :UseCase ;
+             rdfs:range :UseCaseMainFlow ;
+             rdfs:comment "Links a use case to its main flow."@en ;
+             rdfs:label "has main flow"@en .
+
+###  http://ontobdc.org/ontology/domain/code.ttl#hasPrimaryActor
+:hasPrimaryActor rdf:type owl:ObjectProperty ;
+                 rdfs:domain :UseCase ;
+                 rdfs:range prov:Agent ;
+                 rdfs:comment "Links a use case to its primary actor."@en ;
+                 rdfs:label "has primary actor"@en .
+
+###  http://ontobdc.org/ontology/domain/code.ttl#hasSecondaryFlow
+:hasSecondaryFlow rdf:type owl:ObjectProperty ;
+                  rdfs:domain :UseCase ;
+                  rdfs:range :UseCaseSecondaryFlow ;
+                  rdfs:comment "Links a use case to one of its secondary flows."@en ;
+                  rdfs:label "has secondary flow"@en .
+
+###  http://ontobdc.org/ontology/domain/code.ttl#hasStep
+:hasStep rdf:type owl:ObjectProperty ;
+         rdfs:domain :UseCaseFlow ;
+         rdfs:range :UseCaseStep ;
+         rdfs:comment "Links a use case flow to one of its steps."@en ;
+         rdfs:label "has step"@en .
+
+###  http://ontobdc.org/ontology/domain/code.ttl#hasSupportingActor
+:hasSupportingActor rdf:type owl:ObjectProperty ;
+                    rdfs:domain :UseCase ;
+                    rdfs:range prov:Agent ;
+                    rdfs:comment "Links a use case to a supporting actor."@en ;
+                    rdfs:label "has supporting actor"@en .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#isPartOf
+:isPartOf rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf schema:isPartOf ;
+          rdfs:domain :PythonClass ,
+                      :PythonMethod ,
+                      :SystemActionParameter ;
+          rdfs:range :PythonLibrary ;
+          rdfs:comment "Links a part to its container."@en ;
+          rdfs:label "is part of"@en .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#requiresParameter
+:requiresParameter rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf fno:expects ;
+                   rdfs:domain :SystemAction ;
+                   rdfs:range :SystemActionParameter ;
+                   rdfs:comment "Links a system action to the ordered list of parameters it expects."@en ;
+                   rdfs:label "requires parameter"@en .
+
+###  http://ontobdc.org/ontology/domain/code.ttl#nextStep
+:nextStep rdf:type owl:ObjectProperty ;
+          rdfs:domain :UseCaseStep ;
+          rdfs:range :UseCaseStep ;
+          rdfs:comment "Links a use case step to the next step in the flow."@en ;
+          rdfs:label "next step"@en .
+
+
+###  https://schema.org/hasPart
+schema:hasPart rdf:type owl:ObjectProperty .
+
+
+###  https://schema.org/isPartOf
+schema:isPartOf rdf:type owl:ObjectProperty .
+
+
+###  https://schema.org/potentialAction
+schema:potentialAction rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/function/ontology#expects
+fno:expects rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/okn/o/sd#hasPart
+sdo:hasPart rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://ontobdc.org/ontology/domain/code.ttl#definedInFile
+:definedInFile rdf:type owl:DatatypeProperty ;
+               rdfs:comment "Stores the file URI where a code element is defined."@en ;
+               rdfs:label "defined in file"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://ontobdc.org/ontology/domain/code.ttl#UseCase
+:UseCase rdf:type owl:Class ;
+         rdfs:subClassOf schema:CreativeWork ,
+                         prov:Plan ,
+                         skos:Concept ;
+         ontouml:name "Use case"@en ;
+         rdfs:comment "A system use case specification, represented as a plan and a creative work, organized as a concept."@en ;
+         rdfs:label "Use Case"@en .
+
+###  http://ontobdc.org/ontology/domain/code.ttl#UseCaseFlow
+:UseCaseFlow rdf:type owl:Class ;
+             rdfs:subClassOf schema:CreativeWork ,
+                             skos:Concept ;
+             ontouml:name "Use case flow"@en ;
+             rdfs:comment "A structured flow that organizes the steps of a use case."@en ;
+             rdfs:label "Use Case Flow"@en .
+
+###  http://ontobdc.org/ontology/domain/code.ttl#UseCaseHumanActor
+:UseCaseHumanActor rdf:type owl:Class ;
+                   rdfs:subClassOf prov:Agent ,
+                                   schema:Person ;
+                   ontouml:name "Use case human actor"@en ;
+                   rdfs:comment "A human actor that participates in a use case."@en ;
+                   rdfs:label "Use Case Human Actor"@en .
+
+###  http://ontobdc.org/ontology/domain/code.ttl#UseCaseMainFlow
+:UseCaseMainFlow rdf:type owl:Class ;
+                 rdfs:subClassOf :UseCaseFlow ;
+                 ontouml:name "Use case main flow"@en ;
+                 rdfs:comment "The primary flow of steps that describes the standard successful execution of a use case."@en ;
+                 rdfs:label "Use Case Main Flow"@en .
+
+###  http://ontobdc.org/ontology/domain/code.ttl#UseCaseSecondaryFlow
+:UseCaseSecondaryFlow rdf:type owl:Class ;
+                      rdfs:subClassOf :UseCaseFlow ;
+                      ontouml:name "Use case secondary flow"@en ;
+                      rdfs:comment "An alternative or complementary flow of steps associated with a use case."@en ;
+                      rdfs:label "Use Case Secondary Flow"@en .
+
+###  http://ontobdc.org/ontology/domain/code.ttl#UseCaseSoftwareActor
+:UseCaseSoftwareActor rdf:type owl:Class ;
+                      rdfs:subClassOf prov:Agent ,
+                                      prov:SoftwareAgent ,
+                                      schema:SoftwareApplication ;
+                      ontouml:name "Use case software actor"@en ;
+                      rdfs:comment "A software actor that participates in a use case."@en ;
+                      rdfs:label "Use Case Software Actor"@en .
+
+###  http://ontobdc.org/ontology/domain/code.ttl#UseCaseStep
+:UseCaseStep rdf:type owl:Class ;
+             rdfs:subClassOf schema:HowToStep ,
+                             skos:Concept ;
+             ontouml:name "Use case step"@en ;
+             rdfs:comment "A single ordered step that belongs to a use case flow."@en ;
+             rdfs:label "Use Case Step"@en .
+
+###  http://ontobdc.org/ontology/domain/code.ttl#ActionInvocationRelation
+:ActionInvocationRelation rdf:type owl:Class ;
+                          rdfs:subClassOf ontouml:BinaryRelation ;
+                          rdfs:comment "A binary relation representing that one action invokes another action."@en ;
+                          rdfs:label "Action Invocation Relation"@en .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#CliBaseCommand
+:CliBaseCommand rdf:type owl:Class ;
+                rdfs:subClassOf :CliCommandPort .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#CliCommandPort
+:CliCommandPort rdf:type owl:Class ;
+                rdfs:subClassOf :SystemPort .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#CliStartAction
+:CliStartAction rdf:type owl:Class ;
+                rdfs:subClassOf :PythonMethod ;
+                rdfs:comment "An action that represents starting OntoBDC from the command line."@en ;
+                rdfs:label "CLI Start Action"@en .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#CliVersionCommand
+:CliVersionCommand rdf:type owl:Class ;
+                   rdfs:subClassOf :CliCommandPort .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#CommandResponse
+:CommandResponse rdf:type owl:Class ;
+                 rdfs:subClassOf :PythonClass .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#DatasetResourceInferenceAdapter
+:DatasetResourceInferenceAdapter rdf:type owl:Class ;
+                                 rdfs:subClassOf :DatasetResourceInferencePort ;
+                                 rdfs:comment "Implementation of the dataset resource inference adapter."@en ;
+                                 rdfs:label "Dataset Resource Inference Adapter"@en ;
+                                 :definedInFile "file://shared/adapter/resource.py"^^xsd:anyURI .
+
+###  http://ontobdc.org/ontology/domain/code.ttl#DatasetResourceInferencePort
+:DatasetResourceInferencePort rdf:type owl:Class ;
+                              rdfs:subClassOf :SystemPort ;
+                              rdfs:comment "Port defining operations for dataset resource inference."@en ;
+                              rdfs:label "Dataset Resource Inference Port"@en ;
+                              :definedInFile "file://shared/domain/port/resource.py"^^xsd:anyURI .
+
+###  http://ontobdc.org/ontology/domain/code.ttl#E2ETestCase
+:E2ETestCase rdf:type owl:Class ;
+             rdfs:subClassOf schema:CheckAction ;
+             rdfs:comment "An End-to-End test case that validates an action invocation flow."@en ;
+             rdfs:label "E2E Test Case"@en .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#DatasetResourceInferenceAdapter
+:DatasetResourceInferenceAdapter rdf:type owl:NamedIndividual ,
+                                          :PythonClass ;
+                                 :definedInFile "file://shared/adapter/resource.py"^^xsd:anyURI .
+
+###  http://ontobdc.org/ontology/domain/code.ttl#DatasetResourceInferencePort
+:DatasetResourceInferencePort rdf:type owl:NamedIndividual ,
+                                       :SystemPort ;
+                              :definedInFile "file://shared/domain/port/resource.py"^^xsd:anyURI .
+
+###  http://ontobdc.org/ontology/domain/code.ttl#HelpCommandResponse
+:HelpCommandResponse rdf:type owl:Class ;
+                     rdfs:subClassOf :CommandResponse .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#ListCommandResponse
+:ListCommandResponse rdf:type owl:Class ;
+                     rdfs:subClassOf :CommandResponse .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#LoadedStorageGraph
+:LoadedStorageGraph rdf:type owl:Class ;
+                    rdfs:subClassOf :LoadedStorageGraphPort ;
+                    rdfs:comment "Implementation of the loaded storage graph repository adapter."@en ;
+                    rdfs:label "Loaded Storage Graph"@en ;
+                    :definedInFile "file://storage/adapter/repository.py"^^xsd:anyURI .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#LoadedStorageGraphPort
+:LoadedStorageGraphPort rdf:type owl:Class ;
+                        rdfs:subClassOf :SystemPort ;
+                        rdfs:comment "Port defining operations for a loaded storage graph."@en ;
+                        rdfs:label "Loaded Storage Graph Port"@en ;
+                        :definedInFile "file://storage/domain/port/repository.py"^^xsd:anyURI .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#LoadedStorageGraph
+:LoadedStorageGraph rdf:type owl:NamedIndividual ,
+                             :PythonClass ;
+                    :hasPythonMethod :LoadedStorageGraph_get_all_datasets ,
+                                     :LoadedStorageGraph_get_dataset ,
+                                     :LoadedStorageGraph_get_root_container ,
+                                     :LoadedStorageGraph_is_valid ,
+                                     :LoadedStorageGraph_resolve_location_path ,
+                                     :LoadedStorageGraph_serialize ;
+                    :definedInFile "file://storage/adapter/repository.py"^^xsd:anyURI .
+
+###  http://ontobdc.org/ontology/domain/code.ttl#LoadedStorageGraph_get_all_datasets
+:LoadedStorageGraph_get_all_datasets rdf:type owl:NamedIndividual ,
+                                              :PythonMethod ;
+                                     :requiresParameter [ ] ;
+                                     :definedInFile "file://storage/adapter/repository.py"^^xsd:anyURI ;
+                                     schema:description "Returns all datasets from all valid containers."@en ;
+                                     schema:name "get_all_datasets" .
+
+###  http://ontobdc.org/ontology/domain/code.ttl#LoadedStorageGraph_get_dataset
+:LoadedStorageGraph_get_dataset rdf:type owl:NamedIndividual ,
+                                         :PythonMethod ;
+                                :requiresParameter [ ] ;
+                                :definedInFile "file://storage/adapter/repository.py"^^xsd:anyURI ;
+                                schema:description "Retrieves a dataset by reference or location."@en ;
+                                schema:name "get_dataset" .
+
+###  http://ontobdc.org/ontology/domain/code.ttl#LoadedStorageGraph_get_root_container
+:LoadedStorageGraph_get_root_container rdf:type owl:NamedIndividual ,
+                                                :PythonMethod ;
+                                       :requiresParameter [ ] ;
+                                       :definedInFile "file://storage/adapter/repository.py"^^xsd:anyURI ;
+                                       schema:description "Gets the root local storage container."@en ;
+                                       schema:name "get_root_container" .
+
+###  http://ontobdc.org/ontology/domain/code.ttl#LoadedStorageGraph_is_valid
+:LoadedStorageGraph_is_valid rdf:type owl:NamedIndividual ,
+                                      :PythonMethod ;
+                             :requiresParameter [ ] ;
+                             :definedInFile "file://storage/adapter/repository.py"^^xsd:anyURI ;
+                             schema:description "Check whether the loaded graph is valid."@en ;
+                             schema:name "is_valid" .
+
+###  http://ontobdc.org/ontology/domain/code.ttl#LoadedStorageGraph_resolve_location_path
+:LoadedStorageGraph_resolve_location_path rdf:type owl:NamedIndividual ,
+                                                   :PythonMethod ;
+                                          :requiresParameter [ ] ;
+                                          :definedInFile "file://storage/adapter/repository.py"^^xsd:anyURI ;
+                                          schema:description "Resolves a location path from URI."@en ;
+                                          schema:name "resolve_location_path" .
+
+###  http://ontobdc.org/ontology/domain/code.ttl#LoadedStorageGraph_serialize
+:LoadedStorageGraph_serialize rdf:type owl:NamedIndividual ,
+                                       :PythonMethod ;
+                              :requiresParameter [ ] ;
+                              :definedInFile "file://storage/adapter/repository.py"^^xsd:anyURI ;
+                              schema:description "Serialize the loaded graph."@en ;
+                              schema:name "serialize" .
+
+###  http://ontobdc.org/ontology/domain/code.ttl#LoadedStorageGraphPort
+:LoadedStorageGraphPort rdf:type owl:NamedIndividual ,
+                                 :SystemPort ;
+                        :definedInFile "file://storage/domain/port/repository.py"^^xsd:anyURI .
+
+###  http://ontobdc.org/ontology/domain/code.ttl#OntoBDCApplication
+:OntoBDCApplication rdf:type owl:Class ;
+                    rdfs:subClassOf schema:SoftwareApplication ,
+                                    sdo:Software .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#PythonClass
+:PythonClass rdf:type owl:Class ;
+             rdfs:subClassOf sdo:SoftwareConfiguration ,
+                             ontouml:Class ;
+             rdfs:comment "A Python class symbol."@en ;
+             rdfs:label "Python Class"@en .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#PythonLibrary
+:PythonLibrary rdf:type owl:Class ;
+               rdfs:subClassOf sdo:SampleCollection ,
+                               ontouml:Package ;
+               schema:name "Python Library" .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#PythonMethod
+:PythonMethod rdf:type owl:Class ;
+              rdfs:subClassOf :SystemAction ;
+              rdfs:comment "A Python method or function symbol."@en ;
+              rdfs:label "Python Method"@en .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#StorageBaseCommand
+:StorageBaseCommand rdf:type owl:Class ;
+                    rdfs:subClassOf :CliCommandPort .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#StorageCreateCommand
+:StorageCreateCommand rdf:type owl:Class ;
+                      rdfs:subClassOf :CliCommandPort ;
+                      :definedInFile "file://storage/plugin/command/create.py"^^xsd:anyURI .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#StorageListCommand
+:StorageListCommand rdf:type owl:Class ;
+                    rdfs:subClassOf :CliCommandPort .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#StorageResourceCommand
+:StorageResourceCommand rdf:type owl:Class ;
+                        rdfs:subClassOf :CliCommandPort ;
+                        :definedInFile "file://storage/plugin/command/resource.py"^^xsd:anyURI .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#StorageGraphModel
+:StorageGraphModel rdf:type owl:Class ;
+                   rdfs:subClassOf :PythonClass ;
+                   rdfs:comment "Domain model responsible for storage graph rules and RDF triple manipulation."@en ;
+                   rdfs:label "Storage Graph Model"@en ;
+                   :definedInFile "file://storage/domain/model/graph.py"^^xsd:anyURI .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#SystemAction
+:SystemAction rdf:type owl:Class ;
+              rdfs:subClassOf schema:Action ,
+                              fno:Function ,
+                              sdo:SoftwareConfiguration ;
+              rdfs:comment "An action that represents starting OntoBDC from the command line."@en ;
+              rdfs:label "System Action"@en .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#SystemActionParameter
+:SystemActionParameter rdf:type owl:Class ;
+                       rdfs:subClassOf schema:Parameter ,
+                                       fno:Parameter ,
+                                       sdo:Parameter ,
+                                       sdo:SampleResource ;
+                       rdfs:comment "A parameter for the action."@en ;
+                       rdfs:label "System Action Parameter"@en .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#SystemPort
+:SystemPort rdf:type owl:Class ;
+            rdfs:subClassOf :PythonClass ;
+            rdfs:comment "An abstract port contract represented as a Python class."@en ;
+            rdfs:label "System Port"@en ;
+            ontouml:isAbstract "true"^^xsd:boolean .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#UnitTest
+:UnitTest rdf:type owl:Class ;
+          rdfs:subClassOf schema:CheckAction ;
+          rdfs:comment "A unit test that validates a specific component or method."@en ;
+          rdfs:label "Unit Test"@en .
+
+
+###  https://schema.org/Action
+schema:Action rdf:type owl:Class .
+
+
+###  https://schema.org/CheckAction
+schema:CheckAction rdf:type owl:Class .
+
+
+###  https://schema.org/HowToStep
+schema:HowToStep rdf:type owl:Class .
+
+
+###  https://schema.org/Parameter
+schema:Parameter rdf:type owl:Class .
+
+
+###  https://schema.org/SoftwareApplication
+schema:SoftwareApplication rdf:type owl:Class .
+
+
+###  https://w3id.org/function/ontology#Function
+fno:Function rdf:type owl:Class .
+
+
+###  https://w3id.org/function/ontology#Parameter
+fno:Parameter rdf:type owl:Class .
+
+
+###  https://w3id.org/okn/o/sd#Parameter
+sdo:Parameter rdf:type owl:Class .
+
+
+###  https://w3id.org/okn/o/sd#SampleCollection
+sdo:SampleCollection rdf:type owl:Class .
+
+
+###  https://w3id.org/okn/o/sd#SampleResource
+sdo:SampleResource rdf:type owl:Class .
+
+
+###  https://w3id.org/okn/o/sd#Software
+sdo:Software rdf:type owl:Class .
+
+
+###  https://w3id.org/okn/o/sd#SoftwareConfiguration
+sdo:SoftwareConfiguration rdf:type owl:Class .
+
+
+###  https://w3id.org/ontouml#BinaryRelation
+ontouml:BinaryRelation rdf:type owl:Class .
+
+
+###  https://w3id.org/ontouml#Class
+ontouml:Class rdf:type owl:Class .
+
+
+###  https://w3id.org/ontouml#Package
+ontouml:Package rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://ontobdc.org/ontology/domain/code.ttl#CliBaseCommand
+:CliBaseCommand rdf:type owl:NamedIndividual ;
+                :definedInFile "file://cli/plugin/command/base.py"^^xsd:anyURI .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#CliCommandPort
+:CliCommandPort rdf:type owl:NamedIndividual ;
+                :definedInFile "file://cli/domain/port/command.py"^^xsd:anyURI .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#CliCommandRunAdapter
+:CliCommandRunAdapter rdf:type owl:NamedIndividual ,
+                               :PythonClass ;
+                      :hasPythonMethod :CliCommandRunAdapter_make ;
+                      :definedInFile "file://cli/adapter/command.py"^^xsd:anyURI ;
+                      schema:name "CliCommandRunAdapter" .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#CliCommandRunAdapter_make
+:CliCommandRunAdapter_make rdf:type owl:NamedIndividual ,
+                                    :PythonMethod ;
+                           :requiresParameter [ ] ;
+:definedInFile "file://cli/adapter/command.py"^^xsd:anyURI ;
+schema:description "Resolve a CLI command instance from raw argv by scanning plugin commands, filtering with accepts(args), and selecting a single command whose check() passes."@en ;
+schema:name "make" .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#CliMain
+:CliMain rdf:type owl:NamedIndividual ,
+                  :CliStartAction ;
+         :definedInFile "file://__init__.py"^^xsd:anyURI ;
+         schema:description "Main CLI entrypoint for OntoBDC."@en ;
+         schema:name "main" ;
+         sdo:hasParameter :cliArgv .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#CliMainInvokesMake
+:CliMainInvokesMake rdf:type owl:NamedIndividual ,
+                             :ActionInvocationRelation ;
+                    schema:result :CliCommandPort ;
+                    sdo:hasParameter :cliArgv ;
+                    ontouml:sourceEnd :CliMain ;
+                    ontouml:targetEnd :CliCommandRunAdapter_make .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#CliVersionCommand
+:CliVersionCommand rdf:type owl:NamedIndividual ;
+                   :definedInFile "file://cli/plugin/command/version.py"^^xsd:anyURI .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#CommandResponse
+:CommandResponse rdf:type owl:NamedIndividual ;
+                 :definedInFile "file://cli/domain/resource/command.py"^^xsd:anyURI .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#HelpCommandResponse
+:HelpCommandResponse rdf:type owl:NamedIndividual ;
+                     :definedInFile "file://cli/domain/resource/command.py"^^xsd:anyURI .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#ListCommandResponse
+:ListCommandResponse rdf:type owl:NamedIndividual ;
+                     :definedInFile "file://cli/domain/resource/command.py"^^xsd:anyURI .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#OntoBDC
+:OntoBDC rdf:type owl:NamedIndividual ,
+                  :OntoBDCApplication ;
+         :hasStartAction :CliMain ;
+         schema:alternativeHeadline "Ontology-Based Containers & Datasets" ;
+         schema:name "OntoBDC" .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#StorageBaseCommand
+:StorageBaseCommand rdf:type owl:NamedIndividual ;
+                    :definedInFile "file://storage/plugin/command/base.py"^^xsd:anyURI .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#StorageCreateCommand
+:StorageCreateCommand rdf:type owl:NamedIndividual ,
+                               :PythonClass ;
+                      :hasPythonMethod :StorageCreateCommand_accepts ,
+                                       :StorageCreateCommand_check ,
+                                       :StorageCreateCommand_run ,
+                                       :StorageCreateCommand__container_set_finish ,
+                                       :StorageCreateCommand__ensure_container_storage_file ,
+                                       :StorageCreateCommand__sync_container_storage_graph ;
+                      :definedInFile "file://storage/plugin/command/create.py"^^xsd:anyURI .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#StorageCreateCommand_accepts
+:StorageCreateCommand_accepts rdf:type owl:NamedIndividual ,
+                                       :PythonMethod ;
+                              :requiresParameter [ ] ;
+                              :definedInFile "file://storage/plugin/command/create.py"^^xsd:anyURI ;
+                              schema:description "Check whether the storage create command accepts the provided arguments."@en ;
+                              schema:name "accepts" .
+
+###  http://ontobdc.org/ontology/domain/code.ttl#StorageCreateCommand_check
+:StorageCreateCommand_check rdf:type owl:NamedIndividual ,
+                                     :PythonMethod ;
+                            :requiresParameter [ ] ;
+                            :definedInFile "file://storage/plugin/command/create.py"^^xsd:anyURI ;
+                            schema:description "Validate whether storage creation can run in the current project context."@en ;
+                            schema:name "check" .
+
+###  http://ontobdc.org/ontology/domain/code.ttl#StorageCreateCommand_run
+:StorageCreateCommand_run rdf:type owl:NamedIndividual ,
+                                   :PythonMethod ;
+                          :requiresParameter [ ] ;
+                          :definedInFile "file://storage/plugin/command/create.py"^^xsd:anyURI ;
+                          schema:description "Create a local storage container by registering it in the root storage.ttl, synchronizing the container.ttl file under .__ontobdc__, and guaranteeing an up-to-date ro-crate-metadata.json file."@en ;
+                          schema:name "run" ;
+                          schema:result :CommandResponse .
+
+###  http://ontobdc.org/ontology/domain/code.ttl#StorageCreateCommand__container_set_finish
+:StorageCreateCommand__container_set_finish rdf:type owl:NamedIndividual ,
+                                                     :PythonMethod ;
+                                            :requiresParameter [ ] ;
+                                            :definedInFile "file://storage/plugin/command/create.py"^^xsd:anyURI ;
+                                            schema:description "Finalize local container configuration by ensuring the .__ontobdc__ directory, synchronizing container.ttl, and refreshing ro-crate-metadata.json."@en ;
+                                            schema:name "_container_set_finish" .
+
+###  http://ontobdc.org/ontology/domain/code.ttl#StorageCreateCommand__ensure_container_storage_file
+:StorageCreateCommand__ensure_container_storage_file rdf:type owl:NamedIndividual ,
+                                                              :PythonMethod ;
+                                                     :requiresParameter [ ] ;
+                                                     :definedInFile "file://storage/plugin/command/create.py"^^xsd:anyURI ;
+                                                     schema:description "Ensure that the container.ttl file exists inside the container's .__ontobdc__ directory."@en ;
+                                                     schema:name "_ensure_container_storage_file" .
+
+###  http://ontobdc.org/ontology/domain/code.ttl#StorageCreateCommand__sync_container_storage_graph
+:StorageCreateCommand__sync_container_storage_graph rdf:type owl:NamedIndividual ,
+                                                             :PythonMethod ;
+                                                    :requiresParameter [ ] ;
+                                                    :definedInFile "file://storage/plugin/command/create.py"^^xsd:anyURI ;
+                                                    schema:description "Synchronize the local container.ttl graph with the registered container triples from the root storage graph model."@en ;
+                                                    schema:name "_sync_container_storage_graph" .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#StorageGraphModel
+:StorageGraphModel rdf:type owl:NamedIndividual ,
+                            :PythonClass ;
+                   :hasPythonMethod :StorageGraphModel_add_subject_predicate_objects ,
+                                    :StorageGraphModel_subject_predicate_objects ;
+                   :definedInFile "file://storage/domain/model/graph.py"^^xsd:anyURI .
+
+###  http://ontobdc.org/ontology/domain/code.ttl#StorageGraphModel_subject_predicate_objects
+:StorageGraphModel_subject_predicate_objects rdf:type owl:NamedIndividual ,
+                                                      :PythonMethod ;
+                                             :requiresParameter [ ] ;
+                                             :definedInFile "file://storage/domain/model/graph.py"^^xsd:anyURI ;
+                                             schema:description "Collect all predicate-object pairs associated with a storage graph subject."@en ;
+                                             schema:name "subject_predicate_objects" .
+
+###  http://ontobdc.org/ontology/domain/code.ttl#StorageGraphModel_add_subject_predicate_objects
+:StorageGraphModel_add_subject_predicate_objects rdf:type owl:NamedIndividual ,
+                                                          :PythonMethod ;
+                                                 :requiresParameter [ ] ;
+                                                 :definedInFile "file://storage/domain/model/graph.py"^^xsd:anyURI ;
+                                                 schema:description "Add predicate-object pairs to a subject in the storage graph."@en ;
+                                                 schema:name "add_subject_predicate_objects" .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#StorageCreateCommandRunInstantiatesLoadedStorageGraph
+:StorageCreateCommandRunInstantiatesLoadedStorageGraph rdf:type owl:NamedIndividual ,
+                                                                :ActionInvocationRelation ;
+                                                       schema:result :LoadedStorageGraphPort ;
+                                                       ontouml:sourceEnd :StorageCreateCommand_run ;
+                                                       ontouml:targetEnd :LoadedStorageGraph .
+
+###  http://ontobdc.org/ontology/domain/code.ttl#StorageCreateCommandRunInvokesContainerSetFinish
+:StorageCreateCommandRunInvokesContainerSetFinish rdf:type owl:NamedIndividual ,
+                                                           :ActionInvocationRelation ;
+                                                  ontouml:sourceEnd :StorageCreateCommand_run ;
+                                                  ontouml:targetEnd :StorageCreateCommand__container_set_finish .
+
+###  http://ontobdc.org/ontology/domain/code.ttl#StorageCreateCommandContainerSetFinishInvokesEnsureContainerStorageFile
+:StorageCreateCommandContainerSetFinishInvokesEnsureContainerStorageFile rdf:type owl:NamedIndividual ,
+                                                                                  :ActionInvocationRelation ;
+                                                                         ontouml:sourceEnd :StorageCreateCommand__container_set_finish ;
+                                                                         ontouml:targetEnd :StorageCreateCommand__ensure_container_storage_file .
+
+###  http://ontobdc.org/ontology/domain/code.ttl#StorageCreateCommandContainerSetFinishInvokesSyncContainerStorageGraph
+:StorageCreateCommandContainerSetFinishInvokesSyncContainerStorageGraph rdf:type owl:NamedIndividual ,
+                                                                                 :ActionInvocationRelation ;
+                                                                        schema:result :StorageGraphModel ;
+                                                                        ontouml:sourceEnd :StorageCreateCommand__container_set_finish ;
+                                                                        ontouml:targetEnd :StorageCreateCommand__sync_container_storage_graph .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#StorageListCommand
+:StorageListCommand rdf:type owl:NamedIndividual ;
+                    :definedInFile "file://storage/plugin/command/help.py"^^xsd:anyURI .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#StorageResourceCommand
+:StorageResourceCommand rdf:type owl:NamedIndividual ,
+                                 :PythonClass ;
+                        :hasPythonMethod :StorageResourceCommand_accepts ,
+                                         :StorageResourceCommand_check ,
+                                         :StorageResourceCommand_run ;
+                        :definedInFile "file://storage/plugin/command/resource.py"^^xsd:anyURI .
+
+###  http://ontobdc.org/ontology/domain/code.ttl#StorageResourceCommand_accepts
+:StorageResourceCommand_accepts rdf:type owl:NamedIndividual ,
+                                         :PythonMethod ;
+                                :requiresParameter [ ] ;
+                                :definedInFile "file://storage/plugin/command/resource.py"^^xsd:anyURI ;
+                                schema:description "Check if the storage resource command accepts the provided arguments."@en ;
+                                schema:name "accepts" .
+
+###  http://ontobdc.org/ontology/domain/code.ttl#StorageResourceCommand_check
+:StorageResourceCommand_check rdf:type owl:NamedIndividual ,
+                                       :PythonMethod ;
+                              :requiresParameter [ ] ;
+                              :definedInFile "file://storage/plugin/command/resource.py"^^xsd:anyURI ;
+                              schema:description "Check if the command arguments are valid."@en ;
+                              schema:name "check" .
+
+###  http://ontobdc.org/ontology/domain/code.ttl#StorageResourceCommand_run
+:StorageResourceCommand_run rdf:type owl:NamedIndividual ,
+                                     :PythonMethod ;
+                            :requiresParameter [ ] ;
+                            :definedInFile "file://storage/plugin/command/resource.py"^^xsd:anyURI ;
+                            schema:description "Run the storage resource command."@en ;
+                            schema:name "run" ;
+                            schema:result :CommandResponse .
+
+###  http://ontobdc.org/ontology/domain/code.ttl#StorageResourceCommandRunInstantiatesDatasetResourceInferenceAdapter
+:StorageResourceCommandRunInstantiatesDatasetResourceInferenceAdapter rdf:type owl:NamedIndividual ,
+                                                                               :ActionInvocationRelation ;
+                                                                      schema:result :DatasetResourceInferencePort ;
+                                                                      ontouml:sourceEnd :StorageResourceCommand_run ;
+                                                                      ontouml:targetEnd :DatasetResourceInferenceAdapter .
+
+###  http://ontobdc.org/ontology/domain/code.ttl#StorageResourceCommandRunInstantiatesLoadedStorageGraph
+:StorageResourceCommandRunInstantiatesLoadedStorageGraph rdf:type owl:NamedIndividual ,
+                                                                  :ActionInvocationRelation ;
+                                                         schema:result :LoadedStorageGraphPort ;
+                                                         ontouml:sourceEnd :StorageResourceCommand_run ;
+                                                         ontouml:targetEnd :LoadedStorageGraph .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#cliArgv
+:cliArgv rdf:type owl:NamedIndividual ,
+                  :SystemActionParameter ;
+         :isPartOf :sys ;
+         schema:name "argv" .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#print_log
+:print_log rdf:type owl:NamedIndividual ,
+                    :SystemActionParameter ;
+           schema:name "print_log"@en .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#sys
+:sys rdf:type owl:NamedIndividual ,
+              :PythonLibrary ;
+     :hasPart :cliArgv ;
+     schema:name "sys" .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+:CliBaseCommand schema:name "CliBaseCommand" ;
+                schema:result :HelpCommandResponse .
+
+
+:CliCommandPort schema:name "CliCommandPort" ;
+                ontouml:isAbstract "true"^^xsd:boolean .
+
+
+:CliVersionCommand schema:name "CliVersionCommand" .
+
+
+:CommandResponse schema:name "CommandResponse" .
+
+
+:HelpCommandResponse schema:name "HelpCommandResponse" .
+
+
+:ListCommandResponse schema:name "ListCommandResponse" .
+
+
+:inspect_resource_loader rdf:type owl:NamedIndividual ,
+                                  :PythonMethod ;
+                         :requiresParameter [ ] ;
+                         :definedInFile "file://dev/plugin/command/test/resource_loader.py"^^xsd:anyURI ;
+                         schema:description "Validate resource strategy order and file mapping."@en ;
+                         schema:name "inspect_resource_loader" .
+
+
+:StorageBaseCommand schema:name "StorageBaseCommand" ;
+                    schema:result :ListCommandResponse .
+
+
+:StorageCreateCommand schema:name "StorageCreateCommand" ;
+                      schema:result :CommandResponse .
+
+
+:StorageListCommand schema:name "StorageListCommand" ;
+                    schema:result :HelpCommandResponse .
+
+
+:StorageResourceCommand schema:name "StorageResourceCommand" ;
+                        schema:result :CommandResponse .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
+
+#################################################################
+#    OntoBDC Python Modules
+#################################################################
+
+:hasModule rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf schema:hasPart ;
+           owl:inverseOf :isModuleOf ;
+           rdfs:domain :OntoBDCApplication ;
+           rdfs:range :PythonModule ;
+           rdfs:comment "Links a software application to one of its Python modules."@en ;
+           rdfs:label "has module"@en .
+
+:isModuleOf rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf schema:isPartOf ;
+            rdfs:domain :PythonModule ;
+            rdfs:range :OntoBDCApplication ;
+            rdfs:comment "Links a Python module to the software application it composes."@en ;
+            rdfs:label "is module of"@en .
+
+:dependsOnModule rdf:type owl:ObjectProperty ;
+                 rdfs:domain :PythonModule ;
+                 rdfs:range :PythonModule ;
+                 rdfs:comment "States a direct dependency from one Python module to another, established from imports in the current OntoBDC codebase."@en ;
+                 rdfs:label "depends on module"@en .
+
+:discoversModule rdf:type owl:ObjectProperty ;
+                 rdfs:domain :PythonModule ;
+                 rdfs:range :PythonModule ;
+                 rdfs:comment "States that a Python module dynamically discovers plugins or resources contained in another module."@en ;
+                 rdfs:label "discovers module"@en .
+
+:PythonModule rdf:type owl:Class ;
+              rdfs:subClassOf sdo:SoftwareConfiguration ,
+                              ontouml:Package ;
+              rdfs:comment "An importable Python package or module that composes a software application."@en ;
+              rdfs:label "Python Module"@en .
+
+:OntoBDC :hasModule :CliModule ,
+                    :StorageModule ,
+                    :SharedModule ,
+                    :ViewModule ,
+                    :ContextModule ,
+                    :DevModule ,
+                    :EntityModule ,
+                    :BuiltInModule .
+
+:CliModule rdf:type owl:NamedIndividual ,
+                    :PythonModule ;
+           schema:name "ontobdc.cli" ;
+           :dependsOnModule :SharedModule ,
+                            :ViewModule ,
+                            :StorageModule ,
+                            :ContextModule .
+
+:StorageModule rdf:type owl:NamedIndividual ,
+                        :PythonModule ;
+               schema:name "ontobdc.storage" ;
+               :dependsOnModule :CliModule ,
+                                :SharedModule .
+
+:SharedModule rdf:type owl:NamedIndividual ,
+                       :PythonModule ;
+              schema:name "ontobdc.shared" ;
+              :discoversModule :BuiltInModule .
+
+:ViewModule rdf:type owl:NamedIndividual ,
+                     :PythonModule ;
+            schema:name "ontobdc.view" ;
+            :dependsOnModule :CliModule ,
+                             :SharedModule .
+
+:ContextModule rdf:type owl:NamedIndividual ,
+                        :PythonModule ;
+               schema:name "ontobdc.context" ;
+               :dependsOnModule :CliModule ,
+                                :SharedModule .
+
+:DevModule rdf:type owl:NamedIndividual ,
+                    :PythonModule ;
+           schema:name "ontobdc.dev" .
+
+:EntityModule rdf:type owl:NamedIndividual ,
+                       :PythonModule ;
+              schema:name "ontobdc.entity" ;
+              :dependsOnModule :CliModule ,
+                               :ContextModule ,
+                               :SharedModule ,
+                               :StorageModule .
+
+:BuiltInModule rdf:type owl:NamedIndividual ,
+                        :PythonModule ;
+               schema:name "ontobdc.module" .

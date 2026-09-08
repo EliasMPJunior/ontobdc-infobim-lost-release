@@ -1,0 +1,2 @@
+[console_scripts]
+ontobdc = ontobdc.cli:main

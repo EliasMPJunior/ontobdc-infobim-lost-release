@@ -1,0 +1,8 @@
+{
+  "@id": "urn:ontobdc:test:tile-resource",
+  "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+    {"@value": "1048576"},
+    {"@value": "2621440"},
+    {"@value": "5452595"}
+  ]
+}

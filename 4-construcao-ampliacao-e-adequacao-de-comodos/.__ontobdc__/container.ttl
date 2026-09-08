@@ -1,0 +1,37 @@
+@prefix ct: <http://standards.iso.org/iso/21597/-1/ed-1/en/Container#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix obdc: <http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/.__infobim__> a obdc:EntityDataset ;
+    obdc:belongsToDataContainer <urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a> ;
+    dcterms:description "Storage dataset located at file:///Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/.__infobim__" ;
+    dcterms:title "Storage Dataset: .__infobim__" ;
+    prov:atLocation <file:///Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/.__infobim__> .
+
+<urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/ifcworkschedule-cronograma_final> a obdc:EntityDataset ;
+    obdc:belongsToDataContainer <urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a> ;
+    dcterms:description "Storage dataset located at file:///Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/ifcworkschedule-cronograma_final" ;
+    dcterms:title "Storage Dataset: ifcworkschedule-cronograma_final" ;
+    prov:atLocation <file:///Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/ifcworkschedule-cronograma_final> .
+
+<urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/work_stream-foundation_execution> a obdc:EntityDataset ;
+    obdc:belongsToDataContainer <urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a> ;
+    dcterms:description "Storage dataset located at file:///Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/work_stream-foundation_execution" ;
+    dcterms:title "Storage Dataset: work_stream-foundation_execution" ;
+    prov:atLocation <file:///Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/work_stream-foundation_execution> .
+
+<urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a> a obdc:DataContainer ;
+    obdc:hasDataset <urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/.__infobim__>,
+        <urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/ifcworkschedule-cronograma_final>,
+        <urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/work_stream-foundation_execution> ;
+    obdc:hasEntityDataset <urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/.__infobim__>,
+        <urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/ifcworkschedule-cronograma_final>,
+        <urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/work_stream-foundation_execution> ;
+    dcterms:identifier "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a" ;
+    dcterms:title "Storage Container: 4-construcao-ampliacao-e-adequacao-de-comodos"@en ;
+    ct:creationDate "2026-08-19T03:35:28.912642+00:00"^^xsd:dateTime ;
+    ct:description "Local storage container at Storage Container: 4-construcao-ampliacao-e-adequacao-de-comodos"@en ;
+    prov:atLocation <file:///Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos> .
+

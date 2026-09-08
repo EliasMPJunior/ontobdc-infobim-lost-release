@@ -1,0 +1,1862 @@
+[
+  {
+    "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/legacy/notes/domain-conversations/2026-08-01-briefcase-perspectives-checkpoint-2231.md",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "legacy/notes/domain-conversations/2026-08-01-briefcase-perspectives-checkpoint-2231.md"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 1029
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "md"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/legacy/notes/domain-conversations/2026-08-01-briefcase-perspectives-checkpoint-2231.md"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "2026-08-01-briefcase-perspectives-checkpoint-2231.md"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/legacy/notes/2026-08-10-ontobdc-storage-module-functional-structure.md",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "legacy/notes/2026-08-10-ontobdc-storage-module-functional-structure.md"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 14599
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "md"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/legacy/notes/2026-08-10-ontobdc-storage-module-functional-structure.md"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "2026-08-10-ontobdc-storage-module-functional-structure.md"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/doc/01-getting-started/what-is-ontobdc.md",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "doc/01-getting-started/what-is-ontobdc.md"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 0
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "md"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/doc/01-getting-started/what-is-ontobdc.md"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "what-is-ontobdc.md"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/doc/index.md",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "doc/index.md"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 15454
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "md"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/doc/index.md"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "index.md"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/docker/Dockerfile",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "docker/Dockerfile"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 605
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/docker/Dockerfile"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "Dockerfile"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/legacy/history/cloud-pieces-end.md",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "legacy/history/cloud-pieces-end.md"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 12970
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "md"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/legacy/history/cloud-pieces-end.md"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "cloud-pieces-end.md"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/legacy/notes/domain-conversations/2026-08-07-presentation-interoperability-events-ble-dock-transcript.md",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "legacy/notes/domain-conversations/2026-08-07-presentation-interoperability-events-ble-dock-transcript.md"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 101942
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "md"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/legacy/notes/domain-conversations/2026-08-07-presentation-interoperability-events-ble-dock-transcript.md"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "2026-08-07-presentation-interoperability-events-ble-dock-transcript.md"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/legacy/notes/2026-08-10-ontobdc-cli-terminal-identity-functional-structure.md",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "legacy/notes/2026-08-10-ontobdc-cli-terminal-identity-functional-structure.md"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 28493
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "md"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/legacy/notes/2026-08-10-ontobdc-cli-terminal-identity-functional-structure.md"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "2026-08-10-ontobdc-cli-terminal-identity-functional-structure.md"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/docker/docker-compose.yml",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "docker/docker-compose.yml"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 602
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "yml"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/docker/docker-compose.yml"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "docker-compose.yml"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/legacy/notes/domain-conversations/2026-08-08-ddock-presentation-layer-event-model.md",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "legacy/notes/domain-conversations/2026-08-08-ddock-presentation-layer-event-model.md"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 36788
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "md"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/legacy/notes/domain-conversations/2026-08-08-ddock-presentation-layer-event-model.md"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "2026-08-08-ddock-presentation-layer-event-model.md"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/doc/01-getting-started/quickstart.md",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "doc/01-getting-started/quickstart.md"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 0
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "md"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/doc/01-getting-started/quickstart.md"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "quickstart.md"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/LICENSE",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "LICENSE"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 11357
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/LICENSE"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "LICENSE"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/overrides/main.html",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "overrides/main.html"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 5438
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "html"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/overrides/main.html"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "main.html"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/doc/01-getting-started/cli-basics.md",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "doc/01-getting-started/cli-basics.md"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 0
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "md"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/doc/01-getting-started/cli-basics.md"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "cli-basics.md"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/.gitignore",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": ".gitignore"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 4651
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "gitignore"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/.gitignore"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": ".gitignore"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/overrides/partials/logo.html",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "overrides/partials/logo.html"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 973
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "html"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/overrides/partials/logo.html"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "logo.html"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/mkdocs.yml",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "mkdocs.yml"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 1419
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "yml"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/mkdocs.yml"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "mkdocs.yml"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/.git",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": ".git"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 29
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "git"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/.git"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": ".git"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/legacy/nid.ttl",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "legacy/nid.ttl"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 859
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "ttl"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/legacy/nid.ttl"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "nid.ttl"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/legacy/sh.ttl",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "legacy/sh.ttl"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 4751
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "ttl"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/legacy/sh.ttl"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "sh.ttl"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/legacy/attention-surface.md",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "legacy/attention-surface.md"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 11789
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "md"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/legacy/attention-surface.md"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "attention-surface.md"
+      }
+    ]
+  },
+  {
+    "@id": "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#DataContainer",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#SurfaceableEntity"
+    ]
+  },
+  {
+    "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/doc/README/index.md",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "doc/README/index.md"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 1633
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "md"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/doc/README/index.md"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "index.md"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/doc/02-concepts/container.md",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "doc/02-concepts/container.md"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 0
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "md"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/doc/02-concepts/container.md"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "container.md"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/doc/01-getting-started/first-container.md",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "doc/01-getting-started/first-container.md"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 0
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "md"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/doc/01-getting-started/first-container.md"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "first-container.md"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/overrides/partials/header.html",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "overrides/partials/header.html"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 5696
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "html"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/overrides/partials/header.html"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "header.html"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/legacy/notes/domain-conversations/2026-08-01-briefcase-perspectives-summary.md",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "legacy/notes/domain-conversations/2026-08-01-briefcase-perspectives-summary.md"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 13075
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "md"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/legacy/notes/domain-conversations/2026-08-01-briefcase-perspectives-summary.md"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "2026-08-01-briefcase-perspectives-summary.md"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/legacy/notes/domain-conversations/2026-08-02-briefcase-perspectives-transcript-continuation-01.md",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "legacy/notes/domain-conversations/2026-08-02-briefcase-perspectives-transcript-continuation-01.md"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 93461
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "md"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/legacy/notes/domain-conversations/2026-08-02-briefcase-perspectives-transcript-continuation-01.md"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "2026-08-02-briefcase-perspectives-transcript-continuation-01.md"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/legacy/notes/domain-conversations/2026-08-03-offline-money-and-44-legacy.md",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "legacy/notes/domain-conversations/2026-08-03-offline-money-and-44-legacy.md"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 10866
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "md"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/legacy/notes/domain-conversations/2026-08-03-offline-money-and-44-legacy.md"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "2026-08-03-offline-money-and-44-legacy.md"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/doc/doc/index.md",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "doc/doc/index.md"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 1633
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "md"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/doc/doc/index.md"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "index.md"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/legacy/README.md",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "legacy/README.md"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 106
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "md"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/legacy/README.md"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "README.md"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/.github/workflows/deploy-production.yml",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": ".github/workflows/deploy-production.yml"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 2363
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "yml"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/.github/workflows/deploy-production.yml"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "deploy-production.yml"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/run.sh",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "run.sh"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 700
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "sh"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/run.sh"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "run.sh"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/doc/assets/stylesheets/extra.css",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "doc/assets/stylesheets/extra.css"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 1265
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "css"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/doc/assets/stylesheets/extra.css"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "extra.css"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/requirements.txt",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "requirements.txt"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 51
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "txt"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/requirements.txt"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "requirements.txt"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#DataContainer"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@language": "en",
+        "@value": "Storage Container: docs"
+      }
+    ],
+    "http://standards.iso.org/iso/21597/-1/ed-1/en/Container#creationDate": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+        "@value": "2026-08-29T17:13:11.246339+00:00"
+      }
+    ],
+    "http://standards.iso.org/iso/21597/-1/ed-1/en/Container#description": [
+      {
+        "@language": "en",
+        "@value": "Local storage container at Storage Container: docs"
+      }
+    ],
+    "http://www.w3.org/ns/prov#atLocation": [
+      {
+        "@id": "file:///Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/docs"
+      }
+    ]
+  },
+  {
+    "@id": "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#FileTree",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#SurfaceableEntity"
+    ]
+  },
+  {
+    "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/legacy/code.ttl",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "legacy/code.ttl"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 45272
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "ttl"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/legacy/code.ttl"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "code.ttl"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/legacy/exc.ttl",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "legacy/exc.ttl"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 1047
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "ttl"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/legacy/exc.ttl"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "exc.ttl"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/legacy/history/roadmap.md",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "legacy/history/roadmap.md"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 24638
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "md"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/legacy/history/roadmap.md"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "roadmap.md"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/doc/README.md",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "doc/README.md"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 1633
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "md"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/doc/README.md"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "README.md"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/legacy/test.ttl",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "legacy/test.ttl"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 11483
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "ttl"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/legacy/test.ttl"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "test.ttl"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/legacy/notes/2026-08-10-ontobdc-view-module-functional-structure.md",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "legacy/notes/2026-08-10-ontobdc-view-module-functional-structure.md"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 14140
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "md"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/legacy/notes/2026-08-10-ontobdc-view-module-functional-structure.md"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "2026-08-10-ontobdc-view-module-functional-structure.md"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#FileTree"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": ".git"
+      },
+      {
+        "@value": ".github/workflows/deploy-production.yml"
+      },
+      {
+        "@value": ".gitignore"
+      },
+      {
+        "@value": "LICENSE"
+      },
+      {
+        "@value": "doc/01-getting-started/cli-basics.md"
+      },
+      {
+        "@value": "doc/01-getting-started/first-container.md"
+      },
+      {
+        "@value": "doc/01-getting-started/installation.md"
+      },
+      {
+        "@value": "doc/01-getting-started/quickstart.md"
+      },
+      {
+        "@value": "doc/01-getting-started/what-is-ontobdc.md"
+      },
+      {
+        "@value": "doc/02-concepts/container.md"
+      },
+      {
+        "@value": "doc/README.md"
+      },
+      {
+        "@value": "doc/README/index.md"
+      },
+      {
+        "@value": "doc/assets/stylesheets/extra.css"
+      },
+      {
+        "@value": "doc/doc/index.md"
+      },
+      {
+        "@value": "doc/index.md"
+      },
+      {
+        "@value": "docker/Dockerfile"
+      },
+      {
+        "@value": "docker/docker-compose.yml"
+      },
+      {
+        "@value": "legacy/README.md"
+      },
+      {
+        "@value": "legacy/attention-surface.md"
+      },
+      {
+        "@value": "legacy/code.ttl"
+      },
+      {
+        "@value": "legacy/ent.ttl"
+      },
+      {
+        "@value": "legacy/exc.ttl"
+      },
+      {
+        "@value": "legacy/history/cloud-pieces-end.md"
+      },
+      {
+        "@value": "legacy/history/roadmap.md"
+      },
+      {
+        "@value": "legacy/nid.ttl"
+      },
+      {
+        "@value": "legacy/notes/2026-08-10-ontobdc-cli-terminal-identity-functional-structure.md"
+      },
+      {
+        "@value": "legacy/notes/2026-08-10-ontobdc-directory-structure-survey.md"
+      },
+      {
+        "@value": "legacy/notes/2026-08-10-ontobdc-storage-module-functional-structure.md"
+      },
+      {
+        "@value": "legacy/notes/2026-08-10-ontobdc-view-module-functional-structure.md"
+      },
+      {
+        "@value": "legacy/notes/domain-conversations/2026-08-01-briefcase-perspectives-checkpoint-2231.md"
+      },
+      {
+        "@value": "legacy/notes/domain-conversations/2026-08-01-briefcase-perspectives-summary.md"
+      },
+      {
+        "@value": "legacy/notes/domain-conversations/2026-08-01-briefcase-perspectives-transcript.md"
+      },
+      {
+        "@value": "legacy/notes/domain-conversations/2026-08-02-briefcase-perspectives-transcript-continuation-01.md"
+      },
+      {
+        "@value": "legacy/notes/domain-conversations/2026-08-03-offline-money-and-44-legacy.md"
+      },
+      {
+        "@value": "legacy/notes/domain-conversations/2026-08-07-presentation-interoperability-events-ble-dock-transcript.md"
+      },
+      {
+        "@value": "legacy/notes/domain-conversations/2026-08-08-ddock-presentation-layer-event-model.md"
+      },
+      {
+        "@value": "legacy/sh.ttl"
+      },
+      {
+        "@value": "legacy/test.ttl"
+      },
+      {
+        "@value": "legacy/uc.ttl"
+      },
+      {
+        "@value": "mkdocs.yml"
+      },
+      {
+        "@value": "overrides/main.html"
+      },
+      {
+        "@value": "overrides/partials/header.html"
+      },
+      {
+        "@value": "overrides/partials/logo.html"
+      },
+      {
+        "@value": "requirements.txt"
+      },
+      {
+        "@value": "run.sh"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@language": "en",
+        "@value": "Files"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/legacy/ent.ttl",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "legacy/ent.ttl"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 5453
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "ttl"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/legacy/ent.ttl"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "ent.ttl"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/legacy/uc.ttl",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "legacy/uc.ttl"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 7822
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "ttl"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/legacy/uc.ttl"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "uc.ttl"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/legacy/notes/2026-08-10-ontobdc-directory-structure-survey.md",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "legacy/notes/2026-08-10-ontobdc-directory-structure-survey.md"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 18907
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "md"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/legacy/notes/2026-08-10-ontobdc-directory-structure-survey.md"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "2026-08-10-ontobdc-directory-structure-survey.md"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/legacy/notes/domain-conversations/2026-08-01-briefcase-perspectives-transcript.md",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "legacy/notes/domain-conversations/2026-08-01-briefcase-perspectives-transcript.md"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 14649
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "md"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/legacy/notes/domain-conversations/2026-08-01-briefcase-perspectives-transcript.md"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "2026-08-01-briefcase-perspectives-transcript.md"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/doc/01-getting-started/installation.md",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "doc/01-getting-started/installation.md"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 0
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "md"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce/files/doc/01-getting-started/installation.md"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:d806b3e6-4af1-463e-a424-9762e49afbce"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "installation.md"
+      }
+    ]
+  }
+]

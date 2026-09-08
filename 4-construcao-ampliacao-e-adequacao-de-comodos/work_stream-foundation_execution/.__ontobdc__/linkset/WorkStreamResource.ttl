@@ -1,0 +1,51 @@
+@prefix ls: <https://standards.iso.org/iso/21597/-1/ed-1/en/Linkset#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+<urn:ontobdc:linkset:workstream-resource:1b196584364f6fb9> a ls:DirectedBinaryLink ;
+    ls:hasFromLinkElement [ ls:hasIdentifier [ a ls:URIBasedIdentifier ;
+                    ls:uri "urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/work_stream-foundation_execution/240204b8-e891-442c-8d66-a0902fe9545a/dimension/what"^^xsd:anyURI ] ] ;
+    ls:hasToLinkElement [ ls:hasIdentifier [ a ls:URIBasedIdentifier ;
+                    ls:uri "urn:uuid:270ff252-87eb-49e7-acb1-ec0f7ca0b235/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.3%20NOVO%20CO%CC%82MODO%20ISOLADO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.3.dwg"^^xsd:anyURI ] ] .
+
+<urn:ontobdc:linkset:workstream-resource:1edbd13dceded11f> a ls:DirectedBinaryLink ;
+    ls:hasFromLinkElement [ ls:hasIdentifier [ a ls:URIBasedIdentifier ;
+                    ls:uri "urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/work_stream-foundation_execution/240204b8-e891-442c-8d66-a0902fe9545a/dimension/why"^^xsd:anyURI ] ] ;
+    ls:hasToLinkElement [ ls:hasIdentifier [ a ls:URIBasedIdentifier ;
+                    ls:uri "urn:uuid:270ff252-87eb-49e7-acb1-ec0f7ca0b235/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.5%20POC%CC%A7O%20DE%20VENTILAC%CC%A7A%CC%83O/4.5.dwg"^^xsd:anyURI ] ] .
+
+<urn:ontobdc:linkset:workstream-resource:d4b74c3b46c3368c> a ls:DirectedBinaryLink ;
+    ls:hasFromLinkElement [ ls:hasIdentifier [ a ls:URIBasedIdentifier ;
+                    ls:uri "urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/work_stream-foundation_execution/240204b8-e891-442c-8d66-a0902fe9545a/dimension/what"^^xsd:anyURI ] ] ;
+    ls:hasToLinkElement [ ls:hasIdentifier [ a ls:URIBasedIdentifier ;
+                    ls:uri "urn:uuid:270ff252-87eb-49e7-acb1-ec0f7ca0b235/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.2%20NOVO%20CO%CC%82MODO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.2.pdf"^^xsd:anyURI ] ] .
+
+<urn:ontobdc:linkset:workstream-resource:9a4c84e9d6a30eb9> a ls:DirectedBinaryLink ;
+    ls:hasFromLinkElement [ ls:hasIdentifier [ a ls:URIBasedIdentifier ;
+                    ls:uri "urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/work_stream-foundation_execution/9009a74ecd8b80a755343ecb474c392e5cb2e72239f72dc79b9a1658c6cdf307/dimension/what"^^xsd:anyURI ] ] ;
+    ls:hasToLinkElement [ ls:hasIdentifier [ a ls:URIBasedIdentifier ;
+                    ls:uri "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/WhatsApp%20Image%202026-08-20%20at%2008.38.15.jpeg"^^xsd:anyURI ] ] .
+
+<urn:ontobdc:linkset:workstream-resource:6a78500c0aca687b> a ls:DirectedBinaryLink ;
+    ls:hasFromLinkElement [ ls:hasIdentifier [ a ls:URIBasedIdentifier ;
+                    ls:uri "urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/work_stream-foundation_execution/9009a74ecd8b80a755343ecb474c392e5cb2e72239f72dc79b9a1658c6cdf307/dimension/what"^^xsd:anyURI ] ] ;
+    ls:hasToLinkElement [ ls:hasIdentifier [ a ls:URIBasedIdentifier ;
+                    ls:uri "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.2%20NOVO%20CO%CC%82MODO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.2.dwg"^^xsd:anyURI ] ] .
+
+<urn:ontobdc:linkset:workstream-resource:bfbaf13d1de11319> a ls:DirectedBinaryLink ;
+    ls:hasFromLinkElement [ ls:hasIdentifier [ a ls:URIBasedIdentifier ;
+                    ls:uri "urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/work_stream-foundation_execution/9009a74ecd8b80a755343ecb474c392e5cb2e72239f72dc79b9a1658c6cdf307/dimension/what"^^xsd:anyURI ] ] ;
+    ls:hasToLinkElement [ ls:hasIdentifier [ a ls:URIBasedIdentifier ;
+                    ls:uri "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.1%20NOVO%20CO%CC%82MODO%20CONTIGUO/4.1.dwg"^^xsd:anyURI ] ] .
+
+<urn:ontobdc:linkset:workstream-resource:f407808fec3a14ad> a ls:DirectedBinaryLink ;
+    ls:hasFromLinkElement [ ls:hasIdentifier [ a ls:URIBasedIdentifier ;
+                    ls:uri "urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/work_stream-foundation_execution/9009a74ecd8b80a755343ecb474c392e5cb2e72239f72dc79b9a1658c6cdf307/dimension/what"^^xsd:anyURI ] ] ;
+    ls:hasToLinkElement [ ls:hasIdentifier [ a ls:URIBasedIdentifier ;
+                    ls:uri "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.1%20NOVO%20CO%CC%82MODO%20CONTIGUO/4.1.pdf"^^xsd:anyURI ] ] .
+
+<urn:ontobdc:linkset:workstream-resource:06c0908a01a05391> a ls:DirectedBinaryLink ;
+    ls:hasFromLinkElement [ ls:hasIdentifier [ a ls:URIBasedIdentifier ;
+                    ls:uri "urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/work_stream-foundation_execution/9009a74ecd8b80a755343ecb474c392e5cb2e72239f72dc79b9a1658c6cdf307/dimension/where"^^xsd:anyURI ] ] ;
+    ls:hasToLinkElement [ ls:hasIdentifier [ a ls:URIBasedIdentifier ;
+                    ls:uri "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.4%20NOVO%20CO%CC%82MODO%20ISOLADO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.4.pdf"^^xsd:anyURI ] ] .

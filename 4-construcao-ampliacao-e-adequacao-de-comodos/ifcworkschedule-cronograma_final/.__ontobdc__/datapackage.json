@@ -1,0 +1,76 @@
+{
+  "name": "ontobdc_container",
+  "resources": [
+    {
+      "bytes": 11864,
+      "dialect": {
+        "excel": {
+          "sheet": "IfcWorkSchedule"
+        }
+      },
+      "entityIdentifier": "IfcWorkSchedule",
+      "entityUri": "https://infobim.org/ontology/ns#IfcWorkSchedule",
+      "facadeUri": "https://infobim.org/ontology/ns#DefaultIfcWorkScheduleFacade",
+      "format": "xlsx",
+      "mediatype": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "name": "ifc_work_schedule",
+      "path": "../payload/document/ifc_work_schedule.xlsx",
+      "schema": {
+        "fields": [
+          {
+            "name": "GlobalId",
+            "type": "string"
+          },
+          {
+            "name": "Name",
+            "type": "string"
+          },
+          {
+            "name": "Description",
+            "type": "string"
+          },
+          {
+            "name": "ObjectType",
+            "type": "string"
+          },
+          {
+            "name": "Identification",
+            "type": "string"
+          },
+          {
+            "name": "CreationDate",
+            "type": "datetime"
+          },
+          {
+            "name": "Creators",
+            "type": "string"
+          },
+          {
+            "name": "Purpose",
+            "type": "string"
+          },
+          {
+            "name": "Duration",
+            "type": "string"
+          },
+          {
+            "name": "TotalFloat",
+            "type": "string"
+          },
+          {
+            "name": "StartTime",
+            "type": "datetime"
+          },
+          {
+            "name": "FinishTime",
+            "type": "datetime"
+          },
+          {
+            "name": "PredefinedType",
+            "type": "string"
+          }
+        ]
+      }
+    }
+  ]
+}

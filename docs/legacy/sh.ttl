@@ -1,0 +1,193 @@
+
+@prefix : <http://ontobdc.org/ontology/domain/shp.ttl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix h: <http://www.w3.org/ns/shacl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix obdc: <http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#> .
+@prefix ct: <http://standards.iso.org/iso/21597/-1/ed-1/en/Container#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+@base <http://ontobdc.org/ontology/domain/shp.ttl#> .
+
+<http://ontobdc.org/ontology/domain/shp.ttl> rdf:type owl:Ontology .
+
+
+
+:QueryCapabilityShape a sh:NodeShape ;
+  sh:targetClass obdc:QueryCapability ;
+  sh:property [
+    sh:path dcterms:identifier ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] ;
+  sh:property [
+    sh:path dcterms:title ;
+    sh:or (
+      [ sh:datatype xsd:string ]
+      [ sh:datatype rdf:langString ]
+    ) ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] ;
+  sh:property [
+    sh:path dcterms:description ;
+    sh:or (
+      [ sh:datatype xsd:string ]
+      [ sh:datatype rdf:langString ]
+    ) ;
+    sh:maxCount 1 ;
+  ] ;
+  sh:property [
+    sh:path dcterms:creator ;
+    sh:or (
+      [ sh:datatype xsd:string ]
+      [ sh:nodeKind sh:BlankNodeOrIRI ]
+    ) ;
+    sh:maxCount 1 ;
+  ] ;
+  sh:property [
+    sh:path dcat:keyword ;
+    sh:or (
+      [ sh:datatype xsd:string ]
+      [ sh:datatype rdf:langString ]
+    ) ;
+    sh:minCount 1 ;
+  ] ;
+  sh:property [
+    sh:path function:expects ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:or (
+      [ sh:hasValue rdf:nil ]
+      [ sh:nodeKind sh:BlankNodeOrIRI ]
+    ) ;
+    sh:node [
+      sh:property [
+        sh:path ( [ sh:zeroOrMorePath rdf:rest ] rdf:first ) ;
+        sh:node [
+          sh:property [
+            sh:path rdf:type ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+          ] ;
+          sh:property [
+            sh:path function:required ;
+            sh:datatype xsd:boolean ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+          ] ;
+        ] ;
+      ] ;
+    ] ;
+  ] ;
+  sh:property [
+    sh:path function:returns ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:or (
+      [ sh:hasValue rdf:nil ]
+      [ sh:nodeKind sh:BlankNodeOrIRI ]
+    ) ;
+    sh:node [
+      sh:property [
+        sh:path ( [ sh:zeroOrMorePath rdf:rest ] rdf:first ) ;
+        sh:node [
+          sh:property [
+            sh:path rdf:type ;
+            sh:hasValue :QueryResponse ;
+            sh:minCount 1 ;
+          ] ;
+          sh:property [
+            sh:path dcterms:hasPart ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:maxCount 1 ;
+            sh:node [
+              sh:property [
+                sh:path rdf:type ;
+                sh:nodeKind sh:IRI ;
+                sh:minCount 1 ;
+              ] ;
+            ] ;
+          ] ;
+        ] ;
+      ] ;
+    ] ;
+  ] ;
+  sh:property [
+    sh:path :raises ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:node [
+      sh:property [
+        sh:path rdf:type ;
+        sh:nodeKind sh:IRI ;
+        sh:minCount 1 ;
+      ] ;
+    ] ;
+  ] ;
+  sh:property [
+    sh:path schema:programmingLanguage ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+  ] ;
+  sh:property [
+    sh:path schema:runtimePlatform ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+  ] ;
+  sh:property [
+    sh:path owl:versionInfo ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] .
+
+:TransformationResponseShape a sh:NodeShape ;
+  sh:targetClass obdc:TransformationResponse ;
+  sh:property [
+    sh:path dcterms:identifier ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] .
+
+:DataContainerShape a sh:NodeShape ;
+  sh:targetClass obdc:DataContainer ;
+  sh:property [
+    sh:path dcterms:identifier ;
+    sh:minCount 1 ;
+    sh:message "Container configuration file is missing dcterms:identifier." ;
+    sh:severity sh:Violation ;
+  ] ;
+  sh:property [
+    sh:path prov:atLocation ;
+    sh:minCount 1 ;
+    sh:message "Container configuration file is missing prov:atLocation." ;
+    sh:severity sh:Violation ;
+  ] ;
+  sh:property [
+    sh:path dcterms:title ;
+    sh:minCount 1 ;
+    sh:message "Container configuration file is missing dcterms:title." ;
+    sh:severity sh:Warning ;
+  ] ;
+  sh:property [
+    sh:path dcterms:description ;
+    sh:minCount 1 ;
+    sh:message "Container configuration file is missing dcterms:description." ;
+    sh:severity sh:Warning ;
+  ] ;
+  sh:property [
+    sh:path ct:creationDate ;
+    sh:minCount 1 ;
+    sh:message "Container configuration file is missing ct:creationDate." ;
+    sh:severity sh:Warning ;
+  ] .
+
+
+
+

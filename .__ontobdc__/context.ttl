@@ -1,0 +1,20 @@
+@prefix ns1: <http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<urn:ontobdc:context/execution> a ns1:ExecutionContext ;
+    ns1:container "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a" ;
+    ns1:containerId "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a" ;
+    ns1:containerPath "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos" ;
+    ns1:element "240204b8-e891-442c-8d66-a0902fe9545a" ;
+    ns1:infobimIfcModelResource "urn:infobim:presentation:ifc-model:3GqWHHIVfD_uF%24f%24TSbZi6" ;
+    ns1:infobimProjectResource "urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/.__infobim__/0bd98d525f53bad0d54c8f9dcedae374296413c5d74700abada54952a22d2f6b" ;
+    ns1:language "en" ;
+    ns1:projectId "3GqWHHIVfD_uF$f$TSbZi6" ;
+    ns1:projectPath "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos" ;
+    ns1:representation "html" ;
+    ns1:serverHost "127.0.0.1" ;
+    ns1:serverPort 8080 ;
+    ns1:surfacePath "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/index.html" ;
+    ns1:theme "light" ;
+    ns1:viewType "standard" .
+

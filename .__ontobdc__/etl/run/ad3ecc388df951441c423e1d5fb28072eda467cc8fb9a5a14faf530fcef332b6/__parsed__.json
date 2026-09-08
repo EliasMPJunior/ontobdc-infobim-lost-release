@@ -1,0 +1,93 @@
+{
+  "prompt": "Mostra aí as saídas de emergência",
+  "text": "mostra aí as saídas de emergência",
+  "entities": [
+    {
+      "text": "mostra",
+      "label": "ORG"
+    },
+    {
+      "text": "saídas de emergência",
+      "label": "PERSON"
+    }
+  ],
+  "pos_tags": [
+    {
+      "text": "mostra",
+      "pos": "PROPN",
+      "uri": "http://purl.org/olia/olia.owl#LinguisticSign"
+    },
+    {
+      "text": "aí",
+      "pos": "ADV",
+      "uri": "http://purl.org/olia/olia.owl#Adverb"
+    },
+    {
+      "text": "as",
+      "pos": "ADP",
+      "uri": "http://purl.org/olia/olia.owl#LinguisticSign"
+    },
+    {
+      "text": "saídas",
+      "pos": "PROPN",
+      "uri": "http://purl.org/olia/olia.owl#LinguisticSign"
+    },
+    {
+      "text": "de",
+      "pos": "X",
+      "uri": "http://purl.org/olia/olia.owl#LinguisticSign"
+    },
+    {
+      "text": "emergência",
+      "pos": "X",
+      "uri": "http://purl.org/olia/olia.owl#LinguisticSign"
+    }
+  ],
+  "dependencies": [
+    {
+      "text": "mostra",
+      "dep": "ROOT",
+      "head": "mostra",
+      "uri": "http://purl.org/olia/olia.owl#LinguisticSign"
+    },
+    {
+      "text": "aí",
+      "dep": "advmod",
+      "head": "mostra",
+      "uri": "http://purl.org/olia/olia.owl#Adverb"
+    },
+    {
+      "text": "as",
+      "dep": "prep",
+      "head": "mostra",
+      "uri": "http://purl.org/olia/olia.owl#LinguisticSign"
+    },
+    {
+      "text": "saídas",
+      "dep": "compound",
+      "head": "emergência",
+      "uri": "http://purl.org/olia/olia.owl#LinguisticSign"
+    },
+    {
+      "text": "de",
+      "dep": "nmod",
+      "head": "emergência",
+      "uri": "http://purl.org/olia/olia.owl#LinguisticSign"
+    },
+    {
+      "text": "emergência",
+      "dep": "pobj",
+      "head": "as",
+      "uri": "http://purl.org/olia/olia.owl#LinguisticSign"
+    }
+  ],
+  "roots": [
+    {
+      "text": "mostra",
+      "pos": "PROPN",
+      "lemma": "mostra",
+      "uri": "http://purl.org/olia/olia.owl#LinguisticSign"
+    }
+  ],
+  "score": 0.92
+}

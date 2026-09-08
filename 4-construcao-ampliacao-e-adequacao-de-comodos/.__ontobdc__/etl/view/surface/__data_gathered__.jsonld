@@ -1,0 +1,1010 @@
+[
+  {
+    "@id": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.7%20VARANDA/4.7.pdf",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#PdfFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.7 VARANDA/4.7.pdf"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 600296
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "pdf"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.7%20VARANDA/4.7.pdf"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "4.7.pdf"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.2%20NOVO%20CO%CC%82MODO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.2.dwg",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.2 NOVO CÔMODO (FUNDAÇÃO EM SAPATA)/4.2.dwg"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 3814994
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "dwg"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.2%20NOVO%20CO%CC%82MODO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.2.dwg"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "4.2.dwg"
+      }
+    ]
+  },
+  {
+    "@id": "https://infobim.org/ontology/ns#IfcWorkSchedule",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#SurfaceableEntity"
+    ]
+  },
+  {
+    "@id": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.1%20NOVO%20CO%CC%82MODO%20CONTIGUO/4.1.dwg",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.1 NOVO CÔMODO CONTIGUO/4.1.dwg"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 3778735
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "dwg"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.1%20NOVO%20CO%CC%82MODO%20CONTIGUO/4.1.dwg"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "4.1.dwg"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.3%20NOVO%20CO%CC%82MODO%20ISOLADO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.3.pdf",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#PdfFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.3 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.3.pdf"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 1587541
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "pdf"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.3%20NOVO%20CO%CC%82MODO%20ISOLADO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.3.pdf"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "4.3.pdf"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.5%20POC%CC%A7O%20DE%20VENTILAC%CC%A7A%CC%83O/4.5.pdf",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#PdfFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.5 POÇO DE VENTILAÇÃO/4.5.pdf"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 1136291
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "pdf"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.5%20POC%CC%A7O%20DE%20VENTILAC%CC%A7A%CC%83O/4.5.pdf"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "4.5.pdf"
+      }
+    ]
+  },
+  {
+    "@id": "urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/.__infobim__/0bd98d525f53bad0d54c8f9dcedae374296413c5d74700abada54952a22d2f6b",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#DataEntity",
+      "https://standards.buildingsmart.org/IFC/DEV/IFC4_3/OWL#IfcProject"
+    ],
+    "http://purl.org/dc/terms/conformsTo": [
+      {
+        "@id": "https://infobim.org/ontology/ns#IfcProjectFacade"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "4-construcao-ampliacao-e-adequacao-de-comodos"
+      }
+    ]
+  },
+  {
+    "@id": "file:///Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/.__infobim__/.__ontobdc__/dataset.ttl",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Ontology"
+    ]
+  },
+  {
+    "@id": "urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/ifcworkschedule-cronograma_final",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#EntityDataset"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#belongsToDataContainer": [
+      {
+        "@id": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a"
+      },
+      {
+        "@id": "urn:ontobdc:storage/local/4-construcao-ampliacao-e-adequacao-de-comodos"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#hasDataEntity": [
+      {
+        "@id": "urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/ifcworkschedule-cronograma_final/32bd29be8bb2733278a7ff6ef9bdefc3663aa24cfd87b17eff4bfdce9732a47f"
+      }
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@value": "Storage dataset located at file:///Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/ifcworkschedule-cronograma_final"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/ifcworkschedule-cronograma_final"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "Storage Dataset: ifcworkschedule-cronograma_final"
+      }
+    ],
+    "http://standards.iso.org/iso/21597/-1/ed-1/en/Container#creationDate": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+        "@value": "2026-08-20T22:48:20"
+      }
+    ],
+    "http://www.w3.org/ns/prov#atLocation": [
+      {
+        "@id": "file:///Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/ifcworkschedule-cronograma_final"
+      }
+    ]
+  },
+  {
+    "@id": "http://datacenter.app.br/ontology/productivity/entity/work_stream/type.ttl#WorkStream",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#SurfaceableEntity"
+    ]
+  },
+  {
+    "@id": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.2%20NOVO%20CO%CC%82MODO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.2.pdf",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#PdfFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.2 NOVO CÔMODO (FUNDAÇÃO EM SAPATA)/4.2.pdf"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 1243575
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "pdf"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.2%20NOVO%20CO%CC%82MODO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.2.pdf"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "4.2.pdf"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/WhatsApp%20Image%202026-08-20%20at%2008.38.15.jpeg",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#ImageFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "WhatsApp Image 2026-08-20 at 08.38.15.jpeg"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 329828
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "jpeg"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/WhatsApp%20Image%202026-08-20%20at%2008.38.15.jpeg"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "WhatsApp Image 2026-08-20 at 08.38.15.jpeg"
+      }
+    ]
+  },
+  {
+    "@id": "urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/work_stream-foundation_execution",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#EntityDataset"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#belongsToDataContainer": [
+      {
+        "@id": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a"
+      },
+      {
+        "@id": "urn:ontobdc:storage/local/4-construcao-ampliacao-e-adequacao-de-comodos"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#hasDataEntity": [
+      {
+        "@id": "urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/work_stream-foundation_execution/9009a74ecd8b80a755343ecb474c392e5cb2e72239f72dc79b9a1658c6cdf307"
+      }
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@value": "Storage dataset located at file:///Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/work_stream-foundation_execution"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/work_stream-foundation_execution"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "Storage Dataset: work_stream-foundation_execution"
+      }
+    ],
+    "http://standards.iso.org/iso/21597/-1/ed-1/en/Container#creationDate": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+        "@value": "2026-08-19T03:28:03"
+      }
+    ],
+    "http://www.w3.org/ns/prov#atLocation": [
+      {
+        "@id": "file:///Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/work_stream-foundation_execution"
+      }
+    ]
+  },
+  {
+    "@id": "urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/work_stream-foundation_execution/9009a74ecd8b80a755343ecb474c392e5cb2e72239f72dc79b9a1658c6cdf307",
+    "@type": [
+      "http://datacenter.app.br/ontology/productivity/entity/work_stream/type.ttl#WorkStream",
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#DataEntity"
+    ],
+    "http://datacenter.app.br/ontology/productivity/entity/work_stream/type.ttl#how": [
+      {
+        "@value": "Subcontracted execution with certified concrete batch (25 MPa), 12.5mm CA-50 steel rebar cages, mechanical excavation with hydraulic breaker for rock sockets, followed by hand-finished formwork, 100mm blinding layer, vibration-immersed pouring and wet-curing for 7 days under geotextile blankets."
+      }
+    ],
+    "http://datacenter.app.br/ontology/productivity/entity/work_stream/type.ttl#howMuch": [
+      {
+        "@value": "Budget BRL 248,500.00 — 28 m³ of concrete, 3.2 t of CA-50 rebar, 126 m² of formwork; 56 man-days of skilled labor; 4% contingency reserved for rock reinforcement."
+      }
+    ],
+    "http://datacenter.app.br/ontology/productivity/entity/work_stream/type.ttl#what": [
+      {
+        "@value": "Execute foundation works: 4 isolated sapatas, 1 continuous sapata alongside the new contiguous bedroom, isolated sapata + vigas de amarração for the varanda and reinforced collar for the ventilation shaft structural enclosure."
+      }
+    ],
+    "http://datacenter.app.br/ontology/productivity/entity/work_stream/type.ttl#when": [
+      {
+        "@value": "Weeks 3 -> 7 of the project master schedule — excavation W3, reinforcement/formwork W4, pouring W5, curing + break tests W6/W7; backfilling only after 28-day NDT report approval."
+      }
+    ],
+    "http://datacenter.app.br/ontology/productivity/entity/work_stream/type.ttl#where": [
+      {
+        "@value": "4-construcao-ampliacao-e-adequacao-de-comodos — back-yard footprint, coordinates -22.973648,-43.188207 (WGS-84), sapata depths ranging from 0.90 m (solo arenoso) to 1.40 m on the northern rock-socket border."
+      }
+    ],
+    "http://datacenter.app.br/ontology/productivity/entity/work_stream/type.ttl#who": [
+      {
+        "@value": "Construtora Moraes & Santos (execution contractor) - Eng. Marcela Prado Junior, CREA-RJ 184.227 (technical responsible); certified laboratory ConcreTeste for break/NDT; Fundação Geotecnia S.A. for the companion excavation supervision report."
+      }
+    ],
+    "http://datacenter.app.br/ontology/productivity/entity/work_stream/type.ttl#why": [
+      {
+        "@value": "Mandatory structural prerequisite before erecting any new masonry or steel superstructure: supports factored vertical loads of the 4 new ambients (contiguous bedroom, isolated foundation bedroom, varanda and ventilation shaft) in accordance with NBR 6118/2014 and geotechnical report Ref. GT-2026-074."
+      }
+    ],
+    "http://purl.org/dc/terms/conformsTo": [
+      {
+        "@id": "http://datacenter.app.br/ontology/productivity/entity/work_stream/facade.ttl#WorkStreamFacade"
+      }
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@value": "Execution workstream covering concrete sapatas and continuous footings excavation, reinforcement placement, concreting and 7-day break-test for the new contiguous and isolated bedrooms, varanda and poço de ventilação foundation systems."
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "240204b8-e891-442c-8d66-a0902fe9545a"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "Foundation Executions"
+      }
+    ],
+    "https://schema.org/identifier": [
+      {
+        "@value": "240204b8-e891-442c-8d66-a0902fe9545a"
+      }
+    ]
+  },
+  {
+    "@id": "urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/ifcworkschedule-cronograma_final/32bd29be8bb2733278a7ff6ef9bdefc3663aa24cfd87b17eff4bfdce9732a47f",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#DataEntity",
+      "https://infobim.org/ontology/ns#IfcWorkSchedule"
+    ],
+    "http://purl.org/dc/terms/conformsTo": [
+      {
+        "@id": "https://infobim.org/ontology/ns#DefaultIfcWorkScheduleFacade"
+      }
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@value": "O tempo voa. Voa muito."
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "1BL9_CiP514BWp6kSoJ_u8"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "Cronograma Final"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.6%20RECOMPOSIC%CC%A7A%CC%83O%20ESTRUTURAL%20%28CO%CC%82MODO%29/4.6.pdf",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#PdfFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.6 RECOMPOSIÇÃO ESTRUTURAL (CÔMODO)/4.6.pdf"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 672156
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "pdf"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.6%20RECOMPOSIC%CC%A7A%CC%83O%20ESTRUTURAL%20%28CO%CC%82MODO%29/4.6.pdf"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "4.6.pdf"
+      }
+    ]
+  },
+  {
+    "@id": "file:///Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/work_stream-foundation_execution/.__ontobdc__/dataset.ttl",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Ontology"
+    ]
+  },
+  {
+    "@id": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/server.cmd",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "server.cmd"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 85
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "cmd"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/server.cmd"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "server.cmd"
+      }
+    ]
+  },
+  {
+    "@id": "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#DataContainer",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#SurfaceableEntity"
+    ]
+  },
+  {
+    "@id": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.1%20NOVO%20CO%CC%82MODO%20CONTIGUO/4.1.pdf",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#PdfFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.1 NOVO CÔMODO CONTIGUO/4.1.pdf"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 1560427
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "pdf"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.1%20NOVO%20CO%CC%82MODO%20CONTIGUO/4.1.pdf"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "4.1.pdf"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.4%20NOVO%20CO%CC%82MODO%20ISOLADO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.4.pdf",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#PdfFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.4 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.4.pdf"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 1465183
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "pdf"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.4%20NOVO%20CO%CC%82MODO%20ISOLADO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.4.pdf"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "4.4.pdf"
+      }
+    ]
+  },
+  {
+    "@id": "urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/.__infobim__",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#EntityDataset"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#belongsToDataContainer": [
+      {
+        "@id": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a"
+      },
+      {
+        "@id": "urn:ontobdc:storage/local/4-construcao-ampliacao-e-adequacao-de-comodos"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#hasDataEntity": [
+      {
+        "@id": "urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/.__infobim__/0bd98d525f53bad0d54c8f9dcedae374296413c5d74700abada54952a22d2f6b"
+      }
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@value": "Storage dataset located at file:///Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/.__infobim__"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/.__infobim__"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "Storage Dataset: .__infobim__"
+      }
+    ],
+    "http://standards.iso.org/iso/21597/-1/ed-1/en/Container#creationDate": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+        "@value": "2026-08-19T00:35:29"
+      }
+    ],
+    "http://www.w3.org/ns/prov#atLocation": [
+      {
+        "@id": "file:///Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/.__infobim__"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.5%20POC%CC%A7O%20DE%20VENTILAC%CC%A7A%CC%83O/4.5.dwg",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.5 POÇO DE VENTILAÇÃO/4.5.dwg"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 3838397
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "dwg"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.5%20POC%CC%A7O%20DE%20VENTILAC%CC%A7A%CC%83O/4.5.dwg"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "4.5.dwg"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.7%20VARANDA/4.7.dwg",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.7 VARANDA/4.7.dwg"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 3733733
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "dwg"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.7%20VARANDA/4.7.dwg"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "4.7.dwg"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#FileTree"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.1 NOVO CÔMODO CONTIGUO/4.1.dwg"
+      },
+      {
+        "@value": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.1 NOVO CÔMODO CONTIGUO/4.1.pdf"
+      },
+      {
+        "@value": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.2 NOVO CÔMODO (FUNDAÇÃO EM SAPATA)/4.2.dwg"
+      },
+      {
+        "@value": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.2 NOVO CÔMODO (FUNDAÇÃO EM SAPATA)/4.2.pdf"
+      },
+      {
+        "@value": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.3 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.3.dwg"
+      },
+      {
+        "@value": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.3 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.3.pdf"
+      },
+      {
+        "@value": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.4 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.4.dwg"
+      },
+      {
+        "@value": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.4 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.4.pdf"
+      },
+      {
+        "@value": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.5 POÇO DE VENTILAÇÃO/4.5.dwg"
+      },
+      {
+        "@value": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.5 POÇO DE VENTILAÇÃO/4.5.pdf"
+      },
+      {
+        "@value": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.6 RECOMPOSIÇÃO ESTRUTURAL (CÔMODO)/4.6.dwg"
+      },
+      {
+        "@value": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.6 RECOMPOSIÇÃO ESTRUTURAL (CÔMODO)/4.6.pdf"
+      },
+      {
+        "@value": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.7 VARANDA/4.7.dwg"
+      },
+      {
+        "@value": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.7 VARANDA/4.7.pdf"
+      },
+      {
+        "@value": "WhatsApp Image 2026-08-20 at 08.38.15.jpeg"
+      },
+      {
+        "@value": "server.cmd"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@language": "en",
+        "@value": "Files"
+      }
+    ]
+  },
+  {
+    "@id": "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#FileTree",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#SurfaceableEntity"
+    ]
+  },
+  {
+    "@id": "file:///Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos/ifcworkschedule-cronograma_final/.__ontobdc__/dataset.ttl",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Ontology"
+    ]
+  },
+  {
+    "@id": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#DataContainer"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#hasDataset": [
+      {
+        "@id": "urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/.__infobim__"
+      },
+      {
+        "@id": "urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/ifcworkschedule-cronograma_final"
+      },
+      {
+        "@id": "urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/work_stream-foundation_execution"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#hasEntityDataset": [
+      {
+        "@id": "urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/.__infobim__"
+      },
+      {
+        "@id": "urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/ifcworkschedule-cronograma_final"
+      },
+      {
+        "@id": "urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/work_stream-foundation_execution"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@language": "en",
+        "@value": "Storage Container: 4-construcao-ampliacao-e-adequacao-de-comodos"
+      }
+    ],
+    "http://standards.iso.org/iso/21597/-1/ed-1/en/Container#creationDate": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+        "@value": "2026-08-19T03:35:28.912642+00:00"
+      }
+    ],
+    "http://standards.iso.org/iso/21597/-1/ed-1/en/Container#description": [
+      {
+        "@language": "en",
+        "@value": "Local storage container at Storage Container: 4-construcao-ampliacao-e-adequacao-de-comodos"
+      }
+    ],
+    "http://www.w3.org/ns/prov#atLocation": [
+      {
+        "@id": "file:///Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.3%20NOVO%20CO%CC%82MODO%20ISOLADO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.3.dwg",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.3 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.3.dwg"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 3781696
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "dwg"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.3%20NOVO%20CO%CC%82MODO%20ISOLADO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.3.dwg"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "4.3.dwg"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.4%20NOVO%20CO%CC%82MODO%20ISOLADO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.4.dwg",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.4 NOVO CÔMODO ISOLADO (FUNDAÇÃO EM SAPATA)/4.4.dwg"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 3820189
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "dwg"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.4%20NOVO%20CO%CC%82MODO%20ISOLADO%20%28FUNDAC%CC%A7A%CC%83O%20EM%20SAPATA%29/4.4.dwg"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "4.4.dwg"
+      }
+    ]
+  },
+  {
+    "@id": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.6%20RECOMPOSIC%CC%A7A%CC%83O%20ESTRUTURAL%20%28CO%CC%82MODO%29/4.6.dwg",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#GenericFile"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#filePath": [
+      {
+        "@value": "4. CONSTRUÇÃO, AMPLIAÇÃO E ADEQUAÇÃO DE CÔMODOS/4.6 RECOMPOSIÇÃO ESTRUTURAL (CÔMODO)/4.6.dwg"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#fileSize": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 3604946
+      }
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+        "@value": "dwg"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a/files/4.%20CONSTRUC%CC%A7A%CC%83O%2C%20AMPLIAC%CC%A7A%CC%83O%20E%20ADEQUAC%CC%A7A%CC%83O%20DE%20CO%CC%82MODOS/4.6%20RECOMPOSIC%CC%A7A%CC%83O%20ESTRUTURAL%20%28CO%CC%82MODO%29/4.6.dwg"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "4.6.dwg"
+      }
+    ]
+  }
+]

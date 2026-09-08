@@ -1,0 +1,36 @@
+@prefix : <urn:ontobdc:context/> .
+@prefix obdc: <http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:CurrentContext a obdc:ExecutionContext,
+        owl:NamedIndividual ;
+    obdc:container "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos" ;
+    obdc:containerAttachErrorState "__invalid_container_graph__" ;
+    obdc:containerAttachFinalized "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos" ;
+    obdc:containerDatasetsHealthy true ;
+    obdc:containerId "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a" ;
+    obdc:containerPath "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos" ;
+    obdc:contextLanguage "en" ;
+    obdc:delete "urn:ontobdc:storage/local/4-construcao-ampliacao-e-adequacao-de-comodos" ;
+    obdc:element "1BL9_CiP514BWp6kSoJ_u8" ;
+    obdc:grid "terminal" ;
+    obdc:host "127.0.0.1" ;
+    obdc:infobimIfcModelResource "urn:test:model" ;
+    obdc:infobimProjectResource "urn:test:project" ;
+    obdc:language "en" ;
+    obdc:out "/private/tmp/infobim-4d-gantt.pdf" ;
+    obdc:path "/var/folders/pp/_x3mzqmd0n96hhg2t5lvkbp40000gn/T/tmpkjdayw3x" ;
+    obdc:pdfPath "/private/var/folders/pp/_x3mzqmd0n96hhg2t5lvkbp40000gn/T/pytest-of-eliasmpjunior/pytest-434/test_pdf_command_uses_the_4d_p0/gantt.pdf" ;
+    obdc:port "8080" ;
+    obdc:project "4-construcao-ampliacao-e-adequacao-de-comodos" ;
+    obdc:projectRootLocation <file:///Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC> ;
+    obdc:representation "html" ;
+    obdc:serverBindHost "127.0.0.1" ;
+    obdc:serverDirectory "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/docs" ;
+    obdc:serverHost "127.0.0.1" ;
+    obdc:serverPort 55001 ;
+    obdc:surfacePath "/private/var/folders/pp/_x3mzqmd0n96hhg2t5lvkbp40000gn/T/pytest-of-eliasmpjunior/pytest-504/test_server_launcher_generates0/index.html" ;
+    obdc:test "rich" ;
+    obdc:viewType "standard" .
+

@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="{{ language }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{ page_title }}</title>
+{{ url_state_bootstrap | safe }}
+<script>
+  // This Page is a separate document from the Surface it was opened from
+  // (onto-workstream-tile's "open" link), so the active presentation state
+  // doesn't carry over on its own — it arrives in the URL, normalized and
+  // already applied to `documentElement.lang` by the url-state bootstrap
+  // above. Only the theme tokens are left to paint, done here as an early
+  // classic (non-module, parser-blocking) script so the correct theme is
+  // active before first paint rather than flashing light then switching.
+  // Same token catalog onto-theme-tile itself builds with
+  // (ontobdc_view.component.adapter.source.theme_catalog), not a second
+  // hardcoded copy of the palette.
+  (() => {
+    const themes = {{ theme_catalog_json | safe }};
+    const params = new URLSearchParams(location.search);
+    // The bootstrap applies this when present; without it the Page still has
+    // to honour the language its link carried instead of the one it was
+    // generated in.
+    const language = window.ontobdcUrlState?.value("lang") ?? params.get("lang");
+    if (language) {
+      document.documentElement.lang = language;
+      document.documentElement.dataset.language = language;
+    }
+    const requested = window.ontobdcUrlState?.value("theme") ?? params.get("theme");
+    const theme = themes.find((candidate) => candidate.name === requested) ?? themes[0];
+    if (!theme) return;
+    document.documentElement.dataset.theme = theme.name;
+    for (const [key, value] of Object.entries(theme.tokens ?? {})) {
+      document.documentElement.style.setProperty(`--onto-theme-${key}`, value);
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+      const backLink = document.querySelector(".back-link");
+      if (!backLink) return;
+      // Back to the Surface carrying whatever this page is showing. Prefers
+      // the page's url-state runtime, but never depends on it: this Page is
+      // rendered by a package that does not ship that runtime, so the link
+      // resolves the state itself when it is absent rather than dropping it.
+      backLink.href = decorateInternalUrl(backLink.getAttribute("href"));
+    });
+
+    function decorateInternalUrl(href) {
+      const state = window.ontobdcUrlState;
+      if (state && typeof state.decorate === "function") return state.decorate(href);
+      const applied = {
+        lang: () =>
+          document.documentElement.lang
+          || document.documentElement.dataset.language
+          || "",
+        theme: () => document.documentElement.dataset.theme || "",
+      };
+      try {
+        const target = new URL(href, location.href);
+        const current = new URLSearchParams(location.search);
+        for (const name of ["lang", "theme"]) {
+          if (target.searchParams.has(name)) continue;
+          const carried = current.get(name) || applied[name]();
+          if (carried) target.searchParams.set(name, carried);
+        }
+        return target.href;
+      } catch {
+        return href;
+      }
+    }
+  })();
+</script>
+<style>
+{{ css_content }}
+</style>
+</head>
+<body>
+<script type="application/ld+json" id="ontobdc-page-jsonld">{{ entity_json }}</script>
+<script type="application/json" id="ontobdc-i18n">{{ i18n_json | safe }}</script>
+<main class="onto-page" data-ontobdc-resource="{{ entity_id }}">
+  {% include "entity_page_header.html.j2" %}
+  <section class="tile onto-page-body">
+    <div class="body">
+      <div class="name">{{ entity_name | e }}</div>
+      <div class="identifier">{{ entity_identifier | e }}</div>
+    </div>
+    {% if entity_description %}
+    <div class="fields">
+      <div class="field">
+        <div class="field-label" data-i18n="description">Description</div>
+        <div class="field-value">{{ entity_description | e }}</div>
+      </div>
+    </div>
+    {% endif %}
+  </section>
+  <div class="dimension-cards">
+  {% for d in dimensions %}
+    {% set dimension_index = loop.index0 %}
+    <article class="tile dimension-card" data-dimension="{{ d.kind | lower }}">
+      <div class="dimension-card-head">
+        <span class="dimension-label" data-i18n="{{ d.kind | lower }}">{{ d.label | e }}</span>
+      </div>
+      <div class="dimension-value">{{ d.value | e }}</div>
+      <div class="resource-tabs" role="tablist">
+        {% for tab in ("related", "suggested", "found") %}
+        <button type="button" class="resource-tab{% if loop.first %} is-active{% endif %}" data-resource-tab="{{ tab }}" role="tab" aria-selected="{{ 'true' if loop.first else 'false' }}" data-i18n="{{ tab }}">{{ tab | title }}</button>
+        {% endfor %}
+      </div>
+      {% for tab, resources in (("related", d.related_resources), ("suggested", d.suggested_resources), ("found", d.found_resources)) %}
+      <section class="resource-panel" data-resource-panel="{{ tab }}"{% if not loop.first %} hidden{% endif %}>
+        <div class="resource-body">
+          <div class="resource-list">
+            {% if resources %}
+            <ul class="resource-tree-list">
+              {% for resource in resources %}
+              <li>
+                <button type="button" class="resource-node file" data-resource-target="resource-{{ dimension_index }}-{{ tab }}-{{ loop.index0 }}">
+                  <span class="resource-node-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><polyline points="14 2 14 8 20 8"/></svg></span>
+                  <span class="resource-node-name" title="{{ resource.path | e }}">{{ resource.title | e }}</span>
+                  {% if tab == "related" %}<span class="resource-relate-btn is-readonly" aria-disabled="true" data-i18n="related">Related</span>{% endif %}
+                  {% if tab == "suggested" %}<span class="resource-suggest-btn is-readonly" aria-disabled="true" data-i18n="suggested">Suggested</span>{% endif %}
+                </button>
+              </li>
+              {% endfor %}
+            </ul>
+            {% else %}
+            <div class="resource-list-empty" data-i18n="empty">Nothing here yet.</div>
+            {% endif %}
+          </div>
+          <div class="resource-preview-column">
+            <div class="resource-preview">
+              <div class="preview-pane preview-pane-empty is-active" data-empty-preview>
+                <div class="resource-preview-empty" data-i18n="selectResourceToPreview">Select a resource to preview it.</div>
+              </div>
+              {% for resource in resources %}
+              <div class="preview-pane" id="resource-{{ dimension_index }}-{{ tab }}-{{ loop.index0 }}">
+                {% if resource.kind == "image" and resource.href %}
+                <img src="{{ resource.href | e }}" alt="{{ resource.title | e }}">
+                {% elif resource.kind == "pdf" and resource.href %}
+                <iframe src="{{ resource.href | e }}" title="{{ resource.title | e }}"></iframe>
+                {% else %}
+                <a class="resource-open-link" href="{{ resource.href | e }}" target="_blank" rel="noopener">{{ resource.title | e }}</a>
+                {% endif %}
+              </div>
+              {% endfor %}
+            </div>
+            <div class="inline-annotations">
+              <span class="inline-annotations-label" data-i18n="annotations">Annotations</span>
+              <button type="button" class="icon-btn create-annotation-btn" disabled data-i18n-title="createAnnotation" data-i18n-aria-label="createAnnotation">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+              </button>
+            </div>
+            {% for resource in resources if resource.annotations %}
+            <div class="annotations-tile" data-annotations-for="resource-{{ dimension_index }}-{{ tab }}-{{ loop.index0 }}" hidden>
+              {% for annotation in resource.annotations %}
+              <details class="annotations-tile-row">
+                <summary class="annotations-tile-summary"><span class="annotations-tile-badge">{{ annotation.type.rsplit('#', 1)[-1].replace('Annotation', '') | e }}</span><span class="annotations-tile-body-preview">{{ annotation.body | e }}</span></summary>
+                <div class="annotations-tile-detail"><div class="field-value">{{ annotation.body | e }}</div><div class="annotations-tile-meta">{{ (annotation.modified or annotation.created or '') | e }}</div></div>
+              </details>
+              {% endfor %}
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+      {% endfor %}
+    </article>
+  {% endfor %}
+  </div>
+</main>
+<script>
+(() => {
+  for (const card of document.querySelectorAll(".dimension-card")) {
+    const tabs = [...card.querySelectorAll("[data-resource-tab]")];
+    const panels = [...card.querySelectorAll("[data-resource-panel]")];
+    for (const tab of tabs) tab.addEventListener("click", () => {
+      for (const candidate of tabs) {
+        const active = candidate === tab;
+        candidate.classList.toggle("is-active", active);
+        candidate.setAttribute("aria-selected", String(active));
+      }
+      for (const panel of panels) panel.hidden = panel.dataset.resourcePanel !== tab.dataset.resourceTab;
+    });
+    for (const trigger of card.querySelectorAll("[data-resource-target]")) {
+      trigger.addEventListener("click", () => {
+        const panel = trigger.closest("[data-resource-panel]");
+        for (const pane of panel.querySelectorAll(".preview-pane")) pane.classList.toggle("is-active", pane.id === trigger.dataset.resourceTarget);
+        for (const item of panel.querySelectorAll(".resource-node")) item.classList.toggle("is-selected", item === trigger);
+        for (const notes of panel.querySelectorAll("[data-annotations-for]")) notes.hidden = notes.dataset.annotationsFor !== trigger.dataset.resourceTarget;
+      });
+    }
+  }
+  document.querySelector(".refresh-btn")?.addEventListener("click", () => location.reload());
+})();
+</script>
+</body>
+</html>

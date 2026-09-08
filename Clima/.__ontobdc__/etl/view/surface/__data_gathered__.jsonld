@@ -1,0 +1,181 @@
+[
+  {
+    "@id": "urn:uuid:0e2d451c-09e6-4e34-a83c-164340a7f88e",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#DataContainer"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#hasEntityDataset": [
+      {
+        "@id": "urn:ontobdc:storage/dataset/Clima/.__infobim__"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:0e2d451c-09e6-4e34-a83c-164340a7f88e"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@language": "en",
+        "@value": "Storage Container: Clima"
+      }
+    ],
+    "http://standards.iso.org/iso/21597/-1/ed-1/en/Container#creationDate": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+        "@value": "2026-08-16T21:15:29.106117+00:00"
+      }
+    ],
+    "http://standards.iso.org/iso/21597/-1/ed-1/en/Container#description": [
+      {
+        "@language": "en",
+        "@value": "Local storage container at Storage Container: Clima"
+      }
+    ],
+    "http://www.w3.org/ns/prov#atLocation": [
+      {
+        "@id": "file:///Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/Clima"
+      }
+    ]
+  },
+  {
+    "@id": "urn:infobim:presentation:ifc-model:02bnOETjT2RBTsUnYMUltf",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#DataEntity"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "02bnOETjT2RBTsUnYMUltf"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "IFC Model"
+      }
+    ],
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#value": [
+      {
+        "@value": "{\"project_id\":\"02bnOETjT2RBTsUnYMUltf\",\"class_count\":1,\"element_count\":1,\"classes\":[{\"class_uri\":\"https://standards.buildingsmart.org/IFC/DEV/IFC4_3/OWL#IfcProject\",\"class_name\":\"IfcProject\",\"element_count\":1,\"dataset_count\":1,\"datasets\":[\"/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/Clima/.__infobim__\"],\"elements\":[{\"GlobalId\":\"02bnOETjT2RBTsUnYMUltf\",\"Name\":\"Clima\",\"Description\":null,\"LongName\":null,\"Phase\":null,\"datasets\":[\"/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/Clima/.__infobim__\"]}]}]}"
+      }
+    ],
+    "https://schema.org/encodingFormat": [
+      {
+        "@value": "application/vnd.infobim.ifc-model+json"
+      }
+    ]
+  },
+  {
+    "@id": "urn:ontobdc:storage/dataset/Clima/.__infobim__/8e6ad83c72f60347b2f8b06e7c7dcef670d51afc354c064a45df3dd3f4ec3163",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#DataEntity",
+      "https://standards.buildingsmart.org/IFC/DEV/IFC4_3/OWL#IfcProject"
+    ],
+    "http://purl.org/dc/terms/conformsTo": [
+      {
+        "@id": "https://infobim.org/ontology/ns#IfcProjectFacade"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "02bnOETjT2RBTsUnYMUltf"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "Clima"
+      }
+    ],
+    "https://standards.buildingsmart.org/IFC/DEV/IFC4_3/OWL#globalId_IfcRoot": [
+      {
+        "@value": "02bnOETjT2RBTsUnYMUltf"
+      }
+    ],
+    "https://standards.buildingsmart.org/IFC/DEV/IFC4_3/OWL#name_IfcRoot": [
+      {
+        "@value": "Clima"
+      }
+    ]
+  },
+  {
+    "@id": "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#DataContainer",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#SurfaceableEntity"
+    ]
+  },
+  {
+    "@id": "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#FileTree",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#SurfaceableEntity"
+    ]
+  },
+  {
+    "@id": "urn:uuid:0e2d451c-09e6-4e34-a83c-164340a7f88e/files",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#FileTree"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:uuid:0e2d451c-09e6-4e34-a83c-164340a7f88e/files"
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "urn:uuid:0e2d451c-09e6-4e34-a83c-164340a7f88e"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@language": "en",
+        "@value": "Files"
+      }
+    ]
+  },
+  {
+    "@id": "file:///Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/Clima/.__infobim__/.__ontobdc__/dataset.ttl",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Ontology"
+    ]
+  },
+  {
+    "@id": "urn:ontobdc:storage/dataset/Clima/.__infobim__",
+    "@type": [
+      "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#EntityDataset"
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#belongsToDataContainer": [
+      {
+        "@id": "urn:uuid:0e2d451c-09e6-4e34-a83c-164340a7f88e"
+      }
+    ],
+    "http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#hasDataEntity": [
+      {
+        "@id": "urn:ontobdc:storage/dataset/Clima/.__infobim__/8e6ad83c72f60347b2f8b06e7c7dcef670d51afc354c064a45df3dd3f4ec3163"
+      }
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@value": "Storage dataset located at file:///Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/Clima/.__infobim__"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "urn:ontobdc:storage/dataset/Clima/.__infobim__"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@value": "Storage Dataset: .__infobim__"
+      }
+    ],
+    "http://standards.iso.org/iso/21597/-1/ed-1/en/Container#creationDate": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+        "@value": "2026-08-16T18:15:29"
+      }
+    ],
+    "http://www.w3.org/ns/prov#atLocation": [
+      {
+        "@id": "file:///Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/Clima/.__infobim__"
+      }
+    ]
+  }
+]

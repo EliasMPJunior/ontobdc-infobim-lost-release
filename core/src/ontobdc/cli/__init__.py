@@ -1,0 +1,926 @@
+
+import json
+import sys
+from typing import Any, Dict, List, Optional, Set, Tuple
+
+from ontobdc.cli.adapter.command import CliCommandRunAdapter
+from ontobdc.cli.adapter.logger import BaseLoggerAdapter, InLineLogger, NullLogRepository, StandardConsoleLogger
+from ontobdc.cli.adapter.terminal import prompt_choice
+from ontobdc.cli.domain.exception.command import CliCommandArgumentException
+from ontobdc.cli.domain.model.logger import LogLevel, LogStrategyConfig
+from ontobdc.cli.domain.port.command import CliCommandPort
+from ontobdc.cli.domain.port.context import CliContextPort, PromptChoiceAwarePort
+from ontobdc.cli.domain.port.logger import LoggerAwarePort, LogRepositoryPort
+from ontobdc.cli.domain.response.command import (
+    CommandResponse,
+    ExceptionCommandResponse,
+    HelpCommandResponse,
+    InteractiveCommandResponse,
+    RunCommandResponse,
+)
+from ontobdc.shared.adapter.loader import ParameterLoader
+from ontobdc.shared.domain.port.loader import PluginLoaderPort
+from ontobdc.shared.facade.adapter.logger import ActiveLogRepositoryBroker
+from ontobdc.cli.adapter.loader import ResponseWidgetAdapterLoader
+
+
+def main() -> None:
+    """
+    Main entry point for the ontobdc CLI.
+
+    Parses command line arguments and dispatches to the appropriate handler.
+    """
+    # Strip CLI-owned output flags before command routing. Command matching is
+    # positional, so renderer and silence flags must never reach accepts().
+    incoming_args: List[str] = _GLOBAL_ARGUMENTS.strip_output_flags()
+
+    # Keep the logger reference outside the try block so the error path can
+    # safely reuse it even when initialization fails partway through startup.
+    logger: Optional[LogRepositoryPort] = None
+    try:
+        # Resolve the output renderer requested by the user. Rich terminal
+        # output is the default unless JSON or HTML is explicitly requested.
+        render_type: str = 'rich'
+        if "--json" in sys.argv:
+            render_type = 'json'
+        elif "--html" in sys.argv:
+            render_type = 'html'
+
+        # Silence suppresses the final command response while still allowing
+        # the command pipeline itself to execute normally.
+        silent: bool = "--silent" in sys.argv or "-s" in sys.argv
+
+        # Select the logger implementation that matches the chosen renderer.
+        # JSON must remain free of console log noise, while rich output keeps
+        # logs inline with the terminal presentation surface.
+        logger = StandardConsoleLogger()
+        if render_type == 'json':
+            logger = NullLogRepository()
+        elif render_type == 'rich':
+            logger = InLineLogger()
+
+        # Consume the global --log-level option before command routing and
+        # retain the sanitized argument vector used to resolve the command.
+        resolved_log_level: Optional[LogLevel]
+        sanitized_incoming_args: List[str]
+        resolved_log_level, sanitized_incoming_args = (
+            _GLOBAL_ARGUMENTS.consume_log_level(incoming_args)
+        )
+
+        # Apply an explicit threshold before exposing the logger through the
+        # global broker. When --log-level is omitted, the repository keeps
+        # LogLevelPolicy.DEFAULT (NOTICE).
+        if resolved_log_level is not None:
+            _ = LogStrategyConfig(
+                log_level=resolved_log_level,
+                log_repository=logger,
+            )
+
+        # Publish the selected logger through the process-wide broker so
+        # lower layers can resolve the same active repository during the run.
+        ActiveLogRepositoryBroker.instance().set(logger)
+
+        # Resolve the concrete command from the sanitized arguments. Validation
+        # is deliberately deferred because parameter binding happens below.
+        cli_command_run: CliCommandPort = CliCommandRunAdapter.make(
+            sanitized_incoming_args,
+            logger,
+            defer_check=True,
+        )
+
+        if cli_command_run.METADATA.interactive and render_type != "rich":
+            raise CliCommandArgumentException(
+                f"Interactive command '{cli_command_run.METADATA.id}' "
+                f"does not support {render_type} output."
+            )
+
+        # Propagate an explicit global log level into the command context so
+        # command-level parameter consumers see the same resolved value.
+        if resolved_log_level is not None:
+            request: Optional[Any] = getattr(cli_command_run, "_request", None)
+            context: Optional[CliContextPort] = getattr(request, "context", None)
+            if context is not None:
+                context.set_parameter_value("log_level", resolved_log_level)
+
+        # Bind explicit and implicit parameters, then execute only when the
+        # command-specific validation stage accepts the resulting context.
+        if _PARAMETER_VALIDATOR.check(cli_command_run, sanitized_incoming_args, logger):
+            # Commands that are logger-aware receive a runtime log strategy
+            # backed by the same repository selected for this invocation.
+            if isinstance(cli_command_run, LoggerAwarePort):
+                log_strategy_kwargs: Dict[str, Any] = {"log_repository": logger}
+                if resolved_log_level is not None:
+                    log_strategy_kwargs["log_level"] = resolved_log_level
+                log_strategy = LogStrategyConfig(**log_strategy_kwargs)
+                cli_command_run.set_log_strategy(log_strategy)
+
+            # Interactive commands receive the terminal prompt callback only
+            # when they explicitly declare PromptChoiceAwarePort support.
+            if isinstance(cli_command_run, PromptChoiceAwarePort):
+                cli_command_run.set_prompt_choice(prompt_choice)
+
+            # Execute the resolved command after every dependency and parameter
+            # required by the command has been configured.
+            response: CommandResponse = cli_command_run.run()
+
+            # Render ordinary responses unless --silent was requested.
+            # Interactive responses own their terminal interaction and therefore
+            # must not be rendered a second time by the outer CLI shell.
+            if not silent and not isinstance(
+                response,
+                InteractiveCommandResponse,
+            ):
+                _RESPONSE_RENDERER.render(response, logger, render_type)
+
+            # A fully validated and executed command terminates successfully.
+            sys.exit(0)
+
+    except Exception as e:
+        # Recover the renderer defensively in case the failure happened before
+        # render_type was initialized inside the try block.
+        try:
+            safe_render_type: str = render_type
+        except NameError:
+            safe_render_type = "rich"
+
+        # Recover the silence flag for the same early-startup failure scenario.
+        try:
+            safe_silent: bool = silent
+        except NameError:
+            safe_silent = False
+
+        # Guarantee an error-path logger even if normal logger initialization
+        # failed. The null repository keeps exception handling side-effect safe.
+        safe_logger: LogRepositoryPort = (
+            logger if logger is not None else NullLogRepository()
+        )
+
+        # Convert every uncaught CLI failure into the standard command-response
+        # model so all renderer modes share the same error presentation path.
+        response: CommandResponse = ExceptionCommandResponse(
+            title="Run",
+            description="Command execution failed.",
+            content={"error": str(e)},
+        )
+
+        # Respect --silent for failures as well; otherwise render the normalized
+        # exception response using the safest available renderer and logger.
+        if not safe_silent:
+            _RESPONSE_RENDERER.render(response, safe_logger, safe_render_type)
+
+        # Any uncaught exception represents a failed CLI invocation.
+        sys.exit(1)
+    finally:
+        # Always clear process-wide logger state so one invocation cannot leak
+        # its active repository into a subsequent command run.
+        ActiveLogRepositoryBroker.instance().clear()
+
+
+class CliGlobalArgumentParser:
+    """Stage-0 argv parsing: the tokens the CLI shell consumes before any
+    command sees the argument vector.
+
+    Groups the two pre-routing sanitisation steps that used to be loose
+    module-level functions, alongside
+    :class:`CliParameterValidationOrchestrator` and
+    :class:`CommandResponseRenderer`:
+
+    1. :meth:`strip_output_flags` removes the output-mode / silence flags
+       (``--json`` / ``--rich`` / ``--html`` / ``--silent`` / ``-s``) so
+       they never reach ``CliCommandRunAdapter.make``'s strict positional
+       command matching.
+    2. :meth:`consume_log_level` does the same for ``--log-level VALUE``,
+       resolving it through the canonical :class:`LogLevelStrategy`
+       helpers so ``main`` and the parameter-strategy pipeline never
+       diverge.
+
+    Stateless: one shared instance is reused for every invocation.
+    """
+
+    _OUTPUT_FLAGS: Tuple[str, ...] = (
+        "--json",
+        "--rich",
+        "--html",
+        "--silent",
+        "-s",
+    )
+
+    def strip_output_flags(
+        self,
+        argv: Optional[List[str]] = None,
+    ) -> List[str]:
+        """Return *argv* (default ``sys.argv[1:]``) without the CLI's own
+        output-mode and silence flags.
+        """
+        source: List[str] = list(sys.argv[1:] if argv is None else argv)
+        return [arg for arg in source if arg not in self._OUTPUT_FLAGS]
+
+    def consume_log_level(
+        self,
+        args: List[str],
+    ) -> Tuple[Optional[LogLevel], List[str]]:
+        """Consume every ``--log-level`` flag and its value from *args*
+        before command routing runs.
+
+        ``--log-level`` is valid for every command and must **disappear**
+        from ``incoming_args`` before ``CliCommandRunAdapter.make`` scans
+        candidates via ``CliCommandPort.accepts(args)`` -- leaving it in
+        the argument vector at routing time would break the strict
+        positional matching every command uses (``len(args)`` and token
+        positions).
+
+        The implementation deliberately **reuses** the stateless helpers
+        on :class:`LogLevelStrategy` so the parser, normaliser and
+        validator live in a single canonical source of truth -- no
+        duplicated logic between ``main`` and the parameter-strategy
+        pipeline.
+
+        Returns:
+            A 2-tuple ``(resolved_level, sanitized_args)`` where
+            *resolved_level* is ``None`` when the user did not supply the
+            flag and *sanitized_args* is a copy of *args* with every
+            ``--log-level VALUE`` / ``--log-level=VALUE`` token stripped.
+        """
+        from ontobdc.cli.plugin.parameter.log_level import (
+            LogLevelStrategy as _LLS,
+        )
+
+        raw_level, sanitized_args = _LLS._consume(list(args))
+        resolved_level: Optional[LogLevel] = None
+        if raw_level is not None:
+            resolved_level = _LLS._resolve(raw_level)
+        return resolved_level, sanitized_args
+
+
+_GLOBAL_ARGUMENTS = CliGlobalArgumentParser()
+
+
+class CliParameterValidationOrchestrator:
+    """Orchestrates the binding and validation of CLI parameters before a
+    command ``run()`` executes.
+
+    This class groups the four tightly-coupled parameter-resolution steps
+    that were previously loose module-level functions, keeping the CLI
+    entry-point lean and the flow cohesive:
+
+    1. *Explicit valued flags* are read from ``incoming_args`` and written
+       to the ``CliContextPort`` (``--container urn:...`` becomes
+       ``context["container"] = "urn:..."``).
+    2. *Required parameter names* are harvested from the command's
+       ``METADATA.arguments`` so parameter strategies that are not declared
+       by the command are skipped (they would run, but write to context
+       keys the command never reads -- a waste at best, misleading at
+       worst).
+    3. Every ``ParameterStrategy`` declared by the ``ParameterLoader`` and
+       matched to the required names is *configured* for this environment
+       (logger, prompt callbacks) and then *executed* against the context
+       (the "implicit parameter" stage that derives values from defaults,
+       env vars, project config, or resolved paths).
+    4. The command's own ``check()`` runs last -- if it returns False the
+       orchestrator raises ``CliCommandArgumentException`` so the caller
+       (``main``) can print the failure and exit.
+
+    The orchestrator is stateless: every input is passed as an argument and
+    the same instance is safe to reuse across multiple command runs.
+    """
+
+    def check(
+        self,
+        cli_command_run: CliCommandPort,
+        incoming_args: List[str],
+        logger: LogRepositoryPort,
+        parameter_loader: Optional[ParameterLoader] = None,
+    ) -> bool:
+        """Return True when ``cli_command_run`` has valid inputs to execute.
+
+        Raises :class:`CliCommandArgumentException` whenever parameter
+        binding ran but the command's own ``check()`` still rejects the
+        context -- this is the public entry-point the CLI ``main()`` calls
+        before dispatching to :meth:`CliCommandPort.run`.
+        """
+        request: Optional[Any] = getattr(cli_command_run, "_request", None)
+        context: Optional[CliContextPort] = getattr(request, "context", None)
+        if context is None:
+            return True
+
+        self.apply_explicit_parameter_values(cli_command_run, incoming_args, context)
+
+        if parameter_loader is None:
+            parameter_loader = ParameterLoader(logger=logger)
+
+        parameter_strategies: List[Any] = parameter_loader.get_all()
+        required_parameter_names: Set[str] = self.resolve_required_parameter_names(
+            cli_command_run
+        )
+
+        for parameter_strategy in parameter_strategies:
+            parameter_name: Optional[str] = self.resolve_parameter_name(parameter_strategy)
+            if parameter_name is None or parameter_name not in required_parameter_names:
+                continue
+
+            self.configure_parameter_strategy(parameter_strategy, logger)
+            parameter_strategy.execute(context)
+
+        if not cli_command_run.check():
+            raise CliCommandArgumentException(
+                f"Invalid command arguments: {incoming_args}"
+            )
+
+        return True
+
+    def apply_explicit_parameter_values(
+        self,
+        cli_command_run: CliCommandPort,
+        incoming_args: List[str],
+        context: CliContextPort,
+    ) -> None:
+        """Copy every valued long-flag (``--foo value``) declared by the
+        command's ``METADATA`` into ``context``. The optional ``parameter``
+        metadata entry owns the context key; otherwise the flag's snake_case
+        name is used.
+
+        Bails silently when the command declares no ``arguments`` list, no
+        valued entries, or when the user did not supply a value token after
+        the flag -- the later ``check()`` stage is responsible for turning
+        missing-but-required values into user-visible errors.
+        """
+        metadata: Optional[Any] = getattr(cli_command_run, "METADATA", None)
+        arguments: Any = getattr(metadata, "arguments", [])
+        if not isinstance(arguments, list):
+            return
+
+        argument_definition: Any
+        for argument_definition in arguments:
+            if not isinstance(argument_definition, dict):
+                continue
+            if not bool(argument_definition.get("valued", False)):
+                continue
+
+            accepts: Any = argument_definition.get("accepts", [])
+            if not isinstance(accepts, list):
+                continue
+
+            accepted_flag: Any
+            for accepted_flag in accepts:
+                if not isinstance(accepted_flag, str) or not accepted_flag.startswith("--"):
+                    continue
+                if accepted_flag not in incoming_args:
+                    continue
+
+                accepted_flag_index: int = incoming_args.index(accepted_flag)
+                next_index: int = accepted_flag_index + 1
+                if next_index >= len(incoming_args):
+                    return
+
+                parameter_name: str = str(
+                    argument_definition.get("parameter")
+                    or accepted_flag[2:].replace("-", "_")
+                )
+                context.set_parameter_value(
+                    parameter_name,
+                    incoming_args[next_index],
+                )
+                break
+
+    def resolve_required_parameter_names(
+        self,
+        cli_command_run: CliCommandPort,
+    ) -> Set[str]:
+        """Return the parameter keys the command's ``METADATA`` declares.
+
+        Parameter strategies whose ``METADATA.name`` is not in this set are
+        skipped during the implicit stage, which keeps the parameter
+        pipeline deterministic and avoids leaking shared strategies into
+        commands that never asked for them. An explicit ``parameter`` entry
+        takes precedence over the long flag's derived snake_case name.
+        """
+        metadata: Optional[Any] = getattr(cli_command_run, "METADATA", None)
+        arguments: Any = getattr(metadata, "arguments", [])
+        if not isinstance(arguments, list):
+            return set()
+
+        required_parameter_names: Set[str] = set()
+        argument_definition: Any
+        for argument_definition in arguments:
+            if not isinstance(argument_definition, dict):
+                continue
+            if not bool(argument_definition.get("valued", False)):
+                continue
+
+            accepts: Any = argument_definition.get("accepts", [])
+            if not isinstance(accepts, list):
+                continue
+
+            explicit_parameter_name: Any = argument_definition.get("parameter")
+            if (
+                isinstance(explicit_parameter_name, str)
+                and explicit_parameter_name.strip()
+            ):
+                required_parameter_names.add(explicit_parameter_name.strip())
+                continue
+
+            accepted_flag: Any
+            for accepted_flag in accepts:
+                if not isinstance(accepted_flag, str) or not accepted_flag.startswith("--"):
+                    continue
+                required_parameter_names.add(accepted_flag[2:].replace("-", "_"))
+
+        return required_parameter_names
+
+    def resolve_parameter_name(self, parameter_strategy: Any) -> Optional[str]:
+        """Return the normalized snake_case parameter name a parameter
+        strategy wants to own, or ``None`` when the strategy has no
+        ``METADATA.name``.
+        """
+        metadata: Optional[Any] = getattr(parameter_strategy, "METADATA", None)
+        parameter_name: Any = getattr(metadata, "name", None)
+        if not isinstance(parameter_name, str):
+            return None
+
+        normalized_parameter_name: str = parameter_name.strip()
+        if not normalized_parameter_name:
+            return None
+
+        return normalized_parameter_name
+
+    def configure_parameter_strategy(
+        self,
+        parameter_strategy: Any,
+        logger: LogRepositoryPort,
+    ) -> None:
+        """Attach shared runtime callbacks (logger, interactive prompts)
+        to a parameter strategy that declares support for them via the
+        ``LoggerAwarePort`` / ``PromptChoiceAwarePort`` marker ports.
+        """
+        if isinstance(parameter_strategy, LoggerAwarePort):
+            parameter_strategy.set_log_strategy(
+                LogStrategyConfig(
+                    log_repository=logger,
+                )
+            )
+
+        if isinstance(parameter_strategy, PromptChoiceAwarePort):
+            parameter_strategy.set_prompt_choice(prompt_choice)
+
+
+_PARAMETER_VALIDATOR = CliParameterValidationOrchestrator()
+
+
+class CommandResponseRenderer:
+    """Renders a :class:`CommandResponse` to the terminal in one output mode.
+
+    Groups what used to be a family of loose module-level ``_render_*``
+    helpers, mirroring :class:`CliParameterValidationOrchestrator` above so
+    the CLI entry-point stays lean and the widget -> markdown -> surface
+    flow lives in one cohesive place.
+
+      * ``json`` -- print the response's own JSON representation.
+      * ``rich`` -- decompose the response into Widgets, lower them to a
+        single Markdown document (:meth:`response_to_markdown`) and frame
+        that through the terminal PresentationSurface.
+      * ``html`` -- print the response's own HTML representation.
+
+    :meth:`response_to_markdown` and :meth:`ux_theme_for` are the shared
+    surface ``infobim`` and ``ontobdc-dev`` reuse, so the per-widget
+    dispatch and theme policy stay defined exactly once.
+
+    The renderer is stateless; one shared instance is reused for every
+    command run.
+    """
+
+    def render(
+        self,
+        response: CommandResponse,
+        logger: BaseLoggerAdapter,
+        render_type: str,
+    ) -> None:
+        """Render *response* to the console in *render_type* mode.
+
+        *logger* is accepted for call-site symmetry with the rest of the
+        CLI pipeline; the rich renderer resolves its own collaborators.
+        """
+        if render_type == "json":
+            self._render_json(response)
+        elif render_type == "rich":
+            self._render_rich(response)
+        elif render_type == "html":
+            self._render_html(response)
+        else:
+            raise ValueError(f"Unknown render type: {render_type}")
+
+    def _render_json(self, response: CommandResponse) -> None:
+        """Print the response's JSON representation."""
+        print(response)
+
+    def _render_html(self, response: CommandResponse) -> None:
+        """Print the response's HTML representation."""
+        print(response)
+
+    def _render_rich(self, response: CommandResponse) -> None:
+        """Render *response* onto the terminal PresentationSurface.
+
+        The output is framed by a single outer UX moldura (Unicode
+        box-drawing) whose border color follows the active UX theme. The
+        top border line is the "operation bar" -- tiles placed inside the
+        ``OperationRegion`` of the surface (logo, etc.) *open a cutout* in
+        the top line and sit flush inside the frame, exactly like the HTML
+        presentation layer's top operation bar. The body region is inner
+        full-width and carries the rendered response content (heading,
+        description, widgets/tables). Tiles in the ``PinnedRegion`` open a
+        matching cutout in the bottom border line for chrome/status
+        elements.
+        """
+        # Local imports to avoid the top-level circular import chain:
+        # cli/__init__.py -> widget/python.py (fine)  but  the legacy
+        # surface imports shared/adapter/loader -> facade/port/context ->
+        # cli/domain/port/context  ->  back to cli/__init__.py before this
+        # module has finished loading.
+        from ontobdc.cli.adapter.loader import (
+            ResponseWidgetAdapterLoader as _RWAL,
+        )
+        from ontobdc.cli.adapter.surface import (
+            TerminalSurfaceRenderer as _TSR,
+        )
+        from ontobdc.cli.component.widget.python import TextWidget as _TW
+
+        body_markdown: str = self.response_to_markdown(
+            response,
+            response_loader_cls=_RWAL,
+            text_widget_cls=_TW,
+            widget_protocol=None,
+        )
+
+        theme: str = self.ux_theme_for(response)
+        output: str = _TSR.select_and_render(
+            body_markdown=body_markdown,
+            renderer=_TSR(theme=theme),
+        )
+        print(output, end="" if output.endswith("\n") else "\n")
+
+    def ux_theme_for(self, response: CommandResponse) -> str:
+        """The PresentationSurface theme key for *response*'s type.
+
+        Every branch returns a real ``TerminalSurfaceRenderer`` palette
+        key; an unrecognised response type falls through to the default
+        ``"ontobdc"`` accent.
+        """
+        if isinstance(response, ExceptionCommandResponse):
+            return "error"
+        if isinstance(response, HelpCommandResponse):
+            return "info"
+        if isinstance(response, RunCommandResponse):
+            return "neutral"
+        return "ontobdc"
+
+    def _default_severity_for_response(
+        self,
+        response: CommandResponse,
+    ) -> Optional[str]:
+        """Mirror of ``BaseResponseWidgetAdapter._default_heading_severity``.
+
+        Duplicated here intentionally to avoid pulling the adapter layer
+        into a helper that runs *before* widget decomposition -- this is
+        single-purpose: convert a CommandResponse type into a string-level
+        severity suitable for ``severity_badge(...)``.  Keep the two
+        policies in sync manually if the rules ever change.
+        """
+        if isinstance(response, ExceptionCommandResponse):
+            return "ERROR"
+        if isinstance(response, HelpCommandResponse):
+            return "INFO"
+        if isinstance(response, RunCommandResponse):
+            return "RUN"
+        return "INFO"
+
+    def response_to_markdown(
+        self,
+        response: CommandResponse,
+        *,
+        response_loader_cls: Any,
+        text_widget_cls: Any,
+        widget_protocol: Any = None,
+    ) -> str:
+        title: str = str(response.title or "").strip()
+        description: str = str(response.description or "").strip()
+        from ontobdc.shared.adapter.terminal_color import GRAY, RESET, severity_badge
+
+        severity: Optional[object] = getattr(response, "severity", None)
+        if severity is None:
+            severity = self._default_severity_for_response(response)
+        badge: str = (
+            severity_badge(severity, fallback=None) if severity is not None else ""
+        )
+
+        loader = response_loader_cls()
+        adapter = loader.get(response)
+        widgets: List[Any] = adapter.widgets(response)
+
+        _heading_prefix: str = f"# {title}" if title else ""
+
+        def _is_duplicate_top_level_heading_widget(w: Any) -> bool:
+            if not isinstance(w, text_widget_cls):
+                return False
+            w_heading: str = (getattr(w, "heading", "") or "").lstrip()
+            if not title:
+                return False
+            if w_heading.lstrip() == _heading_prefix:
+                return True
+            if w_heading.strip() == str(title).strip():
+                return True
+            return False
+
+        content_widgets: List[Any] = [w for w in widgets if not _is_duplicate_top_level_heading_widget(w)]
+
+        lines: List[str] = []
+        if title:
+            heading_line: str = f"# {title}"
+            if badge:
+                heading_line = f"{badge} {heading_line}"
+            lines.append(heading_line)
+            lines.append("")
+            if description:
+                lines.append(description)
+                lines.append("")
+
+        def _escape_pipe_cell(value: Any) -> str:
+            text: str = str(value).replace("\n", " ").strip()
+            return text.replace("\\", "\\\\").replace("|", "\\|")
+
+        for widget in content_widgets:
+            wtype: str = type(widget).__name__
+            # --- TableWidget → emit a pipe table so the new terminal markdown
+            # renderer paints it as an inner grid with cyan bold headers.  This is the
+            # crucial fix: previously we do NOT fall back to TableWidget.render() which emits
+            # raw space-padded columns that the markdown parser ignores.
+            if wtype == "TableWidget":
+                headers: List[str] = list(getattr(widget, "headers", []) or [])
+                rows_list: List[List[Any]] = list(getattr(widget, "rows", []) or [])
+                if headers:
+                    safe_headers: List[str] = [_escape_pipe_cell(h) for h in headers]
+                    lines.append("| " + " | ".join(safe_headers) + " |")
+                    lines.append("| " + " | ".join("---" for _ in safe_headers) + " |")
+                    for row in rows_list:
+                        cells: List[str] = [
+                            _escape_pipe_cell(c if c is not None else "") for c in row]
+                        while len(cells) < len(safe_headers):
+                            cells.append("")
+                        lines.append("| " + " | ".join(cells[: len(safe_headers)]) + " |")
+                    lines.append("")
+
+                    # --- DETAILS → one card per record with every field spelled
+                    # out in full (no column-width budget to share, so nothing
+                    # here is ever wrapped or cut). Generic to any TableWidget,
+                    # not just storage containers, so every list-shaped CLI
+                    # response gets a lossless detail view under its table.
+                    # Heading level matches CONTAINERS-style list headings (## )
+                    # so DETAILS sits at the same left alignment.
+                    if rows_list:
+                        lines.append("## DETAILS")
+                        lines.append("")
+                        for row in rows_list:
+                            first_value: Any = row[0] if row else ""
+                            card_title: str = str(
+                                first_value if first_value is not None else ""
+                            ).replace("\n", " ").strip() or "—"
+                            lines.append(f"#### {card_title}")
+                            for col_index, header in enumerate(headers):
+                                # The first column is already the card title
+                                # (``#### {card_title}`` above) -- repeating it
+                                # as a bullet is pure noise.
+                                if col_index == 0:
+                                    continue
+                                cell_value: Any = row[col_index] if col_index < len(row) else ""
+                                cell_text: str = str(
+                                    cell_value if cell_value is not None else ""
+                                ).replace("\n", " ").strip()
+                                lines.append(f"- {str(header).upper()}: {cell_text}")
+                            lines.append("")
+                continue
+
+            if wtype == "KeyValueWidget":
+                pairs: List[Any] = list(getattr(widget, "pairs", []) or [])
+                if pairs:
+                    n_pairs: int = len(pairs)
+                    if n_pairs == 1:
+                        # Singleton KV record (e.g. version command): render the
+                        # key as an UPPER CASE label + the value on the same line
+                        # instead of the generic two-column pipe table.  This
+                        # matches the "a version command output should not live
+                        # inside a KEY/VALUE table" UX expectation from InfoBIM
+                        # (and, transitively, OntoBDC's own short commands).
+                        try:
+                            k, v = pairs[0][0], pairs[0][1]
+                        except Exception:
+                            k, v = str(pairs[0]), ""
+                        label: str = str(k).upper().strip()
+                        value: str = "" if v is None else str(v).strip()
+                        lines.append(f"{label}  {value}")
+                        lines.append("")
+                        continue
+                    # Multi-pair records: render as one bullet per pair ("LABEL:
+                    # value"), never as plain aligned lines. Plain lines with no
+                    # markdown marker are indistinguishable from ordinary prose
+                    # to the downstream markdown-body renderer, which merges
+                    # every consecutive non-blank line into a single paragraph
+                    # and re-wraps it -- destroying the one-line-per-pair layout
+                    # (every KEY/value pair runs together). A "- " bullet is
+                    # recognised and flushed independently by that renderer (see
+                    # ``_MarkdownBodyTile.render_wrapped``'s bullet handling),
+                    # which also styles the "LABEL:" prefix in the theme accent
+                    # colour -- the same convention already used by the per-row
+                    # DETAILS cards under a TableWidget, so this stays visually
+                    # consistent rather than introducing a new format. A key
+                    # that happens to contain "|" (joined flag aliases, e.g.
+                    # "--container-id | --container") would otherwise also be
+                    # misread as a markdown table header by that same renderer;
+                    # bullets are matched before the table-header heuristic, so
+                    # this sidesteps that false positive too.
+                    #
+                    # A value may carry extra lines after its first ("\n"
+                    # separated, e.g. a "description\nExample: ..." pair built
+                    # by ``CliBaseCommand._command_summaries``). Each extra line
+                    # is emitted as a "\t"-prefixed detail line -- a convention
+                    # ``_MarkdownBodyTile.render_wrapped`` recognises and
+                    # renders indented and dimmed, on its own row, without
+                    # merging it into the next pair's bullet. A blank line is
+                    # inserted after every pair (not just once at the end) so
+                    # the list reads as separated items instead of one dense
+                    # block.
+                    for pair in pairs:
+                        try:
+                            k, v = pair[0], pair[1]
+                        except Exception:
+                            k, v = str(pair), ""
+                        key_text = str(k).upper().strip()
+                        raw_value: str = "" if v is None else str(v).strip()
+                        value_lines: List[str] = raw_value.split("\n")
+                        lines.append(f"- {key_text}: {value_lines[0].strip()}")
+                        for detail_line in value_lines[1:]:
+                            detail_text: str = detail_line.strip()
+                            if not detail_text:
+                                continue
+                            label_part, sep, rest_part = detail_text.partition(":")
+                            if sep:
+                                detail_text = f"{label_part}:{GRAY}{rest_part}{RESET}"
+                            else:
+                                detail_text = f"{GRAY}{detail_text}{RESET}"
+                            lines.append(f"\t{detail_text}")
+                        lines.append("")
+                continue
+
+            if wtype in ("CodeBlockWidget",):
+                raw_text: str = str(getattr(widget, "text", "") or "")
+                if raw_text:
+                    lines.append("```")
+                    lines.extend(raw_text.splitlines())
+                    lines.append("```")
+                    lines.append("")
+                continue
+
+            if wtype == "ErrorWidget":
+                msg: str = str(getattr(widget, "message", "") or "")
+                if msg:
+                    lines.append("```")
+                    lines.extend(msg.splitlines())
+                    extra: Any = getattr(widget, "traceback", None)
+                    if isinstance(extra, (list, tuple)):
+                        lines.extend([str(line) for line in extra if line is not None])
+                    elif isinstance(extra, str) and extra.strip():
+                        lines.extend(extra.splitlines())
+                    lines.append("```")
+                    lines.append("")
+                continue
+
+            if wtype == "GridWidget":
+                # Legacy grid metadata payload: dump as a fenced JSON block so the
+                # structural numbers are preserved without forcing the renderer to
+                # re-implement the old terminal tile-grid drawing.
+                payload: Dict[str, Any] = {
+                    "columns": int(getattr(widget, "columns", 1) or 1),
+                    "rows": int(getattr(widget, "rows", 1) or 1),
+                    "slot_width": int(getattr(widget, "slot_width", 20) or 20),
+                    "slot_height": int(getattr(widget, "slot_height", 5) or 5),
+                    "operation_enabled": bool(getattr(widget, "operation_enabled", False)),
+                    "pinned_enabled": bool(getattr(widget, "pinned_enabled", False)),
+                }
+                lines.append("```")
+                lines.extend(json.dumps(payload, indent=2).splitlines())
+                lines.append("```")
+                lines.append("")
+                continue
+
+            # --- GraphWidget → emit the node list and edge list as pipe tables
+            #      (nodes / edges) and then render the graph as inline code lines
+            #      pre-padded so they look like a graph section without the ```
+            #      fence.  Using a fence would force the graph lines to inherit the
+            #      renderer's paragraph-wrap width (which doesn't have access to the
+            #      terminal columns) and make the renderer cut the graph mid-box.
+            if wtype == "GraphWidget":
+                node_list: List[Any] = list(getattr(widget, "nodes", []) or [])
+                edge_list: List[Any] = list(getattr(widget, "edges", []) or [])
+                if node_list:
+                    lines.append("### Nodes")
+                    lines.append("| ID | Label |")
+                    lines.append("| --- | --- |")
+                    for n in node_list:
+                        if isinstance(n, dict):
+                            lines.append(
+                                f"| {_escape_pipe_cell(n.get('id', ''))} "
+                                f"| {_escape_pipe_cell(n.get('label', n.get('id', '')))} |"
+                            )
+                    lines.append("")
+                if edge_list:
+                    lines.append("### Edges")
+                    lines.append("| Source | Target | Label |")
+                    lines.append("| --- | --- | --- |")
+                    for e in edge_list:
+                        if isinstance(e, dict):
+                            lines.append(
+                                f"| {_escape_pipe_cell(e.get('source', ''))} "
+                                f"| {_escape_pipe_cell(e.get('target', ''))} "
+                                f"| {_escape_pipe_cell(e.get('label', ''))} |"
+                            )
+                    lines.append("")
+                render_fn = getattr(widget, "render", None)
+                rendered_graph: List[str] = []
+                if callable(render_fn):
+                    try:
+                        rendered_graph = list(render_fn(180) or [])
+                    except Exception as exc:  # noqa: BLE001 — keep CLI from failing
+                        rendered_graph = [
+                            "```",
+                            f"<graph-render-error {type(exc).__name__}: {exc}>",
+                            "```",
+                        ]
+                if rendered_graph:
+                    lines.append("### Graph")
+                    for gline in rendered_graph:
+                        if gline.startswith("```"):
+                            lines.append(str(gline))
+                        else:
+                            lines.append(" " + str(gline))
+                    lines.append("")
+                continue
+
+            # --- TreeWidget → emit the pre-drawn directory-tree lines verbatim
+            #      (single leading space = don't reflow/reword-wrap them; the
+            #      tree's own guide lines and indentation must survive as-is).
+            if wtype == "TreeWidget":
+                render_fn = getattr(widget, "render", None)
+                rendered_tree: List[str] = []
+                if callable(render_fn):
+                    try:
+                        rendered_tree = list(render_fn(180) or [])
+                    except Exception as exc:  # noqa: BLE001 — keep CLI from failing
+                        rendered_tree = [
+                            "```",
+                            f"<tree-render-error {type(exc).__name__}: {exc}>",
+                            "```",
+                        ]
+                for tline in rendered_tree:
+                    if tline.startswith("```"):
+                        lines.append(str(tline))
+                    else:
+                        lines.append(" " + str(tline))
+                lines.append("")
+                continue
+
+            # --- default (TextWidget and unknown) → fallback to widget.render(...)
+            #      when available.  Container payloads that do not know how to
+            #      self-render are dumped as a fenced JSON block to keep the CLI
+            #      from exploding on legacy/unknown widget shapes.
+            try:
+                render_fn = getattr(widget, "render", None)
+                if callable(render_fn):
+                    rendered: List[str] = render_fn(max(40, 70))
+                    lines.extend(rendered)
+                    lines.append("")
+                else:
+                    lines.append("```")
+                    try:
+                        as_text: str
+                        if hasattr(widget, "to_dict") and callable(getattr(widget, "to_dict")):
+                            as_text = json.dumps(getattr(widget, "to_dict")(), indent=2, default=str)
+                        elif isinstance(widget, dict):
+                            as_text = json.dumps(widget, indent=2, default=str)
+                        else:
+                            payload_dict: Dict[str, Any] = {
+                                k: v for k, v in vars(widget).items()
+                                if not k.startswith("_")
+                            } if hasattr(widget, "__dict__") else {"value": repr(widget)}
+                            as_text = json.dumps(payload_dict, indent=2, default=str)
+                        lines.extend(as_text.splitlines())
+                    except Exception:
+                        lines.append(repr(widget))
+                    lines.append("```")
+                    lines.append("")
+            except Exception as exc:  # noqa: BLE001 — CLI must not crash on render fallback
+                lines.append("```")
+                lines.append(f"render-fallback-error: {type(exc).__name__}: {exc}")
+                lines.append("```")
+                lines.append("")
+
+        return "\n".join(lines).rstrip()
+
+
+_RESPONSE_RENDERER = CommandResponseRenderer()
