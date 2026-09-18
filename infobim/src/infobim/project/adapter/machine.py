@@ -2,7 +2,7 @@ from pathlib import Path
 from typing import Dict, List, Optional, Type
 
 from infobim.project.adapter.render import ProjectCreateResponseRenderer
-from infobim.project.domain.machine.state import ProjectCreateProcessState
+from infobim.project.plugin.machine.project_create.state import ProjectCreateProcessState
 from infobim.project.plugin.capability.transformation.ifc_project_facade_ready import IfcProjectFacadeReadyCapability
 from infobim.project.plugin.capability.transformation.ifc_project_ready import IfcProjectReadyCapability
 from infobim.project.plugin.capability.transformation.ontobdc_container_ready import OntoBDCContainerReadyCapability

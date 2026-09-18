@@ -1,0 +1,173 @@
+@prefix : <http://ontobdc.org/ontology/domain/uc.ttl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix schema: <https://schema.org/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ontouml: <https://w3id.org/ontouml#> .
+@prefix obdc_code: <http://ontobdc.org/ontology/domain/code.ttl#> .
+@base <http://ontobdc.org/ontology/domain/uc.ttl#> .
+
+<http://ontobdc.org/ontology/domain/uc.ttl> rdf:type owl:Ontology ;
+                                             owl:imports <http://ontobdc.org/ontology/domain/code.ttl> ;
+                                             dcterms:description "Use case specifications for the OntoBDC system."@en ;
+                                             dcterms:title "OntoBDC Use Cases"@en .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://ontobdc.org/ontology/domain/code.ttl#hasPrimaryActor
+obdc_code:hasPrimaryActor rdf:type owl:AnnotationProperty .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#hasMainFlow
+obdc_code:hasMainFlow rdf:type owl:AnnotationProperty .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#hasStep
+obdc_code:hasStep rdf:type owl:AnnotationProperty .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#hasSupportingActor
+obdc_code:hasSupportingActor rdf:type owl:AnnotationProperty .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#nextStep
+obdc_code:nextStep rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+dcterms:description rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+dcterms:title rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#definition
+skos:definition rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#prefLabel
+skos:prefLabel rdf:type owl:AnnotationProperty .
+
+
+###  https://schema.org/description
+schema:description rdf:type owl:AnnotationProperty .
+
+
+###  https://schema.org/identifier
+schema:identifier rdf:type owl:AnnotationProperty .
+
+
+###  https://schema.org/name
+schema:name rdf:type owl:AnnotationProperty .
+
+
+###  https://w3id.org/ontouml#name
+ontouml:name rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://ontobdc.org/ontology/domain/code.ttl#UseCase
+obdc_code:UseCase rdf:type owl:Class .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#UseCaseHumanActor
+obdc_code:UseCaseHumanActor rdf:type owl:Class .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#UseCaseMainFlow
+obdc_code:UseCaseMainFlow rdf:type owl:Class .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#UseCaseSoftwareActor
+obdc_code:UseCaseSoftwareActor rdf:type owl:Class .
+
+
+###  http://ontobdc.org/ontology/domain/code.ttl#UseCaseStep
+obdc_code:UseCaseStep rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://ontobdc.org/ontology/domain/uc.ttl#OntoBDCSystem
+:OntoBDCSystem rdf:type owl:NamedIndividual ,
+                        obdc_code:UseCaseSoftwareActor ;
+               schema:description "Software agent that performs the physical inventory."@en ;
+               schema:name "OntoBDC System"@en .
+
+
+###  http://ontobdc.org/ontology/domain/uc.ttl#RepositoryOperator
+:RepositoryOperator rdf:type owl:NamedIndividual ,
+                             obdc_code:UseCaseHumanActor ;
+                    schema:description "Person responsible for triggering and reviewing the physical inventory of a file repository."@en ;
+                    schema:name "Repository operator"@en .
+
+
+###  http://ontobdc.org/ontology/domain/uc.ttl#UC002PhysicalInventory
+:UC002PhysicalInventory rdf:type owl:NamedIndividual ,
+                                 obdc_code:UseCase ;
+                        obdc_code:hasMainFlow :UC002PhysicalInventoryMainFlow ;
+                        obdc_code:hasPrimaryActor :RepositoryOperator ;
+                        obdc_code:hasSupportingActor :OntoBDCSystem ;
+                        dcterms:description "The system performs a physical inventory of a file repository, focusing on directory contents rather than document classification."@en ;
+                        dcterms:title "Physical inventory"@en ;
+                        rdfs:comment "This use case is independent from document classification. It only describes the directory contents."@en ;
+                        rdfs:label "UC-002 - Physical inventory"@en ;
+                        skos:prefLabel "UC-002 - Physical inventory"@en ;
+                        schema:identifier "UC-002" ;
+                        ontouml:name "UC002PhysicalInventory"@en .
+
+
+###  http://ontobdc.org/ontology/domain/uc.ttl#UC002PhysicalInventoryMainFlow
+:UC002PhysicalInventoryMainFlow rdf:type owl:NamedIndividual ,
+                                         obdc_code:UseCaseMainFlow ;
+                                obdc_code:hasStep :UC002PhysicalInventoryStep01 ,
+                                                  :UC002PhysicalInventoryStep02 ,
+                                                  :UC002PhysicalInventoryStep03 ,
+                                                  :UC002PhysicalInventoryStep04 ;
+                                schema:description "Main flow for the physical inventory use case."@en ;
+                                schema:name "UC-002 main flow"@en .
+
+
+###  http://ontobdc.org/ontology/domain/uc.ttl#UC002PhysicalInventoryStep01
+:UC002PhysicalInventoryStep01 rdf:type owl:NamedIndividual ,
+                                       obdc_code:UseCaseStep ;
+                              obdc_code:nextStep :UC002PhysicalInventoryStep02 ;
+                              schema:description "The repository operator requests the physical inventory of the target repository."@en ;
+                              schema:name "Request physical inventory"@en .
+
+
+###  http://ontobdc.org/ontology/domain/uc.ttl#UC002PhysicalInventoryStep02
+:UC002PhysicalInventoryStep02 rdf:type owl:NamedIndividual ,
+                                       obdc_code:UseCaseStep ;
+                              obdc_code:nextStep :UC002PhysicalInventoryStep03 ;
+                              schema:description "The OntoBDC system scans the directory structure and collects file and folder metadata."@en ;
+                              schema:name "Scan repository structure"@en .
+
+
+###  http://ontobdc.org/ontology/domain/uc.ttl#UC002PhysicalInventoryStep03
+:UC002PhysicalInventoryStep03 rdf:type owl:NamedIndividual ,
+                                       obdc_code:UseCaseStep ;
+                              obdc_code:nextStep :UC002PhysicalInventoryStep04 ;
+                              schema:description "The OntoBDC system aggregates totals for files, folders, size, and file formats."@en ;
+                              schema:name "Aggregate inventory metrics"@en .
+
+
+###  http://ontobdc.org/ontology/domain/uc.ttl#UC002PhysicalInventoryStep04
+:UC002PhysicalInventoryStep04 rdf:type owl:NamedIndividual ,
+                                       obdc_code:UseCaseStep ;
+                              schema:description "The OntoBDC system returns the physical inventory result to the repository operator."@en ;
+                              schema:name "Present inventory result"@en .

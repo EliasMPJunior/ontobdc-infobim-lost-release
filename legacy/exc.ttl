@@ -1,0 +1,22 @@
+@prefix : <http://ontobdc.org/ontology/domain/exc.ttl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix err: <http://www.w3.org/2010/02/rdfa/errors#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+@base <http://ontobdc.org/ontology/domain/exc.ttl#> .
+
+<http://ontobdc.org/ontology/domain/exc.ttl> rdf:type owl:Ontology .
+
+###  http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#Exception
+:Exception rdf:type owl:Class ;
+    rdfs:subClassOf err:Error ;
+    rdfs:comment "Base exception for all exceptions in the OntoBDC domain."@en .
+
+###  http://ontobdc.org/ontology/domain/ontobdc/ns.ttl#RepositoryNotConfiguredException
+:RepositoryNotConfiguredException rdf:type owl:Class ;
+    rdfs:subClassOf :Exception ;
+    :pythonType "ValueError" ;
+    dcterms:description "File repository not configured for capability"@en ;
+    dcterms:identifier "org.ontobdc.domain.resource.document.exception.repository_not_configured" .

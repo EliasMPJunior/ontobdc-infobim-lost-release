@@ -1,0 +1,60 @@
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.md-sidebar--secondary {
+  display: none !important;
+}
+
+@media (min-width: 60em) {
+  .md-sidebar--primary {
+    display: none !important;
+  }
+}
+
+.md-main__inner {
+  grid-template-columns: 1fr !important;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+  overflow-x: hidden;
+}
+
+/* Preserve the original OntoBDC header treatment in both themes instead of
+   inheriting Material's cyan primary header background. */
+html[data-md-color-scheme="default"] .md-header,
+body[data-md-color-scheme="default"] .md-header {
+  background-color: #ffffff !important;
+  color: var(--md-default-fg-color) !important;
+  border-top: 8px solid #07bcd4 !important;
+}
+
+html[data-md-color-scheme="slate"] .md-header,
+body[data-md-color-scheme="slate"] .md-header {
+  background-color: #242628 !important;
+  color: var(--md-default-fg-color) !important;
+  border-top: 6px solid #07bcd4 !important;
+}
+
+.md-header__title {
+  display: none;
+}
+
+.md-content__inner,
+.md-main,
+.md-content {
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.md-typeset .md-button {
+  border-radius: 999px;
+}
+
+.md-typeset .bd-accent {
+  color: #00bcd4;
+  font-weight: 800;
+}

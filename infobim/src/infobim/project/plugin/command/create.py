@@ -42,6 +42,6 @@ class ProjectCreateCommand(CliCommandPort):
         return True
 
     def run(self) -> CommandResponse:
-        from infobim.project.adapter.machine import ProjectCreateStateTransitionHandler
+        from infobim.project.plugin.machine.project_create.machine import ProjectCreateStateTransitionHandler
 
         return ProjectCreateStateTransitionHandler(context=self._request.context).execute()

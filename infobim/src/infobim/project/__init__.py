@@ -1,5 +1,5 @@
-from infobim.project.adapter.machine import ProjectCreateStateEvaluatorAdapter, ProjectCreateStateTransitionHandler
-from infobim.project.domain.machine.state import ProjectCreateProcessState
+from infobim.project.plugin.machine.project_create.machine import ProjectCreateStateEvaluatorAdapter, ProjectCreateStateTransitionHandler
+from infobim.project.plugin.machine.project_create.state import ProjectCreateProcessState
 
 __all__ = [
     "ProjectCreateProcessState",

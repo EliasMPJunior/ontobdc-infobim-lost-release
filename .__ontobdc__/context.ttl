@@ -4,7 +4,7 @@
 <urn:ontobdc:context/execution> a ns1:ExecutionContext ;
     ns1:container "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a" ;
     ns1:containerId "urn:uuid:8aee386e-fe1f-41c3-9b2b-2d4b23a6bb7a" ;
-    ns1:containerPath "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/4-construcao-ampliacao-e-adequacao-de-comodos" ;
+    ns1:containerPath "/Users/eliasmpjunior/Brasidata/07_Engenharia_e_Tecnologia/06_Solucoes_Reutilizaveis/OntoBDC/lost-release/4-construcao-ampliacao-e-adequacao-de-comodos" ;
     ns1:element "240204b8-e891-442c-8d66-a0902fe9545a" ;
     ns1:infobimIfcModelResource "urn:infobim:presentation:ifc-model:3GqWHHIVfD_uF%24f%24TSbZi6" ;
     ns1:infobimProjectResource "urn:ontobdc:storage/dataset/4-construcao-ampliacao-e-adequacao-de-comodos/.__infobim__/0bd98d525f53bad0d54c8f9dcedae374296413c5d74700abada54952a22d2f6b" ;

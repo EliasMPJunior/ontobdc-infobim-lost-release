@@ -1,7 +1,7 @@
 from pathlib import Path
 from typing import List
 
-from infobim.project.domain.machine.state import ProjectCreateProcessState
+from infobim.project.plugin.machine.project_create.state import ProjectCreateProcessState
 from ontobdc.cli.domain.response.command import CommandResponse, ExceptionCommandResponse
 
 

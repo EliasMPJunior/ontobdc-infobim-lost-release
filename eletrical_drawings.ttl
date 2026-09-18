@@ -1,0 +1,38 @@
+@prefix ct: <https://standards.iso.org/iso/21597/-1/ed-1/en/Container#> .
+@prefix ls: <https://standards.iso.org/iso/21597/-1/ed-1/en/Linkset#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <urn:infobim:linkset:electrical-drawings:> .
+
+<> a owl:Ontology ;
+    owl:imports
+        <https://standards.iso.org/iso/21597/-1/ed-1/en/Container> ,
+        <https://standards.iso.org/iso/21597/-1/ed-1/en/Linkset> .
+
+:varanda-electrical-drawing-page-2 a ls:BinaryLink ;
+    ls:hasLinkElement
+        :ifc-project-link-element ,
+        :varanda-electrical-drawing-page-2-link-element .
+
+:ifc-project-link-element a ls:LinkElement ;
+    ls:hasDocument :infobim-project-dataset-document ;
+    ls:hasIdentifier :ifc-project-identifier .
+
+:varanda-electrical-drawing-page-2-link-element a ls:LinkElement ;
+    ls:hasDocument :varanda-electrical-drawing-document ;
+    ls:hasIdentifier :pdf-page-2-identifier .
+
+:infobim-project-dataset-document a ct:ExternalDocument ;
+    ct:name "InfoBIM project dataset" ;
+    ct:url "../dataset.ttl"^^xsd:anyURI .
+
+:varanda-electrical-drawing-document a ct:ExternalDocument ;
+    ct:name "4.7 - Varanda - Planta elétrica" ;
+    ct:url "../../../4.%20CONSTRU%C3%87%C3%83O%2C%20AMPLIA%C3%87%C3%83O%20E%20ADEQUA%C3%87%C3%83O%20DE%20C%C3%94MODOS/4.7%20VARANDA/4.7.pdf"^^xsd:anyURI .
+
+:ifc-project-identifier a ls:URIBasedIdentifier ;
+    ls:uri "urn:infobim:ifcproject/0hnLHtR2T9P8DfhBH7PAK3"^^xsd:anyURI .
+
+:pdf-page-2-identifier a ls:StringBasedIdentifier ;
+    ls:identifier "2" ;
+    ls:identifierField "page" .
